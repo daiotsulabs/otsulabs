@@ -1,7 +1,10 @@
 "use client"
 import './globals.css'
+import 'swiper/css'
+import { register } from 'swiper/element/bundle'
 import { Providers } from './providers'
 
+register()
 export default function RootLayout({
   children,
 }: {
