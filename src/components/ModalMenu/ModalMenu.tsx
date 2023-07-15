@@ -12,7 +12,7 @@ const MenuButton = ({ children, dark, ...props }: MenuButtonProps) => {
     <Button
       color={dark ? "rgba(255, 255, 255, 0.40)" : "rgba(0, 0, 0, 0.40)"}
       _hover={{
-        color: "white"
+        color: dark ? "white" : "black"
       }}
       variant="unstyled"
       fontSize="5xl"
@@ -49,6 +49,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
           showMenuItem={false}
           activeSlideIndex={0}
           onClickToggle={onClickToggle}
+          dark={!showBg}
         />
         <Box
           className="w-full h-full flex items-center justify-center"
