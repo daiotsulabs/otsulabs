@@ -92,7 +92,7 @@ export default function About() {
                 Our approach is clear-cut: you have a brand, a product, a character you want to blow up, we&apos;ll use our skills to help you make it happen.
               </Box>
               <Box textAlign="center">
-                We start with your story and take it from there, bringing our expertise and creativity to the table. From crafting character designs to post-production, we'll work together to create something we will all be proud of.
+                We start with your story and take it from there, bringing our expertise and creativity to the table. From crafting character designs to post-production, we&apos;ll work together to create something we will all be proud of.
               </Box>
             </Stack>
           </Content>
