@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Grand Rainbow Demo";
+  src: url("/fonts/Grand-Rainbow-Demo.ttf") format("opentype");
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat&display=swap");
+
+body {
+  font-family: "Atkinson Hyperlegible", sans-serif;
+}
