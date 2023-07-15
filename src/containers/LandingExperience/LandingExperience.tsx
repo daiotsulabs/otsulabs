@@ -1,7 +1,7 @@
 import { Box, Grid, GridItem } from "@chakra-ui/react"
 import Image from "next/image"
 
-function LandingWork() {
+function LandingExperience() {
   return (
     <Box className="w-full h-full bg-white relative" >
       <Grid
@@ -15,7 +15,7 @@ function LandingWork() {
         top="50%"
         left="50%"
         transform="translate(-50%, -50%)">
-        <GridItem colSpan={3} fontSize="32px" className="uppercase text-black font-bold text-center">
+        <GridItem colSpan={3} fontSize="32px" className="uppercase text-black font-bold" textAlign="center">
           Previously worked with
         </GridItem>
         <GridItem colSpan={1}>
@@ -41,4 +41,4 @@ function LandingWork() {
   )
 }
 
-export { LandingWork }
+export { LandingExperience }

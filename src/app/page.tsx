@@ -1,8 +1,9 @@
 "use client"
-import { Header, LandingAbout, LandingExperience, LandingHome, LandingProcess, Layout, StyledPagination } from '@/components'
+import { Header, Layout, StyledPagination } from '@/components'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Mousewheel, Pagination } from 'swiper/modules'
 import { useState } from 'react'
+import { LandingHome } from '@/containers/LandingHome'
+import { LandingAbout, LandingExperience, LandingProcess, LandingWork } from '@/containers'
 
 export default function Home() {
   const [isDarkHeader, setIsDarkHeader] = useState(false)
@@ -22,7 +23,6 @@ export default function Home() {
       <Swiper
         className='w-full h-full'
         slidesPerView={1}
-        modules={[Mousewheel, Pagination]}
         direction='vertical'
         mousewheel={true}
         speed={1000}
@@ -32,6 +32,9 @@ export default function Home() {
         </SwiperSlide>
         <SwiperSlide>
           <LandingExperience />
+        </SwiperSlide>
+        <SwiperSlide>
+          <LandingWork />
         </SwiperSlide>
         <SwiperSlide>
           <LandingProcess />
