@@ -21,7 +21,7 @@ function Header({ dark, activeSlideIndex }: HeaderProps) {
               <Button
                 key={index}
                 variant="link"
-                className="uppercase text-xs"
+                className="uppercase text-md"
                 color={dark ? "black" : "white"}
                 opacity={0.4}
                 letterSpacing="1.2px"
