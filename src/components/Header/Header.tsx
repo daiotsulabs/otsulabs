@@ -1,5 +1,5 @@
-import { Box, Button, Stack } from "@chakra-ui/react";
-import { CancelIcon, Logo, MenuIcon } from "../icons";
+import { Box, Button, Stack, useMediaQuery } from "@chakra-ui/react";
+import { CancelIcon, Logo, MenuIcon, SingleLogo } from "../icons";
 import { useRouter } from "next/navigation";
 
 interface HeaderProps {
@@ -19,15 +19,18 @@ function Header({
   menuItems = ["experience", "work", "process", "faq"]
 }: HeaderProps) {
   const router = useRouter();
+  const [isMobileScreen] = useMediaQuery('(max-width: 480px)')
   return (
-    <header className="fixed inset-x-0 px-11 top-[18px] z-[2]">
+    <header className={`fixed inset-x-0 ${isMobileScreen ? "px-6" : "px-11"} top-[18px] z-[2]`}>
       <Stack justifyContent="space-between" direction="row" alignItems="center">
         <Stack direction="row" gap="54px" alignItems="flex-end">
           <Box cursor="pointer" onClick={() => router.push("/")}>
-            <Logo fill={dark ? "black" : "white"} />
+            {isMobileScreen
+              ? <SingleLogo fill={dark ? "black" : "white"} />
+              : <Logo fill={dark ? "black" : "white"} />}
           </Box>
           <Stack direction="row" gap={8}>
-            {showMenuItem && menuItems.map((item, index) => (
+            {showMenuItem && !isMobileScreen && menuItems.map((item, index) => (
               <Button
                 key={index}
                 variant="link"
@@ -46,11 +49,15 @@ function Header({
             ))}
           </Stack>
         </Stack>
-        <Button cursor="pointer" onClick={onClickToggle} p={0} variant="unstyled" >
+        <Button cursor="pointer" onClick={onClickToggle} p={0} variant="unstyled" sx={{ minW: 0 }} >
           {
             isCancelIcon
               ? <CancelIcon fill={dark ? "black" : "white"} />
-              : <MenuIcon fill={dark ? "black" : "white"} />
+              : <MenuIcon
+                width={isMobileScreen ? 20 : undefined}
+                height={isMobileScreen ? 12 : undefined}
+                fill={dark ? "black" : "white"}
+              />
           }
         </Button>
       </Stack>

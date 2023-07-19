@@ -1,4 +1,4 @@
-import { Box, Button, Divider, ButtonProps, Slide, SlideProps, Stack, Text } from "@chakra-ui/react"
+import { Box, Button, Divider, ButtonProps, Slide, SlideProps, Stack, Text, useMediaQuery } from "@chakra-ui/react"
 import { Header } from "../Header";
 import { TwitterIcon } from "../icons";
 import { useRouter } from "next/navigation";
@@ -8,16 +8,27 @@ interface MenuButtonProps extends ButtonProps {
 }
 
 const MenuButton = ({ children, dark, ...props }: MenuButtonProps) => {
+  const [isMobileScreen] = useMediaQuery('(max-width: 480px)')
+
   return (
     <Button
-      color={dark ? "rgba(255, 255, 255, 0.40)" : "rgba(0, 0, 0, 0.40)"}
+      color={
+        dark && isMobileScreen
+          ? "white"
+          : dark
+            ? "rgba(255, 255, 255, 0.40)"
+            : isMobileScreen
+              ? "black"
+              : "rgba(0, 0, 0, 0.40)"
+      }
       _hover={{
         color: dark ? "white" : "black"
       }}
       variant="unstyled"
-      fontSize="5xl"
+      fontSize={isMobileScreen ? "2xl" : "5xl"}
       cursor="pointer"
-      h="60px"
+      h={isMobileScreen ? "unset" : "60px"}
+      letterSpacing={4}
       {...props}
     >
       {children}
@@ -32,6 +43,7 @@ interface ModalMenuProps extends SlideProps {
 
 function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
   const router = useRouter();
+  const [isMobileScreen] = useMediaQuery('(max-width: 480px)')
   const onClickAboutMenu = () => {
     router.push("/about");
   }
@@ -42,6 +54,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
         className="w-full h-full"
         bgImage={showBg ? "/images/landing-home.png" : "unset"}
         bgSize="cover"
+        backgroundPosition="center"
         zIndex={10}
       >
         <Header
@@ -52,39 +65,65 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
           dark={!showBg}
         />
         <Box
-          className="w-full h-full flex items-center justify-center"
+          className={`w-full h-full flex items-center ${isMobileScreen ? "flex-start" : "justify-center"}`}
           background={showBg ? "rgba(0, 0, 0, 0.60)" : "white"}
           backdropFilter="blur(15px)"
         >
-          <Stack direction="row" gap={120} alignItems="center">
-            <Stack direction="column" alignItems="flex-start" gap="54px">
-              <MenuButton dark={showBg} onClick={onClickAboutMenu}>ABOUT</MenuButton>
-              <MenuButton dark={showBg}>CAREERS</MenuButton>
-              <MenuButton dark={showBg}>CONTACT</MenuButton>
-              <MenuButton dark={showBg}>
+          <Stack
+            direction={isMobileScreen ? "column" : "row"}
+            gap={isMobileScreen ? 0 : 120}
+            alignItems={isMobileScreen ? "flex-start" : "center"}
+            px={25}
+          >
+            <Stack direction="column" alignItems="flex-start" gap={isMobileScreen ? "32px" : "54px"}>
+              <MenuButton order={1} dark={showBg} onClick={onClickAboutMenu}>ABOUT</MenuButton>
+              <MenuButton order={2} dark={showBg}>CAREERS</MenuButton>
+              <MenuButton order={3} dark={showBg}>CONTACT</MenuButton>
+              <MenuButton order={isMobileScreen ? 0 : 4} dark={showBg}>
                 <TwitterIcon fill={showBg ? "white" : "black"} />
               </MenuButton>
             </Stack>
-            <Divider width="2px" background={showBg ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,.4)"} h={320} orientation="vertical" />
-            <Stack fontSize="sm" color={showBg ? "#ccc" : "black"} direction="column" maxW={377} gap={22}>
+            <Divider
+              width="2px"
+              borderColor={showBg ? "rgba(255,255,255,0.4)" : isMobileScreen ? "black" : "rgba(0,0,0,.4)"}
+              h={isMobileScreen ? 0 : 320}
+              w={isMobileScreen ? 245 : 0}
+              orientation={isMobileScreen ? "horizontal" : "vertical"}
+              mt={isMobileScreen ? 54 : 0}
+            />
+            <Stack fontSize="sm" color={showBg ? "#ccc" : "black"} direction="column" maxW={377} gap={22} mt={isMobileScreen ? 2 : 0}>
               <Box
-                color={showBg ? "white" : "black"}
-                fontSize="xl"
+                color={
+                  showBg && isMobileScreen
+                    ? "rgba(255,255,255,0.6)"
+                    : showBg
+                      ? "white"
+                      : isMobileScreen
+                        ? "rgba(0,0,0,0.6)"
+                        : "black"
+                }
+                fontSize={isMobileScreen ? "xs" : "xl"}
+                maxW={isMobileScreen ? 244 : "100%"}
               >
                 Animators, artists, storytellers, content creators, and just weebs.
               </Box>
               <Box>
-                <Text fontWeight="bold">Locations</Text>
-                <Text w={136}>Ho Chi Minh, Vietnam Seoul, South Korea</Text>
+                <Text fontWeight="bold" fontSize={isMobileScreen ? "2xl" : "sm"}>Locations</Text>
+                <Text w={136} fontSize={isMobileScreen ? "xs" : "sm"}>Ho Chi Minh, Vietnam Seoul, South Korea</Text>
               </Box>
               <Box>
-                <Text fontWeight="bold">Contact</Text>
-                <Text>hello@otsulabs.com</Text>
+                {isMobileScreen
+                  ? <Text fontSize="8px">© 2023 Otsu Labs Inc. All Rights Reserved.</Text>
+                  : <>
+                    <Text fontWeight="bold">Contact</Text>
+                    <Text>hello@otsulabs.com</Text>
+                  </>
+                }
               </Box>
             </Stack>
           </Stack>
         </Box>
-        <Box
+        {!isMobileScreen && <Box
           className="absolute"
           bottom={25}
           fontSize="xs"
@@ -92,7 +131,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
           transform="translateX(-50%)"
           color={showBg ? "#ccc" : "black"}>
           © 2023 Otsu Labs Inc. All Rights Reserved.
-        </Box>
+        </Box>}
       </Box>
     </Slide>
   )
