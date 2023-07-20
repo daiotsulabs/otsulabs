@@ -1,5 +1,5 @@
-import { ProcessArrow, ProcessTextDescription } from "@/components"
-import { Box } from "@chakra-ui/react"
+import { ProcessArrow, ProcessTextDescription, StyledPagination } from "@/components"
+import { Box, useMediaQuery } from "@chakra-ui/react"
 import Image from "next/image"
 import { useState } from "react"
 import { EffectFade } from "swiper/modules"
@@ -128,46 +128,279 @@ const processes = [
   </>,
 ]
 
+const processesMobile = [
+  <>
+    <ProcessArrow
+      imageSrc="arrow-6"
+      left={"100px"}
+      top={"32px"}
+      widthImage={7.5}
+      heightImage={51}
+    />
+    <ProcessTextDescription
+      left={"20px"}
+      top={"85px"}
+      w={140}
+    >
+      Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.
+    </ProcessTextDescription>
+    <ProcessArrow
+      imageSrc="arrow-7"
+      left={230}
+      top={"32px"}
+      widthImage={21.5}
+      heightImage={"161px"}
+    />
+    <ProcessTextDescription
+      left={170}
+      top={200}
+      w={140}
+    >
+      Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.
+    </ProcessTextDescription>
+  </>,
+  <>
+    <ProcessArrow
+      imageSrc="arrow-8"
+      left={"40px"}
+      top={"32px"}
+      widthImage={30}
+      heightImage={103}
+    />
+    <ProcessTextDescription
+      left={"-15px"}
+      top={"145px"}
+      w={140}
+      textTransform="uppercase"
+    >
+      Stage two: Storyboard
+    </ProcessTextDescription>
+    <ProcessArrow
+      imageSrc="arrow-9"
+      left={165}
+      top={"32px"}
+      widthImage={15}
+      heightImage={30}
+    />
+    <ProcessTextDescription
+      left={100}
+      top={70}
+      w={140}
+    >
+      Outline of movement, must-have shots, camera angles, etc.
+    </ProcessTextDescription>
+    <ProcessArrow
+      imageSrc="arrow-7"
+      left={270}
+      top={"32px"}
+      widthImage={21.5}
+      heightImage={"161px"}
+    />
+    <ProcessTextDescription
+      left={200}
+      top={200}
+      w={140}
+    >
+      Sequence of events, complexity of animation, core characters.
+    </ProcessTextDescription>
+  </>,
+  <>
+    <ProcessArrow
+      imageSrc="arrow-6"
+      left={95}
+      top={"32px"}
+      widthImage={7.5}
+      heightImage={51}
+    />
+    <ProcessTextDescription
+      left={"20px"}
+      top={"85px"}
+      w={140}
+    >
+      Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.
+    </ProcessTextDescription>
+    <ProcessArrow
+      imageSrc="arrow-7"
+      left={230}
+      top={"32px"}
+      widthImage={21.5}
+      heightImage={"161px"}
+    />
+    <ProcessTextDescription
+      left={170}
+      top={200}
+      w={140}
+    >
+      Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.
+    </ProcessTextDescription>
+  </>,
+  <>
+    <ProcessArrow
+      imageSrc="arrow-6"
+      left={95}
+      top={"32px"}
+      widthImage={7.5}
+      heightImage={51}
+    />
+    <ProcessTextDescription
+      left={"20px"}
+      top={"85px"}
+      w={140}
+    >
+      Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.
+    </ProcessTextDescription>
+    <ProcessArrow
+      imageSrc="arrow-7"
+      left={230}
+      top={"32px"}
+      widthImage={21.5}
+      heightImage={"161px"}
+    />
+    <ProcessTextDescription
+      left={170}
+      top={200}
+      w={140}
+    >
+      Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.
+    </ProcessTextDescription>
+  </>,
+  <>
+    <ProcessArrow
+      imageSrc="arrow-6"
+      left={95}
+      top={"32px"}
+      widthImage={7.5}
+      heightImage={51}
+    />
+    <ProcessTextDescription
+      left={"20px"}
+      top={"85px"}
+      w={140}
+    >
+      Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.
+    </ProcessTextDescription>
+    <ProcessArrow
+      imageSrc="arrow-7"
+      left={230}
+      top={"32px"}
+      widthImage={21.5}
+      heightImage={"161px"}
+    />
+    <ProcessTextDescription
+      left={170}
+      top={200}
+      w={140}
+    >
+      Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.
+    </ProcessTextDescription>
+  </>,
+]
+
+const DesktopContent = ({ activeIndex, setActiveIndex }: any) => {
+  return (
+    <Swiper
+      slidesPerView={1}
+      modules={[EffectFade]}
+      effect="fade"
+      direction="vertical"
+      style={{
+        width: "1060px",
+        height: "596px",
+        boxShadow: "0px 10px 32px 0px rgba(0, 0, 0, 0.12)",
+        borderRadius: "60px",
+        cursor: "pointer",
+      }}
+      onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+    >
+      {[...new Array(5)].map((_, index) => (
+        <SwiperSlide key={index}>
+          <Box
+            className="w-full h-full"
+            bg="white"
+          >
+            <Image
+              src={`/images/process${index + 1}.png`}
+              alt="process1"
+              fill
+              style={{
+                objectFit: "cover",
+                objectPosition: "center",
+              }}
+              priority />
+          </Box>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  )
+}
+
+const MobileContent = ({ activeIndex, setActiveIndex }: any) => {
+  return (
+    <>
+      <Swiper
+        style={{
+          width: "344px",
+          height: "220px",
+          boxShadow: "0px 10px 32px 0px rgba(0, 0, 0, 0.12)",
+          borderRadius: "20px",
+        }}
+        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+      >
+        {[...new Array(5)].map((_, index) => (
+          <SwiperSlide key={index}>
+            <Box
+              className="w-full h-full"
+              bg="white"
+            >
+              <Image
+                src={`/images/process${index + 1}.png`}
+                alt="process1"
+                fill
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "center",
+                }}
+                priority />
+            </Box>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <Box position="absolute" left="50%" transform="translate(-46px, 10px)" w="max-content">
+        <StyledPagination
+          positionStyled="absolute"
+          activeIndex={activeIndex}
+          total={5}
+          dark={true}
+          direction="row"
+          emptyDot={true}
+        />
+      </Box>
+    </>
+  )
+}
+
 function LandingProcess() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [isMobileScreen] = useMediaQuery('(max-width: 480px)')
   return (
-    <Box className="w-full h-full bg-white flex items-center justify-center relative">
-      <Box className="uppercase absolute font-bold" letterSpacing={3.2} top={124} fontSize="32px">our process</Box>
+    <Box
+      className="w-full h-full bg-white flex justify-center relative"
+      alignItems={isMobileScreen ? "flex-start" : "center"}
+      pt={isMobileScreen ? 220 : 0}
+    >
+      <Box
+        className="uppercase absolute font-bold"
+        letterSpacing={isMobileScreen ? 0 : 3.2}
+        top={124}
+        fontSize={isMobileScreen ? "md" : "32px"}
+      >
+        our process
+      </Box>
       <Box className="relative">
-        <Swiper
-          slidesPerView={1}
-          modules={[EffectFade]}
-          effect="fade"
-          direction="vertical"
-          style={{
-            width: "1060px",
-            height: "596px",
-            boxShadow: "0px 10px 32px 0px rgba(0, 0, 0, 0.12)",
-            borderRadius: "60px",
-            cursor: "pointer",
-          }}
-          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-        >
-          {[...new Array(5)].map((_, index) => (
-            <SwiperSlide key={index}>
-              <Box
-                className="w-full h-full"
-                bg="white"
-              >
-                <Image
-                  src={`/images/process${index + 1}.png`}
-                  alt="process1"
-                  fill
-                  style={{
-                    objectFit: "cover",
-                    objectPosition: "center",
-                  }}
-                  priority />
-              </Box>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        {processes[activeIndex]}
+        {isMobileScreen
+          ? <MobileContent activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
+          : <DesktopContent activeIndex={activeIndex} setActiveIndex={setActiveIndex} />}
+        {isMobileScreen ? <Box className="relative">{processesMobile[activeIndex]}</Box> : processes[activeIndex]}
       </Box>
     </Box >
   )
