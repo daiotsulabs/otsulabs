@@ -1,12 +1,18 @@
-import { Box, Stack } from "@chakra-ui/react"
+import { Box, Stack, useMediaQuery } from "@chakra-ui/react"
 
 function StyledPagination({
   dark,
   activeIndex,
   total
 }: { dark?: boolean, activeIndex?: number, total: number }) {
+  const [isMobileScreen] = useMediaQuery('(max-width: 480px)')
+
   return (
-    <Stack direction="column" className="fixed z-[2] top-1/2 left-[30px] translate-y-[-50%]" gap="20px">
+    <Stack
+      direction="column"
+      className={`fixed z-[2] ${isMobileScreen ? "bottom-[70px] left-4" : "top-1/2 left-[30px] translate-y-[-50%]"} `}
+      gap={isMobileScreen ? "8px" : "20px"}
+    >
       {[...new Array(total)].map((_, index) => (
         <Box
           key={index}
