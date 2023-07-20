@@ -10,6 +10,7 @@ function ProcessTextDescription({ children, ...props }: IProps) {
       className="absolute"
       textAlign="center"
       fontFamily="Grand Rainbow Demo"
+      fontSize={{ base: "xs", md: "md" }}
       {...props}
     >
       {children}

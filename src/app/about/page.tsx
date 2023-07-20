@@ -2,13 +2,14 @@
 import { Header, Layout, ModalMenu, StyledPagination } from '@/components'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useState } from 'react'
-import { Box, Stack, Text, useDisclosure } from '@chakra-ui/react'
+import { Box, Stack, Text, useDisclosure, useMediaQuery } from '@chakra-ui/react'
 import Image from 'next/image'
 
 const Content = ({ title, children }: any) => {
+  const [isMobileScreen] = useMediaQuery('(max-width: 480px)')
   return (
-    <Box className='w-full h-full flex flex-col items-center justify-center' gap="60px">
-      <Box fontWeight="bold" fontSize="3xl" className='uppercase'>{title}</Box>
+    <Box className='w-full h-full flex flex-col items-center justify-center' gap={isMobileScreen ? "32px" : "60px"}>
+      <Box fontWeight="bold" fontSize={isMobileScreen ? "md" : "3xl"} className='uppercase'>{title}</Box>
       {children}
     </Box>
   )
@@ -18,6 +19,7 @@ export default function About() {
   const { isOpen, onToggle } = useDisclosure()
   const [isDarkHeader, setIsDarkHeader] = useState(false)
   const [currenIndex, setCurrentIndex] = useState(0)
+  const [isMobileScreen] = useMediaQuery('(max-width: 480px)')
   const handleSlideChange = (swiper: any) => {
     if (swiper.activeIndex === 0) {
       setIsDarkHeader(false)
@@ -49,6 +51,10 @@ export default function About() {
               src="/images/about-bg.png"
               fill
               alt='about-bg'
+              style={{
+                objectPosition: 'center',
+                objectFit: "cover",
+              }}
             />
             <Box
               className='absolute'
@@ -65,19 +71,25 @@ export default function About() {
         </SwiperSlide>
         <SwiperSlide>
           <Content title="otsu">
-            <Box maxW={576} textAlign="center" color="#969696" fontSize="lg">
+            <Box maxW={isMobileScreen ? 284 : 576} textAlign="center" color="#969696" fontSize={isMobileScreen ? "xs" : "lg"}>
               &quot;Otsu!&quot; - the Japanese term for &quot;good work&quot; or &quot;thank you for your great work.&quot; We strive to hear these words from everyone we collaborate with and aim for excellence in every piece of content we produce.
             </Box>
           </Content>
         </SwiperSlide>
         <SwiperSlide>
-          <Content title="mission">
-            <Stack direction="column" maxW={565} color="#969696" fontSize="lg" gap="20px">
+          <Content title="the mission">
+            <Stack
+              direction="column"
+              maxW={isMobileScreen ? 284 : 565}
+              color="#969696"
+              fontSize={isMobileScreen ? "xs" : "lg"}
+              gap={isMobileScreen ? "16px" : "20px"}
+            >
               <Box textAlign="center">
                 Our mission is so simple, our friends laugh at it sometimes, but that very simplicity keeps us focused and driven.
               </Box>
               <Box textAlign="center">
-                <Text as="span" color="black">We want to share our love for anime with the world.</Text> You see, anime is a beautiful form of storytelling, but those unfamiliar with it find it difficult to grasp its allure.
+                <Text as="span" color={isMobileScreen ? "inherit" : "black"}>We want to share our love for anime with the world.</Text> You see, anime is a beautiful form of storytelling, but those unfamiliar with it find it difficult to grasp its allure.
               </Box>
               <Box textAlign="center">
                 To change this, we broke free from the confines of traditional production studios and created a team that helps projects and brands share their stories through the lens of anime.
@@ -87,7 +99,13 @@ export default function About() {
         </SwiperSlide>
         <SwiperSlide>
           <Content title="approach">
-            <Stack direction="column" maxW={565} color="#969696" fontSize="lg" gap="20px">
+            <Stack
+              direction="column"
+              maxW={isMobileScreen ? 284 : 565}
+              color="#969696"
+              fontSize={isMobileScreen ? "xs" : "lg"}
+              gap={isMobileScreen ? "16px" : "20px"}
+            >
               <Box textAlign="center">
                 Our approach is clear-cut: you have a brand, a product, a character you want to blow up, we&apos;ll use our skills to help you make it happen.
               </Box>
