@@ -206,94 +206,140 @@ const processesMobile = [
   </>,
   <>
     <ProcessArrow
-      imageSrc="arrow-6"
-      left={95}
+      imageSrc="arrow-8"
+      left={"40px"}
       top={"32px"}
-      widthImage={7.5}
-      heightImage={51}
+      widthImage={30}
+      heightImage={103}
     />
     <ProcessTextDescription
-      left={"20px"}
-      top={"85px"}
+      left={"-15px"}
+      top={"145px"}
       w={140}
     >
-      Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.
+      Refinement of the shadows and character design.
     </ProcessTextDescription>
     <ProcessArrow
-      imageSrc="arrow-7"
-      left={230}
+      imageSrc="arrow-9"
+      left={165}
       top={"32px"}
-      widthImage={21.5}
-      heightImage={"161px"}
+      widthImage={15}
+      heightImage={30}
     />
     <ProcessTextDescription
-      left={170}
-      top={200}
+      left={100}
+      top={70}
+      w={140}
+      textTransform="uppercase"
+    >
+      STAGE THREE: KEY ANIMATION
+    </ProcessTextDescription>
+    <ProcessArrow
+      imageSrc="arrow-10"
+      left={270}
+      top={"32px"}
+      widthImage={21.5}
+      heightImage={"109px"}
+    />
+    <ProcessTextDescription
+      left={200}
+      top={150}
       w={140}
     >
-      Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.
+      Ensuring that the choreography is accurate and visually appealing.
     </ProcessTextDescription>
   </>,
   <>
     <ProcessArrow
-      imageSrc="arrow-6"
-      left={95}
+      imageSrc="arrow-9"
+      left={"40px"}
       top={"32px"}
-      widthImage={7.5}
-      heightImage={51}
+      widthImage={15}
+      heightImage={30}
     />
     <ProcessTextDescription
-      left={"20px"}
-      top={"85px"}
+      left={"-15px"}
+      top={"80px"}
+      w={138}
+      textTransform="uppercase"
+    >
+      STAGE FOUR:
+      <br />
+      COLORING + BACKGROUND
+    </ProcessTextDescription>
+    <ProcessArrow
+      imageSrc="arrow-10"
+      left={165}
+      top={"32px"}
+      widthImage={21.5}
+      heightImage={"109px"}
+    />
+    <ProcessTextDescription
+      left={100}
+      top={150}
       w={140}
     >
-      Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.
+      Painting the characters, light angles, highlights.
     </ProcessTextDescription>
     <ProcessArrow
       imageSrc="arrow-7"
-      left={230}
+      left={270}
       top={"32px"}
       widthImage={21.5}
       heightImage={"161px"}
     />
     <ProcessTextDescription
-      left={170}
+      left={200}
       top={200}
       w={140}
     >
-      Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.
+      Creation of 3D background, lighting, ensuring consistency with the set color palette
     </ProcessTextDescription>
   </>,
   <>
-    <ProcessArrow
-      imageSrc="arrow-6"
-      left={95}
-      top={"32px"}
-      widthImage={7.5}
-      heightImage={51}
-    />
-    <ProcessTextDescription
-      left={"20px"}
-      top={"85px"}
-      w={140}
-    >
-      Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.
-    </ProcessTextDescription>
-    <ProcessArrow
+  <ProcessArrow
+    imageSrc="arrow-8"
+    left={"40px"}
+    top={"32px"}
+    widthImage={30}
+    heightImage={103}
+  />
+  <ProcessTextDescription
+    left={"-15px"}
+    top={"145px"}
+    w={140}
+  >
+    STAGE FIVE: COMPOSITION AND POST-PRODUCTION
+  </ProcessTextDescription>
+  <ProcessArrow
+    imageSrc="arrow-9"
+    left={165}
+    top={"32px"}
+    widthImage={15}
+    heightImage={30}
+  />
+  <ProcessTextDescription
+    left={100}
+    top={70}
+    w={140}
+  >
+    Blending all elements together.
+  </ProcessTextDescription>
+  <ProcessArrow
       imageSrc="arrow-7"
-      left={230}
+      left={270}
       top={"32px"}
       widthImage={21.5}
       heightImage={"161px"}
     />
-    <ProcessTextDescription
-      left={170}
-      top={200}
-      w={140}
-    >
-      Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.
-    </ProcessTextDescription>
-  </>,
+  <ProcessTextDescription
+    left={200}
+    top={210}
+    w={140}
+  >
+    Adding enhancing effects, such as blur, to highlight movement and create separation between the main object and the background.
+  </ProcessTextDescription>
+</>,
 ]
 
 const DesktopContent = ({ activeIndex, setActiveIndex }: any) => {
