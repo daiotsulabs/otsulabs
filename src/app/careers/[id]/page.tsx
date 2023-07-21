@@ -170,7 +170,7 @@ export default function JobId () {
                     // style={{ background: '#000000', color: '#ffffff' }}
                     colorScheme='blackAlpha'
                     size={'md'}
-                    className='py-2 md:py-2 px-4 md:px-8 2xl:px-11 rounded-[10px] md:rounded-[16px] hidden md:block flex-[1_1_100px] md:flex-[1_1_120px]'
+                    className='py-2 md:py-2 px-4 md:px-8 2xl:px-11 rounded-[10px] md:rounded-[16px] hidden md:flex justify-center flex-[1_1_100px] md:flex-[1_1_120px]'
                     fontSize={16}
                     fontWeight={400}
                     lineHeight={'normal'}
