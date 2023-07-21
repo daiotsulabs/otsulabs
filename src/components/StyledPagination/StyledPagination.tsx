@@ -3,6 +3,7 @@ import { Box, Stack, useMediaQuery } from "@chakra-ui/react"
 function StyledPagination({
   dark,
   activeIndex,
+  setActiveIndex,
   total,
   direction = "column",
   positionStyled,
@@ -13,7 +14,8 @@ function StyledPagination({
   total: number,
   direction?: "row" | "column",
   positionStyled?: string,
-  emptyDot?: boolean
+  emptyDot?: boolean,
+  setActiveIndex?: any
 }) {
   const [isMobileScreen] = useMediaQuery('(max-width: 480px)')
 
@@ -30,6 +32,7 @@ function StyledPagination({
           w={3}
           h={3}
           borderWidth="1px"
+          onClick={() => setActiveIndex(index)}
           borderColor={
             (dark && activeIndex === index || emptyDot)
               ? "black"

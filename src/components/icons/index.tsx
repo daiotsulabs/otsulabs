@@ -135,3 +135,13 @@ export const SingleLogo = ({ fill = "white" }: IconProps) => {
   )
 }
 
+export * from './user'
+export * from './email'
+export * from './link'
+export * from './write'
+export * from './check-circle'
+export * from './arrow-right'
+export * from './position'
+export * from './arrow-down-circle'
+export * from './arrow-up-circle'
+

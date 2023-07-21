@@ -44,8 +44,8 @@ interface ModalMenuProps extends SlideProps {
 function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
   const router = useRouter();
   const [isMobileScreen] = useMediaQuery('(max-width: 480px)')
-  const onClickAboutMenu = () => {
-    router.push("/about");
+  const onClickMenuButton = (route: string) => {
+    router.push(route);
   }
   return (
     <Slide direction="right" style={{ zIndex: 10 }} {...props}>
@@ -76,9 +76,9 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
             px={25}
           >
             <Stack direction="column" alignItems="flex-start" gap={isMobileScreen ? "32px" : "54px"}>
-              <MenuButton order={1} dark={showBg} onClick={onClickAboutMenu}>ABOUT</MenuButton>
-              <MenuButton order={2} dark={showBg}>CAREERS</MenuButton>
-              <MenuButton order={3} dark={showBg}>CONTACT</MenuButton>
+              <MenuButton order={1} dark={showBg} onClick={() => onClickMenuButton('/about')}>ABOUT</MenuButton>
+              <MenuButton order={2} dark={showBg} onClick={() => onClickMenuButton('/careers')}>CAREERS</MenuButton>
+              <MenuButton order={3} dark={showBg} onClick={() => onClickMenuButton('/contact')}>CONTACT</MenuButton>
               <MenuButton order={isMobileScreen ? 0 : 4} dark={showBg}>
                 <TwitterIcon fill={showBg ? "white" : "black"} />
               </MenuButton>
