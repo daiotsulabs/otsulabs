@@ -9,6 +9,7 @@ interface HeaderProps {
   showMenuItem?: boolean;
   isCancelIcon?: boolean;
   menuItems?: string[];
+  onActiveSlideChange?: Function
 }
 function Header({
   dark,
@@ -16,7 +17,8 @@ function Header({
   showMenuItem = true,
   isCancelIcon,
   onClickToggle,
-  menuItems = ["experience", "work", "process", "faq"]
+  menuItems = ["experience", "work", "process", "faq"],
+  onActiveSlideChange
 }: HeaderProps) {
   const router = useRouter();
   const [isMobileScreen] = useMediaQuery('(max-width: 480px)')
@@ -42,6 +44,10 @@ function Header({
                 _active={{
                   opacity: 1,
                   textDecoration: "underline",
+                }}
+                onClick={() => {
+                  const active = index + 1
+                  onActiveSlideChange && onActiveSlideChange(active)
                 }}
               >
                 {item}

@@ -1,23 +1,22 @@
 import { Input, InputGroup, InputLeftElement, FormControl, useMediaQuery } from '@chakra-ui/react'
 import { LinkIcon } from '../icons'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { isUrl } from '@/utilities'
 
-const InputLink = ({ value, setValue, isValidate = false, setError }: { value: string, setValue: any, isValidate: boolean, setError?: any }) => {
+const InputPortfolio = ({ value, setValue, isValidate = false, setError }: { value: string, setValue: any, isValidate: boolean, setError?: any }) => {
   const [isMobileScreen] = useMediaQuery('(max-width: 768px)')
   const handleInputChange = (e: any) => {
     setValue(e.target.value)
   }
 
-  const pattern = /^(http(s)?:\/\/)[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/
-
-  const isError = value ? (!pattern.test(value) && isValidate) : false
+  const isError = ((value === '' || !isUrl(value)) && isValidate)
 
   useEffect(() => {
     setError((prevState: any) => ({
       ...prevState,
       link: isError
   }));
-  }, [isError, setError])
+  }, [isError, isValidate, setError])
 
   return (
     <FormControl isInvalid={isError}>
@@ -33,12 +32,12 @@ const InputLink = ({ value, setValue, isValidate = false, setError }: { value: s
           type='value'
           value={value} onChange={handleInputChange}
           _placeholder={{ color: isError ? '#D98282' : 'inherit', fontSize: isMobileScreen ? 14 : 16 }}
-          placeholder='Link (optional)' />
+          placeholder='Link to portfolio' />
       </InputGroup>
     </FormControl>
   )
 }
 
 export {
-  InputLink
+  InputPortfolio
 }

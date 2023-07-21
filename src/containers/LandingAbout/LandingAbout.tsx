@@ -1,43 +1,19 @@
-import { Box, Grid, GridItem } from "@chakra-ui/react"
-import Image from "next/image"
+import { Accordion, AccordionButton, Container, AccordionIcon, AccordionItem, AccordionPanel, Box, Center, Flex, Grid, GridItem, Heading, Text, Button, useMediaQuery } from "@chakra-ui/react"
+import { Contact, Faq } from "."
 
 function LandingAbout() {
+  const [isMobileScreen] = useMediaQuery('(max-width: 768px)')
   return (
-    <Box className="w-full h-full bg-white relative" >
-      <Grid
-        columnGap="60px"
-        rowGap="32px"
-        templateRows="repeat(3, 1fr)"
-        templateColumns="repeat(3, 1fr)"
-        width="602px"
-        height="224px"
-        className="absolute"
-        top="50%"
-        left="50%"
-        transform="translate(-50%, -50%)">
-        <GridItem colSpan={3} fontSize="32px" className="uppercase text-black font-bold text-center">
-          Previously worked with
-        </GridItem>
-        <GridItem colSpan={1}>
-          <Image src="/images/google.png" alt="1" width={160} height={54} />
-        </GridItem>
-        <GridItem colSpan={1}>
-          <Image src="/images/google.png" alt="1" width={160} height={54} />
-        </GridItem>
-        <GridItem colSpan={1}>
-          <Image src="/images/google.png" alt="1" width={160} height={54} />
-        </GridItem>
-        <GridItem colSpan={1}>
-          <Image src="/images/google.png" alt="1" width={160} height={54} />
-        </GridItem>
-        <GridItem colSpan={1}>
-          <Image src="/images/google.png" alt="1" width={160} height={54} />
-        </GridItem>
-        <GridItem colSpan={1}>
-          <Image src="/images/google.png" alt="1" width={160} height={54} />
-        </GridItem>
-      </Grid>
-    </Box>
+    <Center className="w-full h-full mt-[72px] md:mt-0 bg-white relative items-start md:items-center">
+      <Container maxWidth={'1200px'} className="px-6 md:px-16 2xl:px-24 static md:absolute" top={!isMobileScreen ? '200px' : '0px'}>
+        <Flex className='flex flex-col md:flex-row gap-x-4'>
+          <Faq></Faq>
+          {
+            isMobileScreen ? <></> : <Contact></Contact>
+          }
+        </Flex>
+      </Container>
+    </Center>
   )
 }
 
