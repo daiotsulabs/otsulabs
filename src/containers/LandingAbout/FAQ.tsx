@@ -1,4 +1,4 @@
-import { Heading, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel, Box, Text } from "@chakra-ui/react";
+import { Heading, Accordion, AccordionItem, AccordionButton, AccordionPanel, Box, Text } from "@chakra-ui/react";
 import { faqs } from ".";
 import { ArrowDownCircleIcon, ArrowUpCircleIcon } from "@/components/icons";
 

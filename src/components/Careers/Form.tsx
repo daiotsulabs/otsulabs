@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Text, Button, useMediaQuery, Box } from '@chakra-ui/react'
+import { Text, Button, useMediaQuery } from '@chakra-ui/react'
 import { CheckCircleIcon } from '@/components/icons'
 import { isEmail, isUrl } from '@/utilities'
 import { InputPortfolio } from '@/components/Input/InputPortfolio'
