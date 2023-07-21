@@ -22,19 +22,16 @@ body {
   height: 64px;
 }
 
-/* Track */
 .scroll::-webkit-scrollbar-track {
   background: #D9D9D9;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-/* Handle */
 .scroll::-webkit-scrollbar-thumb {
   background: #1E1E1E; 
 }
 
-/* Handle on hover */
 .scroll::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
