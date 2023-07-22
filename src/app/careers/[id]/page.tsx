@@ -15,7 +15,7 @@ import { Textarea } from '@/components/Input/Textarea'
 import { InputPortfolio } from '@/components/Input/InputPortfolio'
 import { CheckCircleIcon } from '@/components/icons'
 
-export default function JobId () {
+export default function JobId() {
   const { isOpen, onToggle } = useDisclosure()
   const swiperRef = useRef()
   const [tab, setTab] = useState('join us')
@@ -84,7 +84,7 @@ export default function JobId () {
         onActiveSlideChange={onSlideActiveChange}
         dark={true}
       />
-      <ModalMenu in={isOpen} onClickToggle={onToggle} />
+      {isOpen && <ModalMenu in={isOpen} onClickToggle={onToggle} />}
       <StyledPagination dark={true} activeIndex={currenIndex} total={2} />
       {
         job ? <Swiper
@@ -111,9 +111,9 @@ export default function JobId () {
                   className='mt-2 text-base md:text-[28px] 2xl:text-5xl uppercase leading-[normal] text-left md:text-center'
                   as={'h2'}
                   color={'#000'}>
-                    {job?.name}
-                  </Heading>
-                  <Text className='text-[8px] md:text-xs uppercase tracking-[0.6px] leading-[normal] mb-6 md:mb-8' color={'#CCC'}>{job?.time}</Text>
+                  {job?.name}
+                </Heading>
+                <Text className='text-[8px] md:text-xs uppercase tracking-[0.6px] leading-[normal] mb-6 md:mb-8' color={'#CCC'}>{job?.time}</Text>
                 <Flex gap={6} className='flex-col md:flex-row'>
                   <Box className='flex-1'>
                     <Heading
@@ -201,8 +201,8 @@ export default function JobId () {
                   className='mt-2 text-base md:text-[28px] 2xl:text-5xl uppercase leading-[normal] text-left md:text-center mx-0 md:mx-auto md:tracking-[4px]'
                   as={'h2'}
                   color={'#000'}>
-                    <span className='hidden md:inline'>APPLY </span>
-                    {job?.name}
+                  <span className='hidden md:inline'>APPLY </span>
+                  {job?.name}
                 </Heading>
                 <Text className='text-[8px] md:text-xs uppercase tracking-[0.6px] leading-[normal] mb-6 md:mb-8 block md:hidden' color={'#CCC'}>{job?.time}</Text>
                 <Box maxWidth={'492px'} width={'100%'} className='mx-auto'>
@@ -225,7 +225,7 @@ export default function JobId () {
                     loadingText='Sending'
                     variant='outline'
                     spinnerPlacement='end'
-                    onClick={onClickValidateForm}  
+                    onClick={onClickValidateForm}
                   >
                     Apply
                     {
@@ -237,7 +237,7 @@ export default function JobId () {
                   </Button>
                   {
                     isSubmitted &&
-                    <Text fontSize={isMobileScreen ? 10 : 16} marginTop={isMobileScreen ? '6px': '10px'} color={'#727272'} fontWeight={400}>
+                    <Text fontSize={isMobileScreen ? 10 : 16} marginTop={isMobileScreen ? '6px' : '10px'} color={'#727272'} fontWeight={400}>
                       Thanks for getting in touch! Your message is delivered and we will do our best to reply to you soon.
                     </Text>
                   }
@@ -246,7 +246,7 @@ export default function JobId () {
             </Container>
           </SwiperSlide>
         </Swiper>
-        : <></>
+          : <></>
       }
     </Layout>
   )
