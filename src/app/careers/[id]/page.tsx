@@ -98,14 +98,14 @@ export default function JobId() {
           }}
           onSlideChange={handleSlideChange}>
           <SwiperSlide>
-            <Container maxWidth={'992'} className='h-full pt-16'>
+            <Container maxWidth={'992'} className='h-full flex items-center'>
               <Center
                 flex='1'
                 flexDirection={'column'}
                 alignItems={'flex-start'}
-                className='px-2 pt-8 pb-2 md:px-24 md:py-4 gap-y-1'>
+                className='px-2 pt-8 pb-2 md:px-20 md:py-4 gap-y-1'>
                 <Box onClick={goBack}>
-                  <ArrowLeftIcon></ArrowLeftIcon>
+                  <ArrowLeftIcon className="cursor-pointer"></ArrowLeftIcon>
                 </Box>
                 <Heading
                   className='mt-2 text-base md:text-[28px] 2xl:text-5xl uppercase leading-[normal] text-left md:text-center'
@@ -167,7 +167,7 @@ export default function JobId() {
                     </ul>
                   </Box>
                   <Button
-                    // style={{ background: '#000000', color: '#ffffff' }}
+                    style={{ borderColor: '#000000', color: '#000000' }}
                     colorScheme='blackAlpha'
                     size={'md'}
                     className='py-2 md:py-2 px-4 md:px-8 2xl:px-11 rounded-[10px] md:rounded-[16px] hidden md:flex justify-center flex-[1_1_100px] md:flex-[1_1_120px]'
@@ -178,7 +178,15 @@ export default function JobId() {
                     onClick={apply}
                     _hover={{
                       background: '#000000',
-                      color: '#ffffff'
+                      color: '#ffffff!important'
+                    }}
+                    _active={{
+                      background: '#000000',
+                      color: '#ffffff!important'
+                    }}
+                    _focus={{
+                      background: '#000000',
+                      color: '#ffffff!important'
                     }}
                   >
                     Apply
@@ -188,14 +196,14 @@ export default function JobId() {
             </Container>
           </SwiperSlide>
           <SwiperSlide>
-            <Container maxWidth={'992'} className='h-full pt-16'>
+            <Container maxWidth={'992'} className='h-full flex items-center'>
               <Center
                 flex='1'
                 flexDirection={'column'}
                 alignItems={'flex-start'}
-                className='px-2 pt-8 pb-2 md:px-24 md:py-4 gap-y-1'>
+                className='px-2 pt-8 pb-2 md:px-20 md:py-4 gap-y-1'>
                 <Box onClick={goBack}>
-                  <ArrowLeftIcon></ArrowLeftIcon>
+                  <ArrowLeftIcon className="cursor-pointer"></ArrowLeftIcon>
                 </Box>
                 <Heading
                   className='mt-2 text-base md:text-[28px] 2xl:text-5xl uppercase leading-[normal] text-left md:text-center mx-0 md:mx-auto md:tracking-[4px]'

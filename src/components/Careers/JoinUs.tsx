@@ -63,7 +63,7 @@ export default function JoinUs ({ join }: { join: any }) {
             </Text>
             <Box className='w-full h-[32px] 2xl:h-[48px]'></Box>
             <Button
-              // style={{ background: '#000000', color: '#ffffff' }}
+              style={{ borderColor: '#000000', color: '#000000' }}
               colorScheme='blackAlpha'
               size={'md'}
               className='py-2 md:py-2 px-8 md:px-11 rounded-[10px] md:rounded-[16px]'
@@ -74,7 +74,15 @@ export default function JoinUs ({ join }: { join: any }) {
               onClick={join}
               _hover={{
                 background: '#000000',
-                color: '#ffffff'
+                color: '#ffffff!important'
+              }}
+              _active={{
+                background: '#000000',
+                color: '#ffffff!important'
+              }}
+              _focus={{
+                background: '#000000',
+                color: '#ffffff!important'
               }}
             >
               Join
