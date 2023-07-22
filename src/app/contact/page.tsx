@@ -46,7 +46,7 @@ export default function Contact() {
         dark={true}
         activeSlideIndex={1}
       />
-      <ModalMenu in={isOpen} onClickToggle={onToggle} />
+      {isOpen && <ModalMenu in={isOpen} onClickToggle={onToggle} />}
       <Center className='w-full h-full'>
         <Container maxWidth={'1200'} className='h-full md:h-auto pt-14 md:pt-0'>
           <Flex color='white' className='wrap-content flex-col md:flex-row'>
@@ -86,7 +86,7 @@ export default function Contact() {
                 loadingText='Sending'
                 variant='outline'
                 spinnerPlacement='end'
-                onClick={onClickValidateForm}  
+                onClick={onClickValidateForm}
               >
                 Send
                 {
@@ -98,7 +98,7 @@ export default function Contact() {
               </Button>
               {
                 isSubmitted &&
-                <Text className='leading-[normal]' fontSize={isMobileScreen ? 10 : 16} marginTop={isMobileScreen ? '6px': '10px'} color={'#727272'} fontWeight={400}>
+                <Text className='leading-[normal]' fontSize={isMobileScreen ? 10 : 16} marginTop={isMobileScreen ? '6px' : '10px'} color={'#727272'} fontWeight={400}>
                   Thanks for getting in touch! Your message is delivered and we will do our best to reply to you soon.
                 </Text>
               }

@@ -5,7 +5,7 @@ import JoinUs from '@/components/Careers/JoinUs'
 import { useDisclosure } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 
-export default function Careers () {
+export default function Careers() {
   const { isOpen, onToggle } = useDisclosure()
   // const router = useRouter()
   const [tab, setTab] = useState('join-us')
@@ -33,7 +33,7 @@ export default function Careers () {
         activeSlideIndex={activeSlice}
         onActiveSlideChange={onSlideActiveChange}
       />
-      <ModalMenu in={isOpen} onClickToggle={onToggle} />
+      {isOpen && <ModalMenu in={isOpen} onClickToggle={onToggle} />}
       {
         activeSlice === 1 ? <JoinUs join={join}></JoinUs> : <Freelancers></Freelancers>
       }

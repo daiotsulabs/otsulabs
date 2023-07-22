@@ -37,7 +37,7 @@ export default function About() {
         activeSlideIndex={currenIndex + 1}
       />
       <StyledPagination dark={isDarkHeader} activeIndex={currenIndex} total={4} />
-      <ModalMenu showBg={currenIndex === 0} in={isOpen} onClickToggle={onToggle} />
+      {isOpen && <ModalMenu showBg={currenIndex === 0} in={isOpen} onClickToggle={onToggle} />}
       <Swiper
         className='w-full h-full'
         slidesPerView={1}
