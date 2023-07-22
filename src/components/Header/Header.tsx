@@ -41,6 +41,7 @@ function Header({
                 opacity={0.4}
                 letterSpacing="1.2px"
                 isActive={activeSlideIndex === (index + 1)}
+                fontWeight={400}
                 _active={{
                   opacity: 1,
                   textDecoration: "underline",

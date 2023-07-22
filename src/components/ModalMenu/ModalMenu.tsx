@@ -1,4 +1,4 @@
-import { Box, Button, Divider, ButtonProps, Slide, SlideProps, Stack, Text, useMediaQuery } from "@chakra-ui/react"
+import { Box, Button, Divider, ButtonProps, Slide, SlideProps, Stack, Text, useMediaQuery, SlideFade } from "@chakra-ui/react"
 import { Header } from "../Header";
 import { TwitterIcon } from "../icons";
 import { useRouter } from "next/navigation";
@@ -48,7 +48,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
     router.push(route);
   }
   return (
-    <Slide direction="right" style={{ zIndex: 10 }} {...props}>
+    <SlideFade style={{ zIndex: 10, position: "fixed", top: 0, left: 0, right: 0, bottom: 0 }} {...props}>
       <Box
         position="relative"
         className="w-full h-full"
@@ -133,7 +133,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
           © 2023 Otsu Labs Inc. All Rights Reserved.
         </Box>}
       </Box>
-    </Slide>
+    </SlideFade>
   )
 }
 

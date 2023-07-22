@@ -28,7 +28,7 @@ function StyledPagination({
       {[...new Array(total)].map((_, index) => (
         <Box
           key={index}
-          className="flex items-center justify-center rounded-full"
+          className="flex items-center justify-center rounded-full cursor-pointer"
           w={3}
           h={3}
           borderWidth="1px"
