@@ -2,7 +2,7 @@ import { ProcessArrow, ProcessTextDescription, StyledPagination } from "@/compon
 import { Box, useMediaQuery } from "@chakra-ui/react"
 import Image from "next/image"
 import { useState } from "react"
-import { EffectFade } from "swiper/modules"
+import { EffectFade, Mousewheel } from "swiper/modules"
 import { SwiperSlide, Swiper } from "swiper/react"
 
 const processes = [
@@ -38,11 +38,11 @@ const processes = [
     >
       Sequence of events, complexity of animation, core characters.
     </ProcessTextDescription>
-    <ProcessArrow imageSrc="arrow-3" left={-118} top={390} />
+    <ProcessArrow imageSrc="arrow-3" left={-118} bottom={86} />
     <ProcessTextDescription
       className="absolute uppercase"
       left={-210}
-      top={330}
+      bottom={180}
     >
       STAGE TWO: STORYBOARD
     </ProcessTextDescription>
@@ -297,66 +297,66 @@ const processesMobile = [
     </ProcessTextDescription>
   </>,
   <>
-  <ProcessArrow
-    imageSrc="arrow-8"
-    left={"40px"}
-    top={"32px"}
-    widthImage={30}
-    heightImage={103}
-  />
-  <ProcessTextDescription
-    left={"-15px"}
-    top={"145px"}
-    w={140}
-  >
-    STAGE FIVE: COMPOSITION AND POST-PRODUCTION
-  </ProcessTextDescription>
-  <ProcessArrow
-    imageSrc="arrow-9"
-    left={165}
-    top={"32px"}
-    widthImage={15}
-    heightImage={30}
-  />
-  <ProcessTextDescription
-    left={100}
-    top={70}
-    w={140}
-  >
-    Blending all elements together.
-  </ProcessTextDescription>
-  <ProcessArrow
+    <ProcessArrow
+      imageSrc="arrow-8"
+      left={"40px"}
+      top={"32px"}
+      widthImage={30}
+      heightImage={103}
+    />
+    <ProcessTextDescription
+      left={"-15px"}
+      top={"145px"}
+      w={140}
+    >
+      STAGE FIVE: COMPOSITION AND POST-PRODUCTION
+    </ProcessTextDescription>
+    <ProcessArrow
+      imageSrc="arrow-9"
+      left={165}
+      top={"32px"}
+      widthImage={15}
+      heightImage={30}
+    />
+    <ProcessTextDescription
+      left={100}
+      top={70}
+      w={140}
+    >
+      Blending all elements together.
+    </ProcessTextDescription>
+    <ProcessArrow
       imageSrc="arrow-7"
       left={270}
       top={"32px"}
       widthImage={21.5}
       heightImage={"161px"}
     />
-  <ProcessTextDescription
-    left={200}
-    top={210}
-    w={140}
-  >
-    Adding enhancing effects, such as blur, to highlight movement and create separation between the main object and the background.
-  </ProcessTextDescription>
-</>,
+    <ProcessTextDescription
+      left={200}
+      top={210}
+      w={140}
+    >
+      Adding enhancing effects, such as blur, to highlight movement and create separation between the main object and the background.
+    </ProcessTextDescription>
+  </>,
 ]
 
 const DesktopContent = ({ activeIndex, setActiveIndex }: any) => {
   return (
     <Swiper
       slidesPerView={1}
-      modules={[EffectFade]}
-      effect="fade"
+      speed={1000}
       direction="vertical"
       style={{
-        width: "1060px",
-        height: "596px",
         boxShadow: "0px 10px 32px 0px rgba(0, 0, 0, 0.12)",
         borderRadius: "60px",
         cursor: "pointer",
       }}
+      nested={true}
+      mousewheel={true}
       onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+      className="lg:w-[854px] lg:h-[480px] 2xl:w-[1060px] 2xl:h-[596px]"
     >
       {[...new Array(5)].map((_, index) => (
         <SwiperSlide key={index}>
