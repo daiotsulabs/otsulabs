@@ -31,7 +31,7 @@ export default function Home() {
     <Layout>
       <Header onActiveSlideChange={onSlideActiveChange} onClickToggle={onToggle} dark={isDarkHeader} activeSlideIndex={currenIndex} />
       <StyledPagination setActiveIndex={setActiveIndex} dark={isDarkHeader} activeIndex={currenIndex} total={isMobileScreen ? 6 : 5} />
-      <ModalMenu showBg={currenIndex === 0} in={isOpen} onClickToggle={onToggle} />
+      {isOpen && <ModalMenu showBg={currenIndex === 0} in={isOpen} onClickToggle={onToggle} />}
       <Swiper
         className='w-full h-full'
         slidesPerView={1}
