@@ -33,7 +33,7 @@ function WorkItem({ image, project, descriptions }: WorkItemProps) {
         bg="linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.80) 88.02%)"
       >
         <Text
-          fontSize={{ base: "2xl" }}
+          fontSize={{ base: "md", sm: "2xl" }}
           color="white"
           letterSpacing={isMobileScreen ? 0.64 : 0.96}
         >

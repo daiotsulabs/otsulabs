@@ -432,12 +432,12 @@ function LandingProcess() {
     <Box
       className="w-full h-full bg-white flex justify-center relative"
       alignItems={isMobileScreen ? "flex-start" : "center"}
-      pt={isMobileScreen ? 220 : 0}
+      pt={isMobileScreen ? "131px" : 0}
     >
       <Box
         className="uppercase absolute font-bold"
         letterSpacing={isMobileScreen ? 0 : 3.2}
-        top={124}
+        top={isMobileScreen ? 79 : 124}
         fontSize={isMobileScreen ? "md" : "32px"}
       >
         our process

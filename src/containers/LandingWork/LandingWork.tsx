@@ -3,7 +3,6 @@ import { Box, Grid, GridItem, Text, Wrap, WrapItem, useMediaQuery } from "@chakr
 import { useState } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 
-
 const DesktopContent = () => {
   return (
     <Box className="w-full h-full bg-white" px="80px" pt="100px" pb="50px" >

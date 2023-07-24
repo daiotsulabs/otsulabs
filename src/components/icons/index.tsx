@@ -41,9 +41,9 @@ export const MenuIcon = ({ fill = "white", width = 27, height = 20 }: IconProps)
   )
 }
 
-export const Logo = ({ fill = "white" }: any) => {
+export const Logo = ({ fill = "white", width = 60, height = 20 }: any) => {
   return (
-    <svg width="60" height="20" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={width} height={height} viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M5.42574 4.78174C5.42574 4.87997 5.3824 4.91176 5.28125 4.92909C5.28196 4.89073 5.29732 4.85409 5.32419 4.82669C5.35106 4.79929 5.38739 4.78321 5.42574 4.78174Z"
         fill={fill} />
