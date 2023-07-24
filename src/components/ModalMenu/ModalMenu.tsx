@@ -90,6 +90,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
               w={isMobileScreen ? 245 : 0}
               orientation={isMobileScreen ? "horizontal" : "vertical"}
               mt={isMobileScreen ? 54 : 0}
+              borderLeftWidth={2}
             />
             <Stack fontSize="sm" color={showBg ? "#ccc" : "black"} direction="column" maxW={377} gap={22} mt={isMobileScreen ? 2 : 0}>
               <Box

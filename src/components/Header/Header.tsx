@@ -10,6 +10,7 @@ interface HeaderProps {
   isCancelIcon?: boolean;
   menuItems?: string[];
   onActiveSlideChange?: Function
+  toHome?: boolean
 }
 function Header({
   dark,
@@ -18,18 +19,20 @@ function Header({
   isCancelIcon,
   onClickToggle,
   menuItems = ["experience", "work", "process", "faq"],
-  onActiveSlideChange
+  onActiveSlideChange,
+  toHome = true
 }: HeaderProps) {
   const router = useRouter();
   const [isMobileScreen] = useMediaQuery('(max-width: 480px)')
+  const [isMediumScreen] = useMediaQuery('(max-width: 1441px)')
   return (
-    <header className={`fixed inset-x-0 ${isMobileScreen ? "px-6" : "px-11"} top-[18px] z-[2]`}>
+    <header className={`fixed inset-x-0 ${isMobileScreen ? "pl-6 pr-[18px] top-[16px]" : "px-11 top-[18px]"} z-[2]`}>
       <Stack justifyContent="space-between" direction="row" alignItems="center">
-        <Stack direction="row" gap="54px" alignItems="flex-end">
-          <Box cursor="pointer" onClick={() => router.push("/")}>
+        <Stack direction="row" gap="54px" alignItems="flex-end" className={isMobileScreen ? "unset" : isMediumScreen ? "h-[36px]" : "h-[42px]"}>
+          <Box cursor="pointer" onClick={() => toHome ? router.push("/") : onActiveSlideChange?.(0)}>
             {isMobileScreen
               ? <SingleLogo fill={dark ? "black" : "white"} />
-              : <Logo fill={dark ? "black" : "white"} />}
+              : <Logo fill={dark ? "black" : "white"} width={isMediumScreen ? 60 : 78} height={isMediumScreen ? 20 : 26} />}
           </Box>
           <Stack direction="row" gap={8}>
             {showMenuItem && !isMobileScreen && menuItems.map((item, index) => (
@@ -39,7 +42,8 @@ function Header({
                 className="uppercase text-md"
                 color={dark ? "black" : "white"}
                 opacity={0.4}
-                letterSpacing="1.2px"
+                letterSpacing={isMediumScreen ? "1.2px" : "1.6px"}
+                fontSize={isMediumScreen ? "xs" : "md"}
                 isActive={activeSlideIndex === (index + 1)}
                 fontWeight={400}
                 _active={{

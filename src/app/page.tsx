@@ -29,7 +29,7 @@ export default function Home() {
   }
   return (
     <Layout>
-      <Header onActiveSlideChange={onSlideActiveChange} onClickToggle={onToggle} dark={isDarkHeader} activeSlideIndex={currenIndex} />
+      <Header toHome={false} onActiveSlideChange={onSlideActiveChange} onClickToggle={onToggle} dark={isDarkHeader} activeSlideIndex={currenIndex} />
       <StyledPagination setActiveIndex={setActiveIndex} dark={isDarkHeader} activeIndex={currenIndex} total={isMobileScreen ? 6 : 5} />
       {isOpen && <ModalMenu showBg={currenIndex === 0} in={isOpen} onClickToggle={onToggle} />}
       <Swiper
