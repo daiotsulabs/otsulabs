@@ -80,18 +80,19 @@ export default function JobId() {
       <Header
         menuItems={tabs}
         onClickToggle={onToggle}
-        activeSlideIndex={2}
+        activeSlideIndex={1}
         onActiveSlideChange={onSlideActiveChange}
         dark={true}
       />
       {isOpen && <ModalMenu in={isOpen} onClickToggle={onToggle} />}
-      <StyledPagination dark={true} activeIndex={currenIndex} total={2} />
+      { isMobileScreen && <StyledPagination dark={true} activeIndex={currenIndex} total={2} /> }
       {
         job ? <Swiper
           className='w-full h-full'
           slidesPerView={1}
           direction='vertical'
-          mousewheel={true}
+          mousewheel={false}
+          allowTouchMove={false}
           speed={1000}
           onSwiper={(swiper: any) => {
             swiperRef.current = swiper;

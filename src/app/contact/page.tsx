@@ -7,7 +7,8 @@ import { InputLink } from '@/components/Input/InputLink'
 import { InputEmail } from '@/components/Input/InputEmail'
 import { InputName } from '@/components/Input/InputName'
 import { Textarea } from '@/components/Input/Textarea'
-import { isEmail } from '@/utilities'
+import { isEmail, isUrl } from '@/utilities'
+import axios from 'axios'
 
 export default function Contact() {
   const { isOpen, onToggle } = useDisclosure()
@@ -30,12 +31,34 @@ export default function Contact() {
     if (isSubmitted || loading) return
     setIsValidate(true)
     const isValid = Object.values(error).every(e => !e)
-    if (!isValid || !isEmail(email) || !name || !message) return
-    setTimeout(() => {
-      setLoading(false)
-      setIsSubmitted(true)
-    }, 1000)
+    if (!isValid || !isEmail(email) || (link && !isUrl(link)) || !name || !message) return
+    const url = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSd2ICKgb7Ez67XjrFTlG7BV2R2PtmnBgHSiI7wuzq9R8BFuFQ/formResponse'
+    const formData = new FormData()
+    formData.append('entry.1612312889', name)
+    formData.append('entry.1511487044', email)
+    formData.append('entry.1198144821', link)
+    formData.append('entry.1436747493', message)
+    // formData.append('dlut', '1690296662893')
+    // formData.append('fvv', '1')
+    // formData.append('partialResponse', JSON.stringify([null,null,"8604501822367546106"]))
+    // formData.append('pageHistory', '0')
+    // formData.append('fbzx', '8604501822367546106')
     setLoading(true)
+    axios.post(url, formData, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        // 'Upgrade-Insecure-Requests': 1,
+        // 'Dnt': 1,
+        // 'Origin': 'https://docs.google.com',
+        // 'Referer': 'https://docs.google.com/'
+      }
+    })
+      .then((res) => console.log(res))
+      .catch((er) => console.log(er))
+      .finally(() => {
+        setLoading(false)
+        setIsSubmitted(true)
+      })
   }
 
   return (
@@ -109,3 +132,12 @@ export default function Contact() {
     </Layout>
   )
 }
+
+// entry.1612312889: qwrqwr
+// entry.1511487044: qwrqwr
+// entry.1198144821: qwrwq
+// entry.1436747493: qwrqwr
+// fvv: 1
+// partialResponse: [null,null,"-6853388364090563258"]
+// pageHistory: 0
+// fbzx: -6853388364090563258

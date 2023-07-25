@@ -11,7 +11,7 @@ export default function JoinUs ({ join }: { join: any }) {
           <Flex color='white' className='wrap-content flex-col md:flex-row'>
           <Box flex='1' className='px-2 pt-8 pb-2 md:px-16 2xl:px-24 md:py-4'>
             <Heading
-              className='text-base mb-2 md:text-[28px] 2xl:text-[32px] md:mb-8 2xl:mb-16 leading-[normal] uppercase'
+              className='text-base mb-2 md:text-[28px] 2xl:text-[32px] md:mb-2 leading-[normal] uppercase'
               as={'h3'}
               color={'#000'}
               >JOIN US</Heading>
@@ -26,7 +26,7 @@ export default function JoinUs ({ join }: { join: any }) {
                   jobs.map(job => (
                     <li
                       key={job.id}
-                      className='rounded-[10px] md:rounded-2xl my-3 md:my-6 cursor-pointer py-1 md:py-4 px-6 md:px-10 border border-[#000000] border-solid'
+                      className='rounded-[10px] md:rounded-2xl my-3 md:my-6 cursor-pointer py-2 md:py-4 px-6 md:px-10 border border-[#000000] border-solid'
                     >
                       <Link href={`/careers/${job.slug}`}>
                         <Flex justifyContent={'space-between'} alignItems={'center'}>
@@ -49,7 +49,7 @@ export default function JoinUs ({ join }: { join: any }) {
             flexDirection={'column'}
           >
             <Heading
-              className='text-base mb-2 md:text-[32px] 2xl:text-5xl md:mb-[22px] 2xl:mb-16 leading-[normal]'
+              className='text-base mb-2 md:text-[32px] 2xl:text-5xl md:mb-2 leading-[normal] uppercase'
               as={'h2'}
               color={'#000'}
             >

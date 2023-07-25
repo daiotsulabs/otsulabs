@@ -10,7 +10,7 @@ export default function Careers() {
   const { isOpen, onToggle } = useDisclosure()
   // const router = useRouter()
   const [tab, setTab] = useState('join-us')
-  const [activeSlice, setActiveSlide] = useState(1)
+  const [activeSlice, setActiveSlide] = useState(0)
   const tabs = ["join us", "freelancers"]
   const join = () => {
     setActiveSlide(2)
@@ -36,7 +36,7 @@ export default function Careers() {
       />
       {isOpen && <ModalMenu in={isOpen} onClickToggle={onToggle} />}
       {
-        activeSlice === 1 ? <JoinUs join={join}></JoinUs> : <Freelancers></Freelancers>
+        activeSlice !== 2 ? <JoinUs join={join}></JoinUs> : <Freelancers></Freelancers>
       }
       <CopyRight></CopyRight>
     </Layout>
