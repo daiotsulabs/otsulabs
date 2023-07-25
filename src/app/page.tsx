@@ -36,11 +36,15 @@ export default function Home() {
         className='w-full h-full'
         slidesPerView={1}
         direction='vertical'
-        mousewheel={true}
+        mousewheel={{
+          releaseOnEdges: true,
+          thresholdDelta: 20,
+        }}
         speed={1000}
         onSwiper={(swiper: any) => {
           swiperRef.current = swiper;
         }}
+        preventInteractionOnTransition={true}
         onSlideChange={handleSlideChange}>
         <SwiperSlide>
           <LandingHome />

@@ -2,8 +2,8 @@ import { ProcessArrow, ProcessTextDescription, StyledPagination } from "@/compon
 import { Box, useMediaQuery } from "@chakra-ui/react"
 import Image from "next/image"
 import { useState } from "react"
-import { EffectFade, Mousewheel } from "swiper/modules"
 import { SwiperSlide, Swiper } from "swiper/react"
+import "swiper/css/effect-fade"
 
 const processes = [
   <>
@@ -354,7 +354,15 @@ const DesktopContent = ({ activeIndex, setActiveIndex }: any) => {
         cursor: "pointer",
       }}
       nested={true}
-      mousewheel={true}
+      effect="fade"
+      mousewheel={{
+        releaseOnEdges: false,
+        sensitivity: 1,
+      }}
+      fadeEffect={
+        { crossFade: true }
+      }
+      preventInteractionOnTransition={true}
       onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
       className="lg:w-[854px] lg:h-[480px] 2xl:w-[1060px] 2xl:h-[596px]"
     >
