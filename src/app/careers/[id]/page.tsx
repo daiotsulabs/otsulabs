@@ -85,14 +85,14 @@ export default function JobId() {
         dark={true}
       />
       {isOpen && <ModalMenu in={isOpen} onClickToggle={onToggle} />}
-      { isMobileScreen && <StyledPagination dark={true} activeIndex={currenIndex} total={2} /> }
+      { isMobileScreen && <StyledPagination positionStyled='bottom-[unset] top-[80px] left-[24px]' dark={true} activeIndex={currenIndex} total={2} /> }
       {
         job ? <Swiper
           className='w-full h-full'
           slidesPerView={1}
           direction='vertical'
-          mousewheel={false}
-          allowTouchMove={false}
+          mousewheel={isMobileScreen}
+          allowTouchMove={isMobileScreen}
           speed={1000}
           onSwiper={(swiper: any) => {
             swiperRef.current = swiper;
@@ -105,9 +105,10 @@ export default function JobId() {
                 flexDirection={'column'}
                 alignItems={'flex-start'}
                 className='px-2 pt-8 pb-2 md:px-20 md:py-4 gap-y-1'>
-                <Box onClick={goBack}>
-                  <ArrowLeftIcon className="cursor-pointer"></ArrowLeftIcon>
-                </Box>
+                { !isMobileScreen ?? <Box onClick={goBack}>
+                    <ArrowLeftIcon className="cursor-pointer"></ArrowLeftIcon>
+                  </Box>
+                }
                 <Heading
                   className='mt-2 text-base md:text-[28px] 2xl:text-5xl uppercase leading-[normal] text-left md:text-center'
                   as={'h2'}
@@ -203,9 +204,10 @@ export default function JobId() {
                 flexDirection={'column'}
                 alignItems={'flex-start'}
                 className='px-2 pt-8 pb-2 md:px-20 md:py-4 gap-y-1'>
-                <Box onClick={goBack}>
-                  <ArrowLeftIcon className="cursor-pointer"></ArrowLeftIcon>
-                </Box>
+                { !isMobileScreen ?? <Box onClick={goBack}>
+                    <ArrowLeftIcon className="cursor-pointer"></ArrowLeftIcon>
+                  </Box>
+                }
                 <Heading
                   className='mt-2 text-base md:text-[28px] 2xl:text-5xl uppercase leading-[normal] text-left md:text-center mx-0 md:mx-auto md:tracking-[4px]'
                   as={'h2'}

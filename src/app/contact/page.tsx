@@ -38,19 +38,19 @@ export default function Contact() {
     formData.append('entry.1511487044', email)
     formData.append('entry.1198144821', link)
     formData.append('entry.1436747493', message)
-    // formData.append('dlut', '1690296662893')
-    // formData.append('fvv', '1')
-    // formData.append('partialResponse', JSON.stringify([null,null,"8604501822367546106"]))
-    // formData.append('pageHistory', '0')
-    // formData.append('fbzx', '8604501822367546106')
+    formData.append('dlut', '1690296662893')
+    formData.append('fvv', '1')
+    formData.append('partialResponse', JSON.stringify([null,null,"8604501822367546106"]))
+    formData.append('pageHistory', '0')
+    formData.append('fbzx', '8604501822367546106')
     setLoading(true)
     axios.post(url, formData, {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        // 'Upgrade-Insecure-Requests': 1,
-        // 'Dnt': 1,
-        // 'Origin': 'https://docs.google.com',
-        // 'Referer': 'https://docs.google.com/'
+        'Upgrade-Insecure-Requests': 1,
+        'Dnt': 1,
+        'Origin': 'https://docs.google.com',
+        'Referer': 'https://docs.google.com/'
       }
     })
       .then((res) => console.log(res))

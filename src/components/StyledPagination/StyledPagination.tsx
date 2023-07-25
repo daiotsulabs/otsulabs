@@ -22,6 +22,7 @@ function StyledPagination(props: {
   return (
     <Stack
       direction={direction}
+      id="override"
       className={`fixed z-[2] ${positionStyled ? positionStyled : isMobileScreen ? "bottom-[70px] left-4" : "top-1/2 left-[30px] translate-y-[-50%]"}`}
       gap={isMobileScreen ? "8px" : "20px"}
     >
