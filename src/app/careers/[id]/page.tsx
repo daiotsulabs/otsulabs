@@ -14,6 +14,7 @@ import { InputName } from '@/components/Input/InputName'
 import { Textarea } from '@/components/Input/Textarea'
 import { InputPortfolio } from '@/components/Input/InputPortfolio'
 import { CheckCircleIcon } from '@/components/icons'
+import axios from 'axios'
 
 export default function JobId() {
   const { isOpen, onToggle } = useDisclosure()
@@ -52,11 +53,26 @@ export default function JobId() {
     setIsValidate(true)
     const isValid = Object.values(error).every(e => !e)
     if (!isValid || !isEmail(email) || !name || !isUrl(link) || !position || !message) return
-    setTimeout(() => {
-      setLoading(false)
-      setIsSubmitted(true)
-    }, 1000)
+    const url = 'https://api.oldeus.com/apply'
+    const formData = new FormData()
+    formData.append('name', name)
+    formData.append('email', email)
+    formData.append('link', link)
+    formData.append('position', position)
+    formData.append('message', message)
     setLoading(true)
+    axios.post(url, formData, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      }
+    })
+      .then((res) => {
+        setIsSubmitted(true)
+      })
+      .catch((er) => console.log(er))
+      .finally(() => {
+        setLoading(false)
+      })
   }
   const apply = () => {
     (swiperRef.current as any).slideNext()

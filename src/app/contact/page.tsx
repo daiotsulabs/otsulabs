@@ -32,32 +32,24 @@ export default function Contact() {
     setIsValidate(true)
     const isValid = Object.values(error).every(e => !e)
     if (!isValid || !isEmail(email) || (link && !isUrl(link)) || !name || !message) return
-    const url = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSd2ICKgb7Ez67XjrFTlG7BV2R2PtmnBgHSiI7wuzq9R8BFuFQ/formResponse'
+    const url = 'https://api.oldeus.com/contact'
     const formData = new FormData()
-    formData.append('entry.1612312889', name)
-    formData.append('entry.1511487044', email)
-    formData.append('entry.1198144821', link)
-    formData.append('entry.1436747493', message)
-    formData.append('dlut', '1690296662893')
-    formData.append('fvv', '1')
-    formData.append('partialResponse', JSON.stringify([null,null,"8604501822367546106"]))
-    formData.append('pageHistory', '0')
-    formData.append('fbzx', '8604501822367546106')
+    formData.append('name', name)
+    formData.append('email', email)
+    formData.append('link', link)
+    formData.append('message', message)
     setLoading(true)
     axios.post(url, formData, {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Upgrade-Insecure-Requests': 1,
-        'Dnt': 1,
-        'Origin': 'https://docs.google.com',
-        'Referer': 'https://docs.google.com/'
       }
     })
-      .then((res) => console.log(res))
+      .then((res) => {
+        setIsSubmitted(true)
+      })
       .catch((er) => console.log(er))
       .finally(() => {
         setLoading(false)
-        setIsSubmitted(true)
       })
   }
 
