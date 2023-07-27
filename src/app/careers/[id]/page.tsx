@@ -130,7 +130,7 @@ export default function JobId() {
                   {job?.name}
                 </Heading>
                 <Text className='text-[8px] md:text-xs uppercase tracking-[0.6px] leading-[normal] mb-6 md:mb-8' color={'#CCC'}>{job?.time}</Text>
-                <Box className='max-h-[calc(456px)] md:pr-10 overflow-y-auto scroll swiper-no-mousewheel'>
+                <Box className='max-h-[calc(456px)] pr-2 md:pr-10 overflow-y-auto scroll swiper-no-mousewheel'>
                   <Flex gap={6} className='flex-col md:flex-row'>
                     <Box className='flex-1'>
                       <Heading
