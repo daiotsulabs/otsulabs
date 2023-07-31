@@ -229,7 +229,6 @@ export default function JobId() {
                   className='mt-2 text-base md:text-[28px] 2xl:text-5xl uppercase leading-[normal] text-left md:text-center mx-0 md:mx-auto md:tracking-[4px]'
                   as={'h2'}
                   color={'#000'}>
-                  <span className='hidden md:inline'>APPLY </span>
                   {job?.name}
                 </Heading>
                 <Text className='text-[8px] md:text-xs uppercase tracking-[0.6px] leading-[normal] mb-6 md:mb-8 block md:hidden' color={'#CCC'}>{job?.time}</Text>

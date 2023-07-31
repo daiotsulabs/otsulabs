@@ -76,13 +76,16 @@ export default function Contact() {
                 color={'#000'}>CONTACT</Heading>
               <Text className='text-xs md:text-base 2xl:text-xl leading-[normal]' color={'#727272'}>Got an idea? Reach out to us and let&apos;s get started. From concept to creation, we&apos;re here to guide you.</Text>
             </Center>
-            <Box className='hidden md:block md:w-0.5 md:h-96 mx-auto'>
-              <Divider
-                orientation={isMobileScreen ? 'horizontal' : 'vertical'}
-                width={'100%!important'}
-                height={'100%!important'}
-                borderColor={'rgba(0, 0, 0, 0.40)'}></Divider>
-            </Box>
+            <Divider
+              width="2px"
+              className='hidden md:block'
+              borderColor={isMobileScreen ? "black" : "rgba(0,0,0,.4)"}
+              h={isMobileScreen ? 0 : 660}
+              w={isMobileScreen ? 245 : 0}
+              orientation={isMobileScreen ? "horizontal" : "vertical"}
+              mt={isMobileScreen ? 54 : 0}
+              borderLeftWidth={2}
+            />
             <Box flex='1' className='px-2 pb-8 pt-2 md:px-16 2xl:px-24 md:py-4'>
               <InputName value={name} setValue={setName} isValidate={isValidate} placeholder='Your name' setError={setError}></InputName>
               <InputEmail value={email} setValue={setEmail} isValidate={isValidate} setError={setError}></InputEmail>

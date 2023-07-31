@@ -8,7 +8,7 @@ export default function JoinUs ({ join }: { join: any }) {
   return(
     <Center className='w-full h-full'>
       <Container maxWidth={'1200'} className='h-full md:h-auto pt-14 md:pt-0'>
-          <Flex color='white' className='wrap-content flex-col md:flex-row'>
+        <Flex color='white' className='wrap-content flex-col md:flex-row items-center'>
           <Box flex='1' className='px-2 pt-8 pb-2 md:px-16 2xl:px-24 md:py-4'>
             <Heading
               className='text-base mb-2 md:text-[28px] 2xl:text-[32px] md:mb-2 leading-[normal] uppercase'
@@ -39,9 +39,15 @@ export default function JoinUs ({ join }: { join: any }) {
                 }
               </ul>
           </Box>
-          <Box className='w-4/5 h-0.5 md:w-0.5 md:h-96 mx-auto mt-[24px] mb-[40px]'>
-            <Divider orientation={isMobileScreen ? 'horizontal' : 'vertical'} borderColor={isMobileScreen ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 0.40)'}></Divider>
-          </Box>
+          <Divider
+            width="2px"
+            borderColor={isMobileScreen ? "black" : "rgba(0,0,0,.4)"}
+            h={isMobileScreen ? 0 : 660}
+            w={isMobileScreen ? 245 : 0}
+            orientation={isMobileScreen ? "horizontal" : "vertical"}
+            mt={isMobileScreen ? 54 : 0}
+            borderLeftWidth={2}
+          />
           <Center
             className='px-2 pb-8 pt-2 md:px-16 2xl:px-24 md:py-4'
             alignItems={'flex-start'}

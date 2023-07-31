@@ -31,12 +31,18 @@ const InputPosition = ({ value, setValue, isValidate = false, setError }: { valu
           border={`1px solid ${isError ? '#D98282' : '#B3B3B3'}`}
           onChange={handleInputChange}
           _placeholder={{ color: isError ? '#D98282' : 'inherit', fontSize: isMobileScreen ? 14 : 16 }}
-          style={{ paddingLeft: '40px' }}
-          placeholder='Position'>
-            <option value='Animation Director'>Animation Director</option>
-            <option value='Art Director'>Art Director</option>
-            <option value='2D Artist'>2D Artist</option>
-            <option value='Storyboard Artist'>Storyboard Artist</option>
+          style={{ paddingLeft: '40px', fontSize: isMobileScreen ? 14 : 16 }}
+          placeholder='Position'
+          >
+            <option value="" disabled>Position</option>
+            <option value='2D Animation' style={{ fontSize: isMobileScreen ? 14 : 16 }}>2D Animation</option>
+            <option value='3D Animation' style={{ fontSize: isMobileScreen ? 14 : 16 }}>3D Animation</option>
+            <option value='2D Artist' style={{ fontSize: isMobileScreen ? 14 : 16 }}>2D Artist</option>
+            <option value='Character Designer' style={{ fontSize: isMobileScreen ? 14 : 16 }}>Character Designer</option>
+            <option value='Background Artist' style={{ fontSize: isMobileScreen ? 14 : 16 }}>Background Artist</option>
+            <option value='Storyboard Artist' style={{ fontSize: isMobileScreen ? 14 : 16 }}>Storyboard Artist</option>
+            <option value='Mangaka' style={{ fontSize: isMobileScreen ? 14 : 16 }}>Mangaka</option>
+            <option value='Editor' style={{ fontSize: isMobileScreen ? 14 : 16 }}>Editor</option>
           </Select>
       </InputGroup>
     </FormControl>
