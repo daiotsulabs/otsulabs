@@ -28,11 +28,9 @@ function Header({
   return (
     <header className={`fixed inset-x-0 ${isMobileScreen ? "pl-6 pr-[18px] top-[16px]" : "px-11 top-[18px]"} z-[2]`}>
       <Stack justifyContent="space-between" direction="row" alignItems="center">
-        <Stack direction="row" gap="54px" alignItems="flex-end" className={isMobileScreen ? "unset" : isMediumScreen ? "h-[36px]" : "h-[42px]"}>
+        <Stack direction="row" gap="54px" alignItems="center" className={isMobileScreen ? "unset" : isMediumScreen ? "h-[36px]" : "h-[42px]"}>
           <Box cursor="pointer" onClick={() => toHome ? router.push("/") : onActiveSlideChange?.(0)}>
-            {isMobileScreen
-              ? <SingleLogo fill={dark ? "black" : "white"} />
-              : <Logo fill={dark ? "black" : "white"} width={isMediumScreen ? 60 : 78} height={isMediumScreen ? 20 : 26} />}
+            <SingleLogo width={isMediumScreen ? 21 : 32} height={isMediumScreen ? 21 : 32} fill={dark ? "black" : "white"} />
           </Box>
           <Stack direction="row" gap={8}>
             {showMenuItem && !isMobileScreen && menuItems.map((item, index) => (
