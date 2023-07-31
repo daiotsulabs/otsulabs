@@ -5,7 +5,6 @@ import { useEffect } from 'react'
 const InputPosition = ({ value, setValue, isValidate = false, setError }: { value: string, setValue: any, isValidate: boolean, setError?: any }) => {
   const [isMobileScreen] = useMediaQuery('(max-width: 768px)')
   const handleInputChange = (e: any) => {
-    console.log(e)
     setValue(e.target.value)
   }
 
