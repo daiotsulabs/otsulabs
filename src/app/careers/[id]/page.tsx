@@ -14,6 +14,7 @@ import { InputName } from '@/components/Input/InputName'
 import { Textarea } from '@/components/Input/Textarea'
 import { InputPortfolio } from '@/components/Input/InputPortfolio'
 import { CheckCircleIcon } from '@/components/icons'
+import axios from 'axios'
 
 export default function JobId() {
   const { isOpen, onToggle } = useDisclosure()
@@ -52,11 +53,26 @@ export default function JobId() {
     setIsValidate(true)
     const isValid = Object.values(error).every(e => !e)
     if (!isValid || !isEmail(email) || !name || !isUrl(link) || !position || !message) return
-    setTimeout(() => {
-      setLoading(false)
-      setIsSubmitted(true)
-    }, 1000)
+    const url = 'https://api.oldeus.com/apply'
+    const formData = new FormData()
+    formData.append('name', name)
+    formData.append('email', email)
+    formData.append('link', link)
+    formData.append('position', position)
+    formData.append('message', message)
     setLoading(true)
+    axios.post(url, formData, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      }
+    })
+      .then((res) => {
+        setIsSubmitted(true)
+      })
+      .catch((er) => console.log(er))
+      .finally(() => {
+        setLoading(false)
+      })
   }
   const apply = () => {
     (swiperRef.current as any).slideNext()
@@ -80,30 +96,30 @@ export default function JobId() {
       <Header
         menuItems={tabs}
         onClickToggle={onToggle}
-        activeSlideIndex={2}
+        activeSlideIndex={1}
         onActiveSlideChange={onSlideActiveChange}
         dark={true}
       />
       {isOpen && <ModalMenu in={isOpen} onClickToggle={onToggle} />}
-      <StyledPagination dark={true} activeIndex={currenIndex} total={2} />
       {
         job ? <Swiper
           className='w-full h-full'
           slidesPerView={1}
           direction='vertical'
-          mousewheel={true}
+          mousewheel={isMobileScreen}
+          allowTouchMove={isMobileScreen}
           speed={1000}
           onSwiper={(swiper: any) => {
             swiperRef.current = swiper;
           }}
           onSlideChange={handleSlideChange}>
           <SwiperSlide>
-            <Container maxWidth={'992'} className='h-full flex items-center'>
+            <Container maxWidth={'992'} className='h-full flex items-start md:items-center'>
               <Center
                 flex='1'
                 flexDirection={'column'}
                 alignItems={'flex-start'}
-                className='px-2 pt-8 pb-2 md:px-20 md:py-4 gap-y-1'>
+                className='px-2 pt-20 md:pt-8 pb-2 md:px-20 md:py-4 gap-y-1'>
                 <Box onClick={goBack}>
                   <ArrowLeftIcon className="cursor-pointer"></ArrowLeftIcon>
                 </Box>
@@ -114,63 +130,67 @@ export default function JobId() {
                   {job?.name}
                 </Heading>
                 <Text className='text-[8px] md:text-xs uppercase tracking-[0.6px] leading-[normal] mb-6 md:mb-8' color={'#CCC'}>{job?.time}</Text>
-                <Flex gap={6} className='flex-col md:flex-row'>
-                  <Box className='flex-1'>
-                    <Heading
-                      className='text-xs mb-0 md:mb-2 md:text-base 2xl:text-[28px] 2xl:text-lg uppercase leading-[normal]'
-                      as={'h4'}
-                      color={'#727272'}>Responsibilities:</Heading>
-                    <ul className='list-disc pl-6'>
-                      {
-                        job?.responsibilities.map((r, index) => (
-                          <li key={index}>
-                            <Text className='text-[10px] md:text-sm 2xl:text-base leading-[normal]' color={'#727272'}>{r}</Text>
-                          </li>
-                        ))
-                      }
-                    </ul>
-                  </Box>
-                  <Box className='flex-1'>
-                    <Heading
-                      className='text-xs mb-0 md:mb-2 md:text-base 2xl:text-[28px] 2xl:text-lg uppercase leading-[normal]'
-                      as={'h4'}
-                      color={'#727272'}>Qualifications:</Heading>
-                    <ul className='list-disc pl-6'>
-                      {
-                        job?.qualifications.map((r, index) => (
-                          <li key={index}>
-                            <Text className='text-[10px] md:text-sm 2xl:text-base leading-[normal]' color={'#727272'}>{r}</Text>
-                          </li>
-                        ))
-                      }
-                    </ul>
-                  </Box>
-                </Flex>
-                <Divider
-                  borderColor={'rgba(0, 0, 0, 0.40)'}
-                  className='my-6 hidden md:block'
-                />
-                <Flex alignItems={'flex-end'}>
-                  <Box>
-                    <Heading
-                      className='text-xs mb-0 md:mb-2 md:text-base 2xl:text-[28px] 2xl:text-lg uppercase leading-[normal]'
-                      as={'h4'}
-                      color={'#727272'}>We offer:</Heading>
-                    <ul className='list-disc pl-6'>
-                      {
-                        job?.qualifications.map((r, index) => (
-                          <li key={index}>
-                            <Text className='text-[10px] md:text-sm 2xl:text-base leading-[normal]' color={'#727272'}>{r}</Text>
-                          </li>
-                        ))
-                      }
-                    </ul>
-                  </Box>
+                <Box className='max-h-[calc(456px)] pr-2 md:pr-10 overflow-y-auto scroll swiper-no-mousewheel'>
+                  <Flex gap={6} className='flex-col md:flex-row'>
+                    <Box className='flex-1'>
+                      <Heading
+                        className='text-xs mb-0 md:mb-2 md:text-base 2xl:text-[28px] 2xl:text-lg uppercase leading-[normal]'
+                        as={'h4'}
+                        color={'#727272'}>Responsibilities:</Heading>
+                      <ul className='list-disc pl-6'>
+                        {
+                          job?.responsibilities.map((r, index) => (
+                            <li key={index}>
+                              <Text className='text-[10px] md:text-sm 2xl:text-base leading-[normal]' color={'#727272'}>{r}</Text>
+                            </li>
+                          ))
+                        }
+                      </ul>
+                    </Box>
+                    <Box className='flex-1'>
+                      <Heading
+                        className='text-xs mb-0 md:mb-2 md:text-base 2xl:text-[28px] 2xl:text-lg uppercase leading-[normal]'
+                        as={'h4'}
+                        color={'#727272'}>Qualifications:</Heading>
+                      <ul className='list-disc pl-6'>
+                        {
+                          job?.qualifications.map((r, index) => (
+                            <li key={index}>
+                              <Text className='text-[10px] md:text-sm 2xl:text-base leading-[normal]' color={'#727272'}>{r}</Text>
+                            </li>
+                          ))
+                        }
+                      </ul>
+                    </Box>
+                  </Flex>
+                  <Divider
+                    borderColor={'rgba(0, 0, 0, 0.40)'}
+                    className='my-6 hidden md:block'
+                  />
+                  <Flex alignItems={'flex-end'}>
+                    <Box>
+                      <Heading
+                        className='text-xs mb-0 md:mb-2 md:text-base 2xl:text-[28px] 2xl:text-lg uppercase leading-[normal]'
+                        as={'h4'}
+                        color={'#727272'}>We offer:</Heading>
+                      <ul className='list-disc pl-6'>
+                        {
+                          job?.qualifications.map((r, index) => (
+                            <li key={index}>
+                              <Text className='text-[10px] md:text-sm 2xl:text-base leading-[normal]' color={'#727272'}>{r}</Text>
+                            </li>
+                          ))
+                        }
+                      </ul>
+                    </Box>
+                  </Flex>
+                </Box>
+                <Center className='w-full mt-[16px] md:mt-[36px]'>
                   <Button
                     style={{ borderColor: '#000000', color: '#000000' }}
                     colorScheme='blackAlpha'
                     size={'md'}
-                    className='py-2 md:py-2 px-4 md:px-8 2xl:px-11 rounded-[10px] md:rounded-[16px] hidden md:flex justify-center flex-[1_1_100px] md:flex-[1_1_120px]'
+                    className='py-2 md:py-2 px-4 md:px-8 2xl:px-11 rounded-[10px] md:rounded-[16px] md:flex justify-center min-w-[100px]'
                     fontSize={16}
                     fontWeight={400}
                     lineHeight={'normal'}
@@ -191,17 +211,17 @@ export default function JobId() {
                   >
                     Apply
                   </Button>
-                </Flex>
+                </Center>
               </Center>
             </Container>
           </SwiperSlide>
           <SwiperSlide>
-            <Container maxWidth={'992'} className='h-full flex items-center'>
+            <Container maxWidth={'992'} className='h-full flex items-start md:items-center'>
               <Center
                 flex='1'
                 flexDirection={'column'}
                 alignItems={'flex-start'}
-                className='px-2 pt-8 pb-2 md:px-20 md:py-4 gap-y-1'>
+                className='px-2 pt-20 md:pt-8 pb-2 md:px-20 md:py-4 gap-y-1'>
                 <Box onClick={goBack}>
                   <ArrowLeftIcon className="cursor-pointer"></ArrowLeftIcon>
                 </Box>
@@ -209,7 +229,6 @@ export default function JobId() {
                   className='mt-2 text-base md:text-[28px] 2xl:text-5xl uppercase leading-[normal] text-left md:text-center mx-0 md:mx-auto md:tracking-[4px]'
                   as={'h2'}
                   color={'#000'}>
-                  <span className='hidden md:inline'>APPLY </span>
                   {job?.name}
                 </Heading>
                 <Text className='text-[8px] md:text-xs uppercase tracking-[0.6px] leading-[normal] mb-6 md:mb-8 block md:hidden' color={'#CCC'}>{job?.time}</Text>

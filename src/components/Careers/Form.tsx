@@ -7,6 +7,7 @@ import { InputEmail } from '@/components/Input/InputEmail'
 import { InputName } from '@/components/Input/InputName'
 import { Textarea } from '@/components/Input/Textarea'
 import { InputPosition } from '../Input/InputPosition'
+import axios from 'axios'
 
 type FormType = {
   email?: string
@@ -47,11 +48,26 @@ export default function Form ({ hidden = [], defaultValue }: { hidden?: string[]
     setIsValidate(true)
     const isValid = Object.values(error).every(e => !e)
     if (!isValid || !isEmail(email) || !name || !isUrl(link) || !position || !message) return
-    setTimeout(() => {
-      setLoading(false)
-      setIsSubmitted(true)
-    }, 1000)
+    const url = 'https://api.oldeus.com/apply'
+    const formData = new FormData()
+    formData.append('name', name)
+    formData.append('email', email)
+    formData.append('link', link)
+    formData.append('position', position)
+    formData.append('message', message)
     setLoading(true)
+    axios.post(url, formData, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      }
+    })
+      .then((res) => {
+        setIsSubmitted(true)
+      })
+      .catch((er) => console.log(er))
+      .finally(() => {
+        setLoading(false)
+      })
   }
 
   return(
