@@ -86,7 +86,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
             <Divider
               width="2px"
               borderColor={showBg ? "rgba(255,255,255,0.4)" : isMobileScreen ? "black" : "rgba(0,0,0,.4)"}
-              h={isMobileScreen ? 0 : 320}
+              h={isMobileScreen ? 0 : 660}
               w={isMobileScreen ? 245 : 0}
               orientation={isMobileScreen ? "horizontal" : "vertical"}
               mt={isMobileScreen ? 54 : 0}
