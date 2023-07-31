@@ -5,13 +5,6 @@ function LandingHome() {
   const [isMobileScreen] = useMediaQuery('(max-width: 480px)')
   const [isMediumScreen] = useMediaQuery('(max-width: 1441px)')
   const [isShowText, setIsShowText] = useState(true)
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsShowText(false)
-    }, 5000);
-    return () => clearTimeout(timeout);
-  }, [])
   return (
     <Box
       className="w-full h-full flex items-center justify-center"

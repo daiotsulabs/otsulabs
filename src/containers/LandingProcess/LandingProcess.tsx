@@ -348,11 +348,6 @@ const DesktopContent = ({ activeIndex, setActiveIndex }: any) => {
       slidesPerView={1}
       speed={1000}
       direction="vertical"
-      style={{
-        boxShadow: "0px 10px 32px 0px rgba(0, 0, 0, 0.12)",
-        borderRadius: "60px",
-        cursor: "pointer",
-      }}
       nested={true}
       effect="fade"
       mousewheel={{
@@ -364,23 +359,36 @@ const DesktopContent = ({ activeIndex, setActiveIndex }: any) => {
       }
       preventInteractionOnTransition={true}
       onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-      className="lg:w-[854px] lg:h-[480px] 2xl:w-[1060px] 2xl:h-[596px]"
+      className="w-screen h-screen"
     >
       {[...new Array(5)].map((_, index) => (
         <SwiperSlide key={index}>
           <Box
-            className="w-full h-full"
+            className="w-full h-full flex items-center justify-center"
             bg="white"
           >
-            <Image
-              src={`/images/process${index + 1}.png`}
-              alt="process1"
-              fill
-              style={{
-                objectFit: "cover",
-                objectPosition: "center",
-              }}
-              priority />
+            <Box
+              position="relative"
+            >
+              <Box
+                className="lg:w-[854px] lg:h-[480px] 2xl:w-[1060px] 2xl:h-[596px]"
+                position="relative"
+                borderRadius={"60px"}
+                boxShadow="0px 10px 32px 0px rgba(0, 0, 0, 0.12)"
+                overflow={"hidden"}
+              >
+                <Image
+                  src={`/images/process${index + 1}.png`}
+                  alt="process1"
+                  fill
+                  style={{
+                    objectFit: "cover",
+                    objectPosition: "center",
+                  }}
+                  priority />
+              </Box>
+              {processes[activeIndex]}
+            </Box>
           </Box>
         </SwiperSlide>
       ))}
@@ -447,6 +455,7 @@ function LandingProcess() {
         letterSpacing={isMobileScreen ? 0 : 3.2}
         top={isMobileScreen ? 79 : 124}
         fontSize={isMobileScreen ? "md" : "32px"}
+        zIndex={2}
       >
         our process
       </Box>
@@ -454,7 +463,7 @@ function LandingProcess() {
         {isMobileScreen
           ? <MobileContent activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
           : <DesktopContent activeIndex={activeIndex} setActiveIndex={setActiveIndex} />}
-        {isMobileScreen ? <Box className="relative">{processesMobile[activeIndex]}</Box> : processes[activeIndex]}
+        {isMobileScreen && <Box className="relative">{processesMobile[activeIndex]}</Box>}
       </Box>
     </Box >
   )
