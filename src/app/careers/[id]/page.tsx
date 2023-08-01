@@ -78,6 +78,10 @@ export default function JobId() {
     (swiperRef.current as any).slideNext()
   }
 
+  const toInformation = () => {
+    (swiperRef.current as any).slidePrev()
+  }
+
   const onSlideActiveChange = (index: number) => {
     setActiveSlide(index)
   }
@@ -222,7 +226,7 @@ export default function JobId() {
                 flexDirection={'column'}
                 alignItems={'flex-start'}
                 className='px-2 pt-20 md:pt-8 pb-2 md:px-20 md:py-4 gap-y-1'>
-                <Box onClick={goBack}>
+                <Box onClick={toInformation}>
                   <ArrowLeftIcon className="cursor-pointer"></ArrowLeftIcon>
                 </Box>
                 <Heading
