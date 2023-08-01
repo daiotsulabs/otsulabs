@@ -29,6 +29,7 @@ const InputName = ({ value, setValue, isValidate = false, placeholder, setError 
           color={isError ? '#D98282' : '#727272'}
           border={`1px solid ${isError ? '#D98282' : '#B3B3B3'}`}
           type='text'
+          style={{ fontSize: isMobileScreen ? 14 : 16 }}
           value={value} onChange={handleInputChange}
           _placeholder={{ color: isError ? '#D98282' : 'inherit', fontSize: isMobileScreen ? 14 : 16 }}
           placeholder={placeholder} />

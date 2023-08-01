@@ -32,6 +32,7 @@ const Textarea = ({ value, setValue, isValidate = false, setError }: { value: st
           border={`1px solid ${isError ? '#D98282' : '#B3B3B3'}`}
           value={value}
           onChange={handleInputChange}
+          style={{ fontSize: isMobileScreen ? 14 : 16 }}
           _placeholder={{ color: isError ? '#D98282' : 'inherit', fontSize: isMobileScreen ? 14 : 16 }}
           paddingLeft={'2.6rem'}
           placeholder='Write your message' />

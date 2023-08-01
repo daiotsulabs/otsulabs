@@ -32,6 +32,7 @@ const InputEmail = ({ value, setValue, isValidate = false, setError }: { value: 
           border={`1px solid ${isError ? '#D98282' : '#B3B3B3'}`}
           type='email'
           value={value} onChange={handleInputChange}
+          style={{ fontSize: isMobileScreen ? 14 : 16 }}
           _placeholder={{ color: isError ? '#D98282' : 'inherit', fontSize: isMobileScreen ? 14 : 16 }}
           placeholder='Email Address' />
       </InputGroup>

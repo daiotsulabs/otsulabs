@@ -32,6 +32,7 @@ const InputLink = ({ value, setValue, isValidate = false, setError }: { value: s
           border={`1px solid ${isError ? '#D98282' : '#B3B3B3'}`}
           type='value'
           value={value} onChange={handleInputChange}
+          style={{ fontSize: isMobileScreen ? 14 : 16 }}
           _placeholder={{ color: isError ? '#D98282' : 'inherit', fontSize: isMobileScreen ? 14 : 16 }}
           placeholder='Link (optional)' />
       </InputGroup>

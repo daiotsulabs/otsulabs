@@ -33,7 +33,6 @@ const InputPosition = ({ value, setValue, isValidate = false, setError }: { valu
           style={{ paddingLeft: '40px', fontSize: isMobileScreen ? 14 : 16 }}
           placeholder='Position'
           >
-            <option value="" disabled>Position</option>
             <option value='2D Animation' style={{ fontSize: isMobileScreen ? 14 : 16 }}>2D Animation</option>
             <option value='3D Animation' style={{ fontSize: isMobileScreen ? 14 : 16 }}>3D Animation</option>
             <option value='2D Artist' style={{ fontSize: isMobileScreen ? 14 : 16 }}>2D Artist</option>

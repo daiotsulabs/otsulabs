@@ -26,11 +26,6 @@ export default function JobId() {
   const [job, setJob] = useState<Job>()
   const tabs = ["join us", "freelancers"]
 
-  useEffect(() => {
-    setJob(jobs.find(j => j.slug === path.split('/')[2]))
-    job && setPosition(job.name)
-  }, [job, path])
-
   const [isMobileScreen] = useMediaQuery('(max-width: 768px)')
   const [email, setEmail] = useState('')
   const [position, setPosition] = useState('')
@@ -38,26 +33,36 @@ export default function JobId() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState({
     email: true,
-    link: true,
+    portfolio: true,
     position: true,
     message: true,
     name: true
   })
   const [name, setName] = useState('')
-  const [link, setLink] = useState('')
+  const [portfolio, setPortfolio] = useState('')
   const [message, setMessage] = useState('')
   const [isValidate, setIsValidate] = useState(false)
+
+  useEffect(() => {
+    setJob(jobs.find(j => j.slug === path.split('/')[2]))
+    job && setPosition(job.name)
+    setError((prevState: any) => ({
+      ...prevState,
+      position: !position
+    }));
+  }, [job, path, setError, position])
 
   const onClickValidateForm = () => {
     if (loading) return
     setIsValidate(true)
+    console.log(error)
     const isValid = Object.values(error).every(e => !e)
-    if (!isValid || !isEmail(email) || !name || !isUrl(link) || !position || !message) return
+    if (!isValid || !isEmail(email) || !name || !isUrl(portfolio) || !position || !message) return
     const url = 'https://api.oldeus.com/apply'
     const formData = new FormData()
     formData.append('name', name)
     formData.append('email', email)
-    formData.append('link', link)
+    formData.append('portfolio', portfolio)
     formData.append('position', position)
     formData.append('message', message)
     setLoading(true)
@@ -240,7 +245,7 @@ export default function JobId() {
                   {/* <Form hidden={['position']} defaultValue={{ position: job?.name }}></Form> */}
                   <InputName value={name} setValue={setName} isValidate={isValidate} placeholder='Your name' setError={setError}></InputName>
                   <InputEmail value={email} setValue={setEmail} isValidate={isValidate} setError={setError}></InputEmail>
-                  <InputPortfolio value={link} setValue={setLink} isValidate={isValidate} setError={setError}></InputPortfolio>
+                  <InputPortfolio value={portfolio} setValue={setPortfolio} isValidate={isValidate} setError={setError}></InputPortfolio>
                   <Textarea value={message} setValue={setMessage} isValidate={isValidate} setError={setError}></Textarea>
 
                   <Button

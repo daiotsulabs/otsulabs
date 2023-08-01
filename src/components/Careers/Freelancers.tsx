@@ -26,7 +26,7 @@ export default function Freelancers () {
             mt={isMobileScreen ? 54 : 0}
             borderLeftWidth={2}
             />
-          <Box flex='1' className='px-2 pb-8 pt-2 md:px-16 2xl:px-24 md:py-4'>
+          <Box flex='1' className='w-full px-2 pb-8 pt-2 md:px-16 2xl:px-24 md:py-4'>
             <Form></Form>
           </Box>
         </Flex>

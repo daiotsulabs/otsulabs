@@ -14,7 +14,7 @@ const InputPortfolio = ({ value, setValue, isValidate = false, setError }: { val
   useEffect(() => {
     setError((prevState: any) => ({
       ...prevState,
-      link: isError
+      portfolio: isError
   }));
   }, [isError, isValidate, setError])
 
@@ -30,6 +30,7 @@ const InputPortfolio = ({ value, setValue, isValidate = false, setError }: { val
           color={isError ? '#D98282' : '#727272'}
           border={`1px solid ${isError ? '#D98282' : '#B3B3B3'}`}
           type='value'
+          style={{ fontSize: isMobileScreen ? 14 : 16 }}
           value={value} onChange={handleInputChange}
           _placeholder={{ color: isError ? '#D98282' : 'inherit', fontSize: isMobileScreen ? 14 : 16 }}
           placeholder='Link to portfolio' />

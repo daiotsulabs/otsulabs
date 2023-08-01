@@ -11,7 +11,7 @@ import axios from 'axios'
 
 type FormType = {
   email?: string
-  link?: string
+  portfolio?: string
   position?: string
   message?: string
   name?: string
@@ -25,36 +25,38 @@ export default function Form ({ hidden = [], defaultValue }: { hidden?: string[]
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState({
     email: true,
-    link: true,
+    portfolio: true,
     position: true,
     message: true,
     name: true
   })
   const [name, setName] = useState('')
-  const [link, setLink] = useState('')
+  const [portfolio, setPortfolio] = useState('')
   const [message, setMessage] = useState('')
   const [isValidate, setIsValidate] = useState(false)
 
   useEffect(() => {
     defaultValue && setEmail(defaultValue.email || '')
-    defaultValue && setLink(defaultValue.link || '')
+    defaultValue && setPortfolio(defaultValue.portfolio || '')
     defaultValue && setPosition(defaultValue.position || '')
     defaultValue && setMessage(defaultValue.message || '')
     defaultValue && setName(defaultValue.name || '')
   }, [defaultValue])
 
   const onClickValidateForm = () => {
-    if (loading) return
+    // if (loading) return
     setIsValidate(true)
     const isValid = Object.values(error).every(e => !e)
-    if (!isValid || !isEmail(email) || !name || !isUrl(link) || !position || !message) return
+    console.log(error)
+    if (!isValid || !isEmail(email) || !name || !isUrl(portfolio) || !position || !message) return
     const url = 'https://api.oldeus.com/apply'
     const formData = new FormData()
     formData.append('name', name)
     formData.append('email', email)
-    formData.append('link', link)
+    formData.append('portfolio', portfolio)
     formData.append('position', position)
     formData.append('message', message)
+    console.log('fffff')
     setLoading(true)
     axios.post(url, formData, {
       headers: {
@@ -82,7 +84,7 @@ export default function Form ({ hidden = [], defaultValue }: { hidden?: string[]
         hidden.includes('position') ? <div></div> : <InputPosition value={position} setValue={setPosition} isValidate={isValidate} setError={setError}></InputPosition>
       }
       {
-        hidden.includes('link') ? <div></div> : <InputPortfolio value={link} setValue={setLink} isValidate={isValidate} setError={setError}></InputPortfolio>
+        hidden.includes('link') ? <div></div> : <InputPortfolio value={portfolio} setValue={setPortfolio} isValidate={isValidate} setError={setError}></InputPortfolio>
       }
       {
         hidden.includes('message') ? <div></div> : <Textarea value={message} setValue={setMessage} isValidate={isValidate} setError={setError}></Textarea>
