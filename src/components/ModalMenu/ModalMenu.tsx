@@ -71,18 +71,29 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
         >
           <Stack
             direction={isMobileScreen ? "column" : "row"}
-            gap={isMobileScreen ? 0 : 120}
             alignItems={isMobileScreen ? "flex-start" : "center"}
             px={25}
+            w={"100%"}
           >
-            <Stack direction="column" alignItems="flex-start" gap={isMobileScreen ? "32px" : "54px"}>
-              <MenuButton order={1} dark={showBg} onClick={() => onClickMenuButton('/about')}>ABOUT</MenuButton>
-              <MenuButton order={2} dark={showBg} onClick={() => onClickMenuButton('/careers')}>CAREERS</MenuButton>
-              <MenuButton order={3} dark={showBg} onClick={() => onClickMenuButton('/contact')}>CONTACT</MenuButton>
-              <MenuButton order={isMobileScreen ? 0 : 4} dark={showBg}>
-                <TwitterIcon fill={showBg ? "white" : "black"} />
-              </MenuButton>
-            </Stack>
+            <Box
+              w={isMobileScreen ? "auto" : "50%"}
+              pr={isMobileScreen ? 0 : 120}
+              display={isMobileScreen ? "unset" : "flex"}
+              justifyContent={isMobileScreen ? "unset" : "flex-end"}
+            >
+              <Stack
+                direction="column"
+                alignItems="flex-start"
+                gap={isMobileScreen ? "32px" : "54px"}
+              >
+                <MenuButton order={1} dark={showBg} onClick={() => onClickMenuButton('/about')}>ABOUT</MenuButton>
+                <MenuButton order={2} dark={showBg} onClick={() => onClickMenuButton('/careers')}>CAREERS</MenuButton>
+                <MenuButton order={3} dark={showBg} onClick={() => onClickMenuButton('/contact')}>CONTACT</MenuButton>
+                <MenuButton order={isMobileScreen ? 0 : 4} dark={showBg}>
+                  <TwitterIcon fill={showBg ? "white" : "black"} />
+                </MenuButton>
+              </Stack>
+            </Box>
             <Divider
               width="2px"
               borderColor={showBg ? "rgba(255,255,255,0.4)" : isMobileScreen ? "black" : "rgba(0,0,0,.4)"}
@@ -92,7 +103,15 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
               mt={isMobileScreen ? 54 : 0}
               borderLeftWidth={2}
             />
-            <Stack fontSize="sm" color={showBg ? "#ccc" : "black"} direction="column" maxW={377} gap={22} mt={isMobileScreen ? 2 : 0}>
+            <Stack
+              fontSize="sm"
+              color={showBg ? "#ccc" : "black"}
+              direction="column"
+              maxW={377}
+              gap={22}
+              mt={isMobileScreen ? 2 : 0}
+              pl={isMobileScreen ? 0 : 120}
+            >
               <Box
                 color={
                   showBg && isMobileScreen

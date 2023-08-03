@@ -24,6 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>Otsu</title>
+        <link rel="icon" href="/icons/favicon.svg" type='image/svg' sizes="any" />
       </head>
       <body>
         <Providers>
