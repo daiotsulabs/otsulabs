@@ -43,9 +43,10 @@ export default function JoinUs ({ join }: { join: any }) {
             width="2px"
             borderColor={isMobileScreen ? "black" : "rgba(0,0,0,.4)"}
             h={isMobileScreen ? 0 : 660}
-            w={isMobileScreen ? 245 : 0}
+            w={isMobileScreen ? '80%' : 0}
             orientation={isMobileScreen ? "horizontal" : "vertical"}
-            mt={isMobileScreen ? 54 : 0}
+            mt={isMobileScreen ? '32px' : 0}
+            mb={isMobileScreen ? '32px' : 0}
             borderLeftWidth={2}
           />
           <Center

@@ -115,8 +115,8 @@ export default function JobId() {
           className='w-full h-full'
           slidesPerView={1}
           direction='vertical'
-          mousewheel={isMobileScreen}
-          allowTouchMove={isMobileScreen}
+          mousewheel={false}
+          allowTouchMove={false}
           speed={1000}
           onSwiper={(swiper: any) => {
             swiperRef.current = swiper;
