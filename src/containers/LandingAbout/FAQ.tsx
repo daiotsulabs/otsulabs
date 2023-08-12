@@ -1,33 +1,36 @@
-import { Heading, Accordion, AccordionItem, AccordionButton, AccordionPanel, Box, Text } from "@chakra-ui/react";
+import { Heading, Accordion, AccordionItem, AccordionButton, AccordionPanel, Box, Text, useMediaQuery } from "@chakra-ui/react";
 import { faqs } from ".";
-import { ArrowDownCircleIcon, ArrowUpCircleIcon } from "@/components/icons";
+import { ArrowDownIcon } from "@/components/icons";
 
-export function Faq () {
+export function Faq() {
+  const [isMobileScreen] = useMediaQuery('(max-width: 768px)')
   return (
-    <Box width={'100%'} className="flex-1">
-      <Heading as='h2' className="text-[16px] md:text-[28px] 2xl:text-[32px] font-bold text-center md:text-left mb-[44px]" color={'#000000'}>FAQ</Heading>
+    <Box width={'100%'} className="flex-1" color={'#707070'}>
+      <Heading
+        as='h2'
+        className="text-[16px] md:text-[28px] 2xl:text-[32px] font-bold text-center md:text-left mb-[44px]"
+        color="#f5f5f5">
+        FAQ
+      </Heading>
       <Accordion allowToggle>
         {
           faqs.map((faq, index) => (
-            <AccordionItem key={index} borderTopWidth={index === 0 ? 0 : 1}>
+            <AccordionItem key={index} borderTopWidth={index === 0 ? 0 : "0.3px"} borderColor="#5a5a5a" pt={isMobileScreen && index > 0 ? "32px" : "0"}>
               {
                 ({ isExpanded }) => (
                   <>
                     <h2>
                       <AccordionButton
                         background={'transparent'}
-                        className="pb-[6px] md:pb-[16px] px-0"
-                        _hover={{
-                          background: '#ffffff'
-                        }}
+                        className="pb-[6px] md:pb-[16px] px-0 pr-3"
                       >
-                        <Box as="span" flex='1' textAlign='left'>
-                          <Text className="text-sm md:text-[16px] 2xl:text-[20px] font-bold">{faq.question}</Text>
+                        <Box as="span" flex='1' textAlign='left' mr={6}>
+                          <Text className="text-sm md:text-[16px] 2xl:text-[20px] font-bold" color="#f5f5f5">{faq.question}</Text>
                         </Box>
                         {isExpanded ? (
-                          <ArrowUpCircleIcon></ArrowUpCircleIcon>
+                          <ArrowDownIcon className="rotate-180" />
                         ) : (
-                          <ArrowDownCircleIcon></ArrowDownCircleIcon>
+                          <ArrowDownIcon />
                         )}
                       </AccordionButton>
                     </h2>
@@ -36,12 +39,11 @@ export function Faq () {
                         faq.answer.map((a, index) => (
                           <Text
                             key={index}
-                            className='text-[8px] md:text-xs 2xl:text-lg leading-[normal] mb-2'
-                            color={'#969696'}
+                            className='text-[10px] md:text-lg leading-[normal] mb-2'
                           >
                             {a}
                           </Text>
-                              ))
+                        ))
                       }
                     </AccordionPanel>
                   </>

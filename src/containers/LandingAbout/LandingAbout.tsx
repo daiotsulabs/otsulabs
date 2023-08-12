@@ -1,15 +1,15 @@
-import { Accordion, AccordionButton, Container, AccordionIcon, AccordionItem, AccordionPanel, Box, Center, Flex, Grid, GridItem, Heading, Text, Button, useMediaQuery } from "@chakra-ui/react"
+import { Container, Center, Flex, useMediaQuery } from "@chakra-ui/react"
 import { Contact, Faq } from "."
 
 function LandingAbout() {
   const [isMobileScreen] = useMediaQuery('(max-width: 768px)')
   return (
-    <Center className="w-full h-full mt-[72px] md:mt-0 bg-white relative items-start md:items-center">
-      <Container maxWidth={'1320px'} className="px-6 md:px-10 2xl:px-24 static md:absolute" top={!isMobileScreen ? '200px' : '0px'}>
+    <Center className="w-full h-full bg-black relative items-start md:items-center pt-[68px]">
+      <Container maxWidth={'1320px'} className="px-[53px] md:px-10 2xl:px-24 static md:absolute" top={!isMobileScreen ? '200px' : '0px'}>
         <Flex className='flex flex-col md:flex-row gap-x-4'>
-          <Faq></Faq>
+          <Faq />
           {
-            isMobileScreen ? <></> : <Contact></Contact>
+            !isMobileScreen && <Contact />
           }
         </Flex>
       </Container>

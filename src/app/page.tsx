@@ -3,7 +3,7 @@ import { Header, Layout, ModalMenu, StyledPagination } from '@/components'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useRef, useState } from 'react'
 import { LandingHome } from '@/containers/LandingHome'
-import { Contact, LandingAbout, LandingExperience, LandingProcess, LandingWork } from '@/containers'
+import { Contact, LandingAbout, LandingExperience, LandingProcess, LandingWorkV2 } from '@/containers'
 import { Center, useDisclosure, useMediaQuery } from '@chakra-ui/react'
 
 export default function Home() {
@@ -30,7 +30,6 @@ export default function Home() {
   return (
     <Layout>
       <Header toHome={false} onActiveSlideChange={onSlideActiveChange} onClickToggle={onToggle} dark={isDarkHeader} activeSlideIndex={currenIndex} />
-      <StyledPagination setActiveIndex={setActiveIndex} dark={isDarkHeader} activeIndex={currenIndex} total={isMobileScreen ? 6 : 5} />
       {isOpen && <ModalMenu showBg={currenIndex === 0} in={isOpen} onClickToggle={onToggle} />}
       <Swiper
         className='w-full h-full'
@@ -53,17 +52,14 @@ export default function Home() {
           <LandingExperience />
         </SwiperSlide>
         <SwiperSlide>
-          <LandingWork />
-        </SwiperSlide>
-        <SwiperSlide>
-          <LandingProcess />
+          <LandingWorkV2 />
         </SwiperSlide>
         <SwiperSlide>
           <LandingAbout />
         </SwiperSlide>
         {
           isMobileScreen && <SwiperSlide>
-            <Center className='h-full'>
+            <Center className='h-full bg-black'>
               <Contact className="w-4/5 px-12"></Contact>
             </Center>
           </SwiperSlide>
