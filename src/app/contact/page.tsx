@@ -1,7 +1,7 @@
 "use client"
 import { Header, Layout, ModalMenu } from '@/components'
 import { useState } from 'react'
-import { Box, Center, Flex, Divider, Text, useDisclosure, Heading, Container, Button, useMediaQuery } from '@chakra-ui/react'
+import { Box, Center, Text, useDisclosure, Container, Button, useMediaQuery } from '@chakra-ui/react'
 import { CheckCircleIcon } from '@/components/icons'
 import { InputLink } from '@/components/Input/InputLink'
 import { InputEmail } from '@/components/Input/InputEmail'
@@ -56,72 +56,59 @@ export default function Contact() {
   return (
     <Layout>
       <Header
-        menuItems={["contact"]}
+        menuItems={[]}
         onClickToggle={onToggle}
         dark={true}
         activeSlideIndex={1}
       />
       {isOpen && <ModalMenu in={isOpen} onClickToggle={onToggle} />}
-      <Center className='w-full h-full'>
-        <Container maxWidth={'1200'} className='h-full md:h-auto pt-14 md:pt-0'>
-          <Flex color='white' className='wrap-content flex-col md:flex-row'>
-            <Center
-              flex='1'
-              flexDirection={'column'}
-              alignItems={'flex-start'}
-              className='px-2 pt-8 pb-2 md:px-16 2xl:px-24 md:py-4'>
-              <Heading
-                className='text-base mb-2 md:text-[28px] 2xl:text-5xl md:mb-[36px] md:mb-16 leading-[normal] uppercase'
-                as={'h2'}
-                color={'#000'}>CONTACT</Heading>
-              <Text className='text-xs md:text-base 2xl:text-xl leading-[normal]' color={'#727272'}>Got an idea? Reach out to us and let&apos;s get started. From concept to creation, we&apos;re here to guide you.</Text>
-            </Center>
-            <Divider
-              width="2px"
-              className='hidden md:block'
-              borderColor={isMobileScreen ? "black" : "rgba(0,0,0,.4)"}
-              h={isMobileScreen ? 0 : 660}
-              w={isMobileScreen ? 245 : 0}
-              orientation={isMobileScreen ? "horizontal" : "vertical"}
-              mt={isMobileScreen ? 54 : 0}
-              borderLeftWidth={2}
-            />
-            <Box flex='1' className='px-2 pb-8 pt-2 md:px-16 2xl:px-24 md:py-4'>
-              <InputName value={name} setValue={setName} isValidate={isValidate} placeholder='Your name' setError={setError}></InputName>
-              <InputEmail value={email} setValue={setEmail} isValidate={isValidate} setError={setError}></InputEmail>
-              <InputLink value={link} setValue={setLink} isValidate={isValidate} setError={setError}></InputLink>
-              <Textarea value={message} setValue={setMessage} isValidate={isValidate} setError={setError}></Textarea>
-              <Button
-                style={{ background: '#000000', color: '#ffffff' }}
-                colorScheme='blackAlpha'
-                className='w-full'
-                size={isMobileScreen ? 'md' : 'lg'}
-                borderRadius={isMobileScreen ? 10 : 20}
-                fontSize={16}
-                fontWeight={400}
-                lineHeight={'normal'}
-                isLoading={loading}
-                loadingText='Sending'
-                variant='outline'
-                spinnerPlacement='end'
-                onClick={onClickValidateForm}
-              >
-                Send
-                {
-                  isSubmitted && <>
-                    <span className='ml-1'></span>
-                    <CheckCircleIcon width={18} height={18} color='#ffffff'></CheckCircleIcon>
-                  </>
-                }
-              </Button>
+      <Center className='w-full h-full bg-black'>
+        <Container maxWidth={540} className='h-full px-6 md:px-auto md:h-auto pt-20 md:pt-0'>
+          <Box className='text-md md:text-[28px] text-[#f5f5f5] font-bold uppercase' textAlign={isMobileScreen ? "left" : "center"} letterSpacing={4}>Contact</Box>
+          {isMobileScreen && <Box
+            color="#707070"
+            className='text-xs'
+            maxWidth={284}
+            mb={8}
+          >Got an idea? Reach out to us and let&apos;s get started. From concept to creation, we&apos;re here to guide you.</Box>}
+          <Box flex='1' className='pb-8'>
+            <InputName value={name} setValue={setName} isValidate={isValidate} placeholder='Your name' setError={setError}></InputName>
+            <InputEmail value={email} setValue={setEmail} isValidate={isValidate} setError={setError}></InputEmail>
+            <InputLink value={link} setValue={setLink} isValidate={isValidate} setError={setError}></InputLink>
+            <Textarea value={message} setValue={setMessage} isValidate={isValidate} setError={setError}></Textarea>
+            <Button
+              style={{ background: '#000000', color: '#f5f5f5' }}
+              colorScheme='blackAlpha'
+              className='w-full'
+              size={isMobileScreen ? 'md' : 'lg'}
+              borderRadius={isMobileScreen ? 10 : 20}
+              fontSize={16}
+              fontWeight={400}
+              lineHeight={'normal'}
+              isLoading={loading}
+              loadingText='Sending'
+              variant='outline'
+              spinnerPlacement='end'
+              onClick={onClickValidateForm}
+              borderWidth={0.5}
+              borderColor='#5f5f5'
+              h={isMobileScreen ? "44px" : "66px"}
+            >
+              Send
               {
-                isSubmitted &&
-                <Text className='leading-[normal]' fontSize={isMobileScreen ? 10 : 16} marginTop={isMobileScreen ? '6px' : '10px'} color={'#727272'} fontWeight={400}>
-                  Thanks for getting in touch! Your message is delivered and we will do our best to reply to you soon.
-                </Text>
+                isSubmitted && <>
+                  <span className='ml-1'></span>
+                  <CheckCircleIcon width={18} height={18} color='#ffffff'></CheckCircleIcon>
+                </>
               }
-            </Box>
-          </Flex>
+            </Button>
+            {
+              isSubmitted &&
+              <Text className='leading-[normal]' fontSize={isMobileScreen ? 10 : 16} marginTop={isMobileScreen ? '6px' : '10px'} color={'#727272'} fontWeight={400}>
+                Thanks for getting in touch! Your message is delivered and we will do our best to reply to you soon.
+              </Text>
+            }
+          </Box>
         </Container>
       </Center>
     </Layout>

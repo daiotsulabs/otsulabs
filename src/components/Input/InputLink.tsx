@@ -16,25 +16,28 @@ const InputLink = ({ value, setValue, isValidate = false, setError }: { value: s
     setError((prevState: any) => ({
       ...prevState,
       link: isError
-  }));
+    }));
   }, [isError, setError])
 
   return (
     <FormControl isInvalid={isError}>
       <InputGroup marginY={'20px'}>
-        <InputLeftElement pointerEvents='none' marginTop={isMobileScreen ? '0px' : '4px'}>
-          <LinkIcon width={isMobileScreen ? 18 : 24} height={isMobileScreen ? 18 : 24} color={ isError ? '#D98282' : '#A0A0A0' } />
+        <InputLeftElement h={"100%"} pointerEvents='none' marginLeft={"24px"} width={isMobileScreen ? "18px" : "24px"}>
+          <LinkIcon width={isMobileScreen ? 18 : 24} height={isMobileScreen ? 18 : 24} color={isError ? '#D98282' : '#A0A0A0'} />
         </InputLeftElement>
         <Input
+          height={isMobileScreen ? "44px" : "66px"}
           borderRadius={isMobileScreen ? 10 : 20}
           size={isMobileScreen ? 'md' : 'lg'}
           color={isError ? '#D98282' : '#727272'}
-          border={`1px solid ${isError ? '#D98282' : '#B3B3B3'}`}
+          bgColor="#151515"
+          border={`0.5px solid ${isError ? '#D98282' : 'transparent'}`}
           type='value'
           value={value} onChange={handleInputChange}
           style={{ fontSize: isMobileScreen ? 14 : 16 }}
           _placeholder={{ color: isError ? '#D98282' : 'inherit', fontSize: isMobileScreen ? 14 : 16 }}
-          placeholder='Link (optional)' />
+          placeholder='Link (optional)'
+          paddingLeft="64px" />
       </InputGroup>
     </FormControl>
   )

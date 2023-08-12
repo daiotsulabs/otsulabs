@@ -3,15 +3,13 @@ import { Header, Layout, ModalMenu } from '@/components'
 import Freelancers from '@/components/Careers/Freelancers'
 import CopyRight from '@/components/CopyRight'
 import JoinUs from '@/components/Careers/JoinUs'
-import { useDisclosure, Text } from '@chakra-ui/react'
-import { useEffect, useState } from 'react'
+import { useDisclosure } from '@chakra-ui/react'
+import { useState } from 'react'
 
 export default function Careers() {
   const { isOpen, onToggle } = useDisclosure()
-  // const router = useRouter()
   const [tab, setTab] = useState('join-us')
   const [activeSlice, setActiveSlide] = useState(0)
-  const tabs = ["join us", "freelancers"]
   const join = () => {
     setActiveSlide(2)
     setTab('freelancers')
@@ -21,14 +19,10 @@ export default function Careers() {
     setActiveSlide(index)
   }
 
-  // useEffect(() => {
-  //   setTab(router.query.tab as string || 'join-us')
-  // }, [router.query])
-
   return (
     <Layout>
       <Header
-        menuItems={tabs}
+        menuItems={[]}
         onClickToggle={onToggle}
         dark={true}
         activeSlideIndex={activeSlice}

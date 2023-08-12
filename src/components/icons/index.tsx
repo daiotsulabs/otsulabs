@@ -2,19 +2,20 @@ type IconProps = {
   fill?: string;
   width?: number;
   height?: number;
+  className?: string;
 }
 
-export const TwitterIcon = ({ fill = "white" }: any) => {
+export const TwitterIcon = ({ width = 47, height = 44, fill = "white", opacity = 1 }: any) => {
   return (
-    <svg width="47" height="44" viewBox="0 0 47 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0.114366 0L18.2605 24.2685L0 44H4.11003L20.0975 26.7244L33.0144 44H47L27.8325 18.3667L44.8294 0H40.7194L25.9963 15.91L14.1 0H0.114366ZM6.15835 3.02785H12.5833L40.9552 40.9722H34.5303L6.15835 3.02785Z" fill={fill} />
+    <svg width={width} height={height} viewBox="0 0 47 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0.114366 0L18.2605 24.2685L0 44H4.11003L20.0975 26.7244L33.0144 44H47L27.8325 18.3667L44.8294 0H40.7194L25.9963 15.91L14.1 0H0.114366ZM6.15835 3.02785H12.5833L40.9552 40.9722H34.5303L6.15835 3.02785Z" fill={fill} opacity={opacity} />
     </svg>
   )
 }
 
-export const CancelIcon = ({ fill = "white", width = 26, height = 20 }: IconProps) => {
+export const CancelIcon = ({ fill = "white", width = 26, height = 20, className }: IconProps) => {
   return (
-    <svg width={width} height={height} viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={width} height={height} className={className} viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path fillRule="evenodd" clipRule="evenodd"
         d="M4.96172 18.9839C4.40469 18.4259 4.40528 17.5215 4.96304 16.9637L20.6167 1.31008C21.1744 0.752326 22.0782 0.752482 22.6352 1.31044C23.1922 1.86839 23.1916 2.77285 22.6339 3.33061L6.98023 18.9842C6.42247 19.542 5.51876 19.5418 4.96172 18.9839Z"
         fill={fill} />
@@ -25,9 +26,9 @@ export const CancelIcon = ({ fill = "white", width = 26, height = 20 }: IconProp
   )
 }
 
-export const MenuIcon = ({ fill = "white", width = 27, height = 20 }: IconProps) => {
+export const MenuIcon = ({ fill = "white", width = 27, className, height = 20 }: IconProps) => {
   return (
-    <svg width={width} height={height} viewBox="0 0 27 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={width} height={height} viewBox="0 0 27 20" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
       <path fillRule="evenodd" clipRule="evenodd"
         d="M1 1.5C1 0.671573 1.66518 0 2.48571 0H25.5143C26.3348 0 27 0.671573 27 1.5C27 2.32843 26.3348 3 25.5143 3H2.48571C1.66518 3 1 2.32843 1 1.5Z"
         fill={fill} />
@@ -128,6 +129,14 @@ export const SingleLogo = ({ fill = "white", width = 21, height = 21 }: IconProp
       <path d="M13.7192 15.9559L13.6094 15.9762C13.6094 15.9473 13.6296 15.9155 13.6383 15.9126C13.6657 15.9159 13.6928 15.9217 13.7192 15.9299V15.9559Z" fill={fill} />
       <path d="M13.1406 15.9158L13.2476 15.8464C13.2476 15.9302 13.2302 15.9389 13.1406 15.9158Z" fill={fill} />
       <path d="M5.46674 5.84343C5.41473 5.90699 5.3656 5.97345 5.31069 6.03701C5.31069 6.03701 5.27023 6.03701 5.25 6.03701V6.01679L5.45229 5.82031L5.46674 5.84343Z" fill={fill} />
+    </svg>
+  )
+}
+
+export const ArrowDownIcon = ({ fill = "#f5f5f5", className = "" }: IconProps) => {
+  return (
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" width="10" height="7" viewBox="0 0 10 7" fill="none">
+      <path d="M1 1.5L5 5.5L9 1.5" stroke={fill} stroke-linecap="square" />
     </svg>
   )
 }

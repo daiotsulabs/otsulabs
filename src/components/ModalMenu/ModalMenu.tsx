@@ -1,4 +1,4 @@
-import { Box, Button, Divider, ButtonProps, Slide, SlideProps, Stack, Text, useMediaQuery, SlideFade } from "@chakra-ui/react"
+import { Box, Button, ButtonProps, SlideProps, Stack, Text, useMediaQuery, SlideFade } from "@chakra-ui/react"
 import { Header } from "../Header";
 import { TwitterIcon } from "../icons";
 import { useRouter } from "next/navigation";
@@ -28,7 +28,7 @@ const MenuButton = ({ children, dark, ...props }: MenuButtonProps) => {
       fontSize={isMobileScreen ? "2xl" : "5xl"}
       cursor="pointer"
       h={isMobileScreen ? "unset" : "60px"}
-      letterSpacing={4}
+      letterSpacing={10}
       {...props}
     >
       {children}
@@ -66,92 +66,73 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
         />
         <Box
           className={`w-full h-full flex items-center ${isMobileScreen ? "flex-start" : "justify-center"}`}
-          background={showBg ? "rgba(0, 0, 0, 0.60)" : "white"}
+          padding={isMobileScreen ? "0 44px" : "0"}
+          background={showBg ? "rgba(0, 0, 0, 0.60)" : "black"}
           backdropFilter="blur(15px)"
         >
           <Stack
             direction={isMobileScreen ? "column" : "row"}
             alignItems={isMobileScreen ? "flex-start" : "center"}
-            px={25}
+            justifyContent="center"
+            gap={isMobileScreen ? 45 : 440}
             w={"100%"}
           >
             <Box
-              w={isMobileScreen ? "auto" : "50%"}
-              pr={isMobileScreen ? 0 : 120}
               display={isMobileScreen ? "unset" : "flex"}
               justifyContent={isMobileScreen ? "unset" : "flex-end"}
             >
               <Stack
                 direction="column"
                 alignItems="flex-start"
-                gap={isMobileScreen ? "32px" : "54px"}
+                gap={isMobileScreen ? "32px" : "30px"}
               >
-                <MenuButton order={1} dark={showBg} onClick={() => onClickMenuButton('/about')}>ABOUT</MenuButton>
-                <MenuButton order={2} dark={showBg} onClick={() => onClickMenuButton('/careers')}>CAREERS</MenuButton>
-                <MenuButton order={3} dark={showBg} onClick={() => onClickMenuButton('/contact')}>CONTACT</MenuButton>
-                <MenuButton order={isMobileScreen ? 0 : 4} dark={showBg}>
-                  <TwitterIcon fill={showBg ? "white" : "black"} />
+                <MenuButton dark={true} onClick={() => onClickMenuButton('/about')}>ABOUT</MenuButton>
+                <MenuButton dark={true} onClick={() => onClickMenuButton('/careers')}>CAREERS</MenuButton>
+                <MenuButton dark={true} onClick={() => onClickMenuButton('/contact')}>CONTACT</MenuButton>
+                <MenuButton dark={true}>
+                  <TwitterIcon opacity={.4} fill={"#f5f5f5"} width={34} height={32} />
                 </MenuButton>
               </Stack>
             </Box>
-            <Divider
-              width="2px"
-              borderColor={showBg ? "rgba(255,255,255,0.4)" : isMobileScreen ? "black" : "rgba(0,0,0,.4)"}
-              h={isMobileScreen ? 0 : 660}
-              w={isMobileScreen ? 245 : 0}
-              orientation={isMobileScreen ? "horizontal" : "vertical"}
-              mt={isMobileScreen ? 54 : 0}
-              borderLeftWidth={2}
-            />
             <Stack
               fontSize="sm"
-              color={showBg ? "#ccc" : "black"}
+              color={"#707070"}
               direction="column"
               maxW={377}
-              gap={22}
-              mt={isMobileScreen ? 2 : 0}
-              pl={isMobileScreen ? 0 : 120}
+              gap={isMobileScreen ? 6 : "36px"}
             >
-              <Box
-                color={
-                  showBg && isMobileScreen
-                    ? "rgba(255,255,255,0.6)"
-                    : showBg
-                      ? "white"
-                      : isMobileScreen
-                        ? "rgba(0,0,0,0.6)"
-                        : "black"
-                }
-                fontSize={isMobileScreen ? "xs" : "xl"}
-                maxW={isMobileScreen ? 244 : "100%"}
-              >
-                Animators, artists, storytellers, content creators, and just weebs.
+              <Box>
+                <Text
+                  fontWeight="bold"
+                  color="#f7f7f7"
+                  textTransform="uppercase"
+                  fontSize={"xs"}
+                  mb={isMobileScreen ? 0 : 15}>
+                  Based in
+                </Text>
+                <Text w={136} fontSize={isMobileScreen ? "xs" : "sm"}>Saigon, Vietnam Seoul, South Korea</Text>
               </Box>
               <Box>
-                <Text fontWeight="bold" fontSize={isMobileScreen ? "2xl" : "sm"}>Locations</Text>
-                <Text w={136} fontSize={isMobileScreen ? "xs" : "sm"}>Ho Chi Minh, Vietnam Seoul, South Korea</Text>
-              </Box>
-              <Box>
-                {isMobileScreen
-                  ? <Text fontSize="8px">© 2023 Otsu Labs Inc. All Rights Reserved.</Text>
-                  : <>
-                    <Text fontWeight="bold">Contact</Text>
-                    <Text>hello@otsulabs.com</Text>
-                  </>
-                }
+                <Text
+                  fontWeight="bold"
+                  color="#f7f7f7"
+                  textTransform="uppercase"
+                  fontSize={"xs"}
+                  mb={isMobileScreen ? 0 : 15}>Get in touch</Text>
+                <Text fontSize={isMobileScreen ? "xs" : "sm"}>hello@otsulabs.com</Text>
               </Box>
             </Stack>
           </Stack>
         </Box>
-        {!isMobileScreen && <Box
+        <Box
           className="absolute"
           bottom={25}
           fontSize="xs"
           left="50%"
           transform="translateX(-50%)"
-          color={showBg ? "#ccc" : "black"}>
-          © 2023 Otsu Labs Inc. All Rights Reserved.
-        </Box>}
+          color={"#707070"}>
+          © Otsu Labs 2023
+        </Box>
       </Box>
     </SlideFade>
   )

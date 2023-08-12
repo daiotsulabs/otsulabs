@@ -1,5 +1,5 @@
 "use client"
-import { Header, Layout, ModalMenu, StyledPagination } from '@/components'
+import { Header, Layout, ModalMenu } from '@/components'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useEffect, useRef, useState } from 'react'
 import { jobs } from '@/components/Careers'
@@ -19,7 +19,6 @@ import axios from 'axios'
 export default function JobId() {
   const { isOpen, onToggle } = useDisclosure()
   const swiperRef = useRef()
-  const [tab, setTab] = useState('join us')
   const path = usePathname()
   const router = useRouter()
   const [activeSlice, setActiveSlide] = useState(1)
@@ -103,7 +102,7 @@ export default function JobId() {
   return (
     <Layout>
       <Header
-        menuItems={tabs}
+        menuItems={[]}
         onClickToggle={onToggle}
         activeSlideIndex={1}
         onActiveSlideChange={onSlideActiveChange}
@@ -112,7 +111,7 @@ export default function JobId() {
       {isOpen && <ModalMenu in={isOpen} onClickToggle={onToggle} />}
       {
         job ? <Swiper
-          className='w-full h-full'
+          className='w-full h-full bg-black'
           slidesPerView={1}
           direction='vertical'
           mousewheel={false}
@@ -123,19 +122,20 @@ export default function JobId() {
           }}
           onSlideChange={handleSlideChange}>
           <SwiperSlide>
-            <Container maxWidth={'992'} className='h-full flex items-start md:items-center'>
+            <Container maxWidth={'992'} className='h-full flex items-start md:items-center' color='#707070'>
               <Center
                 flex='1'
                 flexDirection={'column'}
                 alignItems={'flex-start'}
                 className='px-2 pt-20 md:pt-8 pb-2 md:px-20 md:py-4 gap-y-1'>
-                <Box onClick={goBack}>
-                  <ArrowLeftIcon className="cursor-pointer"></ArrowLeftIcon>
+                <Box onClick={goBack} className='uppercase underline text-xs' color="#f5f5f5" opacity={0.4} letterSpacing={1.2}>
+                  Back to careers
                 </Box>
                 <Heading
-                  className='mt-2 text-base md:text-[28px] 2xl:text-5xl uppercase leading-[normal] text-left md:text-center'
+                  className='mt-2 text-base md:text-[28px] uppercase leading-[normal] text-left md:text-center mb-[18px]'
                   as={'h2'}
-                  color={'#000'}>
+                  color={'#f5f5f5'}
+                  letterSpacing={4}>
                   {job?.name}
                 </Heading>
                 <Text className='text-[8px] md:text-xs uppercase tracking-[0.6px] leading-[normal] mb-6 md:mb-8' color={'#CCC'}>{job?.time}</Text>
@@ -145,12 +145,12 @@ export default function JobId() {
                       <Heading
                         className='text-xs mb-0 md:mb-2 md:text-base 2xl:text-[28px] 2xl:text-lg uppercase leading-[normal]'
                         as={'h4'}
-                        color={'#727272'}>Responsibilities:</Heading>
+                        color={'#f5f5f5'}>Responsibilities:</Heading>
                       <ul className='list-disc pl-6'>
                         {
                           job?.responsibilities.map((r, index) => (
                             <li key={index}>
-                              <Text className='text-[10px] md:text-sm 2xl:text-base leading-[normal]' color={'#727272'}>{r}</Text>
+                              <Text className='text-[10px] md:text-sm 2xl:text-base leading-[normal]'>{r}</Text>
                             </li>
                           ))
                         }
@@ -160,12 +160,12 @@ export default function JobId() {
                       <Heading
                         className='text-xs mb-0 md:mb-2 md:text-base 2xl:text-[28px] 2xl:text-lg uppercase leading-[normal]'
                         as={'h4'}
-                        color={'#727272'}>Qualifications:</Heading>
+                        color={'#f5f5f5'}>Qualifications:</Heading>
                       <ul className='list-disc pl-6'>
                         {
                           job?.qualifications.map((r, index) => (
                             <li key={index}>
-                              <Text className='text-[10px] md:text-sm 2xl:text-base leading-[normal]' color={'#727272'}>{r}</Text>
+                              <Text className='text-[10px] md:text-sm 2xl:text-base leading-[normal]'>{r}</Text>
                             </li>
                           ))
                         }
@@ -181,12 +181,12 @@ export default function JobId() {
                       <Heading
                         className='text-xs mb-0 md:mb-2 md:text-base 2xl:text-[28px] 2xl:text-lg uppercase leading-[normal]'
                         as={'h4'}
-                        color={'#727272'}>We offer:</Heading>
+                        color={'#f5f5f5'}>We offer:</Heading>
                       <ul className='list-disc pl-6'>
                         {
                           job?.qualifications.map((r, index) => (
                             <li key={index}>
-                              <Text className='text-[10px] md:text-sm 2xl:text-base leading-[normal]' color={'#727272'}>{r}</Text>
+                              <Text className='text-[10px] md:text-sm 2xl:text-base leading-[normal]'>{r}</Text>
                             </li>
                           ))
                         }
@@ -196,10 +196,10 @@ export default function JobId() {
                 </Box>
                 <Center className='w-full mt-[16px] md:mt-[36px]'>
                   <Button
-                    style={{ borderColor: '#000000', color: '#000000' }}
+                    style={{ borderColor: '#f5f5f5', color: '#f5f5f5' }}
                     colorScheme='blackAlpha'
                     size={'md'}
-                    className='py-2 md:py-2 px-4 md:px-8 2xl:px-11 rounded-[10px] md:rounded-[16px] md:flex justify-center min-w-[100px]'
+                    className='py-2 md:py-2 px-4 md:px-8 2xl:px-11 rounded-full md:flex justify-center min-w-[100px]'
                     fontSize={16}
                     fontWeight={400}
                     lineHeight={'normal'}
@@ -217,6 +217,7 @@ export default function JobId() {
                       background: '#000000',
                       color: '#ffffff!important'
                     }}
+                    height={"44px"}
                   >
                     Apply
                   </Button>
@@ -225,7 +226,7 @@ export default function JobId() {
             </Container>
           </SwiperSlide>
           <SwiperSlide>
-            <Container maxWidth={'992'} className='h-full flex items-start md:items-center'>
+            <Container maxWidth={'992'} className='h-full flex items-start md:items-center' color='#707070'>
               <Center
                 flex='1'
                 flexDirection={'column'}
@@ -240,7 +241,7 @@ export default function JobId() {
                   color={'#000'}>
                   {job?.name}
                 </Heading>
-                <Text className='text-[8px] md:text-xs uppercase tracking-[0.6px] leading-[normal] mb-6 md:mb-8 block md:hidden' color={'#CCC'}>{job?.time}</Text>
+                <Text className='text-[8px] md:text-xs uppercase tracking-[0.6px] leading-[normal] mb-6 md:mb-8 block md:hidden'>{job?.time}</Text>
                 <Box maxWidth={'492px'} width={'100%'} className='mx-auto'>
                   {/* <Form hidden={['position']} defaultValue={{ position: job?.name }}></Form> */}
                   <InputName value={name} setValue={setName} isValidate={isValidate} placeholder='Your name' setError={setError}></InputName>
@@ -249,8 +250,7 @@ export default function JobId() {
                   <Textarea value={message} setValue={setMessage} isValidate={isValidate} setError={setError}></Textarea>
 
                   <Button
-                    style={{ background: '#000000', color: '#ffffff' }}
-                    colorScheme='blackAlpha'
+                    style={{ color: '#f5f5f5' }}
                     className='w-full'
                     size={isMobileScreen ? 'md' : 'lg'}
                     borderRadius={isMobileScreen ? 10 : 20}
@@ -262,6 +262,7 @@ export default function JobId() {
                     variant='outline'
                     spinnerPlacement='end'
                     onClick={onClickValidateForm}
+                    color="#f5f5f5"
                   >
                     Apply
                     {
@@ -273,7 +274,7 @@ export default function JobId() {
                   </Button>
                   {
                     isSubmitted &&
-                    <Text fontSize={isMobileScreen ? 10 : 16} marginTop={isMobileScreen ? '6px' : '10px'} color={'#727272'} fontWeight={400}>
+                    <Text fontSize={isMobileScreen ? 10 : 16} marginTop={isMobileScreen ? '6px' : '10px'} fontWeight={400}>
                       Thanks for getting in touch! Your message is delivered and we will do our best to reply to you soon.
                     </Text>
                   }

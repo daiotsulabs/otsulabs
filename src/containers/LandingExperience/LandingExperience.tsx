@@ -1,36 +1,46 @@
-import { Box, Grid, GridItem, useMediaQuery } from "@chakra-ui/react"
-import Image from "next/image"
+import { Box, useMediaQuery } from "@chakra-ui/react"
 
 function LandingExperience() {
-  const [isMobileScreen] = useMediaQuery("(max-width: 480px)")
-  const [isMediumScreen] = useMediaQuery("(max-width: 1441px)")
+  const [isMobileScreen] = useMediaQuery('(max-width: 768px)')
+
   return (
-    <Box className="w-full h-full bg-white relative" >
-      <Grid
-        columnGap="60px"
-        rowGap="32px"
-        templateRows={isMobileScreen ? "repeat(4, 1fr)" : "repeat(3, 1fr)"}
-        templateColumns={isMobileScreen ? "repeat(2, 1fr)" : "repeat(3, 1fr)"}
-        width={isMobileScreen ? "280px" : isMediumScreen ? "602px" : "904px"}
-        height={isMobileScreen ? "208px" : isMediumScreen ? "224px" : "302px"}
-        className="absolute"
-        top="50%"
-        left="50%"
-        transform="translate(-50%, -50%)">
-        <GridItem
-          colSpan={isMobileScreen ? 2 : 3}
-          fontSize={isMobileScreen ? "md" : isMediumScreen ? "28px" : "32px"}
-          letterSpacing={isMediumScreen ? "1.12px" : "3.2px"}
-          className="uppercase text-black font-bold"
-          textAlign="center">
-          Previously worked with
-        </GridItem>
-        {[...new Array(6)].map((_, index) => (
-          <GridItem key={index} colSpan={1}>
-            <Image src="/images/google.png" alt="1" width={isMediumScreen ? 160 : 232} height={isMediumScreen ? 54 : 78} />
-          </GridItem>
-        ))}
-      </Grid>
+    <Box
+      className="w-full h-full bg-black flex items-center justify-center"
+      color={"#707070"}
+      fontSize="lg"
+      pl={"53px"}
+      pr={"56px"}
+    >
+      <Box display="flex" flexDirection={isMobileScreen ? "column" : "row"} alignItems="flex-start" gap={isMobileScreen ? "44px" : "95px"}>
+        <Box maxW={478}>
+          <Box textTransform="uppercase"
+            fontSize="xs"
+            fontWeight="bold"
+            color="#f5f5f5"
+            letterSpacing={1.2}
+            mb={"14px"}>previously</Box>
+          <Box mb="24px" fontSize={isMobileScreen ? "10px" : "sm"}>
+            For the past 8 years, before joining OtsuLabs, our team members have been making anime series, that are loved by millions of fans worldwide.
+          </Box>
+          <Box fontSize={isMobileScreen ? "10px" : "sm"}>
+            Some of their notable works include <span className="text-[#f5f5f5]">Vinland Saga, Re:Zero, Bleach, Demon Slayer, Attack on Titan, Rent a Girlfriend,</span> and many more. But, after years of individual success, they united their talents. That&apos;s how OtsuLabs was born.
+          </Box>
+        </Box>
+        <Box maxW={408}>
+          <Box textTransform="uppercase"
+            fontSize="xs"
+            fontWeight="bold"
+            color="#f5f5f5"
+            letterSpacing={1.2}
+            mb={"14px"}>now</Box>
+          <Box mb="24px" fontSize={isMobileScreen ? "10px" : "sm"}>
+            We help brands capture attention by creating scroll-stopping animations that make people feel.
+          </Box>
+          <Box fontSize={isMobileScreen ? "10px" : "sm"}>
+            Whether it&apos;s crafting <span className="text-[#f5f5f5]">short films, commercials, animated series, or immersive experiences,</span> we embrace every opportunity to challenge our creative minds.
+          </Box>
+        </Box>
+      </Box>
     </Box>
   )
 }

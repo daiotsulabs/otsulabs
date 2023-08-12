@@ -18,7 +18,7 @@ function Header({
   showMenuItem = true,
   isCancelIcon,
   onClickToggle,
-  menuItems = ["experience", "work", "process", "faq"],
+  menuItems = ["home", "experience", "work", "faq"],
   onActiveSlideChange,
   toHome = true
 }: HeaderProps) {
@@ -27,47 +27,58 @@ function Header({
   const [isMediumScreen] = useMediaQuery('(max-width: 1441px)')
   return (
     <header className={`fixed inset-x-0 ${isMobileScreen ? "pl-6 pr-[18px] top-[16px]" : "px-11 top-[18px]"} z-[2]`}>
-      <Stack justifyContent="space-between" direction="row" alignItems="center">
-        <Stack direction="row" gap="54px" alignItems="center" className={isMobileScreen ? "unset" : isMediumScreen ? "h-[36px]" : "h-[42px]"}>
-          <Box cursor="pointer" onClick={() => toHome ? router.push("/") : onActiveSlideChange?.(0)}>
-            <SingleLogo width={isMediumScreen ? 21 : 32} height={isMediumScreen ? 21 : 32} fill={dark ? "black" : "white"} />
-          </Box>
-          <Stack direction="row" gap={8}>
-            {showMenuItem && !isMobileScreen && menuItems.map((item, index) => (
-              <Button
-                key={index}
-                variant="link"
-                className="uppercase text-md"
-                color={dark ? "black" : "white"}
-                opacity={0.4}
-                letterSpacing={isMediumScreen ? "1.2px" : "1.6px"}
-                fontSize={isMediumScreen ? "xs" : "md"}
-                isActive={activeSlideIndex === (index + 1)}
-                fontWeight={400}
-                _active={{
-                  opacity: 1,
-                  textDecoration: "underline",
-                }}
-                onClick={() => {
-                  const active = index + 1
-                  onActiveSlideChange && onActiveSlideChange(active)
-                }}
-              >
-                {item}
-              </Button>
-            ))}
-          </Stack>
+      <Stack direction="row" alignItems="center" justifyContent="space-between" className={isMobileScreen ? "unset" : isMediumScreen ? "h-[36px]" : "h-[42px]"}>
+        <Box cursor="pointer" onClick={() => toHome ? router.push("/") : onActiveSlideChange?.(0)} w={50}>
+          <SingleLogo width={isMediumScreen ? 21 : 32} height={isMediumScreen ? 21 : 32} fill={"white"} />
+        </Box>
+        <Stack direction="row" gap={8}>
+          {showMenuItem && !isMobileScreen && menuItems.map((item, index) => (
+            <Button
+              key={index}
+              variant="link"
+              className="uppercase text-md"
+              color={"white"}
+              opacity={0.4}
+              letterSpacing={isMediumScreen ? "1.2px" : "1.6px"}
+              fontSize={isMediumScreen ? "xs" : "md"}
+              isActive={activeSlideIndex === index}
+              fontWeight={400}
+              _active={{
+                opacity: 1,
+              }}
+              onClick={() => {
+                const active = index
+                onActiveSlideChange && onActiveSlideChange(active)
+              }}
+            >
+              {item}
+            </Button>
+          ))}
         </Stack>
-        <Button cursor="pointer" onClick={onClickToggle} p={0} variant="unstyled" sx={{ minW: 0 }} >
+        <Button
+          cursor="pointer"
+          onClick={onClickToggle}
+          p={0}
+          fontSize={isMediumScreen ? "xs" : "md"}
+          variant="unstyled"
+          sx={{ minW: 0 }}
+          color="#f5f5f5"
+          w={50}
+          textAlign={isMobileScreen ? "right" : "center"}
+        >
           {
-            isCancelIcon
-              ? <CancelIcon fill={dark ? "black" : "white"} />
-              : <MenuIcon
-                width={isMobileScreen ? 20 : undefined}
-                height={isMobileScreen ? 12 : undefined}
-                fill={dark ? "black" : "white"}
-              />
+            isCancelIcon && isMobileScreen
+              ? <CancelIcon className="ml-auto" fill={"white"} />
+              : isMobileScreen
+                ? <MenuIcon
+                  className="ml-auto"
+                  width={20}
+                  height={12}
+                  fill={"white"}
+                />
+                : null
           }
+          {isCancelIcon && !isMobileScreen ? "CLOSE" : !isMobileScreen ? "MENU" : null}
         </Button>
       </Stack>
     </header>
