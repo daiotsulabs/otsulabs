@@ -77,8 +77,8 @@ export default function Contact() {
             <InputLink value={link} setValue={setLink} isValidate={isValidate} setError={setError}></InputLink>
             <Textarea value={message} setValue={setMessage} isValidate={isValidate} setError={setError}></Textarea>
             <Button
-              style={{ background: '#000000', color: '#f5f5f5' }}
-              colorScheme='blackAlpha'
+              style={{ background: '#ffffff', color: '#000000' }}
+              colorScheme='whiteAlpha'
               className='w-full'
               size={isMobileScreen ? 'md' : 'lg'}
               borderRadius={isMobileScreen ? 10 : 20}

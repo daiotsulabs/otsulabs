@@ -128,7 +128,7 @@ export default function JobId() {
                 flexDirection={'column'}
                 alignItems={'flex-start'}
                 className='px-2 pt-20 md:pt-8 pb-2 md:px-20 md:py-4 gap-y-1'>
-                <Box onClick={goBack} className='uppercase underline text-xs' color="#f5f5f5" opacity={0.4} letterSpacing={1.2}>
+                <Box onClick={goBack} className='uppercase underline text-xs cursor-pointer' color="#f5f5f5" opacity={0.4} letterSpacing={1.2}>
                   Back to careers
                 </Box>
                 <Heading
@@ -232,17 +232,17 @@ export default function JobId() {
                 flexDirection={'column'}
                 alignItems={'flex-start'}
                 className='px-2 pt-20 md:pt-8 pb-2 md:px-20 md:py-4 gap-y-1'>
-                <Box onClick={toInformation}>
-                  <ArrowLeftIcon className="cursor-pointer"></ArrowLeftIcon>
-                </Box>
-                <Heading
-                  className='mt-2 text-base md:text-[28px] 2xl:text-5xl uppercase leading-[normal] text-left md:text-center mx-0 md:mx-auto md:tracking-[4px]'
-                  as={'h2'}
-                  color={'#000'}>
-                  {job?.name}
-                </Heading>
                 <Text className='text-[8px] md:text-xs uppercase tracking-[0.6px] leading-[normal] mb-6 md:mb-8 block md:hidden'>{job?.time}</Text>
                 <Box maxWidth={'492px'} width={'100%'} className='mx-auto'>
+                  <Box onClick={toInformation} className='text-xs uppercase cursor-pointer underline' color={'#f5f5f5'} opacity={0.4}>
+                    back to description
+                  </Box>
+                  <Heading
+                    className='mt-2 text-base md:text-[28px] 2xl:text-5xl uppercase leading-[normal] text-left mx-0 md:mx-auto md:tracking-[4px]'
+                    as={'h2'}
+                    color={'#f5f5f5'}>
+                    {job?.name}
+                  </Heading>
                   {/* <Form hidden={['position']} defaultValue={{ position: job?.name }}></Form> */}
                   <InputName value={name} setValue={setName} isValidate={isValidate} placeholder='Your name' setError={setError}></InputName>
                   <InputEmail value={email} setValue={setEmail} isValidate={isValidate} setError={setError}></InputEmail>
@@ -262,7 +262,20 @@ export default function JobId() {
                     variant='outline'
                     spinnerPlacement='end'
                     onClick={onClickValidateForm}
+                    h={isMobileScreen ? "44px" : "66px"}
                     color="#f5f5f5"
+                    _hover={{
+                      background: '#000000',
+                      color: '#ffffff!important'
+                    }}
+                    _active={{
+                      background: '#000000',
+                      color: '#ffffff!important'
+                    }}
+                    _focus={{
+                      background: '#000000',
+                      color: '#ffffff!important'
+                    }}
                   >
                     Apply
                     {

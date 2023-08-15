@@ -136,7 +136,7 @@ export const SingleLogo = ({ fill = "white", width = 21, height = 21 }: IconProp
 export const ArrowDownIcon = ({ fill = "#f5f5f5", className = "" }: IconProps) => {
   return (
     <svg className={className} xmlns="http://www.w3.org/2000/svg" width="10" height="7" viewBox="0 0 10 7" fill="none">
-      <path d="M1 1.5L5 5.5L9 1.5" stroke={fill} stroke-linecap="square" />
+      <path d="M1 1.5L5 5.5L9 1.5" stroke={fill} strokeLinecap="square" />
     </svg>
   )
 }

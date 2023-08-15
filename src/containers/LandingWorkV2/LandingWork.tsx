@@ -13,6 +13,8 @@ const landingWorkImages = [
 const DesktopContent = () => {
   const [expandedIndex, setExpandedIndex] = useState(-1)
   const [currenIndex, setCurrentIndex] = useState(0)
+  const [height, setHeight] = useState(665)
+
   return (
     <Box className="w-full h-full bg-black" display="flex" flexDirection="column" justifyContent="center">
       <Stack direction="row" width="full" px={110}>
@@ -25,7 +27,7 @@ const DesktopContent = () => {
             }}
             key={index}
             w={expandedIndex === index ? "80%" : expandedIndex > -1 ? "5%" : "20%"}
-            h={585}
+            h={height}
             className="transition-all duration-150 ease-in-out">
             <WorkItem
               image={project.src}

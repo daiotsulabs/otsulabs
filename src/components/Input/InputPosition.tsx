@@ -20,27 +20,30 @@ const InputPosition = ({ value, setValue, isValidate = false, setError }: { valu
   return (
     <FormControl isInvalid={isError}>
       <InputGroup marginY={'20px'}>
-        <InputLeftElement pointerEvents='none' marginTop={isMobileScreen ? '0px' : '4px'}>
+      <InputLeftElement h={"100%"} pointerEvents='none' marginLeft={"24px"} width={isMobileScreen ? "18px" : "24px"}>
           <PositionIcon width={isMobileScreen ? 18 : 24} height={isMobileScreen ? 18 : 24} color={ isError ? '#D98282' : '#A0A0A0' } />
         </InputLeftElement>
         <Select
-          borderRadius={isMobileScreen ? 10 : 20}
+          height={isMobileScreen ? "44px" : "66px"}
+          borderRadius={isMobileScreen ? "10px" : "20px"}
           size={isMobileScreen ? 'md' : 'lg'}
           color={isError ? '#D98282' : '#727272'}
-          border={`1px solid ${isError ? '#D98282' : '#B3B3B3'}`}
+          bgColor="#151515"
+          border={`1px solid ${isError ? '#D98282' : 'transparent'}`}
           onChange={handleInputChange}
           _placeholder={{ color: isError ? '#D98282' : 'inherit', fontSize: isMobileScreen ? 14 : 16 }}
-          style={{ paddingLeft: '40px', fontSize: isMobileScreen ? 14 : 16 }}
+          style={{ paddingLeft: '64px', fontSize: isMobileScreen ? 14 : 16 }}
           placeholder='Position'
+          // paddingLeft="64px"
           >
-            <option value='2D Animation' style={{ fontSize: isMobileScreen ? 14 : 16 }}>2D Animation</option>
-            <option value='3D Animation' style={{ fontSize: isMobileScreen ? 14 : 16 }}>3D Animation</option>
-            <option value='2D Artist' style={{ fontSize: isMobileScreen ? 14 : 16 }}>2D Artist</option>
-            <option value='Character Designer' style={{ fontSize: isMobileScreen ? 14 : 16 }}>Character Designer</option>
-            <option value='Background Artist' style={{ fontSize: isMobileScreen ? 14 : 16 }}>Background Artist</option>
-            <option value='Storyboard Artist' style={{ fontSize: isMobileScreen ? 14 : 16 }}>Storyboard Artist</option>
-            <option value='Mangaka' style={{ fontSize: isMobileScreen ? 14 : 16 }}>Mangaka</option>
-            <option value='Editor' style={{ fontSize: isMobileScreen ? 14 : 16 }}>Editor</option>
+            <option value='2D Animation' className='!bg-[#151515]' style={{ fontSize: isMobileScreen ? 14 : 16 }}>2D Animation</option>
+            <option value='3D Animation' className='!bg-[#151515]' style={{ fontSize: isMobileScreen ? 14 : 16 }}>3D Animation</option>
+            <option value='2D Artist' className='!bg-[#151515]' style={{ fontSize: isMobileScreen ? 14 : 16 }}>2D Artist</option>
+            <option value='Character Designer' className='!bg-[#151515]' style={{ fontSize: isMobileScreen ? 14 : 16 }}>Character Designer</option>
+            <option value='Background Artist' className='!bg-[#151515]' style={{ fontSize: isMobileScreen ? 14 : 16 }}>Background Artist</option>
+            <option value='Storyboard Artist' className='!bg-[#151515]' style={{ fontSize: isMobileScreen ? 14 : 16 }}>Storyboard Artist</option>
+            <option value='Mangaka' className='!bg-[#151515]' style={{ fontSize: isMobileScreen ? 14 : 16 }}>Mangaka</option>
+            <option value='Editor' className='!bg-[#151515]' style={{ fontSize: isMobileScreen ? 14 : 16 }}>Editor</option>
           </Select>
       </InputGroup>
     </FormControl>

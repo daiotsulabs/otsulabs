@@ -20,20 +20,23 @@ const InputPortfolio = ({ value, setValue, isValidate = false, setError }: { val
 
   return (
     <FormControl isInvalid={isError}>
-      <InputGroup marginY={'20px'}>
-        <InputLeftElement pointerEvents='none' marginTop={isMobileScreen ? '0px' : '4px'}>
+      <InputGroup marginY={isMobileScreen ? '16px' : '20px'}>
+        <InputLeftElement h={"100%"} pointerEvents='none' marginLeft={"24px"} width={isMobileScreen ? "18px" : "24px"}>
           <LinkIcon width={isMobileScreen ? 18 : 24} height={isMobileScreen ? 18 : 24} color={ isError ? '#D98282' : '#A0A0A0' } />
         </InputLeftElement>
         <Input
-          borderRadius={isMobileScreen ? 10 : 20}
+          height={isMobileScreen ? "44px" : "66px"}
+          borderRadius={isMobileScreen ? "10px" : "20px"}
           size={isMobileScreen ? 'md' : 'lg'}
           color={isError ? '#D98282' : '#727272'}
-          border={`1px solid ${isError ? '#D98282' : '#B3B3B3'}`}
-          type='value'
+          bgColor="#151515"
+          border={`0.5px solid ${isError ? '#D98282' : 'transparent'}`}
+          type='text'
           style={{ fontSize: isMobileScreen ? 14 : 16 }}
           value={value} onChange={handleInputChange}
           _placeholder={{ color: isError ? '#D98282' : 'inherit', fontSize: isMobileScreen ? 14 : 16 }}
-          placeholder='Link to portfolio' />
+          placeholder='Link to portfolio'
+          paddingLeft="64px" />
       </InputGroup>
     </FormControl>
   )

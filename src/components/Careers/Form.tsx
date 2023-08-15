@@ -47,7 +47,6 @@ export default function Form ({ hidden = [], defaultValue }: { hidden?: string[]
     // if (loading) return
     setIsValidate(true)
     const isValid = Object.values(error).every(e => !e)
-    console.log(error)
     if (!isValid || !isEmail(email) || !name || !isUrl(portfolio) || !position || !message) return
     const url = 'https://api.oldeus.com/apply'
     const formData = new FormData()
@@ -56,7 +55,6 @@ export default function Form ({ hidden = [], defaultValue }: { hidden?: string[]
     formData.append('portfolio', portfolio)
     formData.append('position', position)
     formData.append('message', message)
-    console.log('fffff')
     setLoading(true)
     axios.post(url, formData, {
       headers: {
@@ -104,6 +102,7 @@ export default function Form ({ hidden = [], defaultValue }: { hidden?: string[]
         variant='outline'
         spinnerPlacement='end'
         onClick={onClickValidateForm}  
+        h={isMobileScreen ? "44px" : "66px"}
       >
         Apply
         {
