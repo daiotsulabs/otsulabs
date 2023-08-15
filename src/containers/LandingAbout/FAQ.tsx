@@ -22,7 +22,7 @@ export function Faq() {
                     <h2>
                       <AccordionButton
                         background={'transparent'}
-                        className="pb-[6px] md:pb-[16px] px-0 pr-3"
+                        className="pb-[8px] pt-[8px] md:pt-[20px] md:pb-[20px] px-0 pr-3"
                       >
                         <Box as="span" flex='1' textAlign='left' mr={6}>
                           <Text className="text-sm md:text-[16px] 2xl:text-[20px] font-bold" color="#f5f5f5">{faq.question}</Text>
