@@ -18,7 +18,7 @@ const DesktopContent = () => {
 
   return (
     <Box className="w-full h-full bg-black" display="flex" flexDirection="column" justifyContent="center">
-      <Stack direction="row" width="full" px={100}>
+      <Stack direction="row" width="full" px={isLargeScreen ? 185 : 100}>
         {landingWorkImages.map((project, index) => (
           <Box
             onClick={() => {
@@ -46,7 +46,7 @@ const DesktopContent = () => {
         color="#707070"
         letterSpacing={1.2}
         textTransform="uppercase"
-        px={100}
+        px={isLargeScreen ? 185 : 100}
         gap={"10px"}
         alignItems="center">
         <Box>{landingWorkImages[currenIndex].project}</Box>
