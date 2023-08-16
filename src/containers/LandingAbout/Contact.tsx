@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function Contact ({ className }: any) {
   return (
-    <Box className={`flex-1 text-right ${className} text-[#707070]`}>
+    <Box className={`flex-1 md:flex-[1_0_45%] text-right ${className} text-[#707070]`}>
       <Box className="w-full text-center md:text-left ml-auto md:w-5/6">
         <Heading as={'h2'} className="text-[16px] md:text-[28px] 2xl:text-[32px] font-bold mb-[36px] uppercase" color="#f5f5f5">Contact</Heading>
         <Box>

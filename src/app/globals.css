@@ -35,3 +35,13 @@ body {
 .scroll::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+
+@media screen and (max-width: 768px) {
+  .loading-page {
+    max-width: 200px!important;
+  }
+}
+
+.loading-page > div {
+  background: #F5F5F5;
+}

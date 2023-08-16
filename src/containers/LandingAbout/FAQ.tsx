@@ -5,7 +5,7 @@ import { ArrowDownIcon } from "@/components/icons";
 export function Faq() {
   const [isMobileScreen] = useMediaQuery('(max-width: 768px)')
   return (
-    <Box width={'100%'} className="flex-1" color={'#707070'}>
+    <Box width={'100%'} className="flex-1 md:flex-[1_0_55%]" color={'#707070'}>
       <Heading
         as='h2'
         className="text-[16px] md:text-[28px] 2xl:text-[32px] font-bold text-center md:text-left mb-[44px]"
