@@ -42,6 +42,8 @@ export default function RootLayout({
       <head>
         <title>Otsu</title>
         <link rel="icon" href="/icons/favicon.svg" type='image/svg' sizes="any" />
+        <meta name="viewport" content="width=device-width, minimal-ui" />
+        <meta name="viewport" content="minimal-ui" />
         <meta name="theme-color" content="#000000" />
       </head>
       <body>
