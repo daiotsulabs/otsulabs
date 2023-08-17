@@ -5,7 +5,7 @@ function LandingExperience() {
 
   return (
     <Box
-      className="w-full h-full bg-black flex items-center justify-center"
+      className="w-full h-full bg-black flex items-center justify-center px-6"
       color={"#707070"}
       fontSize="lg"
       pl={"53px"}

@@ -11,13 +11,14 @@ function LandingHome() {
         <source src="/intro.mp4" type="video/mp4" />
       </video>
       <Box
-        className="w-full h-full flex items-center justify-center"
+        className="w-full h-full flex items-center justify-center bg-[#00000080]"
         // bgImage="/images/landing-home.png"
         // bgSize="cover"
         // bgPosition="center"
       >
         <SlideFade in={isShowText}>
           <Box
+            className="animate-fade-in delay-[1500ms] transition-opacity"
             maxW={isMobileScreen ? "282px" : "872px"}
             color="white"
             fontSize={isMobileScreen ? "xs" : isMediumScreen ? "2xl" : "4xl"}

@@ -253,7 +253,7 @@ export default function JobId() {
                     style={{ color: '#f5f5f5' }}
                     className='w-full'
                     size={isMobileScreen ? 'md' : 'lg'}
-                    borderRadius={isMobileScreen ? 10 : 20}
+                    borderRadius={isMobileScreen ? 10 : 16}
                     fontSize={16}
                     fontWeight={400}
                     lineHeight={'normal'}
@@ -262,7 +262,7 @@ export default function JobId() {
                     variant='outline'
                     spinnerPlacement='end'
                     onClick={onClickValidateForm}
-                    h={isMobileScreen ? "44px" : "66px"}
+                    h={isMobileScreen ? "40px" : "48px"}
                     color="#f5f5f5"
                     _hover={{
                       background: '#000000',

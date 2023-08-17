@@ -27,7 +27,7 @@ const DesktopContent = () => {
               setCurrentIndex(index)
             }}
             key={index}
-            w={expandedIndex === index ? "80%" : expandedIndex > -1 ? isLargeScreen ? "5%" : "42px" : "20%"}
+            w={expandedIndex === index ? isLargeScreen ? "80%" : "calc(100% - 42px - 42px - 42px - 42px)" : expandedIndex > -1 ? isLargeScreen ? "5%" : "42px" : "20%"}
             h={height}
             className="transition-all duration-150 ease-in-out">
             <WorkItem

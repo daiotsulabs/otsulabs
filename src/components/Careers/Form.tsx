@@ -93,7 +93,7 @@ export default function Form ({ hidden = [], defaultValue }: { hidden?: string[]
         colorScheme='blackAlpha'
         className='w-full'
         size={isMobileScreen ? 'md' : 'lg'}
-        borderRadius={isMobileScreen ? 10 : 20}
+        borderRadius={isMobileScreen ? 10 : 16}
         fontSize={16}
         fontWeight={400}
         lineHeight={'normal'}
@@ -102,7 +102,7 @@ export default function Form ({ hidden = [], defaultValue }: { hidden?: string[]
         variant='outline'
         spinnerPlacement='end'
         onClick={onClickValidateForm}  
-        h={isMobileScreen ? "44px" : "66px"}
+        h={isMobileScreen ? "40px" : "48px"}
       >
         Apply
         {

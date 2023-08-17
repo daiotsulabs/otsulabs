@@ -81,7 +81,7 @@ export default function Contact() {
               colorScheme='whiteAlpha'
               className='w-full'
               size={isMobileScreen ? 'md' : 'lg'}
-              borderRadius={isMobileScreen ? 10 : 20}
+              borderRadius={isMobileScreen ? 10 : 16}
               fontSize={16}
               fontWeight={400}
               lineHeight={'normal'}
@@ -92,7 +92,7 @@ export default function Contact() {
               onClick={onClickValidateForm}
               borderWidth={0.5}
               borderColor='#5f5f5'
-              h={isMobileScreen ? "44px" : "66px"}
+              h={isMobileScreen ? "40px" : "48px"}
             >
               Send
               {

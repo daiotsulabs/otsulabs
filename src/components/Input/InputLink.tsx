@@ -22,22 +22,22 @@ const InputLink = ({ value, setValue, isValidate = false, setError }: { value: s
   return (
     <FormControl isInvalid={isError}>
       <InputGroup marginY={'20px'}>
-        <InputLeftElement h={"100%"} pointerEvents='none' marginLeft={"24px"} width={isMobileScreen ? "18px" : "24px"}>
-          <LinkIcon width={isMobileScreen ? 18 : 24} height={isMobileScreen ? 18 : 24} color={isError ? '#D98282' : '#A0A0A0'} />
+        <InputLeftElement h={"100%"} pointerEvents='none' marginLeft={isMobileScreen ? "10px" : "14px"} width={isMobileScreen ? "18px" : "24px"}>
+          <LinkIcon width={isMobileScreen ? 14 : 20} height={isMobileScreen ? 14 : 20} color={isError ? '#D98282' : '#A0A0A0'} />
         </InputLeftElement>
         <Input
-          height={isMobileScreen ? "44px" : "66px"}
-          borderRadius={isMobileScreen ? 10 : 20}
+          height={isMobileScreen ? "40px" : "48px"}
+          borderRadius={isMobileScreen ? 10 : 16}
           size={isMobileScreen ? 'md' : 'lg'}
           color={isError ? '#D98282' : '#727272'}
           bgColor="#151515"
           border={`0.5px solid ${isError ? '#D98282' : 'transparent'}`}
           type='value'
           value={value} onChange={handleInputChange}
-          style={{ fontSize: isMobileScreen ? 14 : 16 }}
-          _placeholder={{ color: isError ? '#D98282' : 'inherit', fontSize: isMobileScreen ? 14 : 16 }}
+          style={{ fontSize: isMobileScreen ? 12 : 14 }}
+          _placeholder={{ color: isError ? '#D98282' : 'inherit', fontSize: isMobileScreen ? 12 : 14 }}
           placeholder='Link (optional)'
-          paddingLeft="64px" />
+          paddingLeft="40px" />
       </InputGroup>
     </FormControl>
   )

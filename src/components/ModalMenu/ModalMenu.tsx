@@ -52,7 +52,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
       <Box
         position="relative"
         className="w-full h-full"
-        bgImage={showBg ? "/images/landing-home.png" : "unset"}
+        // bgImage={showBg ? "/images/landing-home.png" : "unset"}
         bgSize="cover"
         backgroundPosition="center"
         zIndex={10}

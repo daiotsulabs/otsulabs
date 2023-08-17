@@ -6,8 +6,8 @@ import { jobs } from '.'
 export default function JoinUs({ join }: { join: any }) {
   const [isMobileScreen] = useMediaQuery('(max-width: 768px)')
   return (
-    <Center className='w-full h-full bg-black'>
-      <Container maxWidth={'1200'} className='h-full md:h-auto pt-[90px] md:pt-0'>
+    <Center className='w-full h-full bg-black px-6'>
+      <Container maxWidth={'1200'} className='h-full md:h-auto pt-[90px] md:pt-0 px-0'>
         <Flex color='#707070' className='wrap-content flex-col md:flex-row items-start justify-between' gap={isMobileScreen ? "44px" : 244}>
           <Box flex='1'>
             <Heading
@@ -68,10 +68,9 @@ export default function JoinUs({ join }: { join: any }) {
             <Button
               style={{ borderColor: '#f5f5f5', color: '#f5f5f5' }}
               size={'md'}
-              className='py-2 md:py-2 px-8 md:px-11 rounded-full'
+              className='py-2 md:py-2 px-8 md:px-11 rounded-full flex-1'
               fontSize={16}
               fontWeight={400}
-              lineHeight={'normal'}
               variant='outline'
               onClick={join}
               _hover={{

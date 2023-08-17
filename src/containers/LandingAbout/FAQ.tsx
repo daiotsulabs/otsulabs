@@ -15,7 +15,7 @@ export function Faq() {
       <Accordion allowToggle>
         {
           faqs.map((faq, index) => (
-            <AccordionItem key={index} borderTopWidth={index === 0 ? 0 : "0.3px"} borderColor="#5a5a5a" pt={isMobileScreen && index > 0 ? "32px" : "0"}>
+            <AccordionItem key={index} borderTopWidth={index === 0 ? 0 : "0.3px"} borderColor="#5a5a5a" pt={isMobileScreen && index > 0 ? "24px" : "0"}>
               {
                 ({ isExpanded }) => (
                   <>
@@ -39,7 +39,7 @@ export function Faq() {
                         faq.answer.map((a, index) => (
                           <Text
                             key={index}
-                            className='text-[10px] md:text-lg leading-[normal] mb-2'
+                            className='text-[10px] md:text-sm leading-[normal] mb-2'
                           >
                             {a}
                           </Text>
