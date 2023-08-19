@@ -31,6 +31,8 @@ const DesktopContent = () => {
             h={height}
             className="transition-all duration-150 ease-in-out">
             <WorkItem
+              expandedIndex={expandedIndex}
+              index={index}
               image={project.src}
               project={project.project}
             />

@@ -5,9 +5,11 @@ interface WorkItemProps {
   image: string;
   project: string;
   border?: boolean;
+  expandedIndex?: number;
+  index?: number;
 }
 
-function WorkItem({ image, project, border = true }: WorkItemProps) {
+function WorkItem({ image, project, border = true, expandedIndex, index }: WorkItemProps) {
   const [isMobileScreen] = useMediaQuery("(max-width: 480px)")
   return (
     <Box className="w-full h-full relative cursor-pointer group/workItem" borderWidth={.5} borderColor={border ? "#f5f5f5" : "transparent"} >
@@ -32,13 +34,14 @@ function WorkItem({ image, project, border = true }: WorkItemProps) {
         justifyContent="center"
         h={"100%"}
       >
-        <Text
+        { (expandedIndex === -1 || index === expandedIndex) && <Text
           fontSize={{ base: "md", sm: "2xl" }}
           color="white"
           letterSpacing={isMobileScreen ? 0.64 : 0.96}
         >
           {isMobileScreen ? "" : project}
         </Text>
+        }
       </Box>
     </Box>
   )

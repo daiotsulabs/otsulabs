@@ -89,7 +89,7 @@ export default function Form ({ hidden = [], defaultValue }: { hidden?: string[]
       }
 
       <Button
-        style={{ background: '#000000', color: '#ffffff' }}
+        style={{ background: '#ffffff', color: '#000000' }}
         colorScheme='blackAlpha'
         className='w-full'
         size={isMobileScreen ? 'md' : 'lg'}

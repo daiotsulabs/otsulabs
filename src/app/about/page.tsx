@@ -23,7 +23,7 @@ export default function About() {
         dark={isDarkHeader}
         activeSlideIndex={currenIndex + 1}
       />
-      {isOpen && <ModalMenu showBg={currenIndex === 0} in={isOpen} onClickToggle={onToggle} />}
+      {isOpen && <ModalMenu showBg={false} in={isOpen} onClickToggle={onToggle} />}
       <Flex className='w-full h-full items-center justify-between bg-black text-[#707070]'
         pl={isMobileScreen ? "44px" : 164}
         pr={isMobileScreen ? "80px" : 244}

@@ -8,7 +8,7 @@ export function Faq() {
     <Box width={'100%'} className="flex-1 md:flex-[1_0_55%]" color={'#707070'}>
       <Heading
         as='h2'
-        className="text-[16px] md:text-[28px] 2xl:text-[32px] font-bold text-center md:text-left mb-[44px]"
+        className="text-[16px] md:text-[28px] 2xl:text-[32px] font-bold text-center md:text-left mb-[20px]"
         color="#f5f5f5">
         FAQ
       </Heading>
@@ -22,7 +22,7 @@ export function Faq() {
                     <h2>
                       <AccordionButton
                         background={'transparent'}
-                        className="pb-[8px] pt-[8px] md:pt-[20px] md:pb-[20px] px-0 pr-3"
+                        className="pb-[6px] pt-[6px] md:pt-[16px] md:pb-[16px] xl:pt-[20px] xl:pb-[20px] px-0 pr-3"
                       >
                         <Box as="span" flex='1' textAlign='left' mr={6}>
                           <Text className="text-sm md:text-[16px] 2xl:text-[20px] font-bold" color="#f5f5f5">{faq.question}</Text>

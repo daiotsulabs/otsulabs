@@ -196,28 +196,15 @@ export default function JobId() {
                 </Box>
                 <Center className='w-full mt-[16px] md:mt-[36px]'>
                   <Button
-                    style={{ borderColor: '#f5f5f5', color: '#f5f5f5' }}
+                    style={{ background: '#ffffff', color: '#000000' }}
                     colorScheme='blackAlpha'
                     size={'md'}
                     className='py-2 md:py-2 px-4 md:px-8 2xl:px-11 rounded-full md:flex justify-center min-w-[100px]'
                     fontSize={16}
                     fontWeight={400}
-                    lineHeight={'normal'}
                     variant='outline'
                     onClick={apply}
-                    _hover={{
-                      background: '#000000',
-                      color: '#ffffff!important'
-                    }}
-                    _active={{
-                      background: '#000000',
-                      color: '#ffffff!important'
-                    }}
-                    _focus={{
-                      background: '#000000',
-                      color: '#ffffff!important'
-                    }}
-                    height={"44px"}
+                    height={"40px"}
                   >
                     Apply
                   </Button>
@@ -250,7 +237,7 @@ export default function JobId() {
                   <Textarea value={message} setValue={setMessage} isValidate={isValidate} setError={setError}></Textarea>
 
                   <Button
-                    style={{ color: '#f5f5f5' }}
+                    style={{ background: '#ffffff', color: '#000000' }}
                     className='w-full'
                     size={isMobileScreen ? 'md' : 'lg'}
                     borderRadius={isMobileScreen ? 10 : 16}
@@ -263,19 +250,6 @@ export default function JobId() {
                     spinnerPlacement='end'
                     onClick={onClickValidateForm}
                     h={isMobileScreen ? "40px" : "48px"}
-                    color="#f5f5f5"
-                    _hover={{
-                      background: '#000000',
-                      color: '#ffffff!important'
-                    }}
-                    _active={{
-                      background: '#000000',
-                      color: '#ffffff!important'
-                    }}
-                    _focus={{
-                      background: '#000000',
-                      color: '#ffffff!important'
-                    }}
                   >
                     Apply
                     {

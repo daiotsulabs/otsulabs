@@ -45,6 +45,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
   const router = useRouter();
   const [isMobileScreen] = useMediaQuery('(max-width: 480px)')
   const onClickMenuButton = (route: string) => {
+    onClickToggle();
     router.push(route);
   }
   return (
@@ -68,7 +69,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
           className={`w-full h-full flex items-center ${isMobileScreen ? "flex-start" : "justify-center"}`}
           padding={isMobileScreen ? "0 44px" : "0"}
           background={showBg ? "rgba(0, 0, 0, 0.60)" : "black"}
-          backdropFilter="blur(15px)"
+          backdropFilter="blur(8px)"
         >
           <Stack
             direction={isMobileScreen ? "column" : "row"}

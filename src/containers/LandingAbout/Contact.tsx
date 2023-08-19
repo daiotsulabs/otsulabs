@@ -26,7 +26,7 @@ export function Contact ({ className }: any) {
       </Box>
       <Link href={"/contact"} className="flex justify-center mt-16 md:mt-0 z-1">
         <Button
-          style={{ borderColor: '#f5f5f5', color: '#f5f5f5' }}
+          style={{ background: '#ffffff', color: '#000000' }}
           colorScheme='blackAlpha'
           size={'md'}
           className='py-2 md:py-2 px-8 md:px-11 rounded-[20px]'
@@ -34,18 +34,6 @@ export function Contact ({ className }: any) {
           fontWeight={400}
           lineHeight={'normal'}
           variant='outline'
-          _hover={{
-            background: '#000000',
-            color: '#ffffff!important'
-          }}
-          _active={{
-            background: '#000000',
-            color: '#ffffff!important'
-          }}
-          _focus={{
-            background: '#000000',
-            color: '#ffffff!important'
-          }}
           borderWidth={0.5}
         >
           Contact

@@ -18,8 +18,8 @@ function LandingHome() {
       >
         <SlideFade in={isShowText}>
           <Box
-            className="animate-fade-in delay-[1500ms] transition-opacity"
-            maxW={isMobileScreen ? "282px" : "872px"}
+            className="animate-fade-in delay-[1200ms] transition-opacity"
+            maxW={isMobileScreen ? "282px" : "722px"}
             color="white"
             fontSize={isMobileScreen ? "xs" : isMediumScreen ? "2xl" : "4xl"}
             textAlign="center"

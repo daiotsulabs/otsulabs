@@ -66,22 +66,13 @@ export default function JoinUs({ join }: { join: any }) {
               We have an awesome in-house team with creative thinkers and directors. But, we&apos;re looking for skilled artists, animators, storyboard artists, concept artists, and character designers to join our extended team. Interested? Throw your hat in the ring!
             </Text>}
             <Button
-              style={{ borderColor: '#f5f5f5', color: '#f5f5f5' }}
+              style={{ background: '#ffffff', color: '#000000' }}
               size={'md'}
               className='py-2 md:py-2 px-8 md:px-11 rounded-full flex-1'
               fontSize={16}
               fontWeight={400}
               variant='outline'
               onClick={join}
-              _hover={{
-                color: '#f5f5f5 !important'
-              }}
-              _active={{
-                color: '#f5f5f5 !important'
-              }}
-              _focus={{
-                color: '#f5f5f5 !important'
-              }}
               height={"44px"}
             >
               Join
