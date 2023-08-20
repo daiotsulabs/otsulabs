@@ -3,12 +3,12 @@ import { Box, Button, Divider, Stack, useMediaQuery } from "@chakra-ui/react"
 import { useState } from "react"
 
 const landingWorkImages = [
-  { src: "/images/on1forces.png", project: "0n1 force" },
-  { src: "/images/AlexH.png", project: "Alex H" },
-  { src: "/images/Conviction.png", project: "Conviction" },
-  { src: "/images/Inkugami.png", project: "Inkugami" },
-  { src: "/images/MusicFrens.png", project: "Music Frens" },
-]
+  { src: "/images/on1forces.png", project: "0NE FORCE", date: "June 10, 2023", description: "30-second trailer" },
+  { src: "/images/AlexH.png", project: "Alex Hugh", date: "August 10, 2023", description: "10-second teaser" },
+  { src: "/images/Conviction.png", project: "ConvictionSTD", date: "July 19, 2023", description: "15-second teaser" },
+  { src: "/images/Inkugami.png", project: "Inkugami", date: "July 03, 2023", description: "22-second trailer" },
+  { src: "/images/MusicFrens.png", project: "Music Frens", date: "July 19, 2023", description: "20-second teaser" },
+];
 
 const DesktopContent = () => {
   const [expandedIndex, setExpandedIndex] = useState(-1)
@@ -105,11 +105,11 @@ const MobileContent = () => {
             alignItems="center">
             <Box>{landingWorkImages[activeIndex].project}</Box>
             <Divider height={"10px"} orientation="vertical" />
-            <Box>03.05.2023</Box>
+            <Box>{landingWorkImages[activeIndex].date}</Box>
             <Divider height={"10px"} orientation="vertical" />
-            <Box>30-second trailer</Box>
+            <Box>{landingWorkImages[activeIndex].description}</Box>
             <Button
-              className="absolute bottom-[51px] left-1/2 -translate-x-1/2 rounded-full"
+              className="absolute bottom-[85px] left-1/2 -translate-x-1/2 rounded-full"
               variant="outline"
               style={{ color: "#f5f5f5", fontSize: "12px", fontWeight: "normal" }}
               height={35}

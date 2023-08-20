@@ -15,6 +15,7 @@ module.exports = {
       },
       animation: {
         'fade-in': 'fadeIn 5s ease-in-out',
+        'menu-fade': 'fadeIn 1200ms ease-in-out',
       },
       keyframes: theme => ({
         fadeIn: {
