@@ -34,7 +34,7 @@ export function Faq() {
                         )}
                       </AccordionButton>
                     </h2>
-                    <AccordionPanel pb={4} maxHeight={'200px'} overflowY={'auto'} className="scroll mr-2 pl-0 swiper-no-mousewheel">
+                    <AccordionPanel pb={4} maxHeight={'150px'} overflowY={'auto'} className="scroll mr-2 pl-0 swiper-no-mousewheel">
                       {
                         faq.answer.map((a, index) => (
                           <Text
