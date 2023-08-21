@@ -64,7 +64,7 @@ const DesktopContent = () => {
 const MobileContent = () => {
   const [activeIndex, setActiveIndex] = useState(-1);
   return (
-    <Box className="w-full h-full bg-black relative" px={6} pt={100}>
+    <Box className="w-full h-full bg-black relative" px={6} pt={130}>
       {activeIndex < 0
         ? <Stack direction="column">
           {landingWorkImages.map((project, index) => (
