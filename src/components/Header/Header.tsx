@@ -26,7 +26,7 @@ function Header({
   const [isMobileScreen] = useMediaQuery('(max-width: 480px)')
   const [isMediumScreen] = useMediaQuery('(max-width: 1441px)')
   return (
-    <header className={`fixed inset-x-0 ${isMobileScreen ? "pl-6 pr-[18px] top-[16px]" : "px-11 top-[18px]"} z-[2]`}>
+    <header className={`fixed inset-x-0 ${isMobileScreen ? "pl-6 pr-[20px] top-[16px]" : "px-11 top-[18px]"} z-[2]`}>
       <Stack direction="row" alignItems="center" justifyContent="space-between" className={isMobileScreen ? "unset" : isMediumScreen ? "h-[36px]" : "h-[42px]"}>
         <Box cursor="pointer" onClick={() => toHome ? router.push("/") : onActiveSlideChange?.(0)} w={50}>
           <SingleLogo width={isMediumScreen ? 21 : 32} height={isMediumScreen ? 21 : 32} fill={"white"} />
