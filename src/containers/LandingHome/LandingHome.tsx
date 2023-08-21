@@ -7,7 +7,7 @@ function LandingHome() {
   const [isShowText, setIsShowText] = useState(true)
   return (
     <>
-      <video autoPlay muted loop className="absolute top-0 left-0 min-w-[100vw] min-h-[100vh] z-[-1] object-cover">
+      <video autoPlay muted loop playsInline className="absolute top-0 left-0 min-w-[100vw] min-h-[100vh] z-[-1] object-cover">
         <source src="/intro.mp4" type="video/mp4" />
       </video>
       <Box
@@ -29,9 +29,8 @@ function LandingHome() {
         </SlideFade>
         <Box
           position="fixed"
-          bottom={"10px"}
           cursor="pointer"
-          className="animate-[bounce_1.5s_infinite]"
+          className="animate-[bounce_1.5s_infinite] bottom-[60px] md:bottom-[10px]"
         >
           <Box className="w-full h-full flex items-center justify-center">
             <Image
