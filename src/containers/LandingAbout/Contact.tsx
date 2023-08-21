@@ -23,7 +23,7 @@ export function Contact ({ className }: any) {
           <Text className="text-[12px] md:text-[14px] font-normal">sewon@otsulabs.com</Text>
         </Box>
         <Text className="mt-[10px] mb-[24px] text-xs md:text-[14px] 2xl:text-[18px]">For project inquiries, please use of our contact form.</Text>
-        <Link href={"/contact"} className="flex justify-center md:justify-start mt-16 md:mt-0 z-1">
+        <Link href={"/contact"} className="flex justify-center md:justify-start mt-4 md:mt-0 z-1">
           <Button
             style={{ background: '#ffffff', color: '#000000' }}
             colorScheme='blackAlpha'
