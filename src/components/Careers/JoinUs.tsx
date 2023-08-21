@@ -6,7 +6,7 @@ import { jobs } from '.'
 export default function JoinUs({ join }: { join: any }) {
   const [isMobileScreen] = useMediaQuery('(max-width: 768px)')
   return (
-    <Center className='w-full h-full bg-black px-6'>
+    <Center className='w-full h-full bg-black px-6 animate-page-fade'>
       <Container maxWidth={'1200'} className='h-full md:h-auto pt-[90px] md:pt-0 px-0'>
         <Flex color='#707070' className='wrap-content flex-col md:flex-row items-start justify-between' gap={isMobileScreen ? "44px" : 244}>
           <Box flex='1'>

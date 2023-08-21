@@ -122,15 +122,15 @@ export default function JobId() {
           }}
           onSlideChange={handleSlideChange}>
           <SwiperSlide>
-            <Container maxWidth={'992'} className='h-full flex items-start md:items-center' color='#707070'>
+            <Container maxWidth={'992'} className='h-full flex items-start md:items-center animate-page-fade' color='#707070'>
               <Center
                 flex='1'
                 flexDirection={'column'}
                 alignItems={'flex-start'}
                 className='px-2 pt-20 md:pt-8 pb-2 md:px-20 md:py-4 gap-y-1'>
-                <Box onClick={goBack} className='uppercase underline text-xs cursor-pointer' color="#f5f5f5" opacity={0.4} letterSpacing={1.2}>
+                {/* <Box onClick={goBack} className='uppercase underline text-xs cursor-pointer' color="#f5f5f5" opacity={0.4} letterSpacing={1.2}>
                   Back to careers
-                </Box>
+                </Box> */}
                 <Heading
                   className='mt-2 text-base md:text-[28px] uppercase leading-[normal] text-left md:text-center mb-[18px]'
                   as={'h2'}

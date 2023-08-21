@@ -53,9 +53,9 @@ const DesktopContent = () => {
         alignItems="center">
         <Box>{landingWorkImages[currenIndex].project}</Box>
         <Divider height={"10px"} orientation="vertical" />
-        <Box>03.05.2023</Box>
+        <Box>{landingWorkImages[currenIndex].date}</Box>
         <Divider height={"10px"} orientation="vertical" />
-        <Box>30-second trailer</Box>
+        <Box>{landingWorkImages[currenIndex].description}</Box>
       </Stack>
     </Box>
   )
@@ -73,7 +73,7 @@ const MobileContent = () => {
               key={index}
               w="100%"
               h={128}
-              maxH={'calc(20vh - 44px)'}
+              maxH={'calc(20vh - 38px)'}
             >
               <WorkItem
                 border={false}
@@ -84,7 +84,7 @@ const MobileContent = () => {
           )
           )}
         </Stack>
-        : <Stack direction="column" className="items-center pt-[200px]">
+        : <Stack direction="column" className="items-center pt-[140px]">
           <Box className="font-bold text-xs text-[#f5f5f5] mb-[16px]">{landingWorkImages[activeIndex].project}</Box>
           <Box w={"100%"} h="193px">
             <WorkItem
@@ -109,12 +109,11 @@ const MobileContent = () => {
             <Divider height={"10px"} orientation="vertical" />
             <Box>{landingWorkImages[activeIndex].description}</Box>
             <Button
+              style={{ background: '#ffffff', color: '#000000', fontSize: "12px", fontWeight: "normal" }}
               className="absolute bottom-[85px] left-1/2 -translate-x-1/2 rounded-full"
               variant="outline"
-              style={{ color: "#f5f5f5", fontSize: "12px", fontWeight: "normal" }}
               height={35}
               w={"96px"}
-              border="0.5px solid #f5f5f5"
               onClick={() => setActiveIndex(-1)}>Back</Button>
           </Stack>
         </Stack>}

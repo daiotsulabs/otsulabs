@@ -90,9 +90,9 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
                 gap={isMobileScreen ? "32px" : "30px"}
               >
                 <MenuButton className="animate-menu-fade transition-opacity delay-[100ms]" dark={true} onClick={() => onClickMenuButton('/about')}>ABOUT</MenuButton>
-                <MenuButton className="animate-menu-fade transition-opacity delay-[600ms]" dark={true} onClick={() => onClickMenuButton('/careers')}>CAREERS</MenuButton>
-                <MenuButton className="animate-menu-fade transition-opacity delay-[1100ms]" dark={true} onClick={() => onClickMenuButton('/contact')}>CONTACT</MenuButton>
-                <MenuButton className="animate-menu-fade transition-opacity delay-[1600ms]" dark={true}>
+                <MenuButton className="animate-menu-fade transition-opacity delay-[500ms]" dark={true} onClick={() => onClickMenuButton('/careers')}>CAREERS</MenuButton>
+                <MenuButton className="animate-menu-fade transition-opacity delay-[900ms]" dark={true} onClick={() => onClickMenuButton('/contact')}>CONTACT</MenuButton>
+                <MenuButton className="animate-menu-fade transition-opacity delay-[1300ms]" dark={true}>
                   <TwitterIcon opacity={.4} fill={"#f5f5f5"} width={34} height={32} />
                 </MenuButton>
               </Stack>
@@ -110,11 +110,11 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
                   color="#f7f7f7"
                   textTransform="uppercase"
                   fontSize={"xs"}
-                  className="animate-menu-fade transition-opacity delay-[2000ms]"
+                  className="animate-menu-fade transition-opacity delay-[1500ms]"
                   mb={isMobileScreen ? 0 : 15}>
                   Based in
                 </Text>
-                <Text className="animate-menu-fade transition-opacity delay-[2200ms]" w={136} fontSize={isMobileScreen ? "xs" : "sm"}>Saigon, Vietnam Seoul, South Korea</Text>
+                <Text className="animate-menu-fade transition-opacity delay-[1700ms]" w={136} fontSize={isMobileScreen ? "xs" : "sm"}>Saigon, Vietnam Seoul, South Korea</Text>
               </Box>
               <Box>
                 <Text
@@ -122,9 +122,9 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
                   color="#f7f7f7"
                   textTransform="uppercase"
                   fontSize={"xs"}
-                  className="animate-menu-fade transition-opacity delay-[2400ms]"
+                  className="animate-menu-fade transition-opacity delay-[1800ms]"
                   mb={isMobileScreen ? 0 : 15}>Get in touch</Text>
-                <Text className="animate-menu-fade transition-opacity delay-[2600ms]" fontSize={isMobileScreen ? "xs" : "sm"}>hello@otsulabs.com</Text>
+                <Text className="animate-menu-fade transition-opacity delay-[2000ms]" fontSize={isMobileScreen ? "xs" : "sm"}>hello@otsulabs.com</Text>
               </Box>
             </Stack>
           </Stack>

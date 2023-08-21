@@ -5,7 +5,6 @@ import { register } from 'swiper/element/bundle'
 import { Providers } from './providers'
 import { useEffect, useState } from 'react'
 import { Box, Progress, useMediaQuery } from '@chakra-ui/react'
-import Image from 'next/image'
 
 register()
 export default function RootLayout({
@@ -34,6 +33,7 @@ export default function RootLayout({
     move()
     const timeout = setTimeout(() => {
       setLoading(false)
+      setProgress(100)
     }, 3300)
     return () => clearTimeout(timeout)
   }, [])
@@ -44,14 +44,14 @@ export default function RootLayout({
         <link rel="icon" href="/icons/favicon.svg" type='image/svg' sizes="any" />
         <meta name="theme-color" content="#000000" />
       </head>
-      <body>
+      <body className='bg-black'>
         <Providers>
           {loading
-            ? <Box className='w-screen h-screen flex items-center justify-center bg-black'>
+            ? <Box className='w-screen h-screen flex items-center justify-center'>
               <Progress className='loading-page' style={{ maxWidth: '350px', width: '100%', borderRadius: isMobileScreen ? '8px' : '4x', background: '#f5f5f540' }} value={progress} height={'3px'} />
             </Box>
             : children
-          }
+            }
         </Providers>
       </body>
     </html>

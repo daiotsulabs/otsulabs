@@ -9,12 +9,6 @@ export default function Freelancers () {
         <Flex color='white' className='wrap-content flex-col md:flex-row items-center'>
           <Center flex='1' flexDirection={'column'} alignItems={'flex-start'} className='px-2 pt-8 pb-2 md:px-16 2xl:px-24 md:py-4'>
             <Heading className='text-base mb-1 md:text-[28px] 2xl:text-5xl md:mb-[36px] 2xl:mb-16 leading-[normal]' as={'h2'} color={'#F5F5F5'}>Freelancer</Heading>
-            <Text className='text-[8px] uppercase md:normal-case md:text-base 2xl:text-xl leading-[normal]' color={'#727272'}>
-              Hey there! We&apos;ve got a pretty sweet in-house team. We&apos;ve intentionally brought in thinkers, directors, and people who excel in ideation, direction, and oversight.
-            </Text>
-            <Text className='text-[8px] uppercase md:normal-case md:text-base 2xl:text-xl mt-[8px] md:mt-[14px] leading-[normal]' color={'#727272'}>
-              That said, we&apos;re on the hunt for some skilled executioners with specific expertise. Our goal is to connect and work together by building a network of creators. It&apos;s as easy as that. So if you&apos;re an artist, animator, storyboard artist, concept artist, or character designer throw your hat in the ring!
-            </Text>
           </Center>
           <Divider
             width="2px"
