@@ -73,7 +73,7 @@ const MobileContent = () => {
               key={index}
               w="100%"
               h={128}
-              maxH={128}
+              maxH={'calc(20vh - 48px)'}
             >
               <WorkItem
                 border={false}
