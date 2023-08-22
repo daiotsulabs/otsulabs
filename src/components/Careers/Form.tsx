@@ -104,7 +104,7 @@ export default function Form ({ hidden = [], defaultValue }: { hidden?: string[]
         onClick={onClickValidateForm}  
         h={isMobileScreen ? "40px" : "48px"}
       >
-        Apply
+        { isSubmitted ? 'Sent' : 'Send' }
         {
           isSubmitted && <>
             <span className='ml-1'></span>

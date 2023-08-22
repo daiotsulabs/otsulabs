@@ -250,7 +250,7 @@ export default function JobId() {
                     onClick={onClickValidateForm}
                     h={isMobileScreen ? "40px" : "48px"}
                   >
-                    Apply
+                    { isSubmitted ? 'Sent' : 'Send' }
                     {
                       isSubmitted && <>
                         <span className='ml-1'></span>
