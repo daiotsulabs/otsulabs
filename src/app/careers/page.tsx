@@ -28,7 +28,7 @@ export default function Careers() {
         onActiveSlideChange={onSlideActiveChange}
       />
       {isOpen && <ModalMenu in={isOpen} onClickToggle={onToggle} />}
-      <JoinUs join={join}></JoinUs>
+      <JoinUs join={join} />
       <CopyRight></CopyRight>
     </Layout>
   )
