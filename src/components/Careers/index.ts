@@ -4,7 +4,7 @@ type Job = {
   name: string
   responsibilities: string[]
   qualifications: string[],
-  offer: string[],
+  offers: string[],
   time: string
 }
 
@@ -29,10 +29,10 @@ const jobs: Job[] = [
       'Highly responsible and skilled in time management.',
       'Willingness to learn, adapt, and embrace new ideas and techniques in the field.',
     ],
-    offer: [
+    offers: [
       'Competitive compensation.',
-      'An environment that fosters creativity and personal growth.',
-      'Biannual salary reviews.',
+      'Beautiful working space located in the heart of the city, that includes free facilities, such as gym, swimming pool, library, and more',
+      'An environment that fosters creativity and personal growth. Biannual salary reviews.',
       'Company-provided work equipment.',
       'Paid holidays, in accordance with legal requirements.',
       'Comprehensive benefits and insurance package.',
@@ -60,10 +60,10 @@ const jobs: Job[] = [
       'Ability to analyze and evaluate data to inform effective advertising strategies.',
       'Knowledgeable about legal regulations and requirements related to copyright and intellectual property.',
     ],
-    offer: [
+    offers: [
       'Competitive compensation.',
-      'An environment that fosters creativity and personal growth.',
-      'Biannual salary reviews.',
+      'Beautiful working space located in the heart of the city, that includes free facilities, such as gym, swimming pool, library, and more',
+      'An environment that fosters creativity and personal growth. Biannual salary reviews.',
       'Company-provided work equipment.',
       'Paid holidays, in accordance with legal requirements.',
       'Comprehensive benefits and insurance package.',
@@ -91,10 +91,10 @@ const jobs: Job[] = [
       'Highly responsible and skilled in time management.',
       'Willingness to learn, adapt, and embrace new ideas and techniques in the field.',
     ],
-    offer: [
+    offers: [
       'Competitive compensation.',
-      'An environment that fosters creativity and personal growth.',
-      'Biannual salary reviews.',
+      'Beautiful working space located in the heart of the city, that includes free facilities, such as gym, swimming pool, library, and more',
+      'An environment that fosters creativity and personal growth. Biannual salary reviews.',
       'Company-provided work equipment.',
       'Paid holidays, in accordance with legal requirements.',
       'Comprehensive benefits and insurance package.',
@@ -120,10 +120,10 @@ const jobs: Job[] = [
       'Excellent communication skills, with the ability to effectively convey ideas and concepts to team members.',
       'Willingness to learn, grow, and embrace new techniques and approaches in the field.',
     ],
-    offer: [
+    offers: [
       'Competitive compensation.',
-      'An environment that fosters creativity and personal growth.',
-      'Biannual salary reviews.',
+      'Beautiful working space located in the heart of the city, that includes free facilities, such as gym, swimming pool, library, and more',
+      'An environment that fosters creativity and personal growth. Biannual salary reviews.',
       'Company-provided work equipment.',
       'Paid holidays, in accordance with legal requirements.',
       'Comprehensive benefits and insurance package.',
@@ -132,7 +132,6 @@ const jobs: Job[] = [
   }
 ]
 export * from './JoinUs'
-export * from './Freelancers'
 export {
 jobs
 }

@@ -27,10 +27,10 @@ export default function JoinUs({ join }: { join: any }) {
                 jobs.map(job => (
                   <li
                     key={job.id}
-                    className='bg-[#151515] rounded-[10px] md:rounded-2xl my-3 md:my-6 cursor-pointer py-2 md:py-4 px-6 md:px-10 border border-[#000000] border-solid'
+                    className='bg-[#151515] rounded-[10px] md:rounded-2xl my-3 md:my-6 cursor-pointer border border-[#000000] border-solid'
                   >
                     <Link href={`/careers/${job.slug}`}>
-                      <Flex justifyContent={'space-between'} alignItems={'center'}>
+                      <Flex justifyContent={'space-between'} alignItems={'center'} className='py-2 md:py-4 px-6 md:px-10'>
                         <Text fontWeight={400} className='leading-[normal] text-xs md:text-base 2xl:text-xl'>{job.name}</Text>
                         <ArrowRightIcon color='#A0A0A0' />
                       </Flex>
@@ -65,18 +65,20 @@ export default function JoinUs({ join }: { join: any }) {
             >
               We have an awesome in-house team with creative thinkers and directors. But, we&apos;re looking for skilled artists, animators, storyboard artists, concept artists, and character designers to join our extended team. Interested? Throw your hat in the ring!
             </Text>}
-            <Button
-              style={{ background: '#ffffff', color: '#000000' }}
-              size={'md'}
-              className='py-2 md:py-2 px-8 md:px-11 rounded-full flex-1'
-              fontSize={16}
-              fontWeight={400}
-              variant='outline'
-              onClick={join}
-              height={"44px"}
-            >
-              Join
-            </Button>
+            <Link href={"/careers/freelancer"} >
+              <Button
+                style={{ background: '#ffffff', color: '#000000' }}
+                size={'md'}
+                className='py-2 md:py-2 px-8 md:px-11 rounded-full flex-1'
+                fontSize={16}
+                fontWeight={400}
+                variant='outline'
+                onClick={join}
+                height={isMobileScreen ? "40px" : "44px"}
+              >
+                Join
+              </Button>
+            </Link>
           </Center>
         </Flex>
       </Container>

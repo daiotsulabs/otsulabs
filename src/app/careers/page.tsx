@@ -1,6 +1,5 @@
 "use client"
 import { Header, Layout, ModalMenu } from '@/components'
-import Freelancers from '@/components/Careers/Freelancers'
 import CopyRight from '@/components/CopyRight'
 import JoinUs from '@/components/Careers/JoinUs'
 import { useDisclosure } from '@chakra-ui/react'
@@ -29,9 +28,7 @@ export default function Careers() {
         onActiveSlideChange={onSlideActiveChange}
       />
       {isOpen && <ModalMenu in={isOpen} onClickToggle={onToggle} />}
-      {
-        activeSlice !== 2 ? <JoinUs join={join}></JoinUs> : <Freelancers></Freelancers>
-      }
+      <JoinUs join={join}></JoinUs>
       <CopyRight></CopyRight>
     </Layout>
   )

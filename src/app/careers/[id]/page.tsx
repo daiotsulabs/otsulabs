@@ -128,9 +128,9 @@ export default function JobId() {
                 flexDirection={'column'}
                 alignItems={'flex-start'}
                 className='px-2 pt-20 md:pt-8 pb-2 md:px-20 md:py-4 gap-y-1'>
-                {/* <Box onClick={goBack} className='uppercase underline text-xs cursor-pointer' color="#f5f5f5" opacity={0.4} letterSpacing={1.2}>
+                <Box onClick={goBack} className='uppercase underline text-xs cursor-pointer' color="#f5f5f5" opacity={0.4} letterSpacing={1.2}>
                   Back to careers
-                </Box> */}
+                </Box>
                 <Heading
                   className='mt-2 text-base md:text-[28px] uppercase leading-[normal] text-left md:text-center mb-[18px]'
                   as={'h2'}
@@ -184,7 +184,7 @@ export default function JobId() {
                         color={'#f5f5f5'}>We offer:</Heading>
                       <ul className='list-disc pl-6'>
                         {
-                          job?.qualifications.map((r, index) => (
+                          job?.offers.map((r, index) => (
                             <li key={index}>
                               <Text className='text-[10px] md:text-sm 2xl:text-base leading-[normal]'>{r}</Text>
                             </li>
@@ -219,13 +219,12 @@ export default function JobId() {
                 flexDirection={'column'}
                 alignItems={'flex-start'}
                 className='px-2 pt-20 md:pt-8 pb-2 md:px-20 md:py-4 gap-y-1'>
-                <Text className='text-[8px] md:text-xs uppercase tracking-[0.6px] leading-[normal] mb-6 md:mb-8 block md:hidden'>{job?.time}</Text>
                 <Box maxWidth={'492px'} width={'100%'} className='mx-auto'>
                   <Box onClick={toInformation} className='text-xs uppercase cursor-pointer underline' color={'#f5f5f5'} opacity={0.4}>
                     back to description
                   </Box>
                   <Heading
-                    className='mt-2 text-base md:text-[28px] 2xl:text-5xl uppercase leading-[normal] text-left mx-0 md:mx-auto md:tracking-[4px]'
+                    className='mt-3 mb-5 text-base md:text-[28px] 2xl:text-5xl uppercase leading-[normal] text-left mx-0 md:mx-auto md:tracking-[4px]'
                     as={'h2'}
                     color={'#f5f5f5'}>
                     {job?.name}
