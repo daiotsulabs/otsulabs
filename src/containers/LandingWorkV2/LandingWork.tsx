@@ -1,6 +1,6 @@
 import { WorkItem } from "@/components"
-import { Box, Button, Divider, Stack, useMediaQuery } from "@chakra-ui/react"
-import { useState } from "react"
+import { Box, Button, Divider, SlideFade, Stack, useMediaQuery } from "@chakra-ui/react"
+import { useEffect, useRef, useState } from "react"
 
 const landingWorkImages = [
   { src: "/images/on1forces.png", project: "0NE FORCE", date: "June 10, 2023", description: "30-second trailer" },
@@ -9,6 +9,31 @@ const landingWorkImages = [
   { src: "/images/Inkugami.png", project: "Inkugami", date: "July 03, 2023", description: "22-second trailer" },
   { src: "/images/MusicFrens.png", project: "Music Frens", date: "July 19, 2023", description: "20-second teaser" },
 ];
+
+const landingWorkVideos = [
+  { src: "/videos/on1forces.mp4" },
+  { src: "/videos/alexh.mp4" },
+  { src: "/videos/conviction.mp4" },
+  { src: "/videos/inkugami.mov" },
+  { src: "/videos/musicfrens.mp4" },
+]
+
+const VideoPlayer = ({ src, poster }: { src: string, poster: string }) => {
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    return () => {
+      if (videoRef.current) {
+        videoRef.current.pause()
+      }
+    }
+  }, [])
+  return (
+    <video ref={videoRef} poster={poster} playsInline controls className="w-full h-full object-cover">
+      <source src={src} type="video/mp4" />
+    </video>
+  )
+}
 
 const DesktopContent = () => {
   const [expandedIndex, setExpandedIndex] = useState(-1)
@@ -29,13 +54,18 @@ const DesktopContent = () => {
             key={index}
             w={expandedIndex === index ? isLargeScreen ? "80%" : "calc(100% - 42px - 42px - 42px - 42px)" : expandedIndex > -1 ? isLargeScreen ? "5%" : "42px" : "20%"}
             h={height}
-            className="transition-all duration-150 ease-in-out">
+            className="transition-all duration-150 ease-in-out relative">
             <WorkItem
               expandedIndex={expandedIndex}
               index={index}
               image={project.src}
               project={project.project}
             />
+            {expandedIndex > -1 && index === expandedIndex &&
+              <Box className="absolute inset-0">
+                <VideoPlayer src={landingWorkVideos[expandedIndex].src} poster={landingWorkImages[expandedIndex].src} />
+              </Box>
+            }
           </Box>
         )
         )}
@@ -64,9 +94,9 @@ const DesktopContent = () => {
 const MobileContent = () => {
   const [activeIndex, setActiveIndex] = useState(-1);
   return (
-    <Box className="w-full h-full bg-black relative" px={6} pt={"60px"}>
-      {activeIndex < 0
-        ? <Stack direction="column">
+    <>
+      <Box className="w-full h-full bg-black relative" zIndex={9} px={6} pt={"60px"}>
+        <Stack direction="column">
           {landingWorkImages.map((project, index) => (
             <Box
               onClick={() => setActiveIndex(index)}
@@ -84,14 +114,14 @@ const MobileContent = () => {
           )
           )}
         </Stack>
-        : <Stack direction="column" className="items-center pt-[140px]">
+      </Box>
+      {activeIndex >= 0 && <SlideFade in={activeIndex >= 0} className="bg-black px-6 pt-[60px]" style={{ zIndex: 10, position: "fixed", top: 0, left: 0, right: 0, bottom: 0 }}>
+        <Stack direction="column" className="items-center pt-[140px]">
           <Box className="font-bold text-xs text-[#f5f5f5] mb-[16px]">{landingWorkImages[activeIndex].project}</Box>
-          <Box w={"100%"} h="193px">
-            <WorkItem
-              border={false}
-              image={landingWorkImages[activeIndex].src}
-              project={landingWorkImages[activeIndex].project}
-            />
+          <Box w={"100%"} h="193px" className="relative">
+            <Box className="absolute inset-0">
+              <VideoPlayer src={landingWorkVideos[activeIndex].src} poster={landingWorkImages[activeIndex].src} />
+            </Box>
           </Box>
           <Stack
             mt={11}
@@ -116,8 +146,9 @@ const MobileContent = () => {
               w={"96px"}
               onClick={() => setActiveIndex(-1)}>Back</Button>
           </Stack>
-        </Stack>}
-    </Box>
+        </Stack>
+      </SlideFade>}
+    </>
   )
 }
 
