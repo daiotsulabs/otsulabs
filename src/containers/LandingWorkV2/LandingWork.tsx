@@ -1,6 +1,6 @@
 import { WorkItem } from "@/components"
 import { Box, Button, Divider, Stack, useMediaQuery } from "@chakra-ui/react"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 const landingWorkImages = [
   { src: "/images/on1forces.png", project: "0NE FORCE", date: "June 10, 2023", description: "30-second trailer" },
@@ -9,6 +9,31 @@ const landingWorkImages = [
   { src: "/images/Inkugami.png", project: "Inkugami", date: "July 03, 2023", description: "22-second trailer" },
   { src: "/images/MusicFrens.png", project: "Music Frens", date: "July 19, 2023", description: "20-second teaser" },
 ];
+
+const landingWorkVideos = [
+  { src: "/videos/on1forces.mp4" },
+  { src: "/videos/alexh.mp4" },
+  { src: "/videos/conviction.mp4" },
+  { src: "/videos/inkugami.mov" },
+  { src: "/videos/musicfrens.mp4" },
+]
+
+const VideoPlayer = ({ src }: { src: string }) => {
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    return () => {
+      if (videoRef.current) {
+        videoRef.current.pause()
+      }
+    }
+  }, [])
+  return (
+    <video ref={videoRef} playsInline controls className="w-full h-full object-cover">
+      <source src={src} type="video/mp4" />
+    </video>
+  )
+}
 
 const DesktopContent = () => {
   const [expandedIndex, setExpandedIndex] = useState(-1)
@@ -29,13 +54,18 @@ const DesktopContent = () => {
             key={index}
             w={expandedIndex === index ? isLargeScreen ? "80%" : "calc(100% - 42px - 42px - 42px - 42px)" : expandedIndex > -1 ? isLargeScreen ? "5%" : "42px" : "20%"}
             h={height}
-            className="transition-all duration-150 ease-in-out">
+            className="transition-all duration-150 ease-in-out relative">
             <WorkItem
               expandedIndex={expandedIndex}
               index={index}
               image={project.src}
               project={project.project}
             />
+            {expandedIndex > -1 && index === expandedIndex &&
+              <Box className="absolute inset-0">
+                <VideoPlayer src={landingWorkVideos[expandedIndex].src} />
+              </Box>
+            }
           </Box>
         )
         )}
@@ -86,12 +116,10 @@ const MobileContent = () => {
         </Stack>
         : <Stack direction="column" className="items-center pt-[140px]">
           <Box className="font-bold text-xs text-[#f5f5f5] mb-[16px]">{landingWorkImages[activeIndex].project}</Box>
-          <Box w={"100%"} h="193px">
-            <WorkItem
-              border={false}
-              image={landingWorkImages[activeIndex].src}
-              project={landingWorkImages[activeIndex].project}
-            />
+          <Box w={"100%"} h="193px" className="relative">
+            <Box className="absolute inset-0">
+              <VideoPlayer src={landingWorkVideos[activeIndex].src} />
+            </Box>
           </Box>
           <Stack
             mt={11}
