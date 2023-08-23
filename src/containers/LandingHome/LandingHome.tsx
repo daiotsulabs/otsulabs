@@ -1,7 +1,7 @@
 import { Box, Image, SlideFade, useMediaQuery } from "@chakra-ui/react"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
-function LandingHome() {
+function LandingHome({ hideArrow = false }: { hideArrow?: boolean }) {
   const [isMobileScreen] = useMediaQuery('(max-width: 480px)')
   const [isMediumScreen] = useMediaQuery('(max-width: 1441px)')
   const [isShowText, setIsShowText] = useState(true)
@@ -13,9 +13,6 @@ function LandingHome() {
       </video>
       <Box
         className="w-full h-full flex items-center justify-center bg-[#00000080]"
-        // bgImage="/images/landing-home.png"
-        // bgSize="cover"
-        // bgPosition="center"
       >
         <SlideFade in={isShowText}>
           <Box
@@ -28,7 +25,7 @@ function LandingHome() {
             An animation production house driven by a collective of storytellers and their profound love for anime.
           </Box>
         </SlideFade>
-        <Box
+        {!hideArrow && <Box
           position="fixed"
           cursor="pointer"
           className="animate-[bounce_1.5s_infinite] bottom-[60px] md:bottom-[10px]"
@@ -41,7 +38,7 @@ function LandingHome() {
               alt="arrow-down"
             />
           </Box>
-        </Box>
+        </Box>}
       </Box>
     </>
   )

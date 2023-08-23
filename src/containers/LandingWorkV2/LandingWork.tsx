@@ -1,5 +1,5 @@
 import { WorkItem } from "@/components"
-import { Box, Button, Divider, Stack, useMediaQuery } from "@chakra-ui/react"
+import { Box, Button, Divider, SlideFade, Stack, useMediaQuery } from "@chakra-ui/react"
 import { useEffect, useRef, useState } from "react"
 
 const landingWorkImages = [
@@ -18,7 +18,7 @@ const landingWorkVideos = [
   { src: "/videos/musicfrens.mp4" },
 ]
 
-const VideoPlayer = ({ src }: { src: string }) => {
+const VideoPlayer = ({ src, poster }: { src: string, poster: string }) => {
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const VideoPlayer = ({ src }: { src: string }) => {
     }
   }, [])
   return (
-    <video ref={videoRef} playsInline controls className="w-full h-full object-cover">
+    <video ref={videoRef} poster={poster} playsInline controls className="w-full h-full object-cover">
       <source src={src} type="video/mp4" />
     </video>
   )
@@ -63,7 +63,7 @@ const DesktopContent = () => {
             />
             {expandedIndex > -1 && index === expandedIndex &&
               <Box className="absolute inset-0">
-                <VideoPlayer src={landingWorkVideos[expandedIndex].src} />
+                <VideoPlayer src={landingWorkVideos[expandedIndex].src} poster={landingWorkImages[expandedIndex].src} />
               </Box>
             }
           </Box>
@@ -94,9 +94,9 @@ const DesktopContent = () => {
 const MobileContent = () => {
   const [activeIndex, setActiveIndex] = useState(-1);
   return (
-    <Box className="w-full h-full bg-black relative" px={6} pt={"60px"}>
-      {activeIndex < 0
-        ? <Stack direction="column">
+    <>
+      <Box className="w-full h-full bg-black relative" zIndex={9} px={6} pt={"60px"}>
+        <Stack direction="column">
           {landingWorkImages.map((project, index) => (
             <Box
               onClick={() => setActiveIndex(index)}
@@ -114,11 +114,13 @@ const MobileContent = () => {
           )
           )}
         </Stack>
-        : <Stack direction="column" className="items-center pt-[140px]">
+      </Box>
+      {activeIndex >= 0 && <SlideFade in={activeIndex >= 0} className="bg-black px-6 pt-[60px]" style={{ zIndex: 10, position: "fixed", top: 0, left: 0, right: 0, bottom: 0 }}>
+        <Stack direction="column" className="items-center pt-[140px]">
           <Box className="font-bold text-xs text-[#f5f5f5] mb-[16px]">{landingWorkImages[activeIndex].project}</Box>
           <Box w={"100%"} h="193px" className="relative">
             <Box className="absolute inset-0">
-              <VideoPlayer src={landingWorkVideos[activeIndex].src} />
+              <VideoPlayer src={landingWorkVideos[activeIndex].src} poster={landingWorkImages[activeIndex].src} />
             </Box>
           </Box>
           <Stack
@@ -144,8 +146,9 @@ const MobileContent = () => {
               w={"96px"}
               onClick={() => setActiveIndex(-1)}>Back</Button>
           </Stack>
-        </Stack>}
-    </Box>
+        </Stack>
+      </SlideFade>}
+    </>
   )
 }
 
