@@ -1,9 +1,9 @@
 import { Box, Image, SlideFade, useMediaQuery } from "@chakra-ui/react"
 import { useState } from "react"
 
-function LandingHome({ hideArrow = false }: { hideArrow?: boolean }) {
+function LandingHome({ hideArrow = false, hideTagLine }: { hideArrow?: boolean, hideTagLine: boolean, }) {
   const [isMobileScreen] = useMediaQuery('(max-width: 480px)')
-  const [isMediumScreen] = useMediaQuery('(max-width: 1441px)')
+  const [isMediumScreen] = useMediaQuery('(max-width: 1513px)')
   const [isShowText, setIsShowText] = useState(true)
 
   return (
@@ -15,15 +15,14 @@ function LandingHome({ hideArrow = false }: { hideArrow?: boolean }) {
         className="w-full h-full flex items-center justify-center bg-[#00000080]"
       >
         <SlideFade in={isShowText}>
-          <Box
-            className="animate-fade-in delay-[1200ms] transition-opacity"
+          {!hideTagLine && <Box
+            className="animate-fade-in delay-[1200ms] transition-opacity text-xs md:text-2xl 2xl:text-3xl"
             maxW={isMobileScreen ? "282px" : "722px"}
             color="white"
-            fontSize={isMobileScreen ? "xs" : isMediumScreen ? "2xl" : "4xl"}
             textAlign="center"
           >
             An animation production house driven by a collective of storytellers and their profound love for anime.
-          </Box>
+          </Box>}
         </SlideFade>
         {!hideArrow && <Box
           position="fixed"
@@ -33,8 +32,8 @@ function LandingHome({ hideArrow = false }: { hideArrow?: boolean }) {
           <Box className="w-full h-full flex items-center justify-center">
             <Image
               src="/icons/arrow-down.svg"
-              width={isMobileScreen ? "12px" : "24px"}
-              height={isMobileScreen ? "44px" : "88px"}
+              width={isMobileScreen ? "12px" : isMediumScreen ? "18px" : "24px"}
+              height={isMobileScreen ? "44px" : isMediumScreen ? "66px" : "88px"}
               alt="arrow-down"
             />
           </Box>

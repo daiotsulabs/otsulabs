@@ -3,7 +3,7 @@ import { Header, Layout, ModalMenu } from '@/components'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useEffect, useRef, useState } from 'react'
 import { LandingHome } from '@/containers/LandingHome'
-import { Contact, LandingAbout, LandingExperience, LandingProcess, LandingWorkV2 } from '@/containers'
+import { Contact, LandingAbout, LandingExperience, LandingWorkV2 } from '@/containers'
 import { Box, Center, Stack, useDisclosure, useMediaQuery } from '@chakra-ui/react'
 
 export default function Home() {
@@ -53,7 +53,7 @@ export default function Home() {
       {isMobileScreen
         ? <Stack direction="column">
           <Box className='w-screen h-screen'>
-            <LandingHome hideArrow={hideArrow} />
+            <LandingHome hideArrow={hideArrow} hideTagLine={isOpen} />
           </Box>
           <Box className='w-screen h-screen'>
             <LandingExperience />
@@ -85,7 +85,7 @@ export default function Home() {
           preventInteractionOnTransition={true}
           onSlideChange={handleSlideChange}>
           <SwiperSlide>
-            <LandingHome />
+            <LandingHome hideTagLine={isOpen} />
           </SwiperSlide>
           <SwiperSlide>
             <LandingExperience />

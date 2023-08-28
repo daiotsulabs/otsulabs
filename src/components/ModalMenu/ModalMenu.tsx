@@ -92,7 +92,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
                 <MenuButton className="animate-menu-fade transition-opacity delay-[100ms]" dark={true} onClick={() => onClickMenuButton('/about')}>ABOUT</MenuButton>
                 <MenuButton className="animate-menu-fade transition-opacity delay-[500ms]" dark={true} onClick={() => onClickMenuButton('/careers')}>CAREERS</MenuButton>
                 <MenuButton className="animate-menu-fade transition-opacity delay-[900ms]" dark={true} onClick={() => onClickMenuButton('/contact')}>CONTACT</MenuButton>
-                <MenuButton className="animate-menu-fade transition-opacity delay-[1300ms]" dark={true}>
+                <MenuButton className="animate-menu-fade transition-opacity delay-[1300ms]" onClick={() => router.push("https://twitter.com/OtsuLabs")} dark={true}>
                   <TwitterIcon opacity={.4} fill={"#f5f5f5"} width={34} height={32} />
                 </MenuButton>
               </Stack>
