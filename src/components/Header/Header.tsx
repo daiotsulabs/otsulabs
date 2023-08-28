@@ -36,11 +36,10 @@ function Header({
             <Button
               key={index}
               variant="link"
-              className="uppercase text-md"
+              className="uppercase text-xs xl:text-md"
               color={"white"}
               opacity={0.4}
               letterSpacing={isMediumScreen ? "1.2px" : "1.6px"}
-              fontSize={isMediumScreen ? "xs" : "md"}
               isActive={activeSlideIndex === index}
               fontWeight={400}
               _active={{
@@ -59,7 +58,7 @@ function Header({
           cursor="pointer"
           onClick={onClickToggle}
           p={0}
-          fontSize={isMediumScreen ? "xs" : "md"}
+          className="text-xs xl:text-md"
           variant="unstyled"
           sx={{ minW: 0 }}
           color="#f5f5f5"

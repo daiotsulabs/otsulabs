@@ -34,7 +34,7 @@ function LandingExperience() {
             letterSpacing={1.2}
             mb={"12px"}>now</Box>
           <Box mb="10px" fontSize={isMobileScreen ? "10px" : "sm"} className="">
-            We help brands capture attention by creating scroll-stopping animations that make people feel.
+            We help brands capture attention by creating scroll-stopping animations that transform stories into memories.
           </Box>
           <Box fontSize={isMobileScreen ? "10px" : "sm"}>
             Whether it&apos;s crafting <span className="text-[#f5f5f5] ">short films, commercials, animated series, or immersive experiences,</span> we embrace every opportunity to challenge our creative minds.
