@@ -64,7 +64,16 @@ export default function RootLayout({
         <Providers>
           {loading
             ? <Box className='w-screen h-screen flex items-center justify-center'>
-              <Progress className='loading-page' style={{ maxWidth: '350px', width: '100%', borderRadius: isMobileScreen ? '8px' : '4x', background: '#f5f5f540' }} value={progress} height={'3px'} />
+              <Progress
+                className='loading-page'
+                style={{
+                  maxWidth: '350px',
+                  width: '100%',
+                  borderRadius: isMobileScreen ? '8px' : '4px',
+                  background: '#f5f5f540'
+                }}
+                value={progress}
+                height={'3px'} />
             </Box>
             : children
           }

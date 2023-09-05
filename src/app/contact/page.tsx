@@ -62,7 +62,7 @@ export default function Contact() {
         activeSlideIndex={1}
       />
       {isOpen && <ModalMenu in={isOpen} onClickToggle={onToggle} />}
-      <Center className='w-full h-full bg-black'>
+      <Center className='w-full h-full bg-black animate-page-fade'>
         <Container maxWidth={540} className='h-full px-6 md:px-auto md:h-auto pt-20 md:pt-0'>
           <Box className='text-md md:text-[28px] text-[#f5f5f5] font-bold uppercase' textAlign={isMobileScreen ? "left" : "center"} letterSpacing={4}>Contact</Box>
           {isMobileScreen && <Box
