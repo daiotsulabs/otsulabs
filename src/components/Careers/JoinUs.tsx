@@ -11,10 +11,12 @@ export default function JoinUs({ join }: { join: any }) {
         <Flex color='#707070' className='wrap-content flex-col md:flex-row items-start justify-between' gap={isMobileScreen ? "44px" : 244}>
           <Box flex='1'>
             <Heading
-              className='text-base md:text-[28px] 2xl:text-[32px] leading-[normal] uppercase'
-              as={'h3'}
-              color={'#f5f5f5'}
-            >JOIN US</Heading>
+              className='uppercase text-md md:text-[28px] text-[#f5f5f5] font-bold uppercase'
+              as={'div'}
+              letterSpacing={4}
+            >
+              JOIN US
+            </Heading>
             <Text
               className='text-xs md:text-base 2xl:text-xl leading-[normal]'
               color={'#727272'}
@@ -47,9 +49,9 @@ export default function JoinUs({ join }: { join: any }) {
             flexDirection={'column'}
           >
             <Heading
-              className='text-base md:text-[32px] 2xl:text-5xl leading-[normal] uppercase'
-              as={'h2'}
-              color={'#f5f5f5'}
+              className='uppercase text-md md:text-[28px] text-[#f5f5f5] font-bold uppercase'
+              as={'div'}
+              letterSpacing={4}
             >
               Freelancer?
             </Heading>
