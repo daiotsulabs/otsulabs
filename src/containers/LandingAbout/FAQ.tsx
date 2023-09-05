@@ -2,6 +2,12 @@ import { Heading, Accordion, AccordionItem, AccordionButton, AccordionPanel, Box
 import { faqs } from ".";
 import { ArrowDownIcon } from "@/components/icons";
 
+export const CustomBorder = () => {
+  return (
+    <Box height={"1px"} w="100%" borderRadius={"1px"} backgroundColor="#5a5a5a" />
+  )
+}
+
 export function Faq() {
   const [isMobileScreen] = useMediaQuery('(max-width: 768px)')
   return (
@@ -15,41 +21,44 @@ export function Faq() {
       <Accordion allowToggle>
         {
           faqs.map((faq, index) => (
-            <AccordionItem key={index} borderTopWidth={index === 0 ? 0 : "0.3px"} borderColor="#5a5a5a" pt={isMobileScreen && index > 0 ? "24px" : "0"}>
-              {
-                ({ isExpanded }) => (
-                  <>
-                    <h2>
-                      <AccordionButton
-                        background={'transparent'}
-                        className="pb-[6px] pt-[6px] md:pt-[16px] md:pb-[16px] xl:pt-[20px] xl:pb-[20px] px-0 pr-3"
-                      >
-                        <Box as="span" flex='1' textAlign='left' mr={6}>
-                          <Text className="text-sm md:text-[16px] 2xl:text-[20px] font-bold" color="#f5f5f5">{faq.question}</Text>
-                        </Box>
-                        {isExpanded ? (
-                          <ArrowDownIcon className="rotate-180" />
-                        ) : (
-                          <ArrowDownIcon />
-                        )}
-                      </AccordionButton>
-                    </h2>
-                    <AccordionPanel pb={4} maxHeight={'150px'} overflowY={'auto'} className="scroll mr-2 pl-0 swiper-no-mousewheel">
-                      {
-                        faq.answer.map((a, index) => (
-                          <Text
-                            key={index}
-                            className='text-[10px] md:text-sm leading-[normal] mb-2'
-                          >
-                            {a}
-                          </Text>
-                        ))
-                      }
-                    </AccordionPanel>
-                  </>
-                )
-              }
-            </AccordionItem>
+            <>
+              <AccordionItem key={index} border={0} pt={isMobileScreen && index > 0 ? "24px" : "0"}>
+                {
+                  ({ isExpanded }) => (
+                    <>
+                      <h2>
+                        <AccordionButton
+                          background={'transparent'}
+                          className="pb-[6px] pt-[6px] md:pt-[16px] md:pb-[16px] xl:pt-[20px] xl:pb-[20px] px-0 pr-3"
+                        >
+                          <Box as="span" flex='1' textAlign='left' mr={6}>
+                            <Text className="text-sm md:text-[16px] 2xl:text-[20px] font-bold" color="#f5f5f5">{faq.question}</Text>
+                          </Box>
+                          {isExpanded ? (
+                            <ArrowDownIcon className="rotate-180" />
+                          ) : (
+                            <ArrowDownIcon />
+                          )}
+                        </AccordionButton>
+                      </h2>
+                      <AccordionPanel pb={4} maxHeight={'150px'} overflowY={'auto'} className="scroll mr-2 pl-0 swiper-no-mousewheel">
+                        {
+                          faq.answer.map((a, index) => (
+                            <Text
+                              key={index}
+                              className='text-[10px] md:text-sm leading-[normal] mb-2'
+                            >
+                              {a}
+                            </Text>
+                          ))
+                        }
+                      </AccordionPanel>
+                    </>
+                  )
+                }
+              </AccordionItem>
+              <CustomBorder />
+            </>
           ))
         }
       </Accordion>

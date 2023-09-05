@@ -1,7 +1,7 @@
 import { Box, Heading, Text, Button } from "@chakra-ui/react";
 import Link from "next/link";
 
-export function Contact ({ className }: any) {
+export function Contact({ className }: any) {
   return (
     <Box className={`flex-1 md:flex-[1_0_45%] text-right ${className} text-[#707070]`}>
       <Box className="w-full text-center md:text-left ml-auto md:w-5/6">
@@ -15,11 +15,11 @@ export function Contact ({ className }: any) {
           <Text className="text-[12px] md:text-[14px] font-normal">erene@otsulabs.com</Text>
         </Box>
         <Box className="py-2">
-          <Text className="text-[16px] md:text-lg font-bold" color="#f5f5f5">Executive Advisor</Text>
+          <Text className="text-[16px] md:text-lg font-bold" color="#f5f5f5">Operations</Text>
           <Text className="text-[12px] md:text-[14px] font-normal">khoa@otsulabs.com</Text>
         </Box>
         <Box className="py-2">
-          <Text className="text-[16px] md:text-lg font-bold" color="#f5f5f5">Business Development Advisor</Text>
+          <Text className="text-[16px] md:text-lg font-bold" color="#f5f5f5">Outreach</Text>
           <Text className="text-[12px] md:text-[14px] font-normal">sewon@otsulabs.com</Text>
         </Box>
         <Text className="mt-[10px] mb-[24px] text-xs md:text-[14px] 2xl:text-[18px]">For project inquiries, please use of our contact form.</Text>

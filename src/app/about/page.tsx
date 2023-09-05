@@ -24,7 +24,7 @@ export default function About() {
         activeSlideIndex={currenIndex + 1}
       />
       {isOpen && <ModalMenu showBg={false} in={isOpen} onClickToggle={onToggle} />}
-      <Flex className='w-full h-full items-center justify-between bg-black text-[#707070]'
+      <Flex className='w-full h-full items-center justify-between bg-black text-[#707070] animate-page-fade'
         pl={isMobileScreen ? "44px" : 164}
         pr={isMobileScreen ? "80px" : 244}
         fontSize={isMobileScreen ? "10px" : "md"}>

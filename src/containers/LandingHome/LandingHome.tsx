@@ -24,7 +24,7 @@ function LandingHome({ hideArrow = false, hideTagLine }: { hideArrow?: boolean, 
             An animation production house driven by a collective of storytellers and their profound love for anime.
           </Box>}
         </SlideFade>
-        {!hideArrow && <Box
+        {!hideArrow && !hideTagLine && <Box
           position="fixed"
           cursor="pointer"
           className="animate-[bounce_1.5s_infinite] bottom-[60px] md:bottom-[10px]"

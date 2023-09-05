@@ -20,8 +20,8 @@ const Textarea = ({ value, setValue, isValidate = false, setError }: { value: st
   return (
     <FormControl isInvalid={isError}>
       <InputGroup marginY={'20px'}>
-        <InputLeftElement pointerEvents='none' marginLeft={isMobileScreen ? "10px" : "14px"} width={isMobileScreen ? "18px" : "24px"} mt={isMobileScreen ? 1 : 4}>
-          <WriteIcon width={isMobileScreen ? 14 : 20} height={isMobileScreen ? 14 : 20} color={isError ? '#D98282' : '#A0A0A0'} />
+        <InputLeftElement pointerEvents='none' marginLeft={isMobileScreen ? "10px" : "24px"} width={isMobileScreen ? "18px" : "28px"} mt={isMobileScreen ? 0 : 3}>
+          <WriteIcon width={isMobileScreen ? 14 : 28} height={isMobileScreen ? 14 : 28} color={isError ? '#D98282' : '#A0A0A0'} />
         </InputLeftElement>
         <Input
           pt={isMobileScreen ? 3 : 21}
@@ -34,10 +34,10 @@ const Textarea = ({ value, setValue, isValidate = false, setError }: { value: st
           border={`1px solid ${isError ? '#D98282' : 'transparent'}`}
           value={value}
           onChange={handleInputChange}
-          style={{ fontSize: isMobileScreen ? 12 : 14 }}
-          _placeholder={{ color: isError ? '#D98282' : 'inherit', fontSize: isMobileScreen ? 12 : 14 }}
+          style={{ fontSize: isMobileScreen ? 12 : 16 }}
+          _placeholder={{ color: isError ? '#D98282' : 'inherit', fontSize: isMobileScreen ? 12 : 16 }}
           placeholder='Write your message'
-          paddingLeft="40px" />
+          paddingLeft={isMobileScreen ? "36px" : "68px"} />
       </InputGroup>
     </FormControl>
   )

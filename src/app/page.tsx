@@ -48,7 +48,13 @@ export default function Home() {
 
   return (
     <Layout>
-      <Header toHome={false} onActiveSlideChange={onSlideActiveChange} onClickToggle={onToggle} dark={isDarkHeader} activeSlideIndex={currenIndex} />
+      {!isOpen && <Header
+        toHome={false}
+        onActiveSlideChange={onSlideActiveChange}
+        onClickToggle={onToggle}
+        dark={isDarkHeader}
+        activeSlideIndex={currenIndex}
+      />}
       {isOpen && <ModalMenu showBg={currenIndex === 0} in={isOpen} onClickToggle={onToggle} />}
       {isMobileScreen
         ? <Stack direction="column">
