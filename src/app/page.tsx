@@ -23,9 +23,9 @@ export default function Home() {
   const { isOpen, onToggle } = useDisclosure();
   const swiperRef = useRef();
   const [isMobileScreen] = useMediaQuery("(max-width: 768px)");
-  const [isDarkHeader, setIsDarkHeader] = useState(false);
   const [currenIndex, setCurrentIndex] = useState(0);
   const [hideArrow, setHideArrow] = useState(false);
+  const [isScrollingUp, setIsScrollingUp] = useState(false);
   const setActiveIndex = (index: number) => {
     if (!swiperRef.current) return;
     (swiperRef.current as any).slideTo(index);
@@ -34,11 +34,6 @@ export default function Home() {
     setActiveIndex(index);
   };
   const handleSlideChange = (swiper: any) => {
-    if (swiper.activeIndex === 0) {
-      setIsDarkHeader(false);
-    } else {
-      setIsDarkHeader(true);
-    }
     setCurrentIndex(swiper.activeIndex);
   };
 
@@ -66,8 +61,8 @@ export default function Home() {
           toHome={false}
           onActiveSlideChange={onSlideActiveChange}
           onClickToggle={onToggle}
-          dark={isDarkHeader}
           activeSlideIndex={currenIndex}
+          visibleHeader={isScrollingUp}
         />
       )}
       {isOpen && (
@@ -110,6 +105,9 @@ export default function Home() {
           speed={1000}
           onSwiper={(swiper: any) => {
             swiperRef.current = swiper;
+          }}
+          onScroll={(swiper, event: WheelEvent) => {
+            setIsScrollingUp(event.deltaY > 0);
           }}
           preventInteractionOnTransition={true}
           onSlideChange={handleSlideChange}

@@ -113,10 +113,11 @@ const DesktopContent = () => {
   const sliderRef = useRef<any>(null);
   return (
     <Box
-      className="w-full h-full bg-black"
+      className="w-full h-full"
       display="flex"
       justifyContent="center"
       alignItems="center"
+      bgImage={`url("/images/noise.png")`}
     >
       <Box className="relative text-[#f5f5f5]">
         <Swiper
