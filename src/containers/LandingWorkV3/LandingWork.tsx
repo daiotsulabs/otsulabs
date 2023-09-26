@@ -1,4 +1,4 @@
-import { Box, Text, useMediaQuery } from "@chakra-ui/react";
+import { Box, Stack, Text, useMediaQuery } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCards } from "swiper/modules";
@@ -10,20 +10,16 @@ import "swiper/css";
 
 const landingWorkImages = [
   {
-    src: "/images/on1forces.png",
-    project: "0NE FORCE",
+    src: "/images/Conviction.png",
+    project: "Conviction",
   },
   {
     src: "/images/AlexH.png",
     project: "Alex Hugh",
   },
   {
-    src: "/images/Conviction.png",
-    project: "ConvictionSTD",
-  },
-  {
-    src: "/images/Inkugami.png",
-    project: "Inkugami",
+    src: "/images/on1forces.png",
+    project: "0NE1 FORCE",
   },
   {
     src: "/images/MusicFrens.png",
@@ -32,10 +28,9 @@ const landingWorkImages = [
 ];
 
 const landingWorkVideos = [
-  { src: "/videos/on1forces.mp4" },
-  { src: "/videos/alexh.mp4" },
   { src: "/videos/conviction.mp4" },
-  { src: "/videos/inkugami.mov" },
+  { src: "/videos/alexh.mp4" },
+  { src: "/videos/on1forces.mp4" },
   { src: "/videos/musicfrens.mp4" },
 ];
 
@@ -114,6 +109,8 @@ const VideoPlayer = ({
 };
 
 const DesktopContent = () => {
+  const [currenIndex, setCurrentIndex] = useState(0);
+  const sliderRef = useRef<any>(null);
   return (
     <Box
       className="w-full h-full bg-black"
@@ -121,29 +118,58 @@ const DesktopContent = () => {
       justifyContent="center"
       alignItems="center"
     >
-      <Swiper
-        nested={true}
-        effect="cards"
-        direction="vertical"
-        cardsEffect={{
-          perSlideOffset: 12,
-          rotate: false,
-        }}
-        grabCursor={true}
-        modules={[EffectCards]}
-        className="w-[940px] h-[529px] relative"
-      >
-        {landingWorkImages.map((project, index) => (
-          <StyledSlide className="rounded-[32px]" key={index}>
-            <VideoPlayer
-              src={landingWorkVideos[index].src}
-              poster={project.src}
-              name={project.project}
-            />
-          </StyledSlide>
-        ))}
-        <Box className="absolute inset-0"></Box>
-      </Swiper>
+      <Box className="relative text-[#f5f5f5]">
+        <Swiper
+          ref={sliderRef}
+          nested={true}
+          effect="cards"
+          direction="vertical"
+          cardsEffect={{
+            perSlideOffset: 12,
+            rotate: false,
+          }}
+          grabCursor={true}
+          modules={[EffectCards]}
+          className="w-[940px] h-[529px] relative"
+          onSlideChange={(swiper) => {
+            setCurrentIndex(swiper.activeIndex);
+          }}
+        >
+          {landingWorkImages.map((project, index) => (
+            <StyledSlide className="rounded-[32px]" key={index}>
+              <VideoPlayer
+                src={landingWorkVideos[index].src}
+                poster={project.src}
+                name={project.project}
+              />
+            </StyledSlide>
+          ))}
+        </Swiper>
+        <Stack
+          direction="column"
+          justifyContent="space-between"
+          className="absolute z-[1] w-[100px] h-[109px] -right-[115px] tracking-[1.2px] uppercase font-normal top-1/2 -translate-y-2/4"
+        >
+          {landingWorkImages.map((project, index) => (
+            <Box
+              key={index}
+              className={`text-xs ${
+                currenIndex === index ? "opacity-100" : "opacity-40"
+              } duration-75 ease-in-out transition-all cursor-pointer`}
+              onClick={() => {
+                if (sliderRef.current) {
+                  sliderRef.current?.swiper.slideTo(index);
+                }
+              }}
+            >
+              {project.project}
+            </Box>
+          ))}
+        </Stack>
+        <Box className="absolute uppercase text-xs tracking-[1.2px] cursor-pointer -bottom-[110px] left-1/2 -translate-x-1/2">
+          learn more
+        </Box>
+      </Box>
     </Box>
   );
 };
