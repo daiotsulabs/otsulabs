@@ -7,10 +7,11 @@ import {
   Text,
   useMediaQuery,
   SlideFade,
+  Img,
 } from "@chakra-ui/react";
 import { Header } from "../Header";
-import { TwitterIcon } from "../icons";
 import { useRouter } from "next/navigation";
+import { mcQueenDisplay } from "@/app/layout";
 
 interface MenuButtonProps extends ButtonProps {
   dark?: boolean;
@@ -37,14 +38,32 @@ const MenuButton = ({
           : "rgba(0, 0, 0, 0.40)"
       }
       _hover={{
-        color: dark ? "white" : "black",
+        color: dark ? "#f7f7f7" : "black",
       }}
-      className={`${className}`}
+      className={`${className} animate-menu-fade transition-opacity delay-[900ms] ${mcQueenDisplay.className} text-4xl font-bold`}
       variant="unstyled"
-      fontSize={isMobileScreen ? "2xl" : "5xl"}
       cursor="pointer"
-      h={isMobileScreen ? "unset" : "60px"}
-      letterSpacing={10}
+      h={isMobileScreen ? "unset" : "54px"}
+      {...props}
+    >
+      {children}
+    </Button>
+  );
+};
+
+const SocialButton = ({ children, ...props }: ButtonProps) => {
+  const [isMobileScreen] = useMediaQuery("(max-width: 480px)");
+
+  return (
+    <Button
+      color={"#707070"}
+      _hover={{
+        color: "#f7f7f7",
+      }}
+      className={`animate-menu-fade transition-opacity delay-[900ms] text-[15px] font-normal tracking-[1.5px] uppercase`}
+      variant="unstyled"
+      cursor="pointer"
+      h={isMobileScreen ? "unset" : "20px"}
       {...props}
     >
       {children}
@@ -79,32 +98,33 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
       <Box
         position="relative"
         className="w-full h-full"
-        // bgImage={showBg ? "/images/landing-home.png" : "unset"}
         bgSize="cover"
         backgroundPosition="center"
         zIndex={10}
+        background={showBg ? "rgba(0, 0, 0, 0.60)" : "black"}
+        backgroundImage={showBg ? "none" : "url(/images/noise.png)"}
       >
         <Header
           isCancelIcon={true}
           showMenuItem={false}
           activeSlideIndex={0}
           onClickToggle={onClickToggle}
-          dark={!showBg}
         />
         <Box
           className={`w-full h-full flex items-center ${
             isMobileScreen ? "flex-start" : "justify-center"
           }`}
+          maxW={isMobileScreen ? "100%" : "1440px"}
+          margin="auto"
           padding={isMobileScreen ? "0 44px" : "0"}
-          background={showBg ? "rgba(0, 0, 0, 0.60)" : "black"}
           backdropFilter="blur(8px)"
         >
           <Stack
             direction={isMobileScreen ? "column" : "row"}
             alignItems={isMobileScreen ? "flex-start" : "center"}
-            justifyContent="center"
-            gap={isMobileScreen ? 45 : 440}
+            justifyContent="space-between"
             w={"100%"}
+            className="px-[250px]"
           >
             <Box
               display={isMobileScreen ? "unset" : "flex"}
@@ -116,36 +136,35 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
                 gap={isMobileScreen ? "32px" : "30px"}
               >
                 <MenuButton
-                  className="animate-menu-fade transition-opacity delay-[100ms]"
                   dark={true}
                   onClick={() => onClickMenuButton("/about")}
                 >
-                  ABOUT
+                  About
                 </MenuButton>
                 <MenuButton
-                  className="animate-menu-fade transition-opacity delay-[500ms]"
+                  dark={true}
+                  onClick={() => onClickMenuButton("/about")}
+                >
+                  Work
+                </MenuButton>
+                <MenuButton
                   dark={true}
                   onClick={() => onClickMenuButton("/careers")}
                 >
-                  CAREERS
+                  Careers
                 </MenuButton>
                 <MenuButton
-                  className="animate-menu-fade transition-opacity delay-[900ms]"
+                  className="relative group"
                   dark={true}
-                  onClick={() => onClickMenuButton("/contact")}
+                  onClick={() => onClickMenuButton("/funtime")}
                 >
-                  CONTACT
-                </MenuButton>
-                <MenuButton
-                  className="animate-menu-fade transition-opacity delay-[1300ms]"
-                  onClick={() => router.push("https://twitter.com/OtsuLabs")}
-                  dark={true}
-                >
-                  <TwitterIcon
-                    opacity={0.4}
-                    fill={"#f5f5f5"}
-                    width={34}
-                    height={32}
+                  Fun Time
+                  <Img
+                    width="40px"
+                    height="40px"
+                    src="/images/funtime.png"
+                    alt="funtime"
+                    className="absolute hidden left-[120px] top-1/2 -translate-y-1/2 duration-300 group-hover:block"
                   />
                 </MenuButton>
               </Stack>
@@ -159,14 +178,11 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
             >
               <Box>
                 <Text
-                  fontWeight="bold"
-                  color="#f7f7f7"
-                  textTransform="uppercase"
-                  fontSize={"xs"}
-                  className="animate-menu-fade transition-opacity delay-[1500ms]"
-                  mb={isMobileScreen ? 0 : 15}
+                  color="#f5f5f5"
+                  className={`animate-menu-fade transition-opacity delay-[1500ms] text-xl font-medium ${mcQueenDisplay.className} leading-6`}
+                  mb={isMobileScreen ? 0 : 1.5}
                 >
-                  Based in
+                  Based In
                 </Text>
                 <Text
                   className="animate-menu-fade transition-opacity delay-[1700ms]"
@@ -176,36 +192,33 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
                   Saigon, Vietnam Seoul, South Korea
                 </Text>
               </Box>
-              <Box>
+              <Stack direction="column" alignItems="flex-start" gap="5px">
                 <Text
-                  fontWeight="bold"
-                  color="#f7f7f7"
-                  textTransform="uppercase"
-                  fontSize={"xs"}
-                  className="animate-menu-fade transition-opacity delay-[1800ms]"
-                  mb={isMobileScreen ? 0 : 15}
+                  color="#f5f5f5"
+                  className={`animate-menu-fade transition-opacity delay-[1800ms] text-xl font-medium ${mcQueenDisplay.className} leading-6`}
                 >
-                  Get in touch
+                  Socials
                 </Text>
-                <Text
-                  className="animate-menu-fade transition-opacity delay-[2000ms]"
-                  fontSize={isMobileScreen ? "xs" : "sm"}
+                <SocialButton
+                  onClick={() => router.push("https://twitter.com/OtsuLabs")}
                 >
-                  hello@otsulabs.com
-                </Text>
-              </Box>
+                  twitter
+                </SocialButton>
+                <SocialButton>tiktok</SocialButton>
+                <SocialButton>youtube</SocialButton>
+              </Stack>
             </Stack>
           </Stack>
         </Box>
         <Box
           className="absolute"
           bottom={25}
-          fontSize="xs"
+          fontSize="15px"
           left="50%"
           transform="translateX(-50%)"
           color={"#707070"}
         >
-          © Otsu Labs 2023
+          © 2023 Otsu Labs
         </Box>
       </Box>
     </SlideFade>

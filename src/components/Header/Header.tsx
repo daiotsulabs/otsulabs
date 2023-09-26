@@ -1,6 +1,7 @@
 import { Box, Button, Stack, useMediaQuery } from "@chakra-ui/react";
 import { CancelIcon, MenuIcon, SingleLogo } from "../icons";
 import { useRouter } from "next/navigation";
+import { useScrollHeader } from "@/hooks/useScrollHeader";
 
 interface HeaderProps {
   dark?: boolean;
@@ -11,6 +12,7 @@ interface HeaderProps {
   menuItems?: string[];
   onActiveSlideChange?: Function;
   toHome?: boolean;
+  visibleHeader?: boolean;
 }
 function Header({
   activeSlideIndex,
@@ -20,12 +22,23 @@ function Header({
   menuItems = ["home", "experience", "work", "faq", "contact"],
   onActiveSlideChange,
   toHome = true,
+  dark = false,
+  visibleHeader = false,
 }: HeaderProps) {
   const router = useRouter();
   const [isMobileScreen] = useMediaQuery("(max-width: 480px)");
   const [isMediumScreen] = useMediaQuery("(max-width: 1441px)");
+  const { isHeaderVisible } = useScrollHeader();
   return (
-    <header className="fixed pl-6 pr-[20px] top-[16px] md:inset-x-11 md:top-3 z-[2] h-[60px] bg-black/30 backdrop-blur-xl rounded-full">
+    <header
+      className={`fixed pl-6 pr-[20px] top-[16px] md:inset-x-11 md:top-3 z-[2] h-[60px] ${
+        dark ? "bg-transparent" : "bg-black/30"
+      } backdrop-blur-xl rounded-full transition-transform duration-700 ease-in-out transform ${
+        isHeaderVisible || visibleHeader
+          ? "-translate-y-[76px]"
+          : "translate-y-0"
+      }`}
+    >
       <Stack
         direction="row"
         alignItems="center"
@@ -40,7 +53,7 @@ function Header({
           <SingleLogo
             width={isMediumScreen ? 21 : 32}
             height={isMediumScreen ? 21 : 32}
-            fill={"white"}
+            fill={dark ? "black" : "white"}
           />
         </Box>
         <Stack direction="row" gap={8}>
@@ -75,7 +88,7 @@ function Header({
           className="text-xs xl:text-md"
           variant="unstyled"
           sx={{ minW: 0 }}
-          color="#f5f5f5"
+          color={dark ? "black" : "#f5f5f5"}
           w={50}
           textAlign={isMobileScreen ? "right" : "center"}
         >

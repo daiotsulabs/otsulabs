@@ -6,11 +6,12 @@ function LandingExperience() {
 
   return (
     <Box
-      className="w-full h-full bg-black flex items-center justify-center px-10 md:px-4"
+      className="w-full h-full flex items-center justify-center px-10 md:px-4"
       color="#f5f5f5"
       fontSize="lg"
       pl={"53px"}
       pr={"56px"}
+      bgImage={`url("/images/noise.png")`}
     >
       <Stack
         direction="column"

@@ -18,7 +18,7 @@ function LandingHome({
         muted
         loop
         playsInline
-        className="absolute top-0 left-0 min-w-[100vw] min-h-[100vh] z-[-1] object-cover"
+        className="absolute top-0 left-0 w-full h-full z-[-1] object-cover"
       >
         <source src="/intro.mp4" type="video/mp4" />
       </video>
