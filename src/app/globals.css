@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Grand Rainbow Demo";
-  src: url("/fonts/Grand-Rainbow-Demo.ttf") format("opentype");
-}
-
 html {
   scroll-behavior: smooth;
 }
