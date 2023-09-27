@@ -90,7 +90,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
     >
       <Box
         position="relative"
-        className="w-full h-full"
+        className="w-full h-screen"
         bgSize="cover"
         backgroundPosition="center"
         zIndex={10}
@@ -102,15 +102,15 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
           showMenuItem={false}
           activeSlideIndex={0}
           onClickToggle={onClickToggle}
+          customClassName="bg-transparent backdrop-blur-none"
         />
         <Box
           className={`w-full h-full flex items-center ${
             isMobileScreen ? "flex-start" : "justify-center"
           }`}
-          maxW={isMobileScreen ? "100%" : "1440px"}
           margin="auto"
           padding={isMobileScreen ? "0 44px" : "0"}
-          backdropFilter="blur(8px)"
+          backdropFilter={showBg ? "blur(8px)" : "none"}
         >
           <Stack
             direction={isMobileScreen ? "column" : "row"}
@@ -136,7 +136,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
                 </MenuButton>
                 <MenuButton
                   dark={true}
-                  onClick={() => onClickMenuButton("/about")}
+                  onClick={() => onClickMenuButton("/work")}
                 >
                   Work
                 </MenuButton>

@@ -13,6 +13,7 @@ interface HeaderProps {
   onActiveSlideChange?: Function;
   toHome?: boolean;
   visibleHeader?: boolean;
+  customClassName?: string;
 }
 function Header({
   activeSlideIndex,
@@ -24,6 +25,7 @@ function Header({
   toHome = true,
   dark = false,
   visibleHeader = false,
+  customClassName = ""
 }: HeaderProps) {
   const router = useRouter();
   const [isMobileScreen] = useMediaQuery("(max-width: 480px)");
@@ -31,13 +33,12 @@ function Header({
   const { isHeaderVisible } = useScrollHeader();
   return (
     <header
-      className={`fixed pl-6 pr-[20px] top-[16px] md:inset-x-11 md:top-3 z-[2] h-[60px] w-full md:w-[initial] ${
-        dark ? "bg-transparent" : "bg-black/30"
-      } backdrop-blur-xl rounded-full transition-transform duration-700 ease-in-out transform ${
-        isHeaderVisible || visibleHeader
+      className={`fixed pl-6 pr-[20px] top-[16px] md:inset-x-11 md:top-3 z-[2] h-[60px] w-full md:w-[initial] 
+      ${dark ? "bg-transparent" : "bg-black/30"} backdrop-blur-xl rounded-full transition-transform duration-700 ease-in-out transform 
+      ${isHeaderVisible || visibleHeader
           ? "-translate-y-[76px]"
           : "translate-y-0"
-      }
+        } ${customClassName} 
       `}
     >
       <Stack
@@ -101,8 +102,8 @@ function Header({
           {isCancelIcon && !isMobileScreen
             ? "CLOSE"
             : !isMobileScreen
-            ? "MENU"
-            : null}
+              ? "MENU"
+              : null}
         </Button>
       </Stack>
     </header>

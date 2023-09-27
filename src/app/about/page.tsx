@@ -30,6 +30,7 @@ export default function About() {
         onClickToggle={onToggle}
         dark={isDarkHeader}
         activeSlideIndex={currenIndex + 1}
+        customClassName="bg-transparent backdrop-blur-none"
       />
       {isOpen && (
         <ModalMenu showBg={false} in={isOpen} onClickToggle={onToggle} />
