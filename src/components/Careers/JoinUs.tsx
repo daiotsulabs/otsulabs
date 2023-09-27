@@ -58,14 +58,14 @@ export default function JoinUs({ join }: { join: any }) {
               className='text-xs md:text-base 2xl:text-xl leading-[normal]'
               my={isMobileScreen ? 2 : 3}
             >
-              Don't worry! Join our freelancer network and collaborate with us on a project basis.
+              Don&apos;t worry! Join our freelancer network and collaborate with us on a project basis.
 
             </Text>
             <Text
               className='text-xs md:text-base 2xl:text-xl leading-[normal]'
               my={isMobileScreen ? 2 : 3}
             >
-              We're always looking for skilled artists, animators, storyboard artists, concept artists, and character designers to join our extended team.
+              We&apos;re always looking for skilled artists, animators, storyboard artists, concept artists, and character designers to join our extended team.
             </Text>
             <Text
               className='text-xs md:text-base 2xl:text-xl leading-[normal]'
