@@ -9,6 +9,7 @@ import {
   LandingExperience,
   LandingWorkV2,
   LandingWorkV3,
+  LandingContact
 } from "@/containers";
 import {
   Box,
@@ -87,9 +88,10 @@ export default function Home() {
             <LandingAbout />
           </Box>
           <Box className="w-screen h-screen">
-            <Center className="h-full bg-black">
+            <LandingContact></LandingContact>
+            {/* <Center className="h-full bg-black">
               <Contact className="w-4/5 px-12"></Contact>
-            </Center>
+            </Center> */}
           </Box>
         </Stack>
       ) : (
@@ -123,6 +125,9 @@ export default function Home() {
           </SwiperSlide>
           <SwiperSlide>
             <LandingAbout />
+          </SwiperSlide>
+          <SwiperSlide>
+            <LandingContact />
           </SwiperSlide>
         </Swiper>
       )}

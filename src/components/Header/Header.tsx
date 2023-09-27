@@ -31,7 +31,7 @@ function Header({
   const { isHeaderVisible } = useScrollHeader();
   return (
     <header
-      className={`fixed pl-6 pr-[20px] top-[16px] md:inset-x-11 md:top-3 z-[2] h-[60px] ${
+      className={`fixed pl-6 pr-[20px] top-[16px] md:inset-x-11 md:top-3 z-[2] h-[60px] w-full md:w-[initial] ${
         dark ? "bg-transparent" : "bg-black/30"
       } backdrop-blur-xl rounded-full transition-transform duration-700 ease-in-out transform ${
         isHeaderVisible || visibleHeader

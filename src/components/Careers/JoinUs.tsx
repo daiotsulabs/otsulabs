@@ -1,5 +1,6 @@
 import { Box, Center, Flex, Text, Heading, Container, Button, useMediaQuery } from '@chakra-ui/react'
 import Link from 'next/link'
+import { mcQueenDisplay } from '@/app/layout'
 import { ArrowRightIcon } from '@/components/icons'
 import { jobs } from '.'
 
@@ -11,12 +12,10 @@ export default function JoinUs({ join }: { join: any }) {
         <Flex color='#707070' className='wrap-content flex-col md:flex-row items-start justify-between' gap={isMobileScreen ? "44px" : 244}>
           <Box flex='1'>
             <Heading
-              className='uppercase text-md md:text-[28px] text-[#f5f5f5] font-bold uppercase'
-              as={'div'}
-              letterSpacing={4}
-            >
-              JOIN US
-            </Heading>
+              className={`${mcQueenDisplay.className} text-[32px] mb-5 md:text-[36px] leading-[normal] text-center md:text-left font-medium`}
+              as={'h2'}
+              color={'#f5f5f5'}
+            >Careers</Heading>
             <Text
               className='text-xs md:text-base 2xl:text-xl leading-[normal]'
               color={'#727272'}
@@ -32,9 +31,9 @@ export default function JoinUs({ join }: { join: any }) {
                     className='bg-[#151515] rounded-[10px] md:rounded-2xl my-3 md:my-6 cursor-pointer border border-[#000000] border-solid'
                   >
                     <Link href={`/careers/${job.slug}`}>
-                      <Flex justifyContent={'space-between'} alignItems={'center'} className='py-2 md:py-4 px-6 md:px-10'>
+                      <Flex justifyContent={'space-between'} alignItems={'center'} className='py-2 md:py-4 px-6 md:px-8'>
                         <Text fontWeight={400} className='leading-[normal] text-xs md:text-base 2xl:text-xl'>{job.name}</Text>
-                        <ArrowRightIcon color='#A0A0A0' />
+                        <ArrowRightIcon color='#A0A0A0' width={isMobileScreen ? 20 : 26} height={isMobileScreen ? 20 : 26} />
                       </Flex>
                     </Link>
                   </li>
@@ -49,38 +48,34 @@ export default function JoinUs({ join }: { join: any }) {
             flexDirection={'column'}
           >
             <Heading
-              className='uppercase text-md md:text-[28px] text-[#f5f5f5] font-bold uppercase'
-              as={'div'}
-              letterSpacing={4}
+              className={`${mcQueenDisplay.className} text-[32px] mb-2 w-full md:text-[36px] leading-[normal] text-center md:text-left font-medium`}
+              as={'h2'}
+              color={'#f5f5f5'}
             >
-              Freelancer?
+              No perfect match?
             </Heading>
             <Text
               className='text-xs md:text-base 2xl:text-xl leading-[normal]'
-              my={5}
+              my={isMobileScreen ? 2 : 3}
             >
-              No perfect match? Don&apos;t worry! Join our freelancer network and collaborate with us on a project basis.
+              Don't worry! Join our freelancer network and collaborate with us on a project basis.
+
             </Text>
-            {!isMobileScreen && <Text
+            <Text
               className='text-xs md:text-base 2xl:text-xl leading-[normal]'
-              mb={10}
+              my={isMobileScreen ? 2 : 3}
             >
-              We have an awesome in-house team with creative thinkers and directors. But, we&apos;re looking for skilled artists, animators, storyboard artists, concept artists, and character designers to join our extended team. Interested? Throw your hat in the ring!
-            </Text>}
-            <Link href={"/careers/freelancer"} >
-              <Button
-                style={{ background: '#ffffff', color: '#000000' }}
-                size={'md'}
-                className='py-2 md:py-2 px-8 md:px-11 rounded-full flex-1'
-                fontSize={16}
-                fontWeight={400}
-                variant='outline'
-                onClick={join}
-                height={isMobileScreen ? "40px" : "44px"}
-              >
-                Join
-              </Button>
-            </Link>
+              We're always looking for skilled artists, animators, storyboard artists, concept artists, and character designers to join our extended team.
+            </Text>
+            <Text
+              className='text-xs md:text-base 2xl:text-xl leading-[normal]'
+              my={isMobileScreen ? 2 : 3}
+            >
+              Interested? Throw your hat in the ring!
+            </Text>
+            <Text className={`${mcQueenDisplay.className} text-xl 2xl:text-2xl text-white mt-2`}>
+              contact@otsulabs.com
+            </Text>
           </Center>
         </Flex>
       </Container>
