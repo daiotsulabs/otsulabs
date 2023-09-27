@@ -25,6 +25,7 @@ export default function Careers() {
         onClickToggle={onToggle}
         activeSlideIndex={activeSlice}
         onActiveSlideChange={onSlideActiveChange}
+        customClassName='bg-transparent backdrop-blur-none'
       />
       {isOpen && <ModalMenu in={isOpen} onClickToggle={onToggle} />}
       <JoinUs join={join} />

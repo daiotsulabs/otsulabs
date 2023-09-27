@@ -123,10 +123,10 @@ export default function Home() {
           <SwiperSlide>
             <LandingWorkV3 />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="bg-[url('/images/noise.png')]">
             <LandingAbout />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="bg-[url('/images/noise.png')]">
             <LandingContact />
           </SwiperSlide>
         </Swiper>
