@@ -61,15 +61,15 @@ function LandingContact() {
             {
               isMobileScreen && <Text className={`${mcQueenDisplay.className} text-[20px] mb-[30px] font-medium`} color="#f5f5f5">Contact</Text>
             }
-            <Box className="pt-0 pb-8">
+            <Box className="pt-0 pb-6 md:pb-8">
               <Text className={`${mcQueenDisplay.className} text-[16px] md:text-lg font-medium`} color="#f5f5f5">Art & Animation Director</Text>
               <Text className="text-[12px] md:text-[14px] font-normal text-[#636363]">erene@otsulabs.com</Text>
             </Box>
-            <Box className="pt-0 pb-8">
+            <Box className="pt-0 pb-6 md:pb-8">
               <Text className={`${mcQueenDisplay.className} text-[16px] md:text-lg font-medium`} color="#f5f5f5">Operations & Management</Text>
               <Text className="text-[12px] md:text-[14px] font-normal text-[#636363]">khoa@otsulabs.com</Text>
             </Box>
-            <Box className="pt-0 pb-8">
+            <Box className="pt-0 pb-6 md:pb-8">
               <Text className={`${mcQueenDisplay.className} text-[16px] md:text-lg font-medium`} color="#f5f5f5">Partnerships & Outreach</Text>
               <Text className="text-[12px] md:text-[14px] font-normal text-[#636363]">sewon@otsulabs.com</Text>
             </Box>
