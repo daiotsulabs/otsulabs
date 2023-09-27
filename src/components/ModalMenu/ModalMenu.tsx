@@ -28,19 +28,12 @@ const MenuButton = ({
 
   return (
     <Button
-      color={
-        dark && isMobileScreen
-          ? "white"
-          : dark
-          ? "rgba(255, 255, 255, 0.40)"
-          : isMobileScreen
-          ? "black"
-          : "rgba(0, 0, 0, 0.40)"
-      }
+      color="#f7f7f7"
+      opacity={.4}
       _hover={{
-        color: dark ? "#f7f7f7" : "black",
+        opacity: 1,
       }}
-      className={`${className} animate-menu-fade transition-opacity delay-[900ms] ${mcQueenDisplay.className} text-4xl font-bold`}
+      className={`${className} ${mcQueenDisplay.className} text-4xl font-[600]`}
       variant="unstyled"
       cursor="pointer"
       h={isMobileScreen ? "unset" : "54px"}
@@ -124,7 +117,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
             alignItems={isMobileScreen ? "flex-start" : "center"}
             justifyContent="space-between"
             w={"100%"}
-            className="px-[250px]"
+            className="md:px-[250px]"
           >
             <Box
               display={isMobileScreen ? "unset" : "flex"}
@@ -133,7 +126,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
               <Stack
                 direction="column"
                 alignItems="flex-start"
-                gap={isMobileScreen ? "32px" : "30px"}
+                gap={isMobileScreen ? 4 : "30px"}
               >
                 <MenuButton
                   dark={true}
@@ -174,12 +167,13 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
               color={"#707070"}
               direction="column"
               maxW={377}
-              gap={isMobileScreen ? 6 : "36px"}
+              gap={isMobileScreen ? 1.5 : "36px"}
+              className="mt-11 md:mt-0"
             >
               <Box>
                 <Text
                   color="#f5f5f5"
-                  className={`animate-menu-fade transition-opacity delay-[1500ms] text-xl font-medium ${mcQueenDisplay.className} leading-6`}
+                  className={`animate-menu-fade transition-opacity delay-[1500ms] text-xs md:text-xl font-medium ${mcQueenDisplay.className} leading-6`}
                   mb={isMobileScreen ? 0 : 1.5}
                 >
                   Based In
@@ -192,28 +186,29 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
                   Saigon, Vietnam Seoul, South Korea
                 </Text>
               </Box>
-              <Stack direction="column" alignItems="flex-start" gap="5px">
-                <Text
-                  color="#f5f5f5"
-                  className={`animate-menu-fade transition-opacity delay-[1800ms] text-xl font-medium ${mcQueenDisplay.className} leading-6`}
-                >
-                  Socials
-                </Text>
-                <SocialButton
-                  onClick={() => router.push("https://twitter.com/OtsuLabs")}
-                >
-                  twitter
-                </SocialButton>
-                <SocialButton>tiktok</SocialButton>
-                <SocialButton>youtube</SocialButton>
-              </Stack>
+              {!isMobileScreen && (
+                <Stack direction="column" alignItems="flex-start" gap="5px">
+                  <Text
+                    color="#f5f5f5"
+                    className={`animate-menu-fade transition-opacity delay-[1800ms] text-xl font-medium ${mcQueenDisplay.className} leading-6`}
+                  >
+                    Socials
+                  </Text>
+                  <SocialButton
+                    onClick={() => router.push("https://twitter.com/OtsuLabs")}
+                  >
+                    twitter
+                  </SocialButton>
+                  <SocialButton>tiktok</SocialButton>
+                  <SocialButton>youtube</SocialButton>
+                </Stack>
+              )}
             </Stack>
           </Stack>
         </Box>
         <Box
-          className="absolute"
+          className="absolute text-xs text-[15px]"
           bottom={25}
-          fontSize="15px"
           left="50%"
           transform="translateX(-50%)"
           color={"#707070"}

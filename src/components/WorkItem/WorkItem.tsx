@@ -1,50 +1,35 @@
-import { Box, Text, useMediaQuery } from "@chakra-ui/react"
+import { mcQueenDisplay } from "@/app/layout";
+import { Box, Text } from "@chakra-ui/react";
 import Image from "next/image";
 
 interface WorkItemProps {
   image: string;
   project: string;
-  border?: boolean;
-  expandedIndex?: number;
-  index?: number;
+  onClick?: () => void;
 }
 
-function WorkItem({ image, project, border = true, expandedIndex, index }: WorkItemProps) {
-  const [isMobileScreen] = useMediaQuery("(max-width: 480px)")
+function WorkItem({ image, project, onClick }: WorkItemProps) {
   return (
-    <Box className="w-full h-full relative cursor-pointer group/workItem" borderWidth={.5} borderColor={border ? "#f5f5f5" : "transparent"} >
+    <Box onClick={onClick} className="w-full h-full relative">
       <Image
         fill
         src={image}
         alt={image}
-        style={
-          {
-            boxShadow: isMobileScreen ? "unset" : "0px 10px 30px 0px rgba(0, 0, 0, 0.15)",
-            objectFit: "cover",
-            objectPosition: "center"
-          }
-        }
+        style={{
+          objectFit: "cover",
+          objectPosition: "center",
+          filter: "brightness(0.5)",
+        }}
         priority
+        className="rounded-[10px]"
       />
-      <Box
-        className={`absolute inset-0 font-bold transition duration-500 ease-in-out opacity-0 group-hover/workItem:opacity-100 ${isMobileScreen && "opacity-100"}`}
-        bg={isMobileScreen ? "transparent" : "rgba(0, 0, 0, 0.80)"}
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        h={"100%"}
+      <Text
+        className={`absolute bottom-4 left-5 font-medium text-xl text-[#f5f5f5] ${mcQueenDisplay.className}`}
       >
-        { (expandedIndex === -1 || index === expandedIndex) && <Text
-          fontSize={{ base: "md", sm: "2xl" }}
-          color="white"
-          letterSpacing={isMobileScreen ? 0.64 : 0.96}
-        >
-          {isMobileScreen ? "" : project}
-        </Text>
-        }
-      </Box>
+        {project}
+      </Text>
     </Box>
-  )
+  );
 }
 
-export { WorkItem }
+export { WorkItem };

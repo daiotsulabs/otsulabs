@@ -30,7 +30,7 @@ export default function AlexHugh() {
       <Stack
         bgImage="/images/noise.png"
         direction="column"
-        className="w-full h-full"
+        className="w-full h-[320px] md:h-full"
       >
         <Box className="flex-1 bg-white relative">
           <Image
@@ -43,66 +43,63 @@ export default function AlexHugh() {
         </Box>
         <Stack
           direction="row"
-          className="h-[355px] text-[#f7f7f7] items-center pl-[280px]"
-          gap={348}
+          className="h-[100px] md:h-[355px] text-[#f7f7f7] items-center px-10 md:pl-[280px] md:gap-[348px] justify-between md:justify-normal"
         >
-          <Stack gap={1} w={251}>
+          <Stack gap={1} className="w-auto md:w-[251px]">
             <Text
-              className={`${mcQueenDisplay.className} text-4xl font-bold opacity-40`}
+              className={`${mcQueenDisplay.className} text-xl md:text-4xl font-bold opacity-40`}
             >
               Alex Hugh
             </Text>
             <Text
-              className="text-[15px] tracking-[1.5px] uppercase font-normal cursor-pointer hover:underline"
+              className="text-[8px] md:text-[15px] tracking-[1.5px] uppercase font-normal cursor-pointer hover:underline"
               onClick={() => router.push("https://twitter.com/alexhughsam")}
             >
               visit website
             </Text>
           </Stack>
-          <Stack gap={8} className="text-[15px] font-normal">
+          <Stack
+            gap={8}
+            className="text-[8px] md:text-[15px] font-normal gap-5 md:gap-8"
+          >
             <Box>
               <Text className="uppercase tracking-[1.5px]">project</Text>
-              <Text className="text-[#707070] text-xl">
+              <Text className="text-[#707070] text-[8px] md:text-xl">
                 10 Second Teaser Animation
               </Text>
             </Box>
             <Box>
               <Text className="uppercase tracking-[1.5px]">date</Text>
-              <Text className="text-[#707070] text-xl">August 10, 2023</Text>
+              <Text className="text-[#707070] text-[8px] md:text-xl">
+                August 10, 2023
+              </Text>
             </Box>
           </Stack>
         </Stack>
       </Stack>
 
-      <Stack
-        className="w-full h-auto text-center bg-white text-[#010101] animate-page-fade pt-[70px]"
-        gap="70px"
-      >
-        <Stack gap="35px">
-          <Text className={`${mcQueenDisplay.className} text-4xl font-medium`}>
+      <Stack className="w-full h-auto text-center bg-white text-[#010101] animate-page-fade pt-[30px] md:pt-[70px] gap-[30px] md:gap-[70px]">
+        <Stack className="gap-[10px] md:gap-[35px]">
+          <Text
+            className={`${mcQueenDisplay.className} text-xl md:text-4xl font-medium`}
+          >
             Character Design
           </Text>
           <Box
-            w="1040px"
-            h="718px"
-            className="relative mx-auto bg-white rounded-[30px] overflow-hidden"
+            className="relative mx-auto bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[310px] h-[213px] md:w-[1040px] md:h-[718px]"
             boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
           >
             <Image fill src="/images/alex-hugh-1.png" alt="alex-hugh-1" />
           </Box>
-          <Stack direction="row" className="mx-auto" gap="35px">
+          <Stack direction="row" className="mx-auto gap-[10px] md:gap-[35px]">
             <Box
-              w="502px"
-              h="317px"
-              className="relative bg-white rounded-[30px] overflow-hidden"
+              className="relative bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[149px] h-[95px] md:w-[502px] md:h-[317px]"
               boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
             >
               <Image fill src="/images/alex-hugh-2.png" alt="alex-hugh-2" />
             </Box>
             <Box
-              w="502px"
-              h="317px"
-              className="relative bg-white rounded-[30px] overflow-hidden"
+              className="relative bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[149px] h-[95px] md:w-[502px] md:h-[317px]"
               boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
             >
               <Image fill src="/images/alex-hugh-3.png" alt="alex-hugh-3" />
@@ -110,14 +107,14 @@ export default function AlexHugh() {
           </Stack>
         </Stack>
 
-        <Stack gap="35px">
-          <Text className={`${mcQueenDisplay.className} text-4xl font-medium`}>
+        <Stack className="gap-[10px] md:gap-[35px]">
+          <Text
+            className={`${mcQueenDisplay.className} text-xl md:text-4xl font-medium`}
+          >
             Animation
           </Text>
           <Box
-            w="1040px"
-            h="577px"
-            className="mx-auto bg-white rounded-[30px] overflow-hidden"
+            className="mx-auto bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[310px] h-[172px] md:w-[1040px] md:h-[577px]"
             boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
           >
             <video
@@ -132,7 +129,7 @@ export default function AlexHugh() {
           </Box>
         </Stack>
 
-        <Box className="w-full h-[810px]">
+        <Box className="w-full h-[219px] md:h-[810px]">
           <DetailVideoPlayer
             src="/videos/alexh.mp4"
             poster="/images/AlexH.png"
