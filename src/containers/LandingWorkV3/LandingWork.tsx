@@ -5,6 +5,7 @@ import { EffectCards } from "swiper/modules";
 import styled from "@emotion/styled";
 import { mcQueenDisplay } from "@/app/layout";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import "swiper/css/effect-cards";
 import "swiper/css";
 
@@ -55,12 +56,7 @@ const VideoPlayer = ({
   }, [videoRef]);
 
   return (
-    <Box
-      onClick={() => {
-        console.log("clicked");
-      }}
-      className="w-full h-full relative cursor-pointer group/workItem z-[11]"
-    >
+    <Box className="w-full h-full relative cursor-pointer group/workItem z-[11]">
       {!isPlaying && (
         <>
           <Image
@@ -111,6 +107,20 @@ const VideoPlayer = ({
 const DesktopContent = () => {
   const [currenIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef<any>(null);
+  const router = useRouter();
+
+  const handleClickDetail = () => {
+    const link =
+      currenIndex === 0
+        ? "/conviction"
+        : currenIndex === 1
+        ? "/alexhugh"
+        : currenIndex === 2
+        ? "/on1forces"
+        : "/musicfrens";
+    router.push(link);
+  };
+
   return (
     <Box
       className="w-full h-full"
@@ -167,7 +177,10 @@ const DesktopContent = () => {
             </Box>
           ))}
         </Stack>
-        <Box className="absolute uppercase text-xs tracking-[1.2px] cursor-pointer -bottom-[110px] left-1/2 -translate-x-1/2">
+        <Box
+          onClick={handleClickDetail}
+          className="absolute uppercase text-xs tracking-[1.2px] cursor-pointer -bottom-[110px] left-1/2 -translate-x-1/2 hover:underline"
+        >
           learn more
         </Box>
       </Box>
