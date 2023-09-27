@@ -15,14 +15,14 @@ export function Faq() {
     <Box width={'100%'} className="flex-1 md:flex-[1_0_55%]" color={'#707070'}>
       <Heading
         as='h2'
-        className={`${mcQueenDisplay.className} text-[20px] md:text-[28px] 2xl:text-[36px] text-center md:text-left mb-[20px] font-medium`}
+        className={`${mcQueenDisplay.className} text-[20px] md:text-[28px] 2xl:text-[36px] text-center md:text-left mb-[26px] font-medium`}
         color="#f5f5f5">
         Frequently Asked Questions
       </Heading>
       <Accordion allowToggle>
         {
           faqs.map((faq, index) => (
-            <AccordionItem key={index} borderTopWidth={index === 0 ? 0 : "0.3px"} borderColor="#272727" pt={isMobileScreen && index > 0 ? "24px" : "0"}>
+            <AccordionItem key={index} borderTopWidth={index === 0 ? 0 : "0.3px"} borderColor="#272727" pt={isMobileScreen && index > 0 ? "6px" : "0"}>
               {
                 ({ isExpanded }) => (
                   <>
