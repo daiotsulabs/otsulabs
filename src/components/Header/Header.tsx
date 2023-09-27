@@ -37,7 +37,8 @@ function Header({
         isHeaderVisible || visibleHeader
           ? "-translate-y-[76px]"
           : "translate-y-0"
-      }`}
+      }
+      `}
     >
       <Stack
         direction="row"
@@ -93,14 +94,9 @@ function Header({
           textAlign={isMobileScreen ? "right" : "center"}
         >
           {isCancelIcon && isMobileScreen ? (
-            <CancelIcon className="ml-auto" fill={"white"} />
+            <CancelIcon className="ml-auto" fill={dark ? "black" : "white"} />
           ) : isMobileScreen ? (
-            <MenuIcon
-              className="ml-auto"
-              width={20}
-              height={12}
-              fill={"white"}
-            />
+            <MenuIcon className="ml-auto" fill={dark ? "black" : "white"} />
           ) : null}
           {isCancelIcon && !isMobileScreen
             ? "CLOSE"

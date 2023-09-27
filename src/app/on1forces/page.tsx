@@ -30,7 +30,7 @@ export default function On1Forces() {
       <Stack
         bgImage="/images/noise.png"
         direction="column"
-        className="w-full h-full"
+        className="w-full h-[320px] md:h-full"
       >
         <Box className="flex-1 bg-white relative">
           <Image
@@ -43,98 +43,90 @@ export default function On1Forces() {
         </Box>
         <Stack
           direction="row"
-          className="h-[355px] text-[#f7f7f7] items-center pl-[280px]"
-          gap={348}
+          className="h-[100px] md:h-[355px] text-[#f7f7f7] items-center px-10 md:pl-[280px] md:gap-[348px] justify-between md:justify-normal"
         >
-          <Stack gap={1} w={251}>
+          <Stack gap={1} className="w-auto md:w-[251px]">
             <Text
-              className={`${mcQueenDisplay.className} text-4xl font-bold opacity-40`}
+              className={`${mcQueenDisplay.className} text-xl md:text-4xl font-bold opacity-40`}
             >
               0N1 FORCE
             </Text>
             <Text
-              className="text-[15px] tracking-[1.5px] uppercase font-normal hover:underline cursor-pointer"
+              className="text-[8px] md:text-[15px] tracking-[1.5px] uppercase font-normal cursor-pointer hover:underline"
               onClick={() => router.push("https://www.oniforce.com/")}
             >
               visit website
             </Text>
           </Stack>
-          <Stack gap={8} className="text-[15px] font-normal">
+          <Stack className="text-[8px] md:text-[15px] font-normal gap-5 md:gap-8">
             <Box>
               <Text className="uppercase tracking-[1.5px]">project</Text>
-              <Text className="text-[#707070] text-xl">30 Second Trailer</Text>
+              <Text className="text-[#707070] text-[8px] md:text-xl">
+                30 Second Trailer
+              </Text>
             </Box>
             <Box>
               <Text className="uppercase tracking-[1.5px]">date</Text>
-              <Text className="text-[#707070] text-xl">June 10, 2023</Text>
+              <Text className="text-[#707070] text-[8px] md:text-xl">
+                June 10, 2023
+              </Text>
             </Box>
           </Stack>
         </Stack>
       </Stack>
 
-      <Stack
-        className="w-full h-auto text-center bg-white text-[#010101] animate-page-fade pt-[70px]"
-        gap="70px"
-      >
-        <Stack gap="35px">
-          <Text className={`${mcQueenDisplay.className} text-4xl font-medium`}>
+      <Stack className="w-full h-auto text-center bg-white text-[#010101] animate-page-fade pt-[30px] md:pt-[70px] gap-[30px] md:gap-[70px]">
+        <Stack className="gap-[10px] md:gap-[35px]">
+          <Text
+            className={`${mcQueenDisplay.className} text-xl md:text-4xl font-medium`}
+          >
             Character Design
           </Text>
-          <Stack direction="row" className="mx-auto" gap="35px">
+          <Stack direction="row" className="mx-auto gap-[10px] md:gap-[35px]">
             <Box
-              w="502px"
-              h="894px"
-              className="relative bg-white rounded-[30px] overflow-hidden"
+              className="relative bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[151px] h-[268px] md:w-[502px] md:h-[894px]"
               boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
             >
               <Image fill src="/images/on1force-1.png" alt="on1force-1" />
             </Box>
             <Box
-              w="502px"
-              h="894px"
-              className="relative bg-white rounded-[30px] overflow-hidden"
+              className="relative bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[151px] h-[268px] md:w-[502px] md:h-[894px]"
               boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
             >
               <Image fill src="/images/on1force-2.png" alt="on1force-2" />
             </Box>
           </Stack>
-          <Stack direction="row" className="mx-auto" gap="35px">
+          <Stack direction="row" className="mx-auto gap-[10px] md:gap-[35px]">
             <Box
-              w="502px"
-              h="354px"
-              className="relative bg-white rounded-[30px] overflow-hidden"
+              className="relative bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[151px] h-[107px] md:w-[502px] md:h-[354px]"
               boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
             >
               <Image fill src="/images/on1force-3.png" alt="on1force-3" />
             </Box>
             <Box
-              w="502px"
-              h="354px"
-              className="relative bg-white rounded-[30px] overflow-hidden"
+              className="relative bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[151px] h-[107px] md:w-[502px] md:h-[354px]"
               boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
             >
               <Image fill src="/images/on1force-4.png" alt="on1force-4" />
             </Box>
           </Stack>
           <Box
-            w="1040px"
-            h="732px"
-            className="relative mx-auto bg-white rounded-[30px] overflow-hidden"
+            className="relative mx-auto bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[312px] h-[219px] md:w-[1040px] md:h-[732px]"
             boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
           >
             <Image fill src="/images/on1force-5.png" alt="on1force-5" />
           </Box>
         </Stack>
 
-        <Stack gap="35px">
-          <Text className={`${mcQueenDisplay.className} text-4xl font-medium`}>
+        <Stack className="gap-[10px] md:gap-[35px]">
+          <Text
+            className={`${mcQueenDisplay.className} text-xl md:text-4xl font-medium`}
+          >
             Animation
           </Text>
-          <Stack direction="row" gap="35px" className="mx-auto">
+          <Stack className="mx-auto gap-[10px] md:gap-[35px] flex-col md:flex-row">
             <Box
-              w="502px"
-              h="283px"
-              className="bg-white rounded-[30px] overflow-hidden"
+              className="bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[312px] h-[176px] md:w-[502px] md:h-[283px]"
               boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
             >
               <video
@@ -148,9 +140,7 @@ export default function On1Forces() {
               </video>
             </Box>
             <Box
-              w="502px"
-              h="283px"
-              className="bg-white rounded-[30px] overflow-hidden"
+              className="bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[312px] h-[176px] md:w-[502px] md:h-[283px]"
               boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
             >
               <video
@@ -166,7 +156,7 @@ export default function On1Forces() {
           </Stack>
         </Stack>
 
-        <Box className="w-full h-[810px]">
+        <Box className="w-full h-[219px] md:h-[810px]">
           <DetailVideoPlayer
             src="/videos/on1forces.mp4"
             poster="/images/on1forces.png"

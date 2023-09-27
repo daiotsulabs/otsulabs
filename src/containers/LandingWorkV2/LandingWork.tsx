@@ -56,8 +56,6 @@ const DesktopContent = () => {
             h={height}
             className="transition-all duration-150 ease-in-out relative">
             <WorkItem
-              expandedIndex={expandedIndex}
-              index={index}
               image={project.src}
               project={project.project}
             />
@@ -106,7 +104,6 @@ const MobileContent = () => {
               maxH={'calc(20vh - 38px)'}
             >
               <WorkItem
-                border={false}
                 image={project.src}
                 project={project.project}
               />

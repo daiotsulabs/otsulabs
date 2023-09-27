@@ -78,11 +78,11 @@ export default function Home() {
           <Box className="w-screen h-screen">
             <LandingHome hideArrow={hideArrow} hideTagLine={isOpen} />
           </Box>
-          <Box className="w-screen h-screen">
+          <Box className="w-screen h-[309px]">
             <LandingExperience />
           </Box>
-          <Box className="w-screen h-screen">
-            <LandingWorkV2 />
+          <Box className="w-screen h-auto">
+            <LandingWorkV3 />
           </Box>
           <Box className="w-screen h-screen">
             <LandingAbout />

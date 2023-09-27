@@ -8,23 +8,28 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import "swiper/css/effect-cards";
 import "swiper/css";
+import { WorkItem } from "@/components";
 
 const landingWorkImages = [
   {
     src: "/images/Conviction.png",
     project: "Conviction",
+    url: "/conviction",
   },
   {
     src: "/images/AlexH.png",
     project: "Alex Hugh",
+    url: "/alexhugh",
   },
   {
     src: "/images/on1forces.png",
-    project: "0NE1 FORCE",
+    project: "0N1 FORCE",
+    url: "/on1forces",
   },
   {
     src: "/images/MusicFrens.png",
     project: "Music Frens",
+    url: "/musicfrens",
   },
 ];
 
@@ -188,103 +193,37 @@ const DesktopContent = () => {
   );
 };
 
-// const MobileContent = () => {
-//   const [activeIndex, setActiveIndex] = useState(-1);
-//   return (
-//     <>
-//       <Box
-//         className="w-full h-full bg-black relative"
-//         zIndex={9}
-//         px={6}
-//         pt={"60px"}
-//       >
-//         <Stack direction="column">
-//           {landingWorkImages.map((project, index) => (
-//             <Box
-//               onClick={() => setActiveIndex(index)}
-//               key={index}
-//               w="100%"
-//               h={128}
-//               maxH={"calc(20vh - 38px)"}
-//             >
-//               <WorkItem
-//                 border={false}
-//                 image={project.src}
-//                 project={project.project}
-//               />
-//             </Box>
-//           ))}
-//         </Stack>
-//       </Box>
-//       {activeIndex >= 0 && (
-//         <SlideFade
-//           in={activeIndex >= 0}
-//           className="bg-black px-6 pt-[60px]"
-//           style={{
-//             zIndex: 10,
-//             position: "fixed",
-//             top: 0,
-//             left: 0,
-//             right: 0,
-//             bottom: 0,
-//           }}
-//         >
-//           <Stack direction="column" className="items-center pt-[140px]">
-//             <Box className="font-bold text-xs text-[#f5f5f5] mb-[16px]">
-//               {landingWorkImages[activeIndex].project}
-//             </Box>
-//             <Box w={"100%"} h="193px" className="relative">
-//               <Box className="absolute inset-0">
-//                 <VideoPlayer
-//                   src={landingWorkVideos[activeIndex].src}
-//                   poster={landingWorkImages[activeIndex].src}
-//                 />
-//               </Box>
-//             </Box>
-//             <Stack
-//               mt={11}
-//               justifyContent="flex-start"
-//               direction="row"
-//               fontSize={"10px"}
-//               color="#707070"
-//               letterSpacing={1.2}
-//               textTransform="uppercase"
-//               gap={"10px"}
-//               alignItems="center"
-//             >
-//               <Box>{landingWorkImages[activeIndex].project}</Box>
-//               <Divider height={"10px"} orientation="vertical" />
-//               <Box>{landingWorkImages[activeIndex].date}</Box>
-//               <Divider height={"10px"} orientation="vertical" />
-//               <Box>{landingWorkImages[activeIndex].description}</Box>
-//               <Button
-//                 style={{
-//                   background: "#ffffff",
-//                   color: "#000000",
-//                   fontSize: "12px",
-//                   fontWeight: "normal",
-//                 }}
-//                 className="absolute bottom-[85px] left-1/2 -translate-x-1/2 rounded-full"
-//                 variant="outline"
-//                 height={35}
-//                 w={"96px"}
-//                 onClick={() => setActiveIndex(-1)}
-//               >
-//                 Back
-//               </Button>
-//             </Stack>
-//           </Stack>
-//         </SlideFade>
-//       )}
-//     </>
-//   );
-// };
+const MobileContent = () => {
+  const router = useRouter();
+  return (
+    <Box
+      className="w-full h-auto bg-black relative"
+      zIndex={9}
+      px={10}
+      pt={"30px"}
+    >
+      <Stack direction="column" gap="15px">
+        {landingWorkImages.map((project, index) => (
+          <Box
+            onClick={() => router.push(project.url)}
+            key={index}
+            w="100%"
+            h={128}
+            maxH={"calc(20vh - 38px)"}
+          >
+            <WorkItem image={project.src} project={project.project} />
+          </Box>
+        ))}
+      </Stack>
+    </Box>
+  );
+};
 
 function LandingWorkV3() {
   const [isMobileScreen] = useMediaQuery("(max-width: 480px)");
-  // if (isMobileScreen) {
-  //   return <MobileContent />;
-  // }
+  if (isMobileScreen) {
+    return <MobileContent />;
+  }
   return <DesktopContent />;
 }
 
