@@ -117,7 +117,7 @@ export default function RootLayout({
         />
         <meta name="theme-color" content="#000000" />
       </head>
-      <body className="bg-black">
+      <body className="bg-black scroll overflow-x-hidden">
         <Providers>
           {loading ? (
             <Box className="w-screen h-screen flex items-center justify-center">

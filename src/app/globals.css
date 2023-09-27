@@ -21,8 +21,6 @@ body {
 
 .scroll::-webkit-scrollbar-track {
   background: #5a5a5a;
-  margin-top: 20px;
-  margin-bottom: 20px;
   border-radius: 4px;
 }
 

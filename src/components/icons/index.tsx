@@ -324,3 +324,5 @@ export * from "./arrow-right";
 export * from "./position";
 export * from "./arrow-down-circle";
 export * from "./arrow-up-circle";
+export * from './plus';
+export * from './minus';

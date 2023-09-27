@@ -23,7 +23,6 @@ export default function Careers() {
       <Header
         menuItems={[]}
         onClickToggle={onToggle}
-        dark={true}
         activeSlideIndex={activeSlice}
         onActiveSlideChange={onSlideActiveChange}
       />

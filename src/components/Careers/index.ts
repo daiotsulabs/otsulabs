@@ -37,7 +37,7 @@ const jobs: Job[] = [
       'Paid holidays, in accordance with legal requirements.',
       'Comprehensive benefits and insurance package.',
     ],
-    time: 'Full-time // Ho Chi Minh, Vietnam'
+    time: 'Full-time  Ho Chi Minh, Vietnam'
   },
   {
     id: 2,
@@ -68,7 +68,7 @@ const jobs: Job[] = [
       'Paid holidays, in accordance with legal requirements.',
       'Comprehensive benefits and insurance package.',
     ],
-    time: 'Full-time // Ho Chi Minh, Vietnam'
+    time: 'Full-time  Ho Chi Minh, Vietnam'
   },
   {
     id: 3,
@@ -99,7 +99,7 @@ const jobs: Job[] = [
       'Paid holidays, in accordance with legal requirements.',
       'Comprehensive benefits and insurance package.',
     ],
-    time: 'Full-time // Ho Chi Minh, Vietnam'
+    time: 'Full-time  Ho Chi Minh, Vietnam'
   },
   {
     id: 4,
@@ -128,7 +128,7 @@ const jobs: Job[] = [
       'Paid holidays, in accordance with legal requirements.',
       'Comprehensive benefits and insurance package.',
     ],
-    time: 'Full-time // Ho Chi Minh, Vietnam'
+    time: 'Full-time  Ho Chi Minh, Vietnam'
   }
 ]
 export * from './JoinUs'
