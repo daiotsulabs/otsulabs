@@ -84,11 +84,11 @@ export default function Home() {
           <Box className="w-screen h-auto">
             <LandingWorkV3 />
           </Box>
-          <Box className="w-screen h-screen">
+          <Box className="w-screen h-auto">
             <LandingAbout />
           </Box>
-          <Box className="w-screen h-screen">
-            <LandingContact></LandingContact>
+          <Box className="w-screen h-auto">
+            <LandingContact />
             {/* <Center className="h-full bg-black">
               <Contact className="w-4/5 px-12"></Contact>
             </Center> */}
