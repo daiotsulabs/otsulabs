@@ -31,13 +31,15 @@ function Header({
   const { isHeaderVisible } = useScrollHeader();
   return (
     <header
-      className={`fixed pl-6 pr-[20px] top-[16px] md:inset-x-11 md:top-3 z-[2] h-[60px] ${
-        dark ? "bg-transparent" : "bg-black/30"
-      } backdrop-blur-xl rounded-full transition-transform duration-700 ease-in-out transform ${
-        isHeaderVisible || visibleHeader
+      className={`fixed pl-6 pr-[20px] md:top-[16px] md:inset-x-11 md:top-3 z-[10] h-[60px] ${
+        dark ? "bg-transparent" : "md:bg-black/30"
+      } md:backdrop-blur-xl rounded-full w-full transition-transform duration-700 ease-in-out transform 
+      ${
+        (isHeaderVisible || visibleHeader) && !isMobileScreen
           ? "-translate-y-[76px]"
           : "translate-y-0"
-      }`}
+      }
+      `}
     >
       <Stack
         direction="row"
@@ -93,14 +95,9 @@ function Header({
           textAlign={isMobileScreen ? "right" : "center"}
         >
           {isCancelIcon && isMobileScreen ? (
-            <CancelIcon className="ml-auto" fill={"white"} />
+            <CancelIcon className="ml-auto" fill={dark ? "black" : "white"} />
           ) : isMobileScreen ? (
-            <MenuIcon
-              className="ml-auto"
-              width={20}
-              height={12}
-              fill={"white"}
-            />
+            <MenuIcon className="ml-auto" fill={dark ? "black" : "white"} />
           ) : null}
           {isCancelIcon && !isMobileScreen
             ? "CLOSE"

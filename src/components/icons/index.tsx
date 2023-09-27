@@ -36,24 +36,19 @@ export const CancelIcon = ({
 }: IconProps) => {
   return (
     <svg
-      width={width}
-      height={height}
-      className={className}
-      viewBox="0 0 26 20"
-      fill="none"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill={fill}
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M4.96172 18.9839C4.40469 18.4259 4.40528 17.5215 4.96304 16.9637L20.6167 1.31008C21.1744 0.752326 22.0782 0.752482 22.6352 1.31044C23.1922 1.86839 23.1916 2.77285 22.6339 3.33061L6.98023 18.9842C6.42247 19.542 5.51876 19.5418 4.96172 18.9839Z"
-        fill={fill}
-      />
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M22.2898 19.0234C21.7328 19.5814 20.8291 19.5815 20.2713 19.0238L4.6177 3.37014C4.05994 2.81238 4.05935 1.90792 4.61639 1.34997C5.17342 0.792013 6.07714 0.791857 6.6349 1.34962L22.2885 17.0033C22.8463 17.561 22.8469 18.4655 22.2898 19.0234Z"
-        fill={fill}
+        d="M5 12H19"
+        stroke="#F5F5F5"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
     </svg>
   );
@@ -61,30 +56,32 @@ export const CancelIcon = ({
 
 export const MenuIcon = ({
   fill = "white",
-  width = 27,
+  width = 24,
   className,
-  height = 20,
+  height = 24,
 }: IconProps) => {
   return (
     <svg
-      width={width}
-      height={height}
-      viewBox="0 0 27 20"
-      className={className}
-      fill="none"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill={fill}
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M1 1.5C1 0.671573 1.66518 0 2.48571 0H25.5143C26.3348 0 27 0.671573 27 1.5C27 2.32843 26.3348 3 25.5143 3H2.48571C1.66518 3 1 2.32843 1 1.5Z"
-        fill={fill}
+        d="M12 5V19"
+        stroke={fill}
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M1 18.5C1 17.6716 1.66518 17 2.48571 17H25.5143C26.3348 17 27 17.6716 27 18.5C27 19.3284 26.3348 20 25.5143 20H2.48571C1.66518 20 1 19.3284 1 18.5Z"
-        fill={fill}
+        d="M5 12H19"
+        stroke={fill}
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
     </svg>
   );

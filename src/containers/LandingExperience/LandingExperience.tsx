@@ -6,7 +6,7 @@ function LandingExperience() {
 
   return (
     <Box
-      className="w-full h-full flex items-center justify-center px-10 md:px-4"
+      className="w-full h-[309px] md:h-full flex items-center justify-center px-10 md:px-4"
       color="#f5f5f5"
       fontSize="lg"
       pl={"53px"}
@@ -21,14 +21,12 @@ function LandingExperience() {
         <Box maxW={496}>
           <Box
             textTransform="capitalize"
-            fontSize="4xl"
-            fontWeight="normal"
             textAlign="center"
-            className={mcQueenDisplay.className}
+            className={`${mcQueenDisplay.className} text-xl md:text-4xl font-medium`}
           >
             previously
           </Box>
-          <Box className="text-lg" opacity={0.5} textAlign="center">
+          <Box className="text-xs mt-3 md:mt-0 md:text-lg" opacity={0.5} textAlign="center">
             From making big time anime series, including Attack on Titan,
             Vinland Saga, Demon Slayer, and many more...
           </Box>
@@ -36,14 +34,12 @@ function LandingExperience() {
         <Box maxW={495}>
           <Box
             textTransform="capitalize"
-            fontSize="4xl"
-            fontWeight="normal"
             textAlign="center"
-            className={mcQueenDisplay.className}
+            className={`${mcQueenDisplay.className} text-xl md:text-4xl font-medium`}
           >
             now
           </Box>
-          <Box className="text-lg" opacity={0.5} textAlign="center">
+          <Box className="text-xs mt-3 md:mt-0 md:text-lg" opacity={0.5} textAlign="center">
             ...to crafting scroll-stopping, attention-grabbing anime commercials
             for forward-thinking brands.
           </Box>

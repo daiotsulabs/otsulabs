@@ -26,7 +26,7 @@ function LandingHome({
         <SlideFade in={true}>
           {!hideTagLine && (
             <Box
-              className={`animate-fade-in delay-[1200ms] transition-opacity text-xs md:text-2xl xl:text-4xl font-medium ${mcQueenDisplay.className}`}
+              className={`animate-fade-in delay-[1200ms] transition-opacity text-xl md:text-2xl xl:text-4xl font-medium ${mcQueenDisplay.className}`}
               maxW={isMobileScreen ? "282px" : "880px"}
               color="white"
               textAlign="center"
