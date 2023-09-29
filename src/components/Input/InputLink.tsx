@@ -23,13 +23,13 @@ const InputLink = ({ value, setValue, isValidate = false, setError }: { value: s
     <FormControl isInvalid={isError}>
       <InputGroup marginY={'20px'}>
         <InputLeftElement h={"100%"} pointerEvents='none' marginLeft={isMobileScreen ? "10px" : "24px"} width={isMobileScreen ? "18px" : "28px"}>
-          <LinkIcon width={isMobileScreen ? 14 : 28} height={isMobileScreen ? 14 : 28} color={isError ? '#D98282' : '#A0A0A0'} />
+          <LinkIcon width={isMobileScreen ? 14 : 28} height={isMobileScreen ? 14 : 28} color={isError ? '#D98282' : '#636363'} />
         </InputLeftElement>
         <Input
           height={isMobileScreen ? "40px" : "66px"}
           borderRadius={isMobileScreen ? 10 : 16}
           size={isMobileScreen ? 'md' : 'lg'}
-          color={isError ? '#D98282' : '#727272'}
+          color={isError ? '#D98282' : '#636363'}
           bgColor="#151515"
           border={`0.5px solid ${isError ? '#D98282' : 'transparent'}`}
           type='value'

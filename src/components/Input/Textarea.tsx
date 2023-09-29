@@ -21,7 +21,7 @@ const Textarea = ({ value, setValue, isValidate = false, setError }: { value: st
     <FormControl isInvalid={isError}>
       <InputGroup marginY={'20px'}>
         <InputLeftElement pointerEvents='none' marginLeft={isMobileScreen ? "10px" : "24px"} width={isMobileScreen ? "18px" : "28px"} mt={isMobileScreen ? 0 : 3}>
-          <WriteIcon width={isMobileScreen ? 14 : 28} height={isMobileScreen ? 14 : 28} color={isError ? '#D98282' : '#A0A0A0'} />
+          <WriteIcon width={isMobileScreen ? 14 : 28} height={isMobileScreen ? 14 : 28} color={isError ? '#D98282' : '#636363'} />
         </InputLeftElement>
         <Input
           pt={isMobileScreen ? 3 : 21}
@@ -29,7 +29,7 @@ const Textarea = ({ value, setValue, isValidate = false, setError }: { value: st
           maxHeight={isMobileScreen ? 350 : 400}
           minHeight={isMobileScreen ? 200 : 250}
           borderRadius={isMobileScreen ? 10 : 16}
-          color={isError ? '#D98282' : '#727272'}
+          color={isError ? '#D98282' : '#636363'}
           bgColor="#151515"
           border={`1px solid ${isError ? '#D98282' : 'transparent'}`}
           value={value}

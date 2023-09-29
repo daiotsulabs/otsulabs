@@ -8,7 +8,7 @@ function LandingAbout() {
       <Container
         maxWidth={"940px"}
         className="px-10 md:px-[120px] 2xl:px-24 static md:absolute"
-        top={!isMobileScreen ? "150px" : "0px"}
+        top={!isMobileScreen ? "180px" : "0px"}
       >
         <Flex className="flex flex-col mt-0 md:mt-[15px] md:flex-row gap-x-4">
           <Faq />
