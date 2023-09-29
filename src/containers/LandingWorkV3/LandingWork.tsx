@@ -73,7 +73,7 @@ const VideoPlayer = ({
               objectPosition: "center",
             }}
             priority
-            className="z-[10]"
+            className="z-[10] brightness-50"
           />
           <Text
             className={`${mcQueenDisplay.className} left-9 bottom-6 font-medium text-4xl absolute z-10`}
@@ -132,7 +132,6 @@ const DesktopContent = () => {
       display="flex"
       justifyContent="center"
       alignItems="center"
-      bgImage={`url("/images/noise.png")`}
     >
       <Box className="relative text-[#f5f5f5]">
         <Swiper
