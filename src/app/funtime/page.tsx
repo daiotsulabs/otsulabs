@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { Box, Stack, Text, useDisclosure } from "@chakra-ui/react";
 import { mcQueenDisplay } from "../layout";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function About() {
   const { isOpen, onToggle } = useDisclosure();
@@ -13,6 +14,7 @@ export default function About() {
     if (!swiperRef.current) return;
     (swiperRef.current as any).slideTo(index);
   };
+  const router = useRouter();
   return (
     <Layout>
       <Header
@@ -99,9 +101,36 @@ export default function About() {
             direction="row"
             className="uppercase text-xs md:text-[15px] tracking-[1.5px] font-normal mx-auto gap-[15px] md:gap-20"
           >
-            <Text>twitter</Text>
-            <Text>tiktok</Text>
-            <Text>youtube</Text>
+            <Text
+              onClick={() => router.push("https://twitter.com/EreneAnimation")}
+              className="cursor-pointer hover:underline"
+            >
+              twitter
+            </Text>
+            <Text
+              onClick={() =>
+                router.push("https://www.tiktok.com/@ereneanimation")
+              }
+              className="cursor-pointer hover:underline"
+            >
+              tiktok
+            </Text>
+            <Text
+              onClick={() =>
+                router.push("https://www.youtube.com/@EreneAnimation")
+              }
+              className="cursor-pointer hover:underline"
+            >
+              youtube
+            </Text>
+            <Text
+              onClick={() =>
+                router.push("https://www.instagram.com/ereneanimation/")
+              }
+              className="cursor-pointer hover:underline"
+            >
+              instagram
+            </Text>
           </Stack>
         </Stack>
       </Stack>
