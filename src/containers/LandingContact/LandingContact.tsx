@@ -56,7 +56,7 @@ function LandingContact() {
   return (
     <Center className="w-full h-auto bg-black relative items-start md:items-center">
       <Container maxWidth={'1200px'} className="px-10 md:px-[120px] 2xl:px-24 static md:absolute" top={!isMobileScreen ? '150px' : '0px'}>
-        <Flex className='flex flex-col mt-0 md:flex-row gap-x-4 items-center'>
+        <Flex className='flex flex-col mt-0 pt-[60px] md:pt-0 md:flex-row gap-x-4 items-center'>
           <Box flex={2} className="text-center md:text-left mx-auto w-full md:w-initial md:ml-auto">
             {
               isMobileScreen && <Text className={`${mcQueenDisplay.className} text-[20px] mb-[30px] font-medium`} color="#f5f5f5">Contact</Text>
@@ -92,7 +92,7 @@ function LandingContact() {
               }
             </Text>
           </Box>
-          <Box flex='3' className={`${isMobileScreen ? 'w-full' : ''} pb-8 md:pb-0`}>
+          <Box flex='3' className={`${isMobileScreen ? 'w-full' : ''} pt-[20px] md:pt-0 pb-8 md:pb-0`}>
             <InputName value={name} setValue={setName} isValidate={isValidate} placeholder='Your name' setError={setError}></InputName>
             <InputEmail value={email} setValue={setEmail} isValidate={isValidate} setError={setError}></InputEmail>
             <InputLink value={link} setValue={setLink} isValidate={isValidate} setError={setError}></InputLink>
