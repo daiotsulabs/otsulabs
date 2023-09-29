@@ -54,26 +54,26 @@ function LandingContact() {
   }
 
   return (
-    <Center className="w-full h-auto bg-black relative items-start md:items-center pt-[60px] md:pt-[100px]" bgImage={`url("/images/noise.png")`}>
+    <Center className="w-full h-auto bg-black relative items-start md:items-center">
       <Container maxWidth={'1200px'} className="px-10 md:px-[120px] 2xl:px-24 static md:absolute" top={!isMobileScreen ? '150px' : '0px'}>
-        <Flex className='flex flex-col mt-0 md:mt-[15px] md:flex-row gap-x-4 items-center'>
+        <Flex className='flex flex-col mt-0 md:flex-row gap-x-4 items-center'>
           <Box flex={2} className="text-center md:text-left mx-auto w-full md:w-initial md:ml-auto">
             {
               isMobileScreen && <Text className={`${mcQueenDisplay.className} text-[20px] mb-[30px] font-medium`} color="#f5f5f5">Contact</Text>
             }
             <Box className="pt-0 pb-6 md:pb-8">
-              <Text className={`${mcQueenDisplay.className} text-[16px] md:text-lg font-medium`} color="#f5f5f5">Art & Animation Director</Text>
-              <Text className="text-[12px] md:text-[14px] font-normal text-[#636363]">erene@otsulabs.com</Text>
+              <Text className={`${mcQueenDisplay.className} text-[16px] md:text-[20px] font-medium`} color="#f5f5f5">Art & Animation Director</Text>
+              <Text className="text-[12px] md:text-[20px] font-normal text-[#636363]">erene@otsulabs.com</Text>
             </Box>
             <Box className="pt-0 pb-6 md:pb-8">
-              <Text className={`${mcQueenDisplay.className} text-[16px] md:text-lg font-medium`} color="#f5f5f5">Operations & Management</Text>
-              <Text className="text-[12px] md:text-[14px] font-normal text-[#636363]">khoa@otsulabs.com</Text>
+              <Text className={`${mcQueenDisplay.className} text-[16px] md:text-[20px] font-medium`} color="#f5f5f5">Operations & Management</Text>
+              <Text className="text-[12px] md:text-[20px] font-normal text-[#636363]">khoa@otsulabs.com</Text>
             </Box>
             <Box className="pt-0 pb-6 md:pb-8">
-              <Text className={`${mcQueenDisplay.className} text-[16px] md:text-lg font-medium`} color="#f5f5f5">Partnerships & Outreach</Text>
-              <Text className="text-[12px] md:text-[14px] font-normal text-[#636363]">sewon@otsulabs.com</Text>
+              <Text className={`${mcQueenDisplay.className} text-[16px] md:text-[20px] font-medium`} color="#f5f5f5">Partnerships & Outreach</Text>
+              <Text className="text-[12px] md:text-[20px] font-normal text-[#636363]">sewon@otsulabs.com</Text>
             </Box>
-            <Text className="mt-[10px] mb-[0px] text-xs md:text-[14px] 2xl:text-[18px] font-bold text-white">
+            <Text className={`${mcQueenDisplay.className} mt-[10px] mb-[0px] text-xs md:text-[20px] font-medium text-white`}>
               <Flex alignItems={'center'} justifyContent={isMobileScreen ? 'center' : 'flex-start'} gap={2}>
                 For project inquiries
                 {
@@ -92,7 +92,7 @@ function LandingContact() {
               }
             </Text>
           </Box>
-          <Box flex='3' className={`${isMobileScreen ? 'w-full' : ''} pb-8`}>
+          <Box flex='3' className={`${isMobileScreen ? 'w-full' : ''} pb-8 md:pb-0`}>
             <InputName value={name} setValue={setName} isValidate={isValidate} placeholder='Your name' setError={setError}></InputName>
             <InputEmail value={email} setValue={setEmail} isValidate={isValidate} setError={setError}></InputEmail>
             <InputLink value={link} setValue={setLink} isValidate={isValidate} setError={setError}></InputLink>
@@ -113,7 +113,7 @@ function LandingContact() {
               onClick={onClickValidateForm}
               borderWidth={0.5}
               borderColor='#5f5f5'
-              h={isMobileScreen ? "40px" : "48px"}
+              h={isMobileScreen ? "40px" : "66px"}
             >
               Send
               {
