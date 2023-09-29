@@ -16,10 +16,7 @@ import { jobs } from ".";
 export default function JoinUs({ join }: { join: any }) {
   const [isMobileScreen] = useMediaQuery("(max-width: 768px)");
   return (
-    <Center
-      className="w-full h-full bg-black px-6 animate-page-fade"
-      bgImage="url('/images/noise.png')"
-    >
+    <Center className="w-full h-full px-6 animate-page-fade">
       <Container
         maxWidth={"1200"}
         className="h-full md:h-auto pt-[90px] md:pt-0 px-0"

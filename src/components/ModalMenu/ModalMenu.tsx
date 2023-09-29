@@ -29,7 +29,7 @@ const MenuButton = ({
   return (
     <Button
       color="#f7f7f7"
-      opacity={.4}
+      opacity={0.4}
       _hover={{
         opacity: 1,
       }}
@@ -94,9 +94,9 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
         bgSize="cover"
         backgroundPosition="center"
         zIndex={10}
-        background={showBg ? "rgba(0, 0, 0, 0.60)" : "black"}
-        backgroundImage={showBg ? "none" : "url(/images/noise.png)"}
+        background={showBg ? "rgba(0, 0, 0, 0.60)" : "#1D1E22"}
       >
+        {!showBg && <Box className="bg-noise" />}
         <Header
           isCancelIcon={true}
           showMenuItem={false}

@@ -4,12 +4,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useEffect, useRef, useState } from "react";
 import { LandingHome } from "@/containers/LandingHome";
 import {
-  Contact,
   LandingAbout,
   LandingExperience,
-  LandingWorkV2,
   LandingWorkV3,
-  LandingContact
+  LandingContact,
 } from "@/containers";
 import {
   Box,
@@ -56,7 +54,9 @@ export default function Home() {
   }, []);
 
   return (
-    <Layout>
+    <Layout className="bg-[#1D1E22]">
+      <Box className="bg-noise" />
+
       {!isOpen && (
         <Header
           toHome={false}
@@ -123,10 +123,10 @@ export default function Home() {
           <SwiperSlide>
             <LandingWorkV3 />
           </SwiperSlide>
-          <SwiperSlide className="bg-[url('/images/noise.png')]">
+          <SwiperSlide>
             <LandingAbout />
           </SwiperSlide>
-          <SwiperSlide className="bg-[url('/images/noise.png')]">
+          <SwiperSlide>
             <LandingContact />
           </SwiperSlide>
         </Swiper>

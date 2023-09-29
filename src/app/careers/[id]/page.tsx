@@ -126,9 +126,10 @@ export default function JobId() {
         onActiveSlideChange={onSlideActiveChange}
         customClassName="bg-transparent backdrop-blur-none"
       />
+      <Box className="bg-noise" />
       {isOpen && <ModalMenu in={isOpen} onClickToggle={onToggle} />}
       {job ? (
-        <Box className="w-full h-auto" bgImage={`url("/images/noise.png")`}>
+        <Box className="w-full h-auto bg-[#1D1E22]">
           <Container
             maxWidth={"600"}
             className="h-full animate-page-fade pt-[80px] md:pt-[124px] px-4 md:px-0"

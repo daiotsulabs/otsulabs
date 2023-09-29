@@ -11,7 +11,6 @@ function LandingExperience() {
       fontSize="lg"
       pl={"53px"}
       pr={"56px"}
-      bgImage={`url("/images/noise.png")`}
     >
       <Stack
         direction="column"
@@ -26,7 +25,11 @@ function LandingExperience() {
           >
             previously
           </Box>
-          <Box className="text-xs mt-3 md:mt-0 md:text-lg" opacity={0.5} textAlign="center">
+          <Box
+            className="text-xs mt-3 md:mt-0 md:text-lg"
+            opacity={0.5}
+            textAlign="center"
+          >
             From making big time anime series, including Attack on Titan,
             Vinland Saga, Demon Slayer, and many more...
           </Box>
@@ -39,7 +42,11 @@ function LandingExperience() {
           >
             now
           </Box>
-          <Box className="text-xs mt-3 md:mt-0 md:text-lg" opacity={0.5} textAlign="center">
+          <Box
+            className="text-xs mt-3 md:mt-0 md:text-lg"
+            opacity={0.5}
+            textAlign="center"
+          >
             ...to crafting scroll-stopping, attention-grabbing anime commercials
             for forward-thinking brands.
           </Box>
