@@ -15,7 +15,7 @@ export function Faq() {
     <Box width={'100%'} className="flex-1 md:flex-[1_0_55%]" color={'#707070'}>
       <Heading
         as='h2'
-        className={`${mcQueenDisplay.className} text-[20px] md:text-[28px] 2xl:text-[36px] text-center md:text-left mb-[26px] font-medium`}
+        className={`${mcQueenDisplay.className} text-[20px] md:text-[36px] text-center md:text-left mb-[26px] font-medium`}
         color="#f5f5f5">
         Frequently Asked Questions
       </Heading>
@@ -32,21 +32,17 @@ export function Faq() {
                         className="pb-[6px] pt-[6px] md:pt-[16px] md:pb-[16px] xl:pt-[20px] xl:pb-[20px] px-0 pr-3"
                       >
                         <Box as="span" flex='1' textAlign='left' mr={6}>
-                          <Text className={`${mcQueenDisplay.className} text-sm md:text-[18px] 2xl:text-[20px] font-medium`} color="#f5f5f5">{faq.question}</Text>
+                          <Text className={`${mcQueenDisplay.className} text-sm md:text-[20px] font-medium`} color="#f5f5f5">{faq.question}</Text>
                         </Box>
-                        {isExpanded ? (
-                          <MinusIcon color={"#848484"} />
-                        ) : (
-                          <PlusIcon color={"#848484"} />
-                        )}
+                        <PlusIcon color={"#848484"} className={`${ isExpanded ? 'rotate-45' : '' } duration-200 transition-[transform]`} />
                       </AccordionButton>
                     </h2>
-                    <AccordionPanel pb={4} maxHeight={'150px'} overflowY={'auto'} className="scroll mr-2 pl-0 swiper-no-mousewheel">
+                    <AccordionPanel pb={4} className="mr-2 pl-0 swiper-no-mousewheel">
                       {
                         faq.answer.map((a, index) => (
                           <Text
                             key={index}
-                            className='text-[10px] md:text-sm leading-[normal] mb-2'
+                            className='text-[10px] md:text-lg leading-[normal] mb-2'
                           >
                             {a}
                           </Text>

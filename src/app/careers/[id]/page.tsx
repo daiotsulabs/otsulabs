@@ -136,20 +136,13 @@ export default function JobId() {
           >
             <Heading
               className={`${mcQueenDisplay.className} mt-2 text-[30px] md:!text-[36px] font-medium leading-[normal] text-left mb-[6px]`}
-              as={"h2"}
-              color={"#f5f5f5"}
-              letterSpacing={4}
-            >
+              as={'h2'}
+              color={'#f5f5f5'}>
               {job?.name}
             </Heading>
-            <Text
-              className="text-[8px] md:text-[12px] uppercase tracking-[0.6px] leading-[normal] mb-6 md:mb-8"
-              color={"#CCC"}
-            >
-              {job?.time}
-            </Text>
-            <Box className="pr-2 md:pr-10 swiper-no-mousewheel">
-              <Flex alignItems={"flex-end"} className="mt-6 md:mt-8">
+            <Text className='text-[8px] md:text-[12px] uppercase tracking-[0.6px] leading-[normal] mb-6 md:mb-8' color={'#CCC'}>{job?.time} &nbsp; {job?.location}</Text>
+            <Box className='pr-2 md:pr-10 swiper-no-mousewheel'>
+              <Flex alignItems={'flex-end'} className='mt-6 md:mt-8'>
                 <Box>
                   <Heading
                     className={`${mcQueenDisplay.className} text-base mb-1 md:mb-3 md:text-xl 2xl:text-[28px] 2xl:text-lg leading-[normal] font-medium`}
