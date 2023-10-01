@@ -1,22 +1,31 @@
 "use client";
 import { DetailVideoPlayer, Header, Layout, ModalMenu } from "@/components";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Box, Stack, Text, useDisclosure } from "@chakra-ui/react";
 import { mcQueenDisplay } from "../layout";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 
 export default function Conviction() {
   const { isOpen, onToggle } = useDisclosure();
+  const pathname = usePathname();
   const [currenIndex, setCurrentIndex] = useState(0);
+  const [backPath, setBackPath] = useState('/work');
   const swiperRef = useRef();
   const setActiveIndex = (index: number) => {
     if (!swiperRef.current) return;
     (swiperRef.current as any).slideTo(index);
   };
   const router = useRouter();
+
+  useEffect(() => {
+    const hashtag = pathname?.split('#')[1];
+    if (hashtag === '/work') return;
+    setBackPath('/#work');
+  }, [pathname]);
+
   return (
-    <Layout showBackButton>
+    <Layout showBackButton={backPath}>
       <Header
         onActiveSlideChange={(index: number) => setActiveIndex(index - 1)}
         menuItems={[]}
@@ -75,7 +84,7 @@ export default function Conviction() {
         </Stack>
       </Stack>
 
-      <Stack className="w-full h-auto text-center bg-white text-[#010101] animate-page-fade pt-[30px] md:pt-[70px] gap-[30px] md:gap-[70px]">
+      <Stack className="w-full h-auto text-center bg-white text-[#010101] animate-page-fade pt-[22px] md:pt-[60px] gap-[22px] md:gap-[70px]">
         <Stack className="gap-[10px] md:gap-[35px]">
           <Text
             className={`${mcQueenDisplay.className} text-xl md:text-4xl font-medium`}
@@ -125,7 +134,7 @@ export default function Conviction() {
             <Image fill src="/images/conviction-5.png" alt="convition-5" />
           </Box>
           <Text
-            className={`${mcQueenDisplay.className} text-xl md:text-4xl font-medium`}
+            className={`${mcQueenDisplay.className} mt-3 text-xl md:text-4xl font-medium`}
           >
             Items
           </Text>

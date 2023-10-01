@@ -55,7 +55,7 @@ export default function About() {
           <Stack gap={50}>
             <Stack direction="row" alignItems="center" gap={5}>
               <Text
-                className={`text-xl md:text-4xl font-medium ${mcQueenDisplay.className}`}
+                className={`text-xl md:text-4xl font-medium flex-[1-0-auto] ${mcQueenDisplay.className}`}
                 color="#f5f5f5"
               >
                 Otsu おつ

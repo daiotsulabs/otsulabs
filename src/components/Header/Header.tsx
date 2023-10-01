@@ -20,7 +20,7 @@ function Header({
   showMenuItem = true,
   isCancelIcon,
   onClickToggle,
-  menuItems = ["home", "experience", "work", "faq", "contact"],
+  menuItems = [],
   onActiveSlideChange,
   toHome = true,
   dark = false,

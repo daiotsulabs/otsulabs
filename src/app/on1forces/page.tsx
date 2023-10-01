@@ -75,7 +75,7 @@ export default function On1Forces() {
         </Stack>
       </Stack>
 
-      <Stack className="w-full h-auto text-center bg-white text-[#010101] animate-page-fade pt-[30px] md:pt-[70px] gap-[30px] md:gap-[70px]">
+      <Stack className="w-full h-auto text-center bg-white text-[#010101] animate-page-fade pt-[22px] md:pt-[60px] gap-[22px] md:gap-[60px]">
         <Stack className="gap-[10px] md:gap-[35px]">
           <Text
             className={`${mcQueenDisplay.className} text-xl md:text-4xl font-medium`}
