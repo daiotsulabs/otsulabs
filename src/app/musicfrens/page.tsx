@@ -1,20 +1,30 @@
 "use client";
 import { DetailVideoPlayer, Header, Layout, ModalMenu } from "@/components";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Box, Stack, Text, useDisclosure } from "@chakra-ui/react";
 import { mcQueenDisplay } from "../layout";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function MusicFrens() {
   const { isOpen, onToggle } = useDisclosure();
+  const pathname = usePathname();
   const [currenIndex, setCurrentIndex] = useState(0);
+  const [backPath, setBackPath] = useState('/work');
   const swiperRef = useRef();
   const setActiveIndex = (index: number) => {
     if (!swiperRef.current) return;
     (swiperRef.current as any).slideTo(index);
   };
+
+  useEffect(() => {
+    const hashtag = pathname?.split('#')[1];
+    if (hashtag === '/work') return;
+    setBackPath('/#work');
+  }, [pathname]);
+
   return (
-    <Layout showBackButton>
+    <Layout showBackButton={backPath}>
       <Header
         onActiveSlideChange={(index: number) => setActiveIndex(index - 1)}
         menuItems={[]}
