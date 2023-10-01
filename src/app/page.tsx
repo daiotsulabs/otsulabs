@@ -55,18 +55,16 @@ export default function Home() {
 
     if (menuItems.includes(hashtag)) {
       setTimeout(() => {
-        if (isMobileScreen) {
-          setCurrentIndex(menuItems.indexOf(hashtag));
-          setActiveIndex(menuItems.indexOf(hashtag));
-        } else {
-          if (!workRef.current) return
+        setCurrentIndex(menuItems.indexOf(hashtag));
+        setActiveIndex(menuItems.indexOf(hashtag));
+        if (workRef.current) {
           const topPos = workRef.current.getBoundingClientRect().top + window.scrollY;
           window.scrollTo({
             top: topPos, // scroll so that the element is at the top of the view
             behavior: 'smooth' // smooth scroll
           });
-          history.replaceState(null, '', ' ');
         }
+        history.replaceState(null, '', ' ');
       }, 600);
     }
     return () => {
