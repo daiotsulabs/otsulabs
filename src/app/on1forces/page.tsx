@@ -20,8 +20,9 @@ export default function On1Forces() {
 
   useEffect(() => {
     const hashtag = pathname?.split('#')[1];
-    if (hashtag === '/work') return;
-    setBackPath('/#work');
+    if (hashtag === 'home') {
+      setBackPath('/#work');
+    }
   }, [pathname]);
 
   return (
