@@ -3,6 +3,7 @@ import { Header, Layout, ModalMenu } from "@/components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useEffect, useRef, useState } from "react";
 import { LandingHome } from "@/containers/LandingHome";
+import { Noise } from '@/components/Noise'
 import {
   LandingAbout,
   LandingExperience,
@@ -75,6 +76,7 @@ export default function Home() {
   return (
     <Layout className="bg-[#1D1E22]">
       <Box className="bg-noise" />
+      {/* <Noise></Noise> */}
 
       {!isOpen && (
         <Header

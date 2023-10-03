@@ -118,7 +118,7 @@ export default function JobId() {
   };
 
   return (
-    <Layout showBackButton>
+    <Layout showBackButton toggleMenu={isOpen} backButtonClassName="md:block hidden">
       <Header
         menuItems={[]}
         onClickToggle={onToggle}
@@ -208,7 +208,7 @@ export default function JobId() {
               flex="1"
               flexDirection={"column"}
               alignItems={"flex-start"}
-              className="pb-4 md:py-6 gap-y-1"
+              className="pb-10 md:pt-6 md:pb-12 gap-y-1"
             >
               <Box width={"100%"} className="mx-auto">
                 {/* <Form hidden={['position']} defaultValue={{ position: job?.name }}></Form> */}

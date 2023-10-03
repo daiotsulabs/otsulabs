@@ -79,7 +79,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
   return (
     <SlideFade
       style={{
-        zIndex: 10,
+        zIndex: 19,
         position: "fixed",
         top: 0,
         left: 0,
@@ -176,7 +176,14 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
                   w={127}
                   fontSize={isMobileScreen ? "xs" : "sm"}
                 >
-                  Saigon, Vietnam Seoul, South Korea
+                  Saigon, Vietnam
+                </Text>
+                <Text
+                  className="animate-menu-fade transition-opacity delay-[1900ms]"
+                  w={127}
+                  fontSize={isMobileScreen ? "xs" : "sm"}
+                >
+                  Seoul, South Korea
                 </Text>
               </Box>
               {!isMobileScreen && (

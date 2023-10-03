@@ -145,7 +145,7 @@ const DesktopContent = () => {
           }}
           grabCursor={true}
           modules={[EffectCards]}
-          className="w-[940px] h-[529px] relative"
+          className={`w-[940px] h-[529px] relative mt-${currenIndex * 20 || 0}p`}
           onSlideChange={(swiper) => {
             setCurrentIndex(swiper.activeIndex);
           }}
