@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { Box, Stack, Text, useDisclosure } from "@chakra-ui/react";
 import { mcQueenDisplay } from "../layout";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function About() {
@@ -27,8 +28,8 @@ export default function About() {
       {isOpen && (
         <ModalMenu showBg={false} in={isOpen} onClickToggle={onToggle} />
       )}
-      <Stack className="w-full h-auto text-center pt-[124px] bg-white text-[#010101] animate-page-fade">
-        <Stack gap="35px">
+      <Stack className="w-full h-auto text-center pt-[80px] md:pt-[124px] bg-white text-[#010101] animate-page-fade">
+        <Stack gap="30px">
           <Text
             className={`${mcQueenDisplay.className} text-4xl font-medium -mb-[15px]`}
           >
@@ -48,7 +49,7 @@ export default function About() {
           </Box>
         </Stack>
 
-        <Stack className="mt-[35px]" gap="35px">
+        <Stack className="mt-[18px]" gap="30px">
           <Text
             className={`${mcQueenDisplay.className} text-xl md:text-4xl font-medium`}
           >
@@ -62,7 +63,7 @@ export default function About() {
           </Box>
         </Stack>
 
-        <Stack className="mt-[30px] md:mt-[70px] gap-[15px] md:gap-[35px]">
+        <Stack className="mt-[18px] md:mt-[70px] gap-[15px] md:gap-[35px]">
           <Text
             className={`${mcQueenDisplay.className} text-xl md:text-4xl font-medium`}
           >
@@ -91,7 +92,7 @@ export default function About() {
           </Box>
         </Stack>
 
-        <Stack className="mt-[30px] mb-[60px] md:my-[70px] gap-[15px] md:gap-[35px]">
+        <Stack className="mt-[18px] mb-[60px] md:my-[70px] gap-[15px] md:gap-[35px]">
           <Text
             className={`${mcQueenDisplay.className} text-xl md:text-4xl font-medium`}
           >
@@ -101,36 +102,34 @@ export default function About() {
             direction="row"
             className="uppercase text-xs md:text-[15px] tracking-[1.5px] font-normal mx-auto gap-[15px] md:gap-20"
           >
-            <Text
-              onClick={() => router.push("https://twitter.com/EreneAnimation")}
-              className="cursor-pointer hover:underline"
-            >
-              twitter
-            </Text>
-            <Text
-              onClick={() =>
-                router.push("https://www.tiktok.com/@ereneanimation")
-              }
-              className="cursor-pointer hover:underline"
-            >
-              tiktok
-            </Text>
-            <Text
-              onClick={() =>
-                router.push("https://www.youtube.com/@EreneAnimation")
-              }
-              className="cursor-pointer hover:underline"
-            >
-              youtube
-            </Text>
-            <Text
-              onClick={() =>
-                router.push("https://www.instagram.com/ereneanimation/")
-              }
-              className="cursor-pointer hover:underline"
-            >
-              instagram
-            </Text>
+            <Link href={'https://twitter.com/EreneAnimation'} target="_blank">
+              <Text
+                className="cursor-pointer hover:underline"
+              >
+                twitter
+              </Text>
+            </Link>
+            <Link href={'https://www.tiktok.com/@ereneanimation'} target="_blank">
+              <Text
+                className="cursor-pointer hover:underline"
+              >
+                tiktok
+              </Text>
+            </Link>
+            <Link href={'https://www.youtube.com/@EreneAnimation'} target="_blank">
+              <Text
+                className="cursor-pointer hover:underline"
+              >
+                youtube
+              </Text>
+            </Link>
+            <Link href={'https://www.instagram.com/ereneanimation/'} target="_blank">
+              <Text
+                className="cursor-pointer hover:underline"
+              >
+                instagram
+              </Text>
+            </Link>
           </Stack>
         </Stack>
       </Stack>

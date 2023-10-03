@@ -28,6 +28,9 @@ module.exports = {
           '100%': { opacity: 1 },
         },
       }),
+      cursor: {
+        'fun': 'url(/images/funtime.png) 32 32, auto',
+      }
     },
   },
   plugins: [],

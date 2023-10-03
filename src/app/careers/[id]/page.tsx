@@ -118,7 +118,7 @@ export default function JobId() {
   };
 
   return (
-    <Layout>
+    <Layout showBackButton>
       <Header
         menuItems={[]}
         onClickToggle={onToggle}

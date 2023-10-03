@@ -147,18 +147,11 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
                   Careers
                 </MenuButton>
                 <MenuButton
-                  className="relative group"
+                  className="relative group hover:cursor-fun"
                   dark={true}
                   onClick={() => onClickMenuButton("/funtime")}
                 >
                   Fun Time
-                  <Img
-                    width="40px"
-                    height="40px"
-                    src="/images/funtime.png"
-                    alt="funtime"
-                    className="absolute hidden left-[120px] top-1/2 -translate-y-1/2 duration-300 group-hover:block"
-                  />
                 </MenuButton>
               </Stack>
             </Box>

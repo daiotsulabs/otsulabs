@@ -8,7 +8,7 @@ function Layout({
 }: {
   children: React.ReactNode;
   className?: string;
-  showBackButton?: boolean;
+  showBackButton?: boolean | string;
 }) {
   const router = useRouter();
   return (
@@ -19,7 +19,7 @@ function Layout({
       {children}
       {showBackButton && (
         <Button
-          onClick={() => router.back()}
+          onClick={() => typeof showBackButton === 'boolean' ? router.back() : router.push(showBackButton) }
           variant="unstyled"
           className="w-[45px] h-[45px] md:w-[100px] md:h-[100px] bg-[#0101014d] rounded-full text-[#f5f5f5] text-[8px] md:text-[15px] uppercase tracking-[0.8px] md:tracking-[1.5px] font-normal fixed right-5 bottom-8 md:right-[150px] md:bottom-[70px]"
           backdropFilter={"blur(25px)"}

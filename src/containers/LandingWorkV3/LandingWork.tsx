@@ -14,22 +14,22 @@ const landingWorkImages = [
   {
     src: "/images/Conviction.png",
     project: "Conviction",
-    url: "/conviction",
+    url: "/conviction#home",
   },
   {
     src: "/images/AlexH.png",
     project: "Alex Hugh",
-    url: "/alexhugh",
+    url: "/alexhugh#home",
   },
   {
     src: "/images/on1forces.png",
     project: "0N1 FORCE",
-    url: "/on1forces",
+    url: "/on1forces#home",
   },
   {
     src: "/images/MusicFrens.png",
     project: "Music Frens",
-    url: "/musicfrens",
+    url: "/musicfrens#home",
   },
 ];
 
@@ -117,12 +117,12 @@ const DesktopContent = () => {
   const handleClickDetail = () => {
     const link =
       currenIndex === 0
-        ? "/conviction"
+        ? "/conviction#home"
         : currenIndex === 1
-        ? "/alexhugh"
+        ? "/alexhugh#home"
         : currenIndex === 2
-        ? "/on1forces"
-        : "/musicfrens";
+        ? "/on1forces#home"
+        : "/musicfrens#home";
     router.push(link);
   };
 

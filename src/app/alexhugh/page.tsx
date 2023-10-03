@@ -1,22 +1,32 @@
 "use client";
 import { DetailVideoPlayer, Header, Layout, ModalMenu } from "@/components";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Box, Stack, Text, useDisclosure } from "@chakra-ui/react";
 import { mcQueenDisplay } from "../layout";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function AlexHugh() {
   const { isOpen, onToggle } = useDisclosure();
+  const pathname = usePathname();
   const [currenIndex, setCurrentIndex] = useState(0);
+  const [backPath, setBackPath] = useState('/work');
   const swiperRef = useRef();
   const setActiveIndex = (index: number) => {
     if (!swiperRef.current) return;
     (swiperRef.current as any).slideTo(index);
   };
   const router = useRouter();
+
+  useEffect(() => {
+    const hashtag = pathname?.split('#')[1];
+    if (hashtag === 'home') {
+      setBackPath('/#work');
+    }
+  }, [pathname]);
+
   return (
-    <Layout showBackButton>
+    <Layout showBackButton={backPath}>
       <Header
         onActiveSlideChange={(index: number) => setActiveIndex(index - 1)}
         menuItems={[]}
@@ -78,7 +88,7 @@ export default function AlexHugh() {
         </Stack>
       </Stack>
 
-      <Stack className="w-full h-auto text-center bg-white text-[#010101] animate-page-fade pt-[30px] md:pt-[70px] gap-[30px] md:gap-[70px]">
+      <Stack className="w-full h-auto text-center bg-white text-[#010101] animate-page-fade pt-[22px] md:pt-[60px] gap-[22px] md:gap-[60px]">
         <Stack className="gap-[10px] md:gap-[35px]">
           <Text
             className={`${mcQueenDisplay.className} text-xl md:text-4xl font-medium`}
