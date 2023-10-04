@@ -74,7 +74,7 @@ export default function Home() {
   }, []);
 
   return (
-    <Layout className="bg-[#1D1E22]">
+    <Layout className="bg-[#010101]">
       <Box className="bg-noise" />
       {/* <Noise></Noise> */}
 
