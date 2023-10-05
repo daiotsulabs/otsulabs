@@ -37,11 +37,9 @@ export default function On1Forces() {
       )}
 
       <Stack
-        bgImage="/images/noise.png"
         direction="column"
-        className="w-full h-[320px] md:h-full relative overflow-hidden"
+        className="w-full h-[320px] md:h-full relative"
       >
-        <div className="section-noise"></div>
         <Box className="flex-1 bg-white relative">
           <Image
             src="/images/on1forces.png"

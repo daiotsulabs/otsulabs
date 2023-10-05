@@ -35,7 +35,6 @@ export default function MusicFrens() {
       )}
 
       <Stack
-        bgImage="/images/noise.png"
         direction="column"
         className="w-full h-[320px] md:h-full"
       >
