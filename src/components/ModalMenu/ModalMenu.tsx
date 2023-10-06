@@ -94,9 +94,9 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
         bgSize="cover"
         backgroundPosition="center"
         zIndex={10}
-        background={showBg ? "rgba(0, 0, 0, 0.60)" : "#1D1E22"}
+        background={showBg ? "#010101" : "#1D1E22"}
       >
-        {!showBg && <Box className="bg-noise" />}
+        {/* {!showBg && <Box className="bg-noise" />} */}
         <Header
           isCancelIcon={true}
           showMenuItem={false}
