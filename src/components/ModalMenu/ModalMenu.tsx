@@ -186,7 +186,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
                   Seoul, South Korea
                 </Text>
               </Box>
-              {!isMobileScreen && (
+              {/* {!isMobileScreen && (
                 <Stack direction="column" alignItems="flex-start" gap="5px">
                   <Text
                     color="#f5f5f5"
@@ -202,7 +202,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
                   <SocialButton>tiktok</SocialButton>
                   <SocialButton>youtube</SocialButton>
                 </Stack>
-              )}
+              )} */}
             </Stack>
           </Stack>
         </Box>
