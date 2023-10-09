@@ -94,7 +94,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
         bgSize="cover"
         backgroundPosition="center"
         zIndex={10}
-        background={showBg ? "#010101" : "#1D1E22"}
+        background={"#010101"}
       >
         {/* {!showBg && <Box className="bg-noise" />} */}
         <Header
