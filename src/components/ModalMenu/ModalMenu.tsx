@@ -29,7 +29,7 @@ const MenuButton = ({
   return (
     <Button
       color="#f7f7f7"
-      opacity={.4}
+      opacity={0.4}
       _hover={{
         opacity: 1,
       }}
@@ -79,7 +79,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
   return (
     <SlideFade
       style={{
-        zIndex: 10,
+        zIndex: 19,
         position: "fixed",
         top: 0,
         left: 0,
@@ -94,9 +94,9 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
         bgSize="cover"
         backgroundPosition="center"
         zIndex={10}
-        background={showBg ? "rgba(0, 0, 0, 0.60)" : "black"}
-        backgroundImage={showBg ? "none" : "url(/images/noise.png)"}
+        background={showBg ? "#010101" : "#1D1E22"}
       >
+        {/* {!showBg && <Box className="bg-noise" />} */}
         <Header
           isCancelIcon={true}
           showMenuItem={false}
@@ -147,18 +147,11 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
                   Careers
                 </MenuButton>
                 <MenuButton
-                  className="relative group"
+                  className="relative group hover:cursor-fun"
                   dark={true}
                   onClick={() => onClickMenuButton("/funtime")}
                 >
                   Fun Time
-                  <Img
-                    width="40px"
-                    height="40px"
-                    src="/images/funtime.png"
-                    alt="funtime"
-                    className="absolute hidden left-[120px] top-1/2 -translate-y-1/2 duration-300 group-hover:block"
-                  />
                 </MenuButton>
               </Stack>
             </Box>
@@ -183,10 +176,17 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
                   w={127}
                   fontSize={isMobileScreen ? "xs" : "sm"}
                 >
-                  Saigon, Vietnam Seoul, South Korea
+                  Saigon, Vietnam
+                </Text>
+                <Text
+                  className="animate-menu-fade transition-opacity delay-[1900ms]"
+                  w={127}
+                  fontSize={isMobileScreen ? "xs" : "sm"}
+                >
+                  Seoul, South Korea
                 </Text>
               </Box>
-              {!isMobileScreen && (
+              {/* {!isMobileScreen && (
                 <Stack direction="column" alignItems="flex-start" gap="5px">
                   <Text
                     color="#f5f5f5"
@@ -202,7 +202,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
                   <SocialButton>tiktok</SocialButton>
                   <SocialButton>youtube</SocialButton>
                 </Stack>
-              )}
+              )} */}
             </Stack>
           </Stack>
         </Box>

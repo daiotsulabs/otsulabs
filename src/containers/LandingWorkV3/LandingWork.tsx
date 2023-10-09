@@ -14,22 +14,22 @@ const landingWorkImages = [
   {
     src: "/images/Conviction.png",
     project: "Conviction",
-    url: "/conviction",
+    url: "/conviction#home",
   },
   {
     src: "/images/AlexH.png",
     project: "Alex Hugh",
-    url: "/alexhugh",
+    url: "/alexhugh#home",
   },
   {
     src: "/images/on1forces.png",
     project: "0N1 FORCE",
-    url: "/on1forces",
+    url: "/on1forces#home",
   },
   {
     src: "/images/MusicFrens.png",
     project: "Music Frens",
-    url: "/musicfrens",
+    url: "/musicfrens#home",
   },
 ];
 
@@ -73,7 +73,7 @@ const VideoPlayer = ({
               objectPosition: "center",
             }}
             priority
-            className="z-[10]"
+            className="z-[10] brightness-50"
           />
           <Text
             className={`${mcQueenDisplay.className} left-9 bottom-6 font-medium text-4xl absolute z-10`}
@@ -117,12 +117,12 @@ const DesktopContent = () => {
   const handleClickDetail = () => {
     const link =
       currenIndex === 0
-        ? "/conviction"
+        ? "/conviction#home"
         : currenIndex === 1
-        ? "/alexhugh"
+        ? "/alexhugh#home"
         : currenIndex === 2
-        ? "/on1forces"
-        : "/musicfrens";
+        ? "/on1forces#home"
+        : "/musicfrens#home";
     router.push(link);
   };
 
@@ -132,7 +132,6 @@ const DesktopContent = () => {
       display="flex"
       justifyContent="center"
       alignItems="center"
-      bgImage={`url("/images/noise.png")`}
     >
       <Box className="relative text-[#f5f5f5]">
         <Swiper
@@ -146,7 +145,7 @@ const DesktopContent = () => {
           }}
           grabCursor={true}
           modules={[EffectCards]}
-          className="w-[940px] h-[529px] relative"
+          className={`w-[940px] h-[529px] relative mt-${currenIndex * 20 || 0}p`}
           onSlideChange={(swiper) => {
             setCurrentIndex(swiper.activeIndex);
           }}

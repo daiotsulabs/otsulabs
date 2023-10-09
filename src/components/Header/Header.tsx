@@ -20,7 +20,7 @@ function Header({
   showMenuItem = true,
   isCancelIcon,
   onClickToggle,
-  menuItems = ["home", "experience", "work", "faq", "contact"],
+  menuItems = [],
   onActiveSlideChange,
   toHome = true,
   dark = false,
@@ -33,8 +33,8 @@ function Header({
   const { isHeaderVisible } = useScrollHeader();
   return (
     <header
-      className={`fixed pl-6 pr-[20px] top-[16px] md:inset-x-11 md:top-3 z-[2] h-[60px] w-full md:w-[initial] 
-      ${dark ? "bg-transparent" : "bg-black/30"} backdrop-blur-xl rounded-full transition-transform duration-700 ease-in-out transform 
+      className={`fixed pl-6 pr-[20px] md:top-[16px] md:inset-x-11 md:top-3 z-[19] h-[60px] w-full md:w-[initial] 
+      ${dark ? "bg-transparent" : "bg-black/30"} backdrop-blur-xl md:rounded-full transition-transform duration-700 ease-in-out transform 
       ${isHeaderVisible || visibleHeader
           ? "-translate-y-[76px]"
           : "translate-y-0"
@@ -94,16 +94,11 @@ function Header({
           w={50}
           textAlign={isMobileScreen ? "right" : "center"}
         >
-          {isCancelIcon && isMobileScreen ? (
-            <CancelIcon className="ml-auto" fill={dark ? "black" : "white"} />
-          ) : isMobileScreen ? (
-            <MenuIcon className="ml-auto" fill={dark ? "black" : "white"} />
-          ) : null}
-          {isCancelIcon && !isMobileScreen
-            ? "CLOSE"
-            : !isMobileScreen
-              ? "MENU"
-              : null}
+          {
+            isMobileScreen ?
+            <MenuIcon className={`${ isCancelIcon ? 'rotate-45' : '' } duration-400 transition-[transform] ml-auto`} fill={dark ? "black" : "white"} />
+            : isCancelIcon ? 'CLOSE' : 'MENU'
+          }
         </Button>
       </Stack>
     </header>
