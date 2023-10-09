@@ -18,11 +18,11 @@ function LandingHome({
         muted
         loop
         playsInline
-        className="absolute top-0 left-0 w-full h-full z-[-1] object-cover"
+        className="absolute top-0 left-0 w-full h-full z-[0] object-cover"
       >
         <source src="/intro.mp4" type="video/mp4" />
       </video>
-      <Box className="w-full h-full flex items-center justify-center bg-[#00000080]">
+      <Box className="w-full h-full flex items-center justify-center bg-[#00000080] relative">
         <SlideFade in={true}>
           {!hideTagLine && (
             <Box
@@ -38,7 +38,7 @@ function LandingHome({
         </SlideFade>
         {!hideArrow && !hideTagLine && (
           <Box
-            position="fixed"
+            position="absolute"
             cursor="pointer"
             className="animate-[bounce_1.5s_infinite] bottom-[60px] md:bottom-[10px]"
           >

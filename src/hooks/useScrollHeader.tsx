@@ -7,7 +7,7 @@ export const useScrollHeader = () => {
     let lastScrollPosition = window.scrollY;
     const handleScroll = () => {
       const currentScrollPosition = window.scrollY;
-      if (currentScrollPosition > lastScrollPosition) {
+      if (currentScrollPosition > lastScrollPosition + 2) {
         setIsHeaderVisible(true);
       } else {
         setIsHeaderVisible(false);

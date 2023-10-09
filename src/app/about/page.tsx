@@ -35,12 +35,12 @@ export default function About() {
       {isOpen && (
         <ModalMenu showBg={false} in={isOpen} onClickToggle={onToggle} />
       )}
+      {/* <Box className="bg-noise" /> */}
       <Flex
-        className="w-full h-full items-center text-[#707070] animate-page-fade"
+        className="w-full h-full items-center text-[#707070] animate-page-fade bg-[#010101]"
         pl={isMobileScreen ? "40px" : 164}
         pr={isMobileScreen ? "60px" : 244}
         fontSize={isMobileScreen ? "10px" : "md"}
-        backgroundImage="/images/noise.png"
         direction={isMobileScreen ? "column" : "row"}
         justifyContent={isMobileScreen ? "center" : "space-between"}
       >
@@ -55,7 +55,7 @@ export default function About() {
           <Stack gap={50}>
             <Stack direction="row" alignItems="center" gap={5}>
               <Text
-                className={`text-xl md:text-4xl font-medium ${mcQueenDisplay.className}`}
+                className={`text-xl md:text-4xl font-medium flex-[1-0-auto] ${mcQueenDisplay.className}`}
                 color="#f5f5f5"
               >
                 Otsu おつ
@@ -64,7 +64,11 @@ export default function About() {
                 {`("Thank you for your hard work!")`}
               </Text>
             </Stack>
-            <Stack direction="row" gap={isMobileScreen ? 3 : 55} alignItems="flex-start">
+            <Stack
+              direction="row"
+              gap={isMobileScreen ? 3 : 55}
+              alignItems="flex-start"
+            >
               <Box
                 className="text-xs font-bold tracking-[1.2px] text-[#f5f5f5] leading-7 shrink-0"
                 w={"40px"}
@@ -97,7 +101,7 @@ export default function About() {
                 HOW
               </Box>
               <Box className="text-xs md:text-lg font-normal">
-                <Text mb={isMobileScreen ? 4:  7}>
+                <Text mb={isMobileScreen ? 4 : 7}>
                   Our approach is clear-cut: We start with your story and take
                   it from there, bringing our expertise and creativity to the
                   table.

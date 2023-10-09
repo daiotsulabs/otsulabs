@@ -118,7 +118,7 @@ export default function JobId() {
   };
 
   return (
-    <Layout>
+    <Layout showBackButton toggleMenu={isOpen} backButtonClassName="md:block hidden">
       <Header
         menuItems={[]}
         onClickToggle={onToggle}
@@ -126,9 +126,10 @@ export default function JobId() {
         onActiveSlideChange={onSlideActiveChange}
         customClassName="bg-transparent backdrop-blur-none"
       />
+      {/* <Box className="bg-noise" /> */}
       {isOpen && <ModalMenu in={isOpen} onClickToggle={onToggle} />}
       {job ? (
-        <Box className="w-full h-auto" bgImage={`url("/images/noise.png")`}>
+        <Box className="w-full h-auto bg-[#010101]">
           <Container
             maxWidth={"600"}
             className="h-full animate-page-fade pt-[80px] md:pt-[124px] px-4 md:px-0"
@@ -136,20 +137,13 @@ export default function JobId() {
           >
             <Heading
               className={`${mcQueenDisplay.className} mt-2 text-[30px] md:!text-[36px] font-medium leading-[normal] text-left mb-[6px]`}
-              as={"h2"}
-              color={"#f5f5f5"}
-              letterSpacing={4}
-            >
+              as={'h2'}
+              color={'#f5f5f5'}>
               {job?.name}
             </Heading>
-            <Text
-              className="text-[8px] md:text-[12px] uppercase tracking-[0.6px] leading-[normal] mb-6 md:mb-8"
-              color={"#CCC"}
-            >
-              {job?.time}
-            </Text>
-            <Box className="pr-2 md:pr-10 swiper-no-mousewheel">
-              <Flex alignItems={"flex-end"} className="mt-6 md:mt-8">
+            <Text className='text-[8px] md:text-[12px] uppercase tracking-[0.6px] leading-[normal] mb-6 md:mb-8' color={'#CCC'}>{job?.time} &nbsp; {job?.location}</Text>
+            <Box className='pr-2 md:pr-10 swiper-no-mousewheel'>
+              <Flex alignItems={'flex-end'} className='mt-6 md:mt-8'>
                 <Box>
                   <Heading
                     className={`${mcQueenDisplay.className} text-base mb-1 md:mb-3 md:text-xl 2xl:text-[28px] 2xl:text-lg leading-[normal] font-medium`}
@@ -214,7 +208,7 @@ export default function JobId() {
               flex="1"
               flexDirection={"column"}
               alignItems={"flex-start"}
-              className="pb-4 md:py-6 gap-y-1"
+              className="pb-10 md:pt-6 md:pb-12 gap-y-1"
             >
               <Box width={"100%"} className="mx-auto">
                 {/* <Form hidden={['position']} defaultValue={{ position: job?.name }}></Form> */}

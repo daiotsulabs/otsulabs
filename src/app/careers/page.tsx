@@ -2,7 +2,7 @@
 import { Header, Layout, ModalMenu } from '@/components'
 import CopyRight from '@/components/CopyRight'
 import JoinUs from '@/components/Careers/JoinUs'
-import { useDisclosure } from '@chakra-ui/react'
+import { Box, useDisclosure } from '@chakra-ui/react'
 import { useState } from 'react'
 
 export default function Careers() {

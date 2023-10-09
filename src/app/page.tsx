@@ -3,13 +3,12 @@ import { Header, Layout, ModalMenu } from "@/components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useEffect, useRef, useState } from "react";
 import { LandingHome } from "@/containers/LandingHome";
+// import { Noise } from '@/components/Noise'
 import {
-  Contact,
   LandingAbout,
   LandingExperience,
-  LandingWorkV2,
   LandingWorkV3,
-  LandingContact
+  LandingContact,
 } from "@/containers";
 import {
   Box,
@@ -23,13 +22,16 @@ import "swiper/css/free-mode";
 export default function Home() {
   const { isOpen, onToggle } = useDisclosure();
   const swiperRef = useRef();
+  const workRef = useRef<any>(null);
   const [isMobileScreen] = useMediaQuery("(max-width: 768px)");
   const [currenIndex, setCurrentIndex] = useState(0);
   const [hideArrow, setHideArrow] = useState(false);
   const [isScrollingUp, setIsScrollingUp] = useState(false);
+  const menuItems = ["home", "experience", "work", "faq", "contact"];
+
   const setActiveIndex = (index: number) => {
     if (!swiperRef.current) return;
-    (swiperRef.current as any).slideTo(index);
+    (swiperRef.current as any).slideTo(index, 500);
   };
   const onSlideActiveChange = (index: number) => {
     setActiveIndex(index);
@@ -49,16 +51,36 @@ export default function Home() {
   };
 
   useEffect(() => {
+    const hashtag = window.location.hash?.split('#')[1];
     window.addEventListener("scroll", handleScroll);
+
+    if (menuItems.includes(hashtag)) {
+      setTimeout(() => {
+        setCurrentIndex(menuItems.indexOf(hashtag));
+        setActiveIndex(menuItems.indexOf(hashtag));
+        if (workRef.current) {
+          const topPos = workRef.current.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({
+            top: topPos, // scroll so that the element is at the top of the view
+            behavior: 'smooth' // smooth scroll
+          });
+        }
+        history.replaceState(null, '', ' ');
+      }, 600);
+    }
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <Layout>
+    <Layout className="bg-[#010101]">
+      {/* <Box className="bg-noise" /> */}
+      {/* <Noise></Noise> */}
+
       {!isOpen && (
         <Header
+          menuItems={menuItems}
           toHome={false}
           onActiveSlideChange={onSlideActiveChange}
           onClickToggle={onToggle}
@@ -81,7 +103,7 @@ export default function Home() {
           <Box className="w-screen h-[309px]">
             <LandingExperience />
           </Box>
-          <Box className="w-screen h-auto">
+          <Box className="w-screen h-auto" ref={workRef}>
             <LandingWorkV3 />
           </Box>
           <Box className="w-screen h-auto">
@@ -123,10 +145,10 @@ export default function Home() {
           <SwiperSlide>
             <LandingWorkV3 />
           </SwiperSlide>
-          <SwiperSlide className="bg-[url('/images/noise.png')]">
+          <SwiperSlide>
             <LandingAbout />
           </SwiperSlide>
-          <SwiperSlide className="bg-[url('/images/noise.png')]">
+          <SwiperSlide>
             <LandingContact />
           </SwiperSlide>
         </Swiper>
