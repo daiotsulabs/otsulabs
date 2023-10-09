@@ -9,7 +9,7 @@ import Image from "next/image";
 export default function Conviction() {
   const { isOpen, onToggle } = useDisclosure();
   const [currenIndex, setCurrentIndex] = useState(0);
-  const [backPath, setBackPath] = useState('/work');
+  const [backPath, setBackPath] = useState("/work");
   const swiperRef = useRef();
   const setActiveIndex = (index: number) => {
     if (!swiperRef.current) return;
@@ -18,9 +18,9 @@ export default function Conviction() {
   const router = useRouter();
 
   useEffect(() => {
-    const hashtag = window.location.hash?.split('#')[1];
-    if (hashtag === 'home') {
-      setBackPath('/#work');
+    const hashtag = window.location.hash?.split("#")[1];
+    if (hashtag === "home") {
+      setBackPath("/#work");
     }
   }, []);
 
@@ -38,7 +38,7 @@ export default function Conviction() {
 
       <Stack
         direction="column"
-        className="w-full h-[320px] md:h-full relative overflow-hidden"
+        className="w-full h-[320px] md:h-full relative overflow-hidden animate-page-fade"
       >
         <Box className="flex-1 bg-white relative">
           <Image

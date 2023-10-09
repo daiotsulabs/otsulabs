@@ -38,7 +38,7 @@ export default function AlexHugh() {
 
       <Stack
         direction="column"
-        className="w-full h-[320px] md:h-full relative"
+        className="w-full h-[320px] md:h-full relative animate-page-fade"
       >
         <Box className="flex-1 bg-white relative">
           <Image
