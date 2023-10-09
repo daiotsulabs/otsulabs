@@ -49,7 +49,7 @@ export default function About() {
           </Box>
         </Stack>
 
-        <Stack className="mt-[18px]" gap="30px">
+        <Stack className="mt-[18px] md:mt-[70px]" gap="30px">
           <Text
             className={`${mcQueenDisplay.className} text-xl md:text-4xl font-medium`}
           >

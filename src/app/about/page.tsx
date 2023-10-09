@@ -35,9 +35,9 @@ export default function About() {
       {isOpen && (
         <ModalMenu showBg={false} in={isOpen} onClickToggle={onToggle} />
       )}
-      <Box className="bg-noise" />
+      {/* <Box className="bg-noise" /> */}
       <Flex
-        className="w-full h-full items-center text-[#707070] animate-page-fade bg-[#1D1E22]"
+        className="w-full h-full items-center text-[#707070] animate-page-fade bg-[#010101]"
         pl={isMobileScreen ? "40px" : 164}
         pr={isMobileScreen ? "60px" : 244}
         fontSize={isMobileScreen ? "10px" : "md"}

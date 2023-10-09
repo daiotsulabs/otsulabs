@@ -3,12 +3,11 @@ import { DetailVideoPlayer, Header, Layout, ModalMenu } from "@/components";
 import { useEffect, useRef, useState } from "react";
 import { Box, Stack, Text, useDisclosure } from "@chakra-ui/react";
 import { mcQueenDisplay } from "../layout";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 export default function Conviction() {
   const { isOpen, onToggle } = useDisclosure();
-  const pathname = usePathname();
   const [currenIndex, setCurrentIndex] = useState(0);
   const [backPath, setBackPath] = useState('/work');
   const swiperRef = useRef();
@@ -19,14 +18,14 @@ export default function Conviction() {
   const router = useRouter();
 
   useEffect(() => {
-    const hashtag = pathname?.split('#')[1];
+    const hashtag = window.location.hash?.split('#')[1];
     if (hashtag === 'home') {
       setBackPath('/#work');
     }
-  }, [pathname]);
+  }, []);
 
   return (
-    <Layout showBackButton={backPath}>
+    <Layout toggleMenu={isOpen} showBackButton={backPath}>
       <Header
         onActiveSlideChange={(index: number) => setActiveIndex(index - 1)}
         menuItems={[]}
@@ -38,9 +37,8 @@ export default function Conviction() {
       )}
 
       <Stack
-        bgImage="/images/noise.png"
         direction="column"
-        className="w-full h-[320px] md:h-full"
+        className="w-full h-[320px] md:h-full relative overflow-hidden"
       >
         <Box className="flex-1 bg-white relative">
           <Image

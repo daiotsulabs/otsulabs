@@ -79,7 +79,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
   return (
     <SlideFade
       style={{
-        zIndex: 10,
+        zIndex: 19,
         position: "fixed",
         top: 0,
         left: 0,
@@ -94,9 +94,9 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
         bgSize="cover"
         backgroundPosition="center"
         zIndex={10}
-        background={showBg ? "rgba(0, 0, 0, 0.60)" : "#1D1E22"}
+        background={showBg ? "#010101" : "#1D1E22"}
       >
-        {!showBg && <Box className="bg-noise" />}
+        {/* {!showBg && <Box className="bg-noise" />} */}
         <Header
           isCancelIcon={true}
           showMenuItem={false}
@@ -176,10 +176,17 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
                   w={127}
                   fontSize={isMobileScreen ? "xs" : "sm"}
                 >
-                  Saigon, Vietnam Seoul, South Korea
+                  Saigon, Vietnam
+                </Text>
+                <Text
+                  className="animate-menu-fade transition-opacity delay-[1900ms]"
+                  w={127}
+                  fontSize={isMobileScreen ? "xs" : "sm"}
+                >
+                  Seoul, South Korea
                 </Text>
               </Box>
-              {!isMobileScreen && (
+              {/* {!isMobileScreen && (
                 <Stack direction="column" alignItems="flex-start" gap="5px">
                   <Text
                     color="#f5f5f5"
@@ -195,7 +202,7 @@ function ModalMenu({ showBg, onClickToggle, ...props }: ModalMenuProps) {
                   <SocialButton>tiktok</SocialButton>
                   <SocialButton>youtube</SocialButton>
                 </Stack>
-              )}
+              )} */}
             </Stack>
           </Stack>
         </Box>

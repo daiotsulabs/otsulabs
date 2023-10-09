@@ -78,7 +78,7 @@ function LandingContact() {
         className="px-10 md:px-[120px] 2xl:px-24 static md:absolute"
         top={!isMobileScreen ? "150px" : "0px"}
       >
-        <Flex className="flex mt-0 pt-[60px] flex-col mt-0 md:flex-row gap-x-4 items-center">
+        <Flex className="flex mt-0 pt-[60px] md:pt-[0px] flex-col mt-0 md:flex-row gap-x-4 items-center">
           <Box
             flex={2}
             className="text-center md:text-left mx-auto w-full md:w-initial md:ml-auto"
