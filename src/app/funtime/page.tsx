@@ -109,13 +109,13 @@ export default function About() {
             <Image
               src="/icons/ig-light.svg"
               fill
-              alt="ig"
+              alt="ig-icon"
               className="transition duration-300 group-hover:opacity-0"
             />
             <Image
               src="/icons/ig-dark.svg"
               fill
-              alt="ig"
+              alt="ig-icon"
               className="opacity-0 transition duration-300 group-hover:opacity-100"
             />
           </Box>
