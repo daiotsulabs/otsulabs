@@ -4,7 +4,6 @@ import { useRef, useState } from "react";
 import { Box, Stack, Text, useDisclosure } from "@chakra-ui/react";
 import { mcQueenDisplay } from "../layout";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function About() {
@@ -98,39 +97,28 @@ export default function About() {
           >
             Follow Erene&apos;s Journey
           </Text>
-          <Stack
-            direction="row"
-            className="uppercase text-xs md:text-[15px] tracking-[1.5px] font-normal mx-auto gap-[15px] md:gap-20"
+          <Box
+            position={"relative"}
+            className="group w-[40px] h-[40px] md:w-[73px] md:h-[73px]"
+            margin="auto"
+            cursor="pointer"
+            onClick={() =>
+              router.push("https://www.instagram.com/ereneanimation/")
+            }
           >
-            <Link href={'https://twitter.com/EreneAnimation'} target="_blank">
-              <Text
-                className="cursor-pointer hover:underline"
-              >
-                twitter
-              </Text>
-            </Link>
-            <Link href={'https://www.tiktok.com/@ereneanimation'} target="_blank">
-              <Text
-                className="cursor-pointer hover:underline"
-              >
-                tiktok
-              </Text>
-            </Link>
-            <Link href={'https://www.youtube.com/@EreneAnimation'} target="_blank">
-              <Text
-                className="cursor-pointer hover:underline"
-              >
-                youtube
-              </Text>
-            </Link>
-            <Link href={'https://www.instagram.com/ereneanimation/'} target="_blank">
-              <Text
-                className="cursor-pointer hover:underline"
-              >
-                instagram
-              </Text>
-            </Link>
-          </Stack>
+            <Image
+              src="/icons/ig-light.svg"
+              fill
+              alt="ig"
+              className="transition duration-300 group-hover:opacity-0"
+            />
+            <Image
+              src="/icons/ig-dark.svg"
+              fill
+              alt="ig"
+              className="opacity-0 transition duration-300 group-hover:opacity-100"
+            />
+          </Box>
         </Stack>
       </Stack>
     </Layout>
