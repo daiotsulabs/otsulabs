@@ -12,6 +12,11 @@ import { WorkItem } from "@/components";
 
 const landingWorkImages = [
   {
+    src: "/images/system-royal.png",
+    project: "System Royal",
+    url: "/system-royal#home",
+  },
+  {
     src: "/images/Conviction.png",
     project: "Conviction",
     url: "/conviction#home",
@@ -34,6 +39,7 @@ const landingWorkImages = [
 ];
 
 const landingWorkVideos = [
+  { src: "/videos/system-royal.mp4" },
   { src: "/videos/conviction.mp4" },
   { src: "/videos/alexh.mp4" },
   { src: "/videos/on1forces.mp4" },
@@ -117,10 +123,12 @@ const DesktopContent = () => {
   const handleClickDetail = () => {
     const link =
       currenIndex === 0
-        ? "/conviction#home"
+        ? "/system-royal#home"
         : currenIndex === 1
-        ? "/alexhugh#home"
+        ? "/conviction#home"
         : currenIndex === 2
+        ? "/alexhugh#home"
+        : currenIndex === 3
         ? "/on1force#home"
         : "/musicfrens#home";
     router.push(link);
@@ -145,7 +153,9 @@ const DesktopContent = () => {
           }}
           grabCursor={true}
           modules={[EffectCards]}
-          className={`w-[940px] h-[529px] relative mt-${currenIndex * 20 || 0}p`}
+          className={`w-[940px] h-[529px] relative mt-${
+            currenIndex * 20 || 0
+          }p`}
           onSlideChange={(swiper) => {
             setCurrentIndex(swiper.activeIndex);
           }}
@@ -163,7 +173,7 @@ const DesktopContent = () => {
         <Stack
           direction="column"
           justifyContent="space-between"
-          className="absolute z-[1] w-[100px] h-[109px] -right-[115px] tracking-[1.2px] uppercase font-normal top-1/2 -translate-y-2/4"
+          className="absolute z-[1] w-[108px] h-[109px] -right-[120px] tracking-[1.2px] uppercase font-normal top-1/2 -translate-y-2/4"
         >
           {landingWorkImages.map((project, index) => (
             <Box
