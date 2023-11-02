@@ -7,6 +7,9 @@ module.exports = {
     './src/containers/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    fontFamily: {
+      "atkinson": "Atkinson Hyperlegible",
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

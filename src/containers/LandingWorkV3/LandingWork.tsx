@@ -173,7 +173,7 @@ const DesktopContent = () => {
         <Stack
           direction="column"
           justifyContent="space-between"
-          className="absolute z-[1] w-[108px] h-[109px] -right-[120px] tracking-[1.2px] uppercase font-normal top-1/2 -translate-y-2/4"
+          className="absolute z-[1] w-[120px] h-[120px] -right-[135px] tracking-[1.2px] uppercase font-normal top-1/2 -translate-y-2/4"
         >
           {landingWorkImages.map((project, index) => (
             <Box
