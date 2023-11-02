@@ -68,7 +68,7 @@ export default function Work() {
                 </Text>
               </Box>
             </Link>
-            <Link href={'/on1forces'}>
+            <Link href={'/on1force'}>
               <Box
                 className="relative mx-auto bg-white rounded-[10px] rounded-[10px] md:rounded-[30px] overflow-hidden w-[310px] h-[174px] h-[188px] md:w-[502px] md:h-[283px] cursor-pointer group"
                 boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"

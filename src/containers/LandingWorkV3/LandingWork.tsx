@@ -24,7 +24,7 @@ const landingWorkImages = [
   {
     src: "/images/on1forces.png",
     project: "0N1 FORCE",
-    url: "/on1forces#home",
+    url: "/on1force#home",
   },
   {
     src: "/images/MusicFrens.png",
@@ -121,7 +121,7 @@ const DesktopContent = () => {
         : currenIndex === 1
         ? "/alexhugh#home"
         : currenIndex === 2
-        ? "/on1forces#home"
+        ? "/on1force#home"
         : "/musicfrens#home";
     router.push(link);
   };

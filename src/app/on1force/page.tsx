@@ -164,7 +164,7 @@ export default function On1Forces() {
           </Stack>
         </Stack>
 
-        <Box className="w-full h-[219px] md:h-[810px]">
+        <Box className="w-full h-[219px] md:h-full">
           <DetailVideoPlayer
             src="/videos/on1forces.mp4"
             poster="/images/on1forces.png"

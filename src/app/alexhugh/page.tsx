@@ -137,7 +137,7 @@ export default function AlexHugh() {
           </Box>
         </Stack>
 
-        <Box className="w-full h-[219px] md:h-[810px]">
+        <Box className="w-full h-[219px] md:h-full">
           <DetailVideoPlayer
             src="/videos/alexh.mp4"
             poster="/images/AlexH.png"

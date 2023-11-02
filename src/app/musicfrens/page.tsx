@@ -113,7 +113,7 @@ export default function MusicFrens() {
           </Box>
         </Stack>
 
-        <Box className="w-full h-[219px] md:h-[810px]">
+        <Box className="w-full h-[219px] md:h-full">
           <DetailVideoPlayer
             src="/videos/musicfrens.mp4"
             poster="/images/MusicFrens.png"

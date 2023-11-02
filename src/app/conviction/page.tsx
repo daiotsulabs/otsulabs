@@ -205,7 +205,7 @@ export default function Conviction() {
           </Box>
         </Stack>
 
-        <Box className="w-full h-[219px] md:h-[810px]">
+        <Box className="w-full h-[219px] md:h-full">
           <DetailVideoPlayer
             src="/videos/conviction.mp4"
             poster="/images/Conviction.png"
