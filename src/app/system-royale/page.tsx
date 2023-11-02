@@ -240,7 +240,7 @@ export default function On1Forces() {
           </Box>
         </Stack>
       </Stack>
-      <Box className="w-full h-[219px] md:h-sreen">
+      <Box className="w-full h-[219px] md:h-screen">
         <DetailVideoPlayer
           src="/videos/system-royal.mp4"
           poster="/images/system-royal.png"
