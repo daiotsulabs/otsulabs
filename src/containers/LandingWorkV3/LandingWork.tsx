@@ -13,8 +13,8 @@ import { WorkItem } from "@/components";
 const landingWorkImages = [
   {
     src: "/images/system-royal.png",
-    project: "System Royal",
-    url: "/system-royal#home",
+    project: "System Royale",
+    url: "/system-royale#home",
   },
   {
     src: "/images/Conviction.png",
@@ -123,7 +123,7 @@ const DesktopContent = () => {
   const handleClickDetail = () => {
     const link =
       currenIndex === 0
-        ? "/system-royal#home"
+        ? "/system-royale#home"
         : currenIndex === 1
         ? "/conviction#home"
         : currenIndex === 2
