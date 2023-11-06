@@ -312,40 +312,40 @@ export default function On1Forces() {
             Environment Design
           </Text>
           <Box
-            className="relative mx-auto bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[312px] h-[219px] md:w-[1040px] md:h-[550px]"
+            className="relative mx-auto bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[312px] h-[164px] md:w-[1040px] md:h-[550px]"
             boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
           >
             <Image fill src="/images/voyceMe-8.png" alt="voyceMe-8" />
           </Box>
-          <Stack direction="row" className="mx-auto gap-[10px] md:gap-[35px]">
+          <Stack direction="row" className="mx-auto gap-[5px] md:gap-[35px]">
             <Box
-              className="relative bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[151px] h-[107px] md:w-[446px] md:h-[314px]"
+              className="relative bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[138px] h-[97px] md:w-[446px] md:h-[314px]"
               boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
             >
               <Image fill src="/images/voyceMe-9.png" alt="voyceMe-9" />
             </Box>
             <Box
-              className="relative bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[151px] h-[107px] md:w-[558px] md:h-[314px]"
+              className="relative bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[169px] h-[97px] md:w-[558px] md:h-[314px]"
               boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
             >
               <Image fill src="/images/voyceMe-10.png" alt="voyceMe-10" />
             </Box>
           </Stack>
           <Box
-            className="relative mx-auto bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[312px] h-[219px] md:w-[1040px] md:h-[550px]"
+            className="relative mx-auto bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[312px] h-[164px] md:w-[1040px] md:h-[550px]"
             boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
           >
             <Image fill src="/images/voyceMe-11.png" alt="voyceMe-11" />
           </Box>
           <Stack direction="row" className="mx-auto gap-[10px] md:gap-[35px]">
             <Box
-              className="relative bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[151px] h-[107px] md:w-[502px] md:h-[300px]"
+              className="relative bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[151px] h-[90px] md:w-[502px] md:h-[300px]"
               boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
             >
               <Image fill src="/images/voyceMe-12.png" alt="voyceMe-12" />
             </Box>
             <Box
-              className="relative bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[151px] h-[107px] md:w-[502px] md:h-[300px]"
+              className="relative bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[151px] h-[90px] md:w-[502px] md:h-[300px]"
               boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
             >
               <Image fill src="/images/voyceMe-13.png" alt="voyceMe-13" />
@@ -353,26 +353,26 @@ export default function On1Forces() {
           </Stack>
           <Stack direction="row" className="mx-auto gap-[10px] md:gap-[35px]">
             <Box
-              className="relative bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[151px] h-[107px] md:w-[502px] md:h-[300px]"
+              className="relative bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[151px] h-[90px] md:w-[502px] md:h-[300px]"
               boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
             >
               <Image fill src="/images/voyceMe-14.png" alt="voyceMe-14" />
             </Box>
             <Box
-              className="relative bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[151px] h-[107px] md:w-[502px] md:h-[300px]"
+              className="relative bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[151px] h-[90px] md:w-[502px] md:h-[300px]"
               boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
             >
               <Image fill src="/images/voyceMe-15.png" alt="voyceMe-15" />
             </Box>
           </Stack>
           <Box
-            className="relative mx-auto bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[312px] h-[219px] md:w-[1040px] md:h-[550px]"
+            className="relative mx-auto bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[312px] h-[164px] md:w-[1040px] md:h-[550px]"
             boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
           >
             <Image fill src="/images/voyceMe-16.png" alt="voyceMe-16" />
           </Box>
           <Box
-            className="relative mx-auto bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[312px] h-[219px] md:w-[1040px] md:h-[550px]"
+            className="relative mx-auto bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[312px] h-[164px] md:w-[1040px] md:h-[550px]"
             boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
           >
             <Image fill src="/images/voyceMe-17.png" alt="voyceMe-17" />
