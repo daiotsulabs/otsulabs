@@ -11,7 +11,8 @@ html {
 body {
   font-family: "Atkinson Hyperlegible", sans-serif;
   min-height: -webkit-fill-available;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 .scroll::-webkit-scrollbar {
@@ -25,22 +26,22 @@ body {
 }
 
 .scroll::-webkit-scrollbar-thumb {
-  background: #f5f5f5; 
+  background: #f5f5f5;
   border-radius: 4px;
 }
 
 .scroll::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }
 
 @media screen and (max-width: 768px) {
   .loading-page {
-    max-width: 200px!important;
+    max-width: 200px !important;
   }
 }
 
 .loading-page > div {
-  background: #F5F5F5;
+  background: #f5f5f5;
 }
 
 .mt-20p {
@@ -63,10 +64,11 @@ body {
   bottom: -50%;
   width: 200%;
   height: 200vh;
-  background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+  background: transparent
+    url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
   background-repeat: repeat;
-  animation: bg-animation .2s infinite;
-  opacity: .7;
+  animation: bg-animation 0.2s infinite;
+  opacity: 0.7;
   visibility: visible;
 }
 .section-noise {
@@ -79,7 +81,7 @@ body {
   z-index: 0;
 }
 .section-noise::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -50vh;
   left: -50%;
@@ -87,24 +89,66 @@ body {
   bottom: -50vh;
   width: 200%;
   height: 200vh;
-  background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+  background: transparent
+    url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
   background-repeat: repeat;
-  animation: bg-animation .2s infinite;
-  opacity: .9;
+  animation: bg-animation 0.2s infinite;
+  opacity: 0.9;
   visibility: visible;
   overflow: hidden;
 }
 
 @keyframes bg-animation {
-  0% { transform: translate(0,0) }
-  10% { transform: translate(-5%,-5%) }
-  20% { transform: translate(-10%,5%) }
-  30% { transform: translate(5%,-10%) }
-  40% { transform: translate(-5%,15%) }
-  50% { transform: translate(-10%,5%) }
-  60% { transform: translate(15%,0) }
-  70% { transform: translate(0,10%) }
-  80% { transform: translate(-15%,0) }
-  90% { transform: translate(10%,5%) }
-  100% { transform: translate(5%,0) }
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -5%);
+  }
+  20% {
+    transform: translate(-10%, 5%);
+  }
+  30% {
+    transform: translate(5%, -10%);
+  }
+  40% {
+    transform: translate(-5%, 15%);
+  }
+  50% {
+    transform: translate(-10%, 5%);
+  }
+  60% {
+    transform: translate(15%, 0);
+  }
+  70% {
+    transform: translate(0, 10%);
+  }
+  80% {
+    transform: translate(-15%, 0);
+  }
+  90% {
+    transform: translate(10%, 5%);
+  }
+  100% {
+    transform: translate(5%, 0);
+  }
+}
+
+.infinite-running-image {
+  overflow: hidden;
+}
+.running-animation {
+  background: url("/images/voyceMe-10.png") repeat-x;
+  width: 8192px;
+  height: 510px;
+  animation: runningImage 20s linear infinite;
+}
+
+@keyframes runningImage {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-4096px);
+  }
 }

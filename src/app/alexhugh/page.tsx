@@ -1,7 +1,13 @@
 "use client";
 import { DetailVideoPlayer, Header, Layout, ModalMenu } from "@/components";
 import { useEffect, useRef, useState } from "react";
-import { Box, Stack, Text, useDisclosure } from "@chakra-ui/react";
+import {
+  Box,
+  Stack,
+  Text,
+  useDisclosure,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import { mcQueenDisplay } from "../layout";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -9,7 +15,7 @@ import { useRouter } from "next/navigation";
 export default function AlexHugh() {
   const { isOpen, onToggle } = useDisclosure();
   const [currenIndex, setCurrentIndex] = useState(0);
-  const [backPath, setBackPath] = useState('/work');
+  const [backPath, setBackPath] = useState("/work");
   const swiperRef = useRef();
   const setActiveIndex = (index: number) => {
     if (!swiperRef.current) return;
@@ -18,11 +24,14 @@ export default function AlexHugh() {
   const router = useRouter();
 
   useEffect(() => {
-    const hashtag = window.location.hash?.split('#')[1];
-    if (hashtag === 'home') {
-      setBackPath('/#work');
+    const hashtag = window.location.hash?.split("#")[1];
+    if (hashtag === "home") {
+      setBackPath("/#work");
     }
   }, []);
+
+  const [isMobileScreen] = useMediaQuery("(max-width: 480px)");
+  const [isMediumScreen] = useMediaQuery("(max-width: 1513px)");
 
   return (
     <Layout toggleMenu={isOpen} showBackButton={backPath}>
@@ -50,40 +59,40 @@ export default function AlexHugh() {
           />
         </Box>
         <Stack
-          direction="row"
-          className="h-[100px] md:h-[355px] text-[#f7f7f7] items-center px-10 md:pl-[280px] md:gap-[348px] justify-between md:justify-normal"
+          className={`w-full h-full absolute text-[#f5f5f5] ${
+            isMobileScreen ? "bg-[#01010180]" : "bg-[#010101b3]"
+          }`}
         >
-          <Stack gap={1} className="w-auto md:w-[251px]">
+          <Box className="w-auto md:w-[450px] absolute text-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <Text
-              className={`${mcQueenDisplay.className} text-xl md:text-4xl font-bold opacity-40`}
+              className={`${mcQueenDisplay.className} text-xl md:text-4xl font-medium`}
             >
               Alex Hugh
             </Text>
             <Text
-              className="text-[8px] md:text-[15px] tracking-[1.5px] uppercase font-normal cursor-pointer hover:underline"
+              className="text-[8px] md:text-[14px] tracking-[1.5px] uppercase font-normal mt-[10px] md:mt-[20px] cursor-pointer hover:underline"
               onClick={() => router.push("https://twitter.com/alexhughsam")}
             >
               visit website
             </Text>
-          </Stack>
-          <Stack
-            gap={8}
-            className="text-[8px] md:text-[15px] font-normal gap-5 md:gap-8"
-          >
-            <Box>
-              <Text className="uppercase tracking-[1.5px]">project</Text>
-              <Text className="text-[#707070] text-[8px] md:text-xl">
-                10 Second Teaser Animation
-              </Text>
-            </Box>
-            <Box>
-              <Text className="uppercase tracking-[1.5px]">date</Text>
-              <Text className="text-[#707070] text-[8px] md:text-xl">
-                August 10, 2023
-              </Text>
-            </Box>
-          </Stack>
+          </Box>
         </Stack>
+        {!isMobileScreen && (
+          <Box
+            position="absolute"
+            cursor="pointer"
+            className="animate-[bounce_1.5s_infinite] bottom-[60px] md:bottom-[10px] w-full"
+          >
+            <Box className="w-full h-full flex items-center justify-center">
+              <Image
+                src="/icons/arrow-down.svg"
+                width={isMobileScreen ? 12 : isMediumScreen ? 18 : 24}
+                height={isMobileScreen ? 44 : isMediumScreen ? 66 : 88}
+                alt="arrow-down"
+              />
+            </Box>
+          </Box>
+        )}
       </Stack>
 
       <Stack className="w-full h-auto text-center bg-white text-[#010101] animate-page-fade pt-[22px] md:pt-[60px] gap-[22px] md:gap-[60px]">
@@ -137,7 +146,7 @@ export default function AlexHugh() {
           </Box>
         </Stack>
 
-        <Box className="w-full h-[219px] md:h-[810px]">
+        <Box className="w-full h-[219px] md:h-screen">
           <DetailVideoPlayer
             src="/videos/alexh.mp4"
             poster="/images/AlexH.png"

@@ -1,7 +1,13 @@
 "use client";
 import { DetailVideoPlayer, Header, Layout, ModalMenu } from "@/components";
 import { useEffect, useRef, useState } from "react";
-import { Box, Stack, Text, useDisclosure } from "@chakra-ui/react";
+import {
+  Box,
+  Stack,
+  Text,
+  useDisclosure,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import { mcQueenDisplay } from "../layout";
 import Image from "next/image";
 
@@ -21,6 +27,9 @@ export default function MusicFrens() {
       setBackPath("/#work");
     }
   }, []);
+
+  const [isMobileScreen] = useMediaQuery("(max-width: 480px)");
+  const [isMediumScreen] = useMediaQuery("(max-width: 1513px)");
 
   return (
     <Layout toggleMenu={isOpen} showBackButton={backPath}>
@@ -47,32 +56,36 @@ export default function MusicFrens() {
             objectPosition="bottom"
           />
         </Box>
+
         <Stack
-          direction="row"
-          className="h-[100px] md:h-[355px] text-[#f7f7f7] items-center px-10 md:pl-[280px] md:gap-[348px] justify-between md:justify-normal"
+          className={`h-[320px] w-full md:h-full absolute text-[#f5f5f5] ${
+            isMobileScreen ? "bg-[#01010180]" : "bg-[#010101b3]"
+          }`}
         >
-          <Stack gap={1} className="w-auto md:w-[251px]">
+          <Box className="w-auto md:w-[450px] absolute text-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <Text
-              className={`${mcQueenDisplay.className} text-xl md:text-4xl font-bold opacity-40`}
+              className={`${mcQueenDisplay.className} text-xl md:text-4xl font-medium`}
             >
               Music Frens
             </Text>
-          </Stack>
-          <Stack className="text-[8px] md:text-[15px] font-normal gap-5 md:gap-8">
-            <Box>
-              <Text className="uppercase tracking-[1.5px]">project</Text>
-              <Text className="text-[#707070] text-[8px] md:text-xl">
-                20 Second Trailer
-              </Text>
-            </Box>
-            <Box>
-              <Text className="uppercase tracking-[1.5px]">date</Text>
-              <Text className="text-[#707070] text-[8px] md:text-xl">
-                July 21, 2023
-              </Text>
-            </Box>
-          </Stack>
+          </Box>
         </Stack>
+        {!isMobileScreen && (
+          <Box
+            position="absolute"
+            cursor="pointer"
+            className="animate-[bounce_1.5s_infinite] bottom-[60px] md:bottom-[10px] w-full"
+          >
+            <Box className="w-full h-full flex items-center justify-center">
+              <Image
+                src="/icons/arrow-down.svg"
+                width={isMobileScreen ? 12 : isMediumScreen ? 18 : 24}
+                height={isMobileScreen ? 44 : isMediumScreen ? 66 : 88}
+                alt="arrow-down"
+              />
+            </Box>
+          </Box>
+        )}
       </Stack>
 
       <Stack className="w-full h-auto text-center bg-white text-[#010101] animate-page-fade pt-[22px] md:pt-[60px] gap-[22px] md:gap-[60px]">
@@ -113,7 +126,7 @@ export default function MusicFrens() {
           </Box>
         </Stack>
 
-        <Box className="w-full h-[219px] md:h-[810px]">
+        <Box className="w-screen h-[219px] md:h-screen">
           <DetailVideoPlayer
             src="/videos/musicfrens.mp4"
             poster="/images/MusicFrens.png"
