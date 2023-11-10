@@ -104,7 +104,7 @@ export default function On1Forces() {
         <Box className="flex-1 relative">
           <Image
             src="/images/system-royal.png"
-            alt="voyceMe"
+            alt="zokio-system-royale"
             fill
             objectFit="cover"
           />
