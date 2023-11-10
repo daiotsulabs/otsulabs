@@ -44,11 +44,11 @@ export default function Work() {
                 <Image
                   fill
                   src="/images/system-royal.png"
-                  alt="System Royal"
+                  alt="Zokio"
                   className="brightness-50 md:brightness-100 hover:brightness-50 transition duration-300 ease-in-out"
                 />
                 <Text className="absolute bottom-[15px] left-[20px] md:bottom-[25px] md:left-[25px] opacity-100 md:opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
-                  System Royale
+                  Zokio
                 </Text>
               </Box>
             </Link>

@@ -118,10 +118,10 @@ export default function On1Forces() {
             <Text
               className={`${mcQueenDisplay.className} text-xl md:text-4xl font-medium`}
             >
-              VoyceMe - System Royale
+              Zokio - System Royale
             </Text>
             <Text className="text-[10px] md:text-[18px] font-normal md:mt-[15px]">
-              VoyceMe is the first social creator platform. It is the home of
+              Zokio is the first social creator platform. It is the home of
               creativity that hosts the highest quality English manga,
               web-comics, and web-novels.
             </Text>
