@@ -1,7 +1,7 @@
 "use client";
 import { Header, Layout, ModalMenu } from "@/components";
 import { useEffect, useRef, useState } from "react";
-import { jobs } from "@/components/Careers";
+import { jobsEN, jobsVN } from "@/components/Careers";
 import type { Job } from "@/components/Careers";
 import {
   Center,
@@ -50,15 +50,18 @@ export default function JobId() {
   const [portfolio, setPortfolio] = useState("");
   const [message, setMessage] = useState("");
   const [isValidate, setIsValidate] = useState(false);
+  const isVi = path.includes("/vi/");
 
   useEffect(() => {
-    setJob(jobs.find((j) => j.slug === path.split("/")[2]));
+    const jobs = isVi ? jobsVN : jobsEN;
+    const jobId = isVi ? path.split("/")[3] : path.split("/")[2];
+    setJob(jobs.find((j) => j.slug === jobId));
     job && setPosition(job.name);
     setError((prevState: any) => ({
       ...prevState,
       position: !position,
     }));
-  }, [job, path, setError, position]);
+  }, [job, path, setError, position, isVi]);
 
   const onClickValidateForm = () => {
     if (loading) return;
@@ -151,7 +154,7 @@ export default function JobId() {
                 <Text
                   className={`${mcQueenDisplay.className} text-center md:text-left font-medium text-xl text-[#F5F5F5]`}
                 >
-                  Responsibilities
+                  {isVi ? "Trách nhiệm" : "Responsibilities"}
                 </Text>
                 <ul className="list-disc pl-6 [&>li:not(:last-child)]:mb-2 md:[&>li:not(:last-child)]:mb-5">
                   {job?.responsibilities.map((r, index) => (
@@ -165,7 +168,7 @@ export default function JobId() {
                 <Text
                   className={`${mcQueenDisplay.className} text-center md:text-left font-medium text-xl text-[#F5F5F5]`}
                 >
-                  Requirements
+                  {isVi ? "Yêu cầu" : "Requirements"}
                 </Text>
                 <ul className="list-disc pl-6 [&>li:not(:last-child)]:mb-2 md:[&>li:not(:last-child)]:mb-5">
                   {job?.qualifications.map((r, index) => (
@@ -180,7 +183,7 @@ export default function JobId() {
             <Text
               className={`${mcQueenDisplay.className} text-center md:text-left font-medium text-xl text-[#F5F5F5] mb-[15px] md:mb-[35px]`}
             >
-              We Offer
+              {isVi ? "Chúng Tôi Cung Cấp" : "We Offer"}
             </Text>
 
             <Stack className="flex-col md:flex-row justify-between w-full mb-[30px] md:mb-[35px]">

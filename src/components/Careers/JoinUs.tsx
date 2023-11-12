@@ -12,7 +12,7 @@ import {
 import Link from "next/link";
 import { mcQueenDisplay } from "@/app/layout";
 import { ArrowRightIcon } from "@/components/icons";
-import { jobs } from ".";
+import { jobsEN } from ".";
 import Image from "next/image";
 
 export default function JoinUs({ join }: { join: any }) {
@@ -105,7 +105,7 @@ export default function JoinUs({ join }: { join: any }) {
             id="open-positions"
           >
             <ul className="w-full md:w-[440px]">
-              {jobs.map((job) => (
+              {jobsEN.map((job) => (
                 <li
                   key={job.id}
                   className="bg-[#151515] rounded-[10px] md:rounded-2xl my-3 md:my-6 cursor-pointer border border-[#000000] border-solid"
