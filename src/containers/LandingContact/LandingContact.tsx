@@ -76,7 +76,7 @@ function LandingContact() {
       <Container
         maxWidth={"1200px"}
         className="px-10 md:px-[120px] 2xl:px-24 static md:absolute"
-        top={!isMobileScreen ? "150px" : "0px"}
+        top={!isMobileScreen ? "80px" : "0px"}
       >
         <Flex className="flex flex-col mt-0 pt-[60px] md:pt-[0px] md:w-[800px] md:m-auto flex-col mt-0 md:flex-row gap-x-4 items-center">
           {/* <Box
