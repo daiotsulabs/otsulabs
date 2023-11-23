@@ -315,6 +315,46 @@ export const ArrowDownIcon = ({
   );
 };
 
+export const LanguageIcon = ({ fill = "#f5f5f5" }: IconProps) => {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M1 3.27002H8.12373M9.86667 3.27002H8.12373M8.12373 3.27002C7.27402 5.33469 4.82577 9.96582 1.83051 11.973M3.02543 5.70058C3.23786 6.90279 4.3956 9.58948 7.32712 10.7185"
+        stroke={fill}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8 14.8285L9.54957 10.7143L11.0991 6.59998L12.8162 10.8L14.5333 15"
+        stroke={fill}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9.40039 11.7333H12.6671"
+        stroke={fill}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M5.27539 1L5.27539 2.51356"
+        stroke={fill}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+};
+
 export * from "./user";
 export * from "./email";
 export * from "./link";
@@ -324,5 +364,5 @@ export * from "./arrow-right";
 export * from "./position";
 export * from "./arrow-down-circle";
 export * from "./arrow-up-circle";
-export * from './plus';
-export * from './minus';
+export * from "./plus";
+export * from "./minus";

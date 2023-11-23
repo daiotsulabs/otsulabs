@@ -1,6 +1,6 @@
 import { Box, Button, Stack, useMediaQuery } from "@chakra-ui/react";
 import { CancelIcon, MenuIcon, SingleLogo } from "../icons";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useScrollHeader } from "@/hooks/useScrollHeader";
 import { LanguageButton } from "../LanguageButton";
 
@@ -32,6 +32,7 @@ function Header({
   const [isMobileScreen] = useMediaQuery("(max-width: 480px)");
   const [isMediumScreen] = useMediaQuery("(max-width: 1441px)");
   const { isHeaderVisible } = useScrollHeader();
+  const pathname = usePathname();
   return (
     <header
       className={`fixed pl-6 pr-[20px] md:top-[16px] md:inset-x-11 md:top-3 z-[19] h-[60px] w-full md:w-[initial] 
@@ -88,23 +89,24 @@ function Header({
             ))}
         </Stack>
         <Stack className="flex-row items-center">
-          <LanguageButton />
+          {pathname.includes("/careers/") && !isCancelIcon && (
+            <LanguageButton />
+          )}
           <Button
             cursor="pointer"
             onClick={onClickToggle}
             p={0}
-            className="text-xs xl:text-md"
+            className="text-xs min-w-0 xl:text-md md:w-[50px]"
             variant="unstyled"
             sx={{ minW: 0 }}
             color={dark ? "black" : "#f5f5f5"}
-            w={50}
             textAlign={isMobileScreen ? "right" : "center"}
           >
             {isMobileScreen ? (
               <MenuIcon
                 className={`${
                   isCancelIcon ? "rotate-45" : ""
-                } duration-400 transition-[transform] ml-auto`}
+                } duration-400 transition-[transform] text-right`}
                 fill={dark ? "black" : "white"}
               />
             ) : isCancelIcon ? (

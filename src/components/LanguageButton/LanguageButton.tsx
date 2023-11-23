@@ -7,13 +7,14 @@ import {
   PopoverTrigger,
   useDisclosure,
 } from "@chakra-ui/react";
-import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { LanguageIcon } from "../icons";
 
 const LanguageButton = () => {
   const initialFocusRef = useRef<any>();
   const { onOpen, onClose, isOpen } = useDisclosure();
+  const [isHover, setIsHover] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -36,14 +37,13 @@ const LanguageButton = () => {
       <PopoverTrigger>
         <Button
           onClick={() => onOpen()}
-          className="w-[25px] h-[25px] p-0 min-w-0 rounded-full bg-white"
+          className={`w-[25px] h-[25px] p-0 min-w-0 rounded-full ${
+            isOpen || isHover ? "bg-white" : "bg-transparent"
+          }`}
+          onMouseOver={() => setIsHover(true)}
+          onMouseLeave={() => setIsHover(false)}
         >
-          <Image
-            src="/icons/language.svg"
-            alt="language-button"
-            width={14}
-            height={14}
-          />
+          <LanguageIcon fill={isOpen || isHover ? "#010101" : undefined} />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[115px] border-none rounded-[15px] overflow-hidden bg-[#545354]">
