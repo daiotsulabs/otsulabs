@@ -8,8 +8,8 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
 import { useRef } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
 const LanguageButton = () => {
   const initialFocusRef = useRef<any>();
