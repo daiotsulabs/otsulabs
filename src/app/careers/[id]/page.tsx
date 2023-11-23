@@ -1,7 +1,7 @@
 "use client";
 import { Header, Layout, ModalMenu } from "@/components";
 import { useEffect, useRef, useState } from "react";
-import { jobs } from "@/components/Careers";
+import { jobsEN, jobsVN } from "@/components/Careers";
 import type { Job } from "@/components/Careers";
 import {
   Center,
@@ -9,14 +9,13 @@ import {
   Heading,
   useDisclosure,
   Text,
-  Flex,
   Box,
   Button,
   useMediaQuery,
+  Stack,
 } from "@chakra-ui/react";
 import { usePathname, useRouter } from "next/navigation";
 import { mcQueenDisplay } from "../../layout";
-// import Form from '@/components/Careers/Form'
 import { isEmail, isUrl } from "@/utilities";
 import { InputEmail } from "@/components/Input/InputEmail";
 import { InputName } from "@/components/Input/InputName";
@@ -24,6 +23,7 @@ import { Textarea } from "@/components/Input/Textarea";
 import { InputPortfolio } from "@/components/Input/InputPortfolio";
 import { CheckCircleIcon } from "@/components/icons";
 import axios from "axios";
+import Image from "next/image";
 
 export default function JobId() {
   const { isOpen, onToggle } = useDisclosure();
@@ -50,20 +50,22 @@ export default function JobId() {
   const [portfolio, setPortfolio] = useState("");
   const [message, setMessage] = useState("");
   const [isValidate, setIsValidate] = useState(false);
+  const isVi = path.includes("/vi/");
 
   useEffect(() => {
-    setJob(jobs.find((j) => j.slug === path.split("/")[2]));
+    const jobs = isVi ? jobsVN : jobsEN;
+    const jobId = isVi ? path.split("/")[3] : path.split("/")[2];
+    setJob(jobs.find((j) => j.slug === jobId));
     job && setPosition(job.name);
     setError((prevState: any) => ({
       ...prevState,
       position: !position,
     }));
-  }, [job, path, setError, position]);
+  }, [job, path, setError, position, isVi]);
 
   const onClickValidateForm = () => {
     if (loading) return;
     setIsValidate(true);
-    console.log(error);
     const isValid = Object.values(error).every((e) => !e);
     if (
       !isValid ||
@@ -96,13 +98,6 @@ export default function JobId() {
         setLoading(false);
       });
   };
-  const apply = () => {
-    (swiperRef.current as any).slideNext();
-  };
-
-  const toInformation = () => {
-    (swiperRef.current as any).slidePrev();
-  };
 
   const onSlideActiveChange = (index: number) => {
     setActiveSlide(index);
@@ -112,13 +107,12 @@ export default function JobId() {
     router.back();
   };
 
-  const [currenIndex, setCurrentIndex] = useState(0);
-  const handleSlideChange = (swiper: any) => {
-    setCurrentIndex(swiper.activeIndex);
-  };
-
   return (
-    <Layout showBackButton toggleMenu={isOpen} backButtonClassName="md:block hidden">
+    <Layout
+      showBackButton
+      toggleMenu={isOpen}
+      backButtonClassName="md:block hidden"
+    >
       <Header
         menuItems={[]}
         onClickToggle={onToggle}
@@ -126,92 +120,94 @@ export default function JobId() {
         onActiveSlideChange={onSlideActiveChange}
         customClassName="bg-transparent backdrop-blur-none"
       />
-      {/* <Box className="bg-noise" /> */}
       {isOpen && <ModalMenu in={isOpen} onClickToggle={onToggle} />}
       {job ? (
         <Box className="w-full h-auto bg-[#010101]">
           <Container
-            maxWidth={"600"}
-            className="h-full animate-page-fade pt-[80px] md:pt-[124px] px-4 md:px-0"
+            className="h-full animate-page-fade pt-[80px] md:pt-[124px] max-w-[310px] md:max-w-[1040px] px-0"
             color="#707070"
           >
             <Heading
-              className={`${mcQueenDisplay.className} mt-2 text-[30px] md:!text-[36px] font-medium leading-[normal] text-left mb-[6px]`}
-              as={'h2'}
-              color={'#f5f5f5'}>
+              className={`${mcQueenDisplay.className} mt-2 text-[30px] md:text-4xl font-medium leading-[normal] mb-[15px] md:mb-[6px] text-center`}
+              as={"h2"}
+              color={"#f5f5f5"}
+            >
               {job?.name}
             </Heading>
-            <Text className='text-[8px] md:text-[12px] uppercase tracking-[0.6px] leading-[normal] mb-6 md:mb-8' color={'#CCC'}>{job?.time} &nbsp; {job?.location}</Text>
-            <Box className='pr-2 md:pr-10 swiper-no-mousewheel'>
-              <Flex alignItems={'flex-end'} className='mt-6 md:mt-8'>
-                <Box>
-                  <Heading
-                    className={`${mcQueenDisplay.className} text-base mb-1 md:mb-3 md:text-xl 2xl:text-[28px] 2xl:text-lg leading-[normal] font-medium`}
-                    as={"h4"}
-                    color={"#f5f5f5"}
-                  >
-                    Responsibilities:
-                  </Heading>
-                  <ul className="list-disc pl-6">
-                    {job?.responsibilities.map((r, index) => (
-                      <li key={index}>
-                        <Text className="text-[12px] md:text-base 2xl:text-xl leading-[normal]">
-                          {r}
-                        </Text>
-                      </li>
-                    ))}
-                  </ul>
-                </Box>
-              </Flex>
-              <Flex alignItems={"flex-end"} className="mt-6 md:mt-8">
-                <Box>
-                  <Heading
-                    className={`${mcQueenDisplay.className} text-base mb-1 md:mb-3 md:text-xl 2xl:text-[28px] 2xl:text-lg leading-[normal] font-medium`}
-                    as={"h4"}
-                    color={"#f5f5f5"}
-                  >
-                    Qualifications:
-                  </Heading>
-                  <ul className="list-disc pl-6">
-                    {job?.qualifications.map((r, index) => (
-                      <li key={index}>
-                        <Text className="text-[12px] md:text-base 2xl:text-xl leading-[normal]">
-                          {r}
-                        </Text>
-                      </li>
-                    ))}
-                  </ul>
-                </Box>
-              </Flex>
-              <Flex alignItems={"flex-end"} className="mt-6 md:mt-8">
-                <Box>
-                  <Heading
-                    className={`${mcQueenDisplay.className} text-base mb-1 md:mb-3 md:text-xl 2xl:text-[28px] 2xl:text-lg leading-[normal] font-medium`}
-                    as={"h4"}
-                    color={"#f5f5f5"}
-                  >
-                    We offer:
-                  </Heading>
-                  <ul className="list-disc pl-6">
-                    {job?.offers.map((r, index) => (
-                      <li key={index}>
-                        <Text className="text-[12px] md:text-base 2xl:text-xl leading-[normal]">
-                          {r}
-                        </Text>
-                      </li>
-                    ))}
-                  </ul>
-                </Box>
-              </Flex>
-            </Box>
+            <Text
+              className="text-[8px] md:text-[15px] uppercase tracking-[0.8px] md:tracking-[1.5px] leading-[normal] text-center"
+              color={"#f7f7f7"}
+            >
+              {job?.time} &nbsp; {job?.location}
+            </Text>
+            <Stack className="flex-row justify-between w-full my-[30px] md:my-[70px]">
+              <Box className="w-[147px] md:w-[502px] h-[117px] md:h-[400px] relative">
+                <Image fill alt="work-image" src="/images/work.png" />
+              </Box>
+              <Box className="w-[147px] md:w-[502px] h-[117px] md:h-[400px] relative">
+                <Image fill alt="work-image" src="/images/work.png" />
+              </Box>
+            </Stack>
+
+            <Stack className="flex-col md:flex-row justify-between w-full gap-[30px] mb-[30px] md:mb-[35px]">
+              <Stack className="w-[310px] md:w-[502px] text-lg md:gap-[30px]">
+                <Text
+                  className={`${mcQueenDisplay.className} text-center md:text-left font-medium text-xl text-[#F5F5F5]`}
+                >
+                  {isVi ? "Trách nhiệm" : "Responsibilities"}
+                </Text>
+                <ul className="list-disc pl-6 [&>li:not(:last-child)]:mb-2 md:[&>li:not(:last-child)]:mb-5">
+                  {job?.responsibilities.map((r, index) => (
+                    <li key={index}>
+                      <Text className="text-xs md:text-lg">{r}</Text>
+                    </li>
+                  ))}
+                </ul>
+              </Stack>
+              <Stack className="w-[310px] md:w-[502px] text-lg md:gap-[30px]">
+                <Text
+                  className={`${mcQueenDisplay.className} text-center md:text-left font-medium text-xl text-[#F5F5F5]`}
+                >
+                  {isVi ? "Yêu cầu" : "Requirements"}
+                </Text>
+                <ul className="list-disc pl-6 [&>li:not(:last-child)]:mb-2 md:[&>li:not(:last-child)]:mb-5">
+                  {job?.qualifications.map((r, index) => (
+                    <li key={index}>
+                      <Text className="text-xs md:text-lg">{r}</Text>
+                    </li>
+                  ))}
+                </ul>
+              </Stack>
+            </Stack>
+
+            <Text
+              className={`${mcQueenDisplay.className} text-center md:text-left font-medium text-xl text-[#F5F5F5] mb-[15px] md:mb-[35px]`}
+            >
+              {isVi ? "Chúng Tôi Cung Cấp" : "We Offer"}
+            </Text>
+
+            <Stack className="flex-col md:flex-row justify-between w-full mb-[30px] md:mb-[35px]">
+              <Stack className="w-[310px] md:w-[502px] text-lg gap-[30px]">
+                <ul className="list-disc pl-6 [&>li:not(:last-child)]:mb-2 md:[&>li:not(:last-child)]:mb-5">
+                  {job?.offers.map((r, index) => (
+                    <li key={index}>
+                      <Text className="text-xs md:text-lg">{r}</Text>
+                    </li>
+                  ))}
+                </ul>
+              </Stack>
+              <Stack className="w-[310px] h-[310px] md:w-[502px] md:h-[502px] relative mt-[30px] md:mt-0">
+                <Image alt="work-3" src="/images/work-3.png" fill />
+              </Stack>
+            </Stack>
+
             <Center
               flex="1"
               flexDirection={"column"}
               alignItems={"flex-start"}
-              className="pb-10 md:pt-6 md:pb-12 gap-y-1"
+              className="pb-10 md:pt-6 md:pb-[140px] gap-y-1"
             >
-              <Box width={"100%"} className="mx-auto">
-                {/* <Form hidden={['position']} defaultValue={{ position: job?.name }}></Form> */}
+              <Box width={"100%"} maxW={"600px"} className="mx-auto">
                 <InputName
                   value={name}
                   setValue={setName}
