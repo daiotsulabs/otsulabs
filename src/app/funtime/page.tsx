@@ -1,11 +1,20 @@
 "use client";
 import { Header, Layout, ModalMenu } from "@/components";
 import { useRef, useState } from "react";
-import { Box, Stack, Text, useDisclosure } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Stack,
+  Text,
+  useDisclosure,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import { mcQueenDisplay } from "../layout";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
+import InstagramEmbed from "react-instagram-embed";
+const access_token = "edf687106436869c0a167dbe3a403e6d";
+const app_id = "1330901041120737";
 export default function About() {
   const { isOpen, onToggle } = useDisclosure();
   const [currenIndex, setCurrentIndex] = useState(0);
@@ -15,6 +24,7 @@ export default function About() {
     (swiperRef.current as any).slideTo(index);
   };
   const router = useRouter();
+  const [isMobileScreen] = useMediaQuery("(max-width: 480px)");
   return (
     <Layout>
       <Header
@@ -27,32 +37,52 @@ export default function About() {
       {isOpen && (
         <ModalMenu showBg={false} in={isOpen} onClickToggle={onToggle} />
       )}
-      <Stack className="w-full h-auto text-center pt-[80px] md:pt-[124px] bg-white text-[#010101] animate-page-fade">
-        <Stack gap="30px">
+      <Stack className="w-full text-center pt-[80px] md:pt-[124px] bg-white text-[#010101] animate-page-fade gap-0">
+        <Stack className="gap-[15px] md:gap-[35px]">
           <Text
-            className={`${mcQueenDisplay.className} text-4xl font-medium -mb-[15px]`}
+            className={`${mcQueenDisplay.className} text-4xl font-medium md:-mb-[15px]`}
           >
             Erene Animation
           </Text>
-          <Text className="text-[#A9A9A9] text-xs md:text-lg font-normal mx-auto max-w-[313px] md:max-w-[668px]">
+          <Text className="text-[#A9A9A9] text-xs md:text-lg font-normal mx-auto max-w-[313px] md:max-w-[840px]">
             Erene Animation is an internal passion project inspired by our own
             Creative Director, Erene. It&apos;s a digital identity and an
             original intellectual property that portrays the life of an artist
             via short-form animations.
           </Text>
-          <Box
-            className="relative mx-auto bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[310px] h-[310px] md:w-[840px] md:h-[840px] md:mt-[70px]"
-            boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
-          >
-            <Image fill src="/images/pfp.png" alt="pfp" />
-          </Box>
+          <Flex className="justify-between w-[308px] md:w-[840px] mx-auto">
+            <Box
+              className="relative bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[100px] h-[200px] md:w-[272px] md:h-[540px]"
+              boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
+            >
+              <Image fill src="/images/funtime-top-2.png" alt="pfp" />
+            </Box>
+            <Box
+              className="relative bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[100px] h-[200px] md:w-[272px] md:h-[540px]"
+              boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
+            >
+              <Image fill src="/images/funtime-top-1.png" alt="pfp" />
+            </Box>
+            <Box
+              className="relative bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[100px] h-[200px] md:w-[272px] md:h-[540px]"
+              boxShadow="0px 24px 48px 0px rgba(16, 24, 40, 0.12)"
+            >
+              <Image fill src="/images/funtime-top-3.png" alt="pfp" />
+            </Box>
+          </Flex>
         </Stack>
 
-        <Stack className="mt-[18px] md:mt-[70px]" gap="30px">
+        <Stack className="mt-[30px] md:mt-[70px] gap-[15px] md:gap-[35px]">
           <Text
             className={`${mcQueenDisplay.className} text-xl md:text-4xl font-medium`}
           >
             Character Design
+          </Text>
+          <Text className="text-[#A9A9A9] text-xs md:text-lg font-normal mx-auto max-w-[313px] md:max-w-[840px]">
+            Erene&apos;s character design draws inspiration from the steampunk
+            genre. Despite living in an ordinary world, she leads an
+            extraordinary life, a narrative we aim to convey through her outfit
+            and the massive brush that symbolizes her main passion and craft.
           </Text>
           <Box
             className="relative mx-auto bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[310px] h-[188px] md:w-[840px] md:h-[510px]"
@@ -62,7 +92,7 @@ export default function About() {
           </Box>
         </Stack>
 
-        <Stack className="mt-[18px] md:mt-[70px] gap-[15px] md:gap-[35px]">
+        <Stack className="mt-[30px] md:mt-[70px] gap-[15px] md:gap-[35px]">
           <Text
             className={`${mcQueenDisplay.className} text-xl md:text-4xl font-medium`}
           >
@@ -76,12 +106,12 @@ export default function About() {
             <Text>purpose-driven</Text>
             <Text>introvert</Text>
           </Stack>
-          <Text className="text-[#A9A9A9] text-xs md:text-base font-normal mx-auto shrink-0 max-w-[310px] md:max-w-[748px]">
+          <Text className="text-[#A9A9A9] text-xs md:text-base font-normal mx-auto shrink-0 max-w-[310px] md:max-w-[843px]">
             Erene tackles each project with determination and a clear vision,
             but she&apos;s also known for her clumsiness, occasionally spilling
             coffee on her work or tripping over her own feet. Erene&apos;s
-            introverted nature is her superpower, as it helps her delve deep
-            into the creative process, finding inspiration from within herself.
+            introverted nature is her superpower. It helps her delve deep into
+            the creative process, finding inspiration from within herself.
           </Text>
           <Box
             className="relative mx-auto bg-white rounded-[10px] md:rounded-[30px] overflow-hidden w-[310px] h-[188px] md:w-[840px] md:h-[510px]"
@@ -91,11 +121,43 @@ export default function About() {
           </Box>
         </Stack>
 
-        <Stack className="mt-[18px] mb-[60px] md:my-[70px] gap-[15px] md:gap-[35px]">
+        <Stack className="mt-[30px] md:mt-[70px] gap-[15px] md:gap-[35px]">
           <Text
             className={`${mcQueenDisplay.className} text-xl md:text-4xl font-medium`}
           >
-            Follow Erene&apos;s Journey
+            Journey
+          </Text>
+          <Text className="text-[#A9A9A9] text-xs md:text-base font-normal mx-auto shrink-0 max-w-[310px] md:max-w-[843px]">
+            We are turning everyday moments into slice-of-life series, while
+            building a community of anime fans, artists, and people who resonate
+            with Erene&apos;s personality.
+          </Text>
+          <Flex className="mx-auto w-[312px] md:w-[842px] justify-between">
+            <Box className="w-[75px] h-[134px] md:w-[162px] md:h-[288px] rounded-[10px] bg-[#D9D9D9]">
+              <InstagramEmbed
+                url="https://www.instagram.com/reel/CzoKTr3rF-g/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="
+                clientAccessToken={`${app_id}|${access_token}`}
+                maxWidth={162}
+                hideCaption={true}
+                containerTagName="div"
+                protocol=""
+                injectScript
+                onLoading={() => {}}
+              />
+            </Box>
+            <Box className="w-[75px] h-[134px] md:w-[162px] md:h-[288px] rounded-[10px] bg-[#D9D9D9]"></Box>
+            <Box className="w-[75px] h-[134px] md:w-[162px] md:h-[288px] rounded-[10px] bg-[#D9D9D9]"></Box>
+            <Box className="w-[75px] h-[134px] md:w-[162px] md:h-[288px] rounded-[10px] bg-[#D9D9D9]"></Box>
+            {!isMobileScreen && (
+              <Box className="w-[75px] h-[134px] md:w-[162px] md:h-[288px] rounded-[10px] bg-[#D9D9D9]"></Box>
+            )}
+          </Flex>
+        </Stack>
+        <Stack className="mt-[30px] mb-[70px] md:my-[70px] gap-[15px] md:gap-[35px]">
+          <Text
+            className={`${mcQueenDisplay.className} text-xl md:text-4xl font-medium`}
+          >
+            Follow for more
           </Text>
           <Box
             position={"relative"}
