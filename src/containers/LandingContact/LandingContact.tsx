@@ -76,10 +76,10 @@ function LandingContact() {
       <Container
         maxWidth={"1200px"}
         className="px-10 md:px-[120px] 2xl:px-24 static md:absolute"
-        top={!isMobileScreen ? "150px" : "0px"}
+        top={!isMobileScreen ? "80px" : "0px"}
       >
-        <Flex className="flex mt-0 pt-[60px] md:pt-[0px] flex-col mt-0 md:flex-row gap-x-4 items-center">
-          <Box
+        <Flex className="flex flex-col mt-0 pt-[60px] md:pt-[0px] md:w-[800px] md:m-auto flex-col mt-0 md:flex-row gap-x-4 items-center">
+          {/* <Box
             flex={2}
             className="text-center md:text-left mx-auto w-full md:w-initial md:ml-auto"
           >
@@ -152,11 +152,19 @@ function LandingContact() {
                 </Flex>
               )}
             </Text>
-          </Box>
+          </Box> */}
           <Box
             flex="3"
-            className={`${isMobileScreen ? "w-full" : ""} pt-[20px] md:pt-0 pb-8 md:pb-0`}
+            className={`${
+              isMobileScreen ? "w-full" : ""
+            } pt-[20px] md:pt-0 pb-8 md:pb-0`}
           >
+            <Text
+              className={`${mcQueenDisplay.className} text-center text-[20px] md:text-[40px] mb-[20px] md:mb-[30px] font-medium`}
+              color="#f5f5f5"
+            >
+              Contact
+            </Text>
             <InputName
               value={name}
               setValue={setName}
