@@ -116,6 +116,14 @@ export default function RootLayout({
           sizes="any"
         />
         <meta name="theme-color" content="#000000" />
+        <meta
+          name="description"
+          content="An animation production studio driven by a collective of storytellers and their profound love for anime."
+        />
+        <meta 
+          name="og:image"
+          content="/images/banner.png"
+        />
       </head>
       <body className="bg-black scroll overflow-x-hidden">
         <Providers>
