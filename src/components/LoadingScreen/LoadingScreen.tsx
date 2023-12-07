@@ -47,14 +47,14 @@ const LoadingScreen = () => {
       currentText += phrases[currentPhraseIndex][currentCharacter];
       setText(currentText);
 
-      totalDuration += 50;
+      totalDuration += 25;
       currentCharacter += 1;
 
       if (currentCharacter === phrases[currentPhraseIndex].length) {
         currentPhraseIndex += 1;
         currentCharacter = 0;
       }
-    }, 50); // Adjust typing speed here (milliseconds)
+    }, 25); // Adjust typing speed here (milliseconds)
 
     // Clean up interval on unmount or when typing completes
     return () => clearInterval(typingEffect);
@@ -68,7 +68,7 @@ const LoadingScreen = () => {
         }
         return prev;
       });
-    }, 78);
+    }, 39);
     return () => clearInterval(interval);
   }, []);
   return (

@@ -85,7 +85,7 @@ export default function RootLayout({
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoading(false);
-    }, 7900);
+    }, 4000);
     return () => clearTimeout(timeout);
   }, []);
   return (
