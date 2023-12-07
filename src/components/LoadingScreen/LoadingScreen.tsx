@@ -32,7 +32,7 @@ const LoadingScreen = () => {
   const [text, setText] = useState("");
 
   useEffect(() => {
-    let currentText = '';
+    let currentText = "";
     let currentPhraseIndex = 0;
     let currentCharacter = 0;
     let totalDuration = 0;
@@ -40,7 +40,6 @@ const LoadingScreen = () => {
     const typingEffect = setInterval(() => {
       if (currentPhraseIndex === phrases.length) {
         clearInterval(typingEffect);
-        console.log('Total duration:', totalDuration);
         return;
       }
 
@@ -73,11 +72,11 @@ const LoadingScreen = () => {
   }, []);
   return (
     <Flex
-      className={`w-screen h-screen px-[200px] py-[95px] ${matrixSans.className} justify-between`}
+      className={`w-screen h-screen p-12 md:px-[200px] md:py-[95px] ${matrixSans.className} justify-between`}
       backgroundColor="#f5f5f5"
     >
-      <Box className="text-base whitespace-pre-line uppercase">{text}</Box>
-      <Box className="self-end text-2xl">{progress}%</Box>
+      <Box className="text-[10px] md:text-base whitespace-pre-line uppercase">{text}</Box>
+      <Box className="self-end text-base md:text-2xl">{progress}%</Box>
     </Flex>
   );
 };
