@@ -13,7 +13,7 @@ import { WorkItem } from "@/components";
 const landingWorkImages = [
   {
     src: "/images/system-royal.png",
-    project: "System Royale",
+    project: "Zokio",
     url: "/system-royale#home",
   },
   {
