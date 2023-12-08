@@ -7,6 +7,8 @@ type Job = {
   offers: string[];
   time: string;
   location: string;
+  images: string[];
+  videos?: string[];
 };
 
 const jobsEN: Job[] = [
@@ -40,6 +42,12 @@ const jobsEN: Job[] = [
     ],
     time: "Full time",
     location: "Ho Chi Minh, Vietnam",
+    images: [],
+    videos: [
+      "/videos/2D-director-1.mp4",
+      "/videos/2D-director-2.mp4",
+      "/videos/2D-director-3.mp4",
+    ],
   },
   {
     id: 2,
@@ -74,6 +82,11 @@ const jobsEN: Job[] = [
     ],
     time: "Full time",
     location: "Ho Chi Minh, Vietnam",
+    images: [
+      "/images/2D-concept-artist-1.png",
+      "/images/2D-concept-artist-2.png",
+      "/images/2D-concept-artist-3.png",
+    ],
   },
   {
     id: 3,
@@ -104,6 +117,11 @@ const jobsEN: Job[] = [
     ],
     time: "Full time",
     location: "Ho Chi Minh, Vietnam",
+    images: [
+      "/images/2D-general-artist-1.png",
+      "/images/2D-general-artist-2.png",
+      "/images/2D-general-artist-3.png",
+    ],
   },
 ];
 const jobsVN: Job[] = [
@@ -137,6 +155,7 @@ const jobsVN: Job[] = [
     ],
     time: "Full time",
     location: "Ho Chi Minh, Vietnam",
+    images: [],
   },
   {
     id: 2,
@@ -171,6 +190,11 @@ const jobsVN: Job[] = [
     ],
     time: "Full time",
     location: "Ho Chi Minh, Vietnam",
+    images: [
+      "/images/2D-concept-artist-1.png",
+      "/images/2D-concept-artist-2.png",
+      "/images/2D-concept-artist-3.png",
+    ],
   },
   {
     id: 3,
@@ -200,6 +224,11 @@ const jobsVN: Job[] = [
     ],
     time: "Full time",
     location: "Ho Chi Minh, Vietnam",
+    images: [
+      "/images/2D-general-artist-1.png",
+      "/images/2D-general-artist-2.png",
+      "/images/2D-general-artist-3.png",
+    ],
   },
 ];
 export * from "./JoinUs";
