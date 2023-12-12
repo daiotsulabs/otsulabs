@@ -5,3 +5,4 @@ export * from "./WorkItem";
 export * from "./ModalMenu";
 export * from "./DetailVideoPlayer";
 export * from "./LanguageButton";
+export * from "./LoadingScreen";

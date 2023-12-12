@@ -4,9 +4,10 @@ import "swiper/css";
 import { register } from "swiper/element/bundle";
 import { Providers } from "./providers";
 import { useEffect, useState } from "react";
-import { Box, Progress, useMediaQuery } from "@chakra-ui/react";
+import { useMediaQuery } from "@chakra-ui/react";
 import Script from "next/script";
 import localFont from "next/font/local";
+import { LoadingScreen } from "@/components";
 
 register();
 export const mcQueenDisplay = localFont({
@@ -63,34 +64,28 @@ export const mcQueenDisplay = localFont({
     },
   ],
 });
+
+export const matrixSans = localFont({
+  src: [
+    {
+      path: "./MatrixSans.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+});
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const [loading, setLoading] = useState(true);
-  const [progress, setProgress] = useState(0);
   const [isMobileScreen] = useMediaQuery("(max-width: 768px)");
-  function move() {
-    var width = 1;
-    var id = setInterval(frame, 10);
-
-    function frame() {
-      if (width >= 100) {
-        clearInterval(id);
-      } else {
-        width++;
-        setProgress(width);
-      }
-    }
-  }
 
   useEffect(() => {
-    move();
     const timeout = setTimeout(() => {
       setLoading(false);
-      setProgress(100);
-    }, 3300);
+    }, 4000);
     return () => clearTimeout(timeout);
   }, []);
   return (
@@ -126,25 +121,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-black scroll overflow-x-hidden">
-        <Providers>
-          {loading ? (
-            <Box className="w-screen h-screen flex items-center justify-center">
-              <Progress
-                className="loading-page"
-                style={{
-                  maxWidth: "350px",
-                  width: "100%",
-                  borderRadius: isMobileScreen ? "8px" : "4px",
-                  background: "#f5f5f540",
-                }}
-                value={progress}
-                height={"3px"}
-              />
-            </Box>
-          ) : (
-            children
-          )}
-        </Providers>
+        <Providers>{loading ? <LoadingScreen /> : children}</Providers>
       </body>
     </html>
   );
