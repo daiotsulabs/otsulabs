@@ -51,10 +51,10 @@ export default function JoinUs({ join }: { join: any }) {
           </Button>
 
           <Stack className="flex-row justify-between w-full my-[30px]">
-            <Box className="w-[147px] h-[117px] md:w-[502px] md:h-[400px] relative">
-              <Image fill alt="work-image" src="/images/work.png" />
+            <Box className="w-[147px] h-[117px] md:w-[502px] md:h-[400px] relative rounded-[10px] md:rounded-[30px] overflow-hidden">
+              <Image fill alt="work-image" src="/images/work-3.png" />
             </Box>
-            <Box className="w-[147px] h-[117px] md:w-[502px] md:h-[400px] relative">
+            <Box className="w-[147px] h-[117px] md:w-[502px] md:h-[400px] relative rounded-[10px] md:rounded-[30px] overflow-hidden">
               <Image fill alt="work-image" src="/images/work.png" />
             </Box>
           </Stack>
@@ -97,7 +97,7 @@ export default function JoinUs({ join }: { join: any }) {
             src="/images/work-2.png"
             width={isMobileScreen ? 310 : 1040}
             height={isMobileScreen ? 88 : 300}
-            className="my-[30px] md:mt-[67px] md:mb-[70px]"
+            className="my-[30px] md:mt-[67px] md:mb-[70px] rounded-[10px] md:rounded-[30px] overflow-hidden"
           />
 
           <Stack
