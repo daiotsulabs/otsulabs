@@ -31,6 +31,15 @@ export default function Home() {
   const [hideArrow, setHideArrow] = useState(false);
   const [isScrollingUp, setIsScrollingUp] = useState(false);
   const menuItems = ["home", "experience", "work", "faq", "contact"];
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowButton(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const setActiveIndex = (index: number) => {
     if (!swiperRef.current) return;
@@ -113,7 +122,7 @@ export default function Home() {
           <Box className="w-screen h-auto">
             <LandingAbout />
           </Box>
-          <Box className="w-screen h-auto">
+          <Box className="w-screen h-auto mb-20">
             <LandingContact />
             {/* <Center className="h-full bg-black">
               <Contact className="w-4/5 px-12"></Contact>
@@ -157,12 +166,18 @@ export default function Home() {
           </SwiperSlide>
         </Swiper>
       )}
-      <Button
-        onClick={() => router.push("/careers")}
-        className="fixed w-[178px] bottom-5 right-5 md:bottom-[45px] md:right-[45px] text-lg font-normal rounded-full bg-white z-[1000]"
+      <Box
+        className={`fixed right-0 pr-6 md:pr-[45px] bottom-5 md:bottom-[45px] z-[1000] transition duration-1000 transition-transform ${
+          showButton ? "translate-x-0" : "translate-x-full"
+        }`}
       >
-        We are hiring!
-      </Button>
+        <Button
+          onClick={() => router.push("/careers")}
+          className={`!h-9 md:!h-10 md:w-[178px] text-xs md:text-lg font-normal rounded-full bg-white`}
+        >
+          We are hiring!
+        </Button>
+      </Box>
     </Layout>
   );
 }
