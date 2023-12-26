@@ -12,16 +12,19 @@ import {
 } from "@/containers";
 import {
   Box,
+  Button,
   Center,
   Stack,
   useDisclosure,
   useMediaQuery,
 } from "@chakra-ui/react";
 import "swiper/css/free-mode";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const { isOpen, onToggle } = useDisclosure();
   const swiperRef = useRef();
+  const router = useRouter();
   const workRef = useRef<any>(null);
   const [isMobileScreen] = useMediaQuery("(max-width: 768px)");
   const [currenIndex, setCurrentIndex] = useState(0);
@@ -51,7 +54,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const hashtag = window.location.hash?.split('#')[1];
+    const hashtag = window.location.hash?.split("#")[1];
     window.addEventListener("scroll", handleScroll);
 
     if (menuItems.includes(hashtag)) {
@@ -59,13 +62,14 @@ export default function Home() {
         setCurrentIndex(menuItems.indexOf(hashtag));
         setActiveIndex(menuItems.indexOf(hashtag));
         if (workRef.current) {
-          const topPos = workRef.current.getBoundingClientRect().top + window.scrollY;
+          const topPos =
+            workRef.current.getBoundingClientRect().top + window.scrollY;
           window.scrollTo({
             top: topPos, // scroll so that the element is at the top of the view
-            behavior: 'smooth' // smooth scroll
+            behavior: "smooth", // smooth scroll
           });
         }
-        history.replaceState(null, '', ' ');
+        history.replaceState(null, "", " ");
       }, 600);
     }
     return () => {
@@ -153,6 +157,12 @@ export default function Home() {
           </SwiperSlide>
         </Swiper>
       )}
+      <Button
+        onClick={() => router.push("/careers")}
+        className="fixed w-[178px] bottom-5 right-5 md:bottom-[45px] md:right-[45px] text-lg font-normal rounded-full bg-white z-[1000]"
+      >
+        We are hiring!
+      </Button>
     </Layout>
   );
 }

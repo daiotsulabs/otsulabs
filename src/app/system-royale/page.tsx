@@ -1,5 +1,5 @@
 "use client";
-import { DetailVideoPlayer, Header, Layout, ModalMenu } from "@/components";
+import { DetailVideoPlayer, Header, Layout, ModalMenu, VideoPlayerMultiple } from "@/components";
 import { useEffect, useRef, useState } from "react";
 import {
   Box,
@@ -380,8 +380,16 @@ export default function On1Forces() {
         </Stack>
       </Stack>
       <Box className="w-full h-[219px] md:h-screen">
-        <DetailVideoPlayer
+        {/* <DetailVideoPlayer
           src="/videos/system-royal.mp4"
+          poster="/images/system-royal.png"
+          name="system-royale"
+        /> */}
+        <VideoPlayerMultiple 
+          srcs={[
+            "/videos/system-royal.mp4",
+            "/videos/voyceme.mp4",
+          ]}
           poster="/images/system-royal.png"
           name="system-royale"
         />
