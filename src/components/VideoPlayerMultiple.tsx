@@ -79,19 +79,6 @@ const VideoPlayerMultiple = ({
               Trailer 2
             </Button>
           </Stack>
-          {/* <Image
-            onClick={() => {
-              if (videoRef.current) {
-                videoRef.current.play();
-                setIsPlaying(true);
-              }
-            }}
-            width={55}
-            height={55}
-            alt="play"
-            src="icons/play.svg"
-            className="absolute top-1/2 left-1/2 -translate-x-2/4 -translate-y-2/4 z-10"
-          /> */}
         </>
       )}
       <video
