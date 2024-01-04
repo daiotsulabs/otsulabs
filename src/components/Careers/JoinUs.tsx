@@ -40,8 +40,8 @@ export default function JoinUs({ join }: { join: any }) {
             className="text-xs text-center md:text-lg my-[30px] md:my-[35px] max-w-[440px]"
             color={"#707070"}
           >
-            Step into a culture where being weeby is a way of life. We thrive on
-            creativity, innovation, and passion.
+            Step into a culture where a love for anime is a way of life. We
+            thrive on creativity, innovation, and passion
           </Text>
           <Button
             onClick={handleScrollToCareers}
