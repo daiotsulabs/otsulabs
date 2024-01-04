@@ -123,6 +123,34 @@ const jobsEN: Job[] = [
       "/images/2D-general-artist-3.png",
     ],
   },
+  {
+    id: 4,
+    slug: "content-creators",
+    name: "Content Creators",
+    responsibilities: [
+      "Develop creative plans and implement content for animated characters on social media platforms (Tiktok, Instagram).",
+      "Research competitors, analyze viewer insights to plan and deploy the best communication and content strategies.",
+      "Contribute to setting goals, planning, and executing marketing campaigns for media and content management.",
+    ],
+    qualifications: [
+      "Minimum of 1-2 years of experience in a similar position. Candidates with experience in media and content in the animation, gaming, and anime industries are preferred.",
+      "High creativity, sharp thinking, logical mindset, and proactive in work.",
+      "Able to read English texts.",
+      "Willingness to learn, grow, and adapt. Ability to work independently, seek and embrace new challenges in work.",
+      "Deep involvement in animation, comics, and major art projects.",
+    ],
+    offers: [
+      "Competitive compensation.",
+      "Beautiful working space located in the heart of the city, that includes free facilities, such as gym, swimming pool, library, and more",
+      "An environment that fosters creativity and personal growth. Biannual salary reviews.",
+      "Company-provided work equipment.",
+      "Paid holidays, in accordance with legal requirements.",
+      "Comprehensive benefits and insurance package.",
+    ],
+    time: "Full time",
+    location: "Ho Chi Minh, Vietnam",
+    images: [],
+  },
 ];
 const jobsVN: Job[] = [
   {
@@ -229,6 +257,33 @@ const jobsVN: Job[] = [
       "/images/2D-general-artist-2.png",
       "/images/2D-general-artist-3.png",
     ],
+  },
+  {
+    id: 4,
+    slug: "content-creators",
+    name: "Content Creators",
+    responsibilities: [
+      "Xây dựng kế hoạch sáng tạo, triển khai nội dung cho nhân vật hoạt hình trên nền tảng mạng xã hội (Tiktok, Instagram)",
+      "Nghiên cứu đối thủ, phân tích insight người xem việc lập kế hoạch truyền thông và triển khai nội dung tốt nhất.",
+      "Tham gia xây dựng mục tiêu, kế hoạch và triển khai các chiến dịch marketing của công ty về các nội dung do media, content quản lý;",
+    ],
+    qualifications: [
+      "Tối thiểu 1-2 năm kinh nghiệm ở vị trí tương đương. Ưu tiên các ứng viên có kinh nghiệm làm Media, Content về lĩnh vực hoạt hình, game, anime.",
+      "Khả năng sáng tạo cao, tư duy nhạy bén, logic, chủ động trong công việc.",
+      "Có thể đọc văn bản Tiếng Anh",
+      "Có khả năng cầu tiến, học hỏi, và không bảo thủ. Có khả năng làm việc độc lập, cầu thị & đón nhận những thử thách mới trong công việc.",
+      "Tham gia chuyên sâu hoạt hình, truyện tranh, các project lớn về Art",
+    ],
+    offers: [
+      "Mức lương cạnh tranh.",
+      "Không gian làm việc đẹp nằm ở trung tâm thành phố, bao gồm các tiện ích miễn phí như phòng tập gym, hồ bơi, thư viện và nhiều hơn nữa.",
+      "Môi trường thúc đẩy sáng tạo và phát triển cá nhân. Xem xét lương hàng năm hai lần.",
+      "Trang thiết bị làm việc được công ty cung cấp.",
+      "Ngày nghỉ có lương, tuân thủ theo yêu cầu pháp luật.",
+    ],
+    time: "Full time",
+    location: "Ho Chi Minh, Vietnam",
+    images: [],
   },
 ];
 export * from "./JoinUs";

@@ -140,48 +140,52 @@ export default function JobId() {
             >
               {job?.time} &nbsp; {job?.location}
             </Text>
-            <Stack className="flex-row justify-between w-full my-[30px] md:my-[70px]">
-              <Box className="w-[147px] md:w-[502px] h-[117px] md:h-[400px] relative overflow-hidden rounded-[10px] md:rounded-[30px]">
-                {job.videos?.length ? (
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-full object-cover"
-                  >
-                    <source src={job.videos[0]} type="video/mp4" />
-                  </video>
-                ) : (
-                  <Image
-                    fill
-                    alt="work-image"
-                    src={job.images[0]}
-                    className="object-cover"
-                  />
-                )}
-              </Box>
-              <Box className="w-[147px] md:w-[502px] h-[117px] md:h-[400px] relative overflow-hidden rounded-[10px] md:rounded-[30px]">
-                {job.videos?.length ? (
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-full object-cover"
-                  >
-                    <source src={job.videos[1]} type="video/mp4" />
-                  </video>
-                ) : (
-                  <Image
-                    fill
-                    alt="work-image"
-                    src={job.images[1]}
-                    className="object-cover"
-                  />
-                )}
-              </Box>
-            </Stack>
+            {job.images?.length || job.videos?.length ? (
+              <Stack className="flex-row justify-between w-full my-[30px] md:my-[70px]">
+                <Box className="w-[147px] md:w-[502px] h-[117px] md:h-[400px] relative overflow-hidden rounded-[10px] md:rounded-[30px]">
+                  {job.videos?.length ? (
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover"
+                    >
+                      <source src={job.videos[0]} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <Image
+                      fill
+                      alt="work-image"
+                      src={job.images[0]}
+                      className="object-cover"
+                    />
+                  )}
+                </Box>
+                <Box className="w-[147px] md:w-[502px] h-[117px] md:h-[400px] relative overflow-hidden rounded-[10px] md:rounded-[30px]">
+                  {job.videos?.length ? (
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover"
+                    >
+                      <source src={job.videos[1]} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <Image
+                      fill
+                      alt="work-image"
+                      src={job.images[1]}
+                      className="object-cover"
+                    />
+                  )}
+                </Box>
+              </Stack>
+            ) : (
+              <Box className="h-20" />
+            )}
 
             <Stack className="flex-col md:flex-row justify-between w-full gap-[30px] mb-[30px] md:mb-[35px]">
               <Stack className="w-[310px] md:w-[502px] text-lg md:gap-[30px]">
@@ -221,7 +225,13 @@ export default function JobId() {
             </Text>
 
             <Stack className="flex-col md:flex-row justify-between w-full mb-[30px] md:mb-[35px]">
-              <Stack className="w-[310px] md:w-[502px] text-lg gap-[30px]">
+              <Stack
+                className={`w-[310px] ${
+                  job.images.length || job.videos?.length
+                    ? "md:w-[502px]"
+                    : "w-full"
+                } text-lg gap-[30px]`}
+              >
                 <ul className="list-disc pl-6 [&>li:not(:last-child)]:mb-2 md:[&>li:not(:last-child)]:mb-5">
                   {job?.offers.map((r, index) => (
                     <li key={index}>
@@ -230,26 +240,28 @@ export default function JobId() {
                   ))}
                 </ul>
               </Stack>
-              <Stack className="w-[310px] h-[310px] md:w-[502px] md:h-[502px] relative mt-[30px] md:mt-0 overflow-hidden rounded-[10px] md:rounded-[30px]">
-                {job.videos?.length ? (
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-full object-cover"
-                  >
-                    <source src={job.videos[2]} type="video/mp4" />
-                  </video>
-                ) : (
-                  <Image
-                    alt="work-3"
-                    src={job.images[2]}
-                    fill
-                    className="object-cover"
-                  />
-                )}
-              </Stack>
+              {(job.images?.length || job.videos?.length) && (
+                <Stack className="w-[310px] h-[310px] md:w-[502px] md:h-[502px] relative mt-[30px] md:mt-0 overflow-hidden rounded-[10px] md:rounded-[30px]">
+                  {job.videos?.length ? (
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover"
+                    >
+                      <source src={job.videos[2]} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <Image
+                      alt="work-3"
+                      src={job.images[2]}
+                      fill
+                      className="object-cover"
+                    />
+                  )}
+                </Stack>
+              )}
             </Stack>
 
             <Center
