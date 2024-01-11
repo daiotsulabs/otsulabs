@@ -270,7 +270,7 @@ export default function JobId() {
               alignItems={"flex-start"}
               className="pb-10 md:pt-6 md:pb-[140px] gap-y-1"
             >
-              <Box width={"100%"} maxW={"600px"} className="mx-auto">
+              {/* <Box width={"100%"} maxW={"600px"} className="mx-auto">
                 <InputName
                   value={name}
                   setValue={setName}
@@ -344,7 +344,7 @@ export default function JobId() {
                     Back to careers
                   </Box>
                 )}
-              </Box>
+              </Box> */}
             </Center>
           </Container>
         </Box>

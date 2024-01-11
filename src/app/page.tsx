@@ -30,7 +30,8 @@ export default function Home() {
   const [currenIndex, setCurrentIndex] = useState(0);
   const [hideArrow, setHideArrow] = useState(false);
   const [isScrollingUp, setIsScrollingUp] = useState(false);
-  const menuItems = ["home", "experience", "work", "faq", "contact"];
+  const menuItems = ["home", "experience", "work", "faq"];
+  // const menuItems = ["home", "experience", "work", "faq", "contact"];
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
@@ -123,7 +124,7 @@ export default function Home() {
             <LandingAbout />
           </Box>
           <Box className="w-screen h-auto mb-20">
-            <LandingContact />
+            {/* <LandingContact /> */}
             {/* <Center className="h-full bg-black">
               <Contact className="w-4/5 px-12"></Contact>
             </Center> */}
@@ -161,9 +162,9 @@ export default function Home() {
           <SwiperSlide>
             <LandingAbout />
           </SwiperSlide>
-          <SwiperSlide>
+          {/* <SwiperSlide>
             <LandingContact />
-          </SwiperSlide>
+          </SwiperSlide> */}
         </Swiper>
       )}
       <Box

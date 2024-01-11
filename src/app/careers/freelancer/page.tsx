@@ -11,7 +11,7 @@ import {
 useDisclosure,
 } from '@chakra-ui/react';
 import { Header, Layout, ModalMenu } from '@/components'
-import Form from '@/components/Careers/Form'
+// import Form from '@/components/Careers/Form'
 import { useRouter } from 'next/navigation'
 
 export default function Freelancers() {
@@ -51,7 +51,7 @@ export default function Freelancers() {
                 color={'#f5f5f5'}>
                 Freelancers
               </Heading>
-              <Form></Form>
+              {/* <Form></Form> */}
             </Box>
           </Center>
         </Container>
