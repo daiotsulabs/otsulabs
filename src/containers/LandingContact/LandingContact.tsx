@@ -73,86 +73,12 @@ function LandingContact() {
 
   return (
     <Center className="w-full h-auto relative items-start md:items-center">
-      <Container
+      {/* <Container
         maxWidth={"1200px"}
         className="px-10 md:px-[120px] 2xl:px-24 static md:absolute"
         top={!isMobileScreen ? "80px" : "0px"}
       >
         <Flex className="flex flex-col mt-0 pt-[60px] md:pt-[0px] md:w-[800px] md:m-auto flex-col mt-0 md:flex-row gap-x-4 items-center">
-          {/* <Box
-            flex={2}
-            className="text-center md:text-left mx-auto w-full md:w-initial md:ml-auto"
-          >
-            {isMobileScreen && (
-              <Text
-                className={`${mcQueenDisplay.className} text-[20px] mb-[30px] font-medium`}
-                color="#f5f5f5"
-              >
-                Contact
-              </Text>
-            )}
-            <Box className="pt-0 pb-6 md:pb-8">
-              <Text
-                className={`${mcQueenDisplay.className} text-[16px] md:text-[20px] font-medium`}
-                color="#f5f5f5"
-              >
-                Art & Animation Director
-              </Text>
-              <Text className="text-[12px] md:text-[20px] font-normal text-[#636363]">
-                erene@otsulabs.com
-              </Text>
-            </Box>
-            <Box className="pt-0 pb-6 md:pb-8">
-              <Text
-                className={`${mcQueenDisplay.className} text-[16px] md:text-[20px] font-medium`}
-                color="#f5f5f5"
-              >
-                Operations & Management
-              </Text>
-              <Text className="text-[12px] md:text-[20px] font-normal text-[#636363]">
-                khoa@otsulabs.com
-              </Text>
-            </Box>
-            <Box className="pt-0 pb-6 md:pb-8">
-              <Text
-                className={`${mcQueenDisplay.className} text-[16px] md:text-[20px] font-medium`}
-                color="#f5f5f5"
-              >
-                Partnerships & Outreach
-              </Text>
-              <Text className="text-[12px] md:text-[20px] font-normal text-[#636363]">
-                sewon@otsulabs.com
-              </Text>
-            </Box>
-            <Text
-              className={`${mcQueenDisplay.className} mt-[10px] mb-[0px] text-xs md:text-[20px] font-medium text-white`}
-            >
-              <Flex
-                alignItems={"center"}
-                justifyContent={isMobileScreen ? "center" : "flex-start"}
-                gap={2}
-              >
-                For project inquiries
-                {!isMobileScreen && (
-                  <ArrowRightIcon
-                    color={"#ffffff"}
-                    width={20}
-                    height={20}
-                  ></ArrowRightIcon>
-                )}
-              </Flex>
-              {isMobileScreen && (
-                <Flex className="mt-4" justifyContent={"center"}>
-                  <Image
-                    src="/icons/arrow-down.svg"
-                    alt="arrow-down"
-                    width={12}
-                    height={12}
-                  />
-                </Flex>
-              )}
-            </Text>
-          </Box> */}
           <Box
             flex="3"
             className={`${
@@ -234,7 +160,7 @@ function LandingContact() {
             )}
           </Box>
         </Flex>
-      </Container>
+      </Container> */}
     </Center>
   );
 }
